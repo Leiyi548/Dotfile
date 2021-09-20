@@ -46,6 +46,9 @@ set timeoutlen=250 "Set timeout length to 500 ms
 "快速移动
 nnoremap H ^
 nnoremap L $
+vnoremap H ^
+vnoremap L $
+
 vnoremap v <Esc>
 "插入模式快速移动
 inoremap <C-h> <Left>
@@ -53,7 +56,7 @@ inoremap <C-j> <Down>
 inoremap <C-k> <Up>
 inoremap <C-l> <Right>
 "使用 leader q 直接退出
-nnoremap <leader>q :q!<cr>
+nnoremap <leader>q :qa!<cr>
 "使用系统剪贴板
 nnoremap <leader>y "+y
 nnoremap <leader>p "+p
@@ -67,7 +70,97 @@ nnoremap <leader>wl <C-w>l
 nnoremap <leader>wk <C-w>k
 nnoremap <leader>ws :split<CR>
 nnoremap <leader>wv :vsplit<CR>
+"""""""""""""""""""""""vimplug"""""""""""""""""""" 
+" Specify a directory for plugins
+" - For Neovim: stdpath('data') . '/plugged'
+" - Avoid using standard Vim directory names like 'plugin'
+call plug#begin ('~/.config/nvim/plugged')
+" Make sure you use single quotes
+" =======
+" =======UI
+" =======
+Plug 'glepnir/zephyr-nvim' "theme
+Plug 'akinsho/bufferline.nvim' "buffline
+Plug 'norcalli/nvim-colorizer.lua'
+Plug 'glepnir/dashboard-nvim'  "dashboard
+Plug 'kyazdani42/nvim-web-devicons' " Recommended (for coloured icons)
+" Plug 'ryanoasis/vim-devicons' Icons without colours
+Plug 'lukas-reineke/indent-blankline.nvim'
+Plug 'itchyny/vim-cursorword'
+Plug 'famiu/feline.nvim' "statusline
 
+" =======
+" =======easymotion
+" =======
+Plug 'easymotion/vim-easymotion'
+
+" =======
+" =======Explorer
+" =======
+"
+Plug 'kyazdani42/nvim-tree.lua'
+" =======
+" =======treesitter
+" =======
+Plug 'nvim-treesitter/nvim-treesitter'
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend updating the parsers on update
+" =======
+" =======Edit
+" =======
+Plug 'tpope/vim-surround'
+Plug 'terryma/vim-multiple-cursors'
+Plug 'jiangmiao/auto-pairs'
+
+" =======
+" =======Search File
+" =======
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'nvim-telescope/telescope.nvim'
+
+" =======
+" =======Tmux navigator
+" =======
+Plug 'christoomey/vim-tmux-navigator'
+
+" =======
+" =======COC
+" =======
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
+" =======
+" =======Floaterm
+" =======
+Plug 'voldikss/vim-floaterm'
+
+" =======
+" =======asyncrun and asynctask
+" =======
+Plug 'skywind3000/asyncrun.vim'
+Plug 'skywind3000/asynctasks.vim'
+
+" =======
+" =======accelerated_jk
+" =======
+Plug 'rhysd/accelerated-jk'
+
+" =======
+" =======markdown
+" =======
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
+Plug 'dhruvasagar/vim-table-mode', { 'on': 'TableModeToggle', 'for': ['text', 'markdown', 'vim-plug'] }
+
+" =======
+" =======typewriting
+" =======
+Plug 'ybian/smartim'
+
+" =======
+" =======Lua
+" =======
+Plug 'nvim-lua/plenary.nvim'
+
+" Initialize plugin system
+call plug#end()
 """"""""""""""""""Plugins setting"""""""""""""""""""""
 "======
 "======CTRLP
@@ -99,7 +192,11 @@ nnoremap <C-e> :NvimTreeToggle<CR>
 "======
 "======vim-floaterm
 "======
-"
+let g:floaterm_keymap_new    = '<F7>'
+let g:floaterm_keymap_prev   = '<F8>'
+let g:floaterm_keymap_next   = '<F9>'
+let g:floaterm_keymap_kill   = '<F11>'
+let g:floaterm_keymap_toggle = '<F12>'
 "======
 "======Tmux Navigator
 "======
@@ -114,6 +211,7 @@ let g:smartim_default='com.apple.keylayout.ABC'
 let g:asynctask_term_pos = "bottom"
 let g:asyncrun_open = 6
 nnoremap <silent><leader>lr :AsyncTask file-run<CR>
+let g:asynctasks_system = 'macos'
 "======
 "======coc
 "======
@@ -124,7 +222,6 @@ let g:coc_global_extensions=[
 			\'coc-pyright',
 			\'coc-clangd',
 			\'coc-sumneko-lua',
-			\'coc-markdownlint',
 			\]
 
 " Set internal encoding of vim, not needed on neovim, since coc.nvim using some
@@ -271,7 +368,7 @@ command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organize
 " Add (Neo)Vim's native statusline support.
 " NOTE: Please see `:h coc-status` for integrations with external plugins that
 " provide custom statusline: lightline.vim, vim-airline.
-set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
+"set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 
 " Mappings for CoCList
 " Show all diagnostics.
@@ -297,6 +394,7 @@ set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 "========
 nmap j <Plug>(accelerated_jk_gj)
 nmap k <Plug>(accelerated_jk_gk)
+
 "========
 "========accelerated-jk-superman
 "========
@@ -319,44 +417,6 @@ nnoremap <silent><leader>6 <Cmd>BufferLineGoToBuffer 6<CR>
 nnoremap <silent><leader>7 <Cmd>BufferLineGoToBuffer 7<CR>
 nnoremap <silent><leader>8 <Cmd>BufferLineGoToBuffer 8<CR>
 nnoremap <silent><leader>9 <Cmd>BufferLineGoToBuffer 9<CR>
-""""""""""""""""""""theme""""""""""""""""""""""""
-"""""""""""""""""""""""vimplug"""""""""""""""""""" 
-" Specify a directory for plugins
-" - For Neovim: stdpath('data') . '/plugged'
-" - Avoid using standard Vim directory names like 'plugin'
-call plug#begin ('~/.config/nvim/plugged')
-
-" Make sure you use single quotes
-Plug 'ctrlpvim/ctrlp.vim'
-Plug 'easymotion/vim-easymotion'
-Plug 'tpope/vim-surround'
-Plug 'terryma/vim-multiple-cursors'
-Plug 'norcalli/nvim-colorizer.lua'
-Plug 'glepnir/dashboard-nvim'
-Plug 'glepnir/zephyr-nvim'
-Plug 'nvim-treesitter/nvim-treesitter'
-Plug 'kyazdani42/nvim-web-devicons' " for file icons
-Plug 'kyazdani42/nvim-tree.lua'
-Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend updating the parsers on update
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'rhysd/accelerated-jk'
-Plug 'jiangmiao/auto-pairs'
-Plug 'skywind3000/asyncrun.vim'
-Plug 'skywind3000/asynctasks.vim'
-Plug 'kyazdani42/nvim-web-devicons' " Recommended (for coloured icons)
-" Plug 'ryanoasis/vim-devicons' Icons without colours
-Plug 'akinsho/bufferline.nvim'
-Plug 'famiu/feline.nvim'
-Plug 'lukas-reineke/indent-blankline.nvim'
-Plug 'christoomey/vim-tmux-navigator'
-Plug 'itchyny/vim-cursorword'
-Plug 'nvim-lua/plenary.nvim'
-Plug 'nvim-telescope/telescope.nvim'
-Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
-Plug 'ybian/smartim'
-Plug 'voldikss/vim-floaterm'
-" Initialize plugin system
-call plug#end()
 "bufferline nvim
 lua << EOF
 diagnostics="coc"
