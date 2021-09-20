@@ -31,7 +31,7 @@ set mouse=a "支持鼠标
 nnoremap <leader>sc :nohlsearch<CR>  
 
 set hlsearch		" 高亮显示搜索
-set incsearch		" 动态高亮搜索"
+set incsearch		" 动态高亮搜索
 set ignorecase		" 不区分大小写搜索
 set smartcase		" 智能大小写搜索
 
