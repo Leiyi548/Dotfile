@@ -51,12 +51,12 @@ vnoremap L $
 
 vnoremap v <Esc>
 "插入模式快速移动
-inoremap <C-h> <Left>
-inoremap <C-j> <Down>
-inoremap <C-k> <Up>
-inoremap <C-l> <Right>
+"inoremap <C-h> <Left>
+"inoremap <C-j> <Down>
+"inoremap <C-k> <Up>
+"inoremap <C-l> <Right>
 "使用 leader q 直接退出
-nnoremap <leader>q :qa!<cr>
+"nnoremap <leader>q :qa!<cr>
 "使用系统剪贴板
 nnoremap <leader>y "+y
 nnoremap <leader>p "+p
@@ -88,7 +88,15 @@ Plug 'kyazdani42/nvim-web-devicons' " Recommended (for coloured icons)
 Plug 'lukas-reineke/indent-blankline.nvim'
 Plug 'itchyny/vim-cursorword'
 Plug 'famiu/feline.nvim' "statusline
-
+Plug 'p00f/nvim-ts-rainbow' "rainbowbarcket
+Plug 'liuchengxu/vim-which-key'
+" On-demand lazy load
+Plug 'liuchengxu/vim-which-key', { 'on': ['WhichKey', 'WhichKey!'] }
+Plug 'dstein64/vim-startuptime'
+"======
+"======IntelliTab 只按一次tab就可以
+"======
+Plug 'pta2002/intellitab.nvim'
 " =======
 " =======easymotion
 " =======
@@ -97,20 +105,24 @@ Plug 'easymotion/vim-easymotion'
 " =======
 " =======Explorer
 " =======
-"
 Plug 'kyazdani42/nvim-tree.lua'
+" =======
+" =======uodoTree
+" =======
+Plug 'mbbill/undotree'
 " =======
 " =======treesitter
 " =======
-Plug 'nvim-treesitter/nvim-treesitter'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend updating the parsers on update
 " =======
 " =======Edit
 " =======
 Plug 'tpope/vim-surround'
-Plug 'terryma/vim-multiple-cursors'
 Plug 'jiangmiao/auto-pairs'
-
+Plug 'tpope/vim-commentary'
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
+Plug 'mg979/vim-visual-multi', {'branch': 'master'}
 " =======
 " =======Search File
 " =======
@@ -147,7 +159,7 @@ Plug 'rhysd/accelerated-jk'
 " =======markdown
 " =======
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
-Plug 'dhruvasagar/vim-table-mode', { 'on': 'TableModeToggle', 'for': ['text', 'markdown', 'vim-plug'] }
+Plug 'dhruvasagar/vim-table-mode', { 'on': 'TableModeToggle', 'for': ['text', 'markdown','html', 'vim-plug'] }
 
 " =======
 " =======typewriting
@@ -184,11 +196,12 @@ let g:dashboard_default_executive ='telescope'
 "======nvim-tree.lua
 "=====
 "open nvim-tree
-nnoremap <C-e> :NvimTreeToggle<CR>
+nnoremap <leader>e :NvimTreeToggle<CR>
 "======
-"======vim-airline
+"======undotree
 "======
-"let g:airline#extensions#tabline#enabled=1
+nnoremap <F6> :UndotreeToggle<CR> "打开undotree
+"======
 "======
 "======vim-floaterm
 "======
@@ -197,6 +210,7 @@ let g:floaterm_keymap_prev   = '<F8>'
 let g:floaterm_keymap_next   = '<F9>'
 let g:floaterm_keymap_kill   = '<F11>'
 let g:floaterm_keymap_toggle = '<F12>'
+nnoremap tr :FloatermNew ranger<CR>
 "======
 "======Tmux Navigator
 "======
@@ -209,9 +223,18 @@ let g:smartim_default='com.apple.keylayout.ABC'
 "======asynctask
 "======
 let g:asynctask_term_pos = "bottom"
+let g:asynctasks_term_cols=80
 let g:asyncrun_open = 6
 nnoremap <silent><leader>lr :AsyncTask file-run<CR>
 let g:asynctasks_system = 'macos'
+"======
+"======IntelliTab 
+"======
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? <CMD>lua require("intellitab").indent()<CR> :
+      \ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 "======
 "======coc
 "======
@@ -222,6 +245,8 @@ let g:coc_global_extensions=[
 			\'coc-pyright',
 			\'coc-clangd',
 			\'coc-sumneko-lua',
+			\'coc-tsserver',
+			\'coc-html',
 			\]
 
 " Set internal encoding of vim, not needed on neovim, since coc.nvim using some
@@ -394,9 +419,28 @@ command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organize
 "========
 nmap j <Plug>(accelerated_jk_gj)
 nmap k <Plug>(accelerated_jk_gk)
+"========
+"======== 'SirVer/ultisnips'
+"========
+let g:tex_flavor="latex"
+inoremap <c-e> <nop>
+let g:UltiSnipsExpandTrigger="<c-e>"
+let g:UltiSnipsJumpForwardTrigger="<c-k>"
+let g:UltiSnipsJumpBackwardTrigger="<c-j>"
+let g:UltiSnipsSnippetDirectories = [$HOME.'/.config/nvim/Ultisnips/', $HOME.'/.config/nvim/plugged/vim-snippets/UltiSnips/']
+" Solve extreme insert-mode lag on macOS (by disabling autotrigger)
+ augroup ultisnips_no_auto_expansion
+     au!
+     au VimEnter * au! UltiSnips_AutoTrigger
+ augroup END
+
+let g:snips_author="leiyi"
+let g:snips_email="1424630446@qq.com"
+let g:snips_github="https://github.com/Leiyi548"
+
 
 "========
-"========accelerated-jk-superman
+"========Telescope
 "========
 nnoremap <leader>ff <cmd>Telescope find_files<cr>
 nnoremap <leader>fg <cmd>Telescope live_grep<cr>
@@ -418,6 +462,7 @@ nnoremap <silent><leader>7 <Cmd>BufferLineGoToBuffer 7<CR>
 nnoremap <silent><leader>8 <Cmd>BufferLineGoToBuffer 8<CR>
 nnoremap <silent><leader>9 <Cmd>BufferLineGoToBuffer 9<CR>
 "bufferline nvim
+set termguicolors
 lua << EOF
 diagnostics="coc"
 require("bufferline").setup{}
@@ -431,4 +476,17 @@ require("indent_blankline").setup {
     show_end_of_line = true,
     space_char_blankline = " ",
 }
+require 'nvim-treesitter.configs'.setup {
+	rainbow = {
+	enable = true
+}
+}
 EOF
+"========
+"========whichkey
+"========
+let g:which_key_map = {}
+let g:which_key_hspace = 6
+
+
+
