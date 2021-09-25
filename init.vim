@@ -123,6 +123,7 @@ Plug 'tpope/vim-commentary'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'mg979/vim-visual-multi', {'branch': 'master'}
+Plug 'Pocco81/AutoSave.nvim'
 " =======
 " =======Search File
 " =======
@@ -179,7 +180,29 @@ call plug#end()
 "======
 "开启这个插件
 let g:ctrlp_map = '<c-p>'
+"======
+"======AutoSave
+"======
+lua << EOF
+local autosave = require("autosave")
 
+autosave.setup(
+    {
+        enabled = true,
+        execution_message = "AutoSave: saved at " .. vim.fn.strftime("%H:%M:%S"),
+        events = {"InsertLeave", "TextChanged"},
+        conditions = {
+            exists = true,
+            filetype_is_not = {},
+            modifiable = true
+        },
+        write_all_buffers = false,
+        on_off_commands = true,
+        clean_command_line_interval = 0,
+        debounce_delay = 135
+    }
+)
+EOF
 "======
 "======easymotion
 "======
@@ -197,6 +220,13 @@ let g:dashboard_default_executive ='telescope'
 "=====
 "open nvim-tree
 nnoremap <leader>e :NvimTreeToggle<CR>
+lua <<EOF
+    local tree_cb = require'nvim-tree.config'.nvim_tree_callback
+    -- default mappings
+    vim.g.nvim_tree_bindings = {
+      { key = {"<CR>","<2-LeftMouse>","l"}, cb = tree_cb("edit") },
+    }
+EOF
 "======
 "======undotree
 "======
