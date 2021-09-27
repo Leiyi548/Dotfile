@@ -47,11 +47,18 @@ require('nv-nvimTsRainbow')
 --indentblankline
 require('nv-indentBlankline')
 
+--tmuxnavigate
+require('nv-tmuxNavigator')
+
+--smartim_default
+require('nv-smartim')
+
+--async 
+require('nv-asynctask')
 
 --lsp
 require('lsp.keymappings')
-require('lsp.pyright_lsp')
-require('lsp.ccls_lsp')
+require('lsp.lspCfg')
 require('lsp.lspkind')
 require('lsp.cmp')
 

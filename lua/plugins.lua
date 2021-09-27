@@ -68,5 +68,14 @@ return require('packer').startup(function()
 
   --blankline.nvim
   use {'lukas-reineke/indent-blankline.nvim'}
+
+  --vim-sorround
+  use {'tpope/vim-surround'}
+
+  --tmux-navigator
+  use {'christoomey/vim-tmux-navigator'}
+
+  -- smartim
+  use {'ybian/smartim'}
 end)
 
