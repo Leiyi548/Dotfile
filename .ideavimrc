@@ -1,0 +1,95 @@
+"""""""""""""""""""""""""General Setting"""""""""""""""""
+" set leader key
+nnoremap <SPACE> <Nop>
+let mapleader = " "
+set ruler
+" search
+set hlsearch
+set incsearch
+set smartcase
+set ignorecase
+set showmode
+set de=on
+set scrolloff=5
+
+" 屏幕滚动时在光标上下方保留5行预览代码
+set so=5
+"取消高亮
+nnoremap <SPACE>sc :nohlsearch<Cr>
+""""""""""""""""""""""""""Plugins"""""""""""""""""""""""""
+set NERDTree
+set surround
+set multiple-cursors
+set commentary
+:set keep-english-in-normal
+set easymotion
+"""""""""""""""""""""""""Plug Setting""""""""""""""""""""""
+"NERDTree
+nnoremap <leader>ft :NERDTree<CR> "打开文件树
+"multiple-cursors
+" Remap multiple-cursors shortcuts for Mac
+nmap <C-n> <Plug>NextWholeOccurrence
+xmap <C-n> <Plug>NextWholeOccurrence
+nmap <C-x> <Plug>SkipOccurrence
+xmap <C-x> <Plug>SkipOccurrence
+nmap <C-p> <Plug>RemoveOccurrence
+xmap <C-p> <Plug>RemoveOccurrence
+nmap <S-C-n> <Plug>AllWholeOccurrences
+xmap <S-C-n> <Plug>AllWholeOccurrences
+
+"启动Debug
+nnoremap <SPACE>dl :action Debug<CR>
+"打上断点或取消断点
+nnoremap <SPACE>db :action ToggleLineBreakpoint<CR>
+"取消所有的断点
+nnoremap <SPACE>dB :action Debugger.RemoveAllBreakpointsInFile<CR>
+
+"run
+"运行代码
+nnoremap <SPACE>lr :action Run<CR>
+"""""""""""""""""""""""""Window operation""""""""""""""""""
+nnoremap <SPACE>wd <C-W>c
+nnoremap <SPACE>wj <C-W>j
+nnoremap <SPACE>wk <C-W>k
+nnoremap <SPACE>wh <C-W>h
+nnoremap <SPACE>wl <C-W>l
+nnoremap <SPACE>ws <C-W>s
+nnoremap <SPACE>wv <C-W>v
+
+"""""""""""""""""""""""""Setting""""""""""""""""""""""
+" edit vimrc
+nnoremap <SPACE>fvd :e ~/.ideavimrc<CR>
+" save and close
+nnoremap <SPACE>w :w<CR>
+nnoremap <SPACE>q :q<CR>
+
+"""""""""""""""""""""""""""Operation"""""""""""""""""""""''
+""""""""Move""""""
+" Insert mode shortcut
+inoremap <C-h> <Left>
+inoremap <C-j> <Down>
+inoremap <C-k> <Up>
+inoremap <C-l> <Right>
+inoremap <C-a> <Home>
+inoremap <C-e> <End>
+inoremap <C-d> <Delete>
+"move quickly
+nnoremap H ^
+nnoremap L $
+vnoremap H ^
+vnoremap L $
+
+"move Error
+ "跳转上一个错误
+nnoremap [l :action GotoPreviousError<CR>
+"跳转下一个错误
+nnoremap ]l :action GotoNextError<CR>
+" Tab operation
+nnoremap <TAB> gt
+nnoremap <S-TAB> gT
+"""""""commentary""""""
+nnoremap  gcc :action CommentByLineComment<CR>
+vnoremap  gc :action CommentByLineComment<CR>
+"""""""format""""""""""
+"格式化代码
+nnoremap == :action ReformatCode<CR>
