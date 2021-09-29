@@ -1,42 +1,72 @@
-"""""""""""""""""""""""""General Setting"""""""""""""""""
-" set leader key
-nnoremap <SPACE> <Nop>
-let mapleader = " "
-set ruler
-" search
-set hlsearch
-set incsearch
-set smartcase
-set ignorecase
-set showmode
-set de=on
-set scrolloff=5
+" ███╗   ██╗ ███████╗ ██████╗  ██╗   ██╗ ██╗ ███╗   ███╗
+" ████╗  ██║ ██╔════╝██╔═══██╗ ██║   ██║ ██║ ████╗ ████║
+" ██╔██╗ ██║ █████╗  ██║   ██║ ██║   ██║ ██║ ██╔████╔██║
+" ██║╚██╗██║ ██╔══╝  ██║   ██║ ╚██╗ ██╔╝ ██║ ██║╚██╔╝██║
+" ██║ ╚████║ ███████╗╚██████╔╝  ╚████╔╝  ██║ ██║ ╚═╝ ██║
+" ╚═╝  ╚═══╝ ╚══════╝ ╚═════╝    ╚═══╝   ╚═╝ ╚═╝     ╚═╝
+"""""""""""""""""""""""""""""""""""""""""""""""""""""
+" ###### 7.2 替换
+"           :s/old/new - 用new替换当前行第一个old。
+"           :s/old/new/g - 用new替换当前行所有的old。
+"           :n1,n2s/old/new/g - 用new替换文件n1行到n2行所有的old。
+"           :%s/old/new/g - 用new替换文件中所有的old。
+"           :%s/^/xxx/g - 在每一行的行首插入xxx，^表示行首。
+"           :%s/$/xxx/g - 在每一行的行尾插入xxx，$表示行尾。
+"           有替换命令末尾加上c，每个替换都将需要用户确认。 如：%s/old/new/gc，加上i则忽略大小写(ignore)。
+"           有一种比替换更灵活的方式，它是匹配到某个模式后执行某种命令，
+"           法为 :[range]g/pattern/command
+"           如 :%g/^ xyz/normal dd。
+"           示对于以一个空格和xyz开头的行执行normal模式下的dd命令。
+"           于range的规定为：
+"           果不指定range，则表示当前行。
+"           ,n: 从m行到n行。
+"           : 最开始一行（可能是这样）。
+"           $: 最后一行
+"           .: 当前行
+"           %: 所有行
 
+" 以上是一些vim使用方法 -----------------
+
+
+"""""""""""""""""""""""""General setting""""""""""""""""""
+"相对数字
+set realtive number
 " 屏幕滚动时在光标上下方保留5行预览代码
 set so=5
-"取消高亮
 nnoremap <SPACE>sc :nohlsearch<Cr>
-""""""""""""""""""""""""""Plugins"""""""""""""""""""""""""
+"设置插件
 set NERDTree
 set surround
 set multiple-cursors
-set commentary
-:set keep-english-in-normal
+set commentary "能用gcc gc+motion来注释代码
+:set keep-english-in-normal "普通模式强制以英文模式
 set easymotion
+""""""""""""""""""""""""'''''''''''''''''''''''''
+nnoremap s <Nop> "禁用s键
+nnoremap q <Nop> "禁用q键
+vnoremap v <Esc>
+"快速切换buffers
+nnoremap <TAB> :bnext<CR>
+nnoremap <S-TAB> :bprevious<CR>
+
 """""""""""""""""""""""""Plug Setting""""""""""""""""""""""
-"NERDTree
-nnoremap <leader>ft :NERDTree<CR> "打开文件树
+"NERDTree 
+nnoremap <SPACE>e :NERDTree<CR> "打开文件树
 "multiple-cursors
 " Remap multiple-cursors shortcuts for Mac
-nmap <C-n> <Plug>NextWholeOccurrence
-xmap <C-n> <Plug>NextWholeOccurrence
-nmap <C-x> <Plug>SkipOccurrence
+nmap <C-n> <Plug>NextWholeOccurrence  " ctrl n 选择下一块
+xmap <C-n> <Plug>NextWholeOccurrence 
+nmap <C-x> <Plug>SkipOccurrence  " ctrl x 跳过这一块
 xmap <C-x> <Plug>SkipOccurrence
-nmap <C-p> <Plug>RemoveOccurrence
+nmap <C-p> <Plug>RemoveOccurrence  " ctrl p 移除这个选择
 xmap <C-p> <Plug>RemoveOccurrence
-nmap <S-C-n> <Plug>AllWholeOccurrences
+nmap <S-C-n> <Plug>AllWholeOccurrences "ctrl shift n 选择所有块
 xmap <S-C-n> <Plug>AllWholeOccurrences
 
+" easymotion
+map <leader>f <Plug>(easymotion-s)
+
+""""""""""""""""""""""""Debug""""""""""""""""""""""""""""""""
 "启动Debug
 nnoremap <SPACE>dl :action Debug<CR>
 "打上断点或取消断点
@@ -63,8 +93,17 @@ nnoremap <SPACE>fvd :e ~/.ideavimrc<CR>
 nnoremap <SPACE>w :w<CR>
 nnoremap <SPACE>q :q<CR>
 
+" copy and paste
+noremap <Leader>y "*y
+noremap <Leader>p "*p
+noremap <Leader>P "0p
+vnoremap Y "+y
 """""""""""""""""""""""""""Operation"""""""""""""""""""""''
 """"""""Move""""""
+nnoremap J 5j
+nnoremap K 5k
+vnoremap J 5j
+vnoremap K 5k
 " Insert mode shortcut
 inoremap <C-h> <Left>
 inoremap <C-j> <Down>
@@ -79,14 +118,24 @@ nnoremap L $
 vnoremap H ^
 vnoremap L $
 
+"""""""""""""""""加强操作"""""""""""""""""""""
 "move Error
  "跳转上一个错误
 nnoremap [l :action GotoPreviousError<CR>
 "跳转下一个错误
 nnoremap ]l :action GotoNextError<CR>
-" Tab operation
-nnoremap <TAB> gt
-nnoremap <S-TAB> gT
+"查找用法
+nnoremap <Leader>fu :action FindUsages<CR>
+"跳转到Action
+nnoremap <Leader>ga :action GotoAction<CR>
+"跳转到实体类
+nnoremap <Leader>gc :action GotoClass<CR>
+"跳转到声明
+nnoremap <Leader>gd :action GotoDeclaration<CR>
+"跳转到文件
+nnoremap <Leader>gf :action GotoFile<CR>
+"跳转到实现类
+nnoremap <Leader>gi :action GotoImplementation<CR>
 """""""commentary""""""
 nnoremap  gcc :action CommentByLineComment<CR>
 vnoremap  gc :action CommentByLineComment<CR>
