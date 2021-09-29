@@ -24,22 +24,55 @@
 "           $: 最后一行
 "           .: 当前行
 "           %: 所有行
-
+" 全局替换 vim全局替换命令
+       "语法为 :[addr]s/字符串/目的字符串/[option]
+       "全局替换命令为：:%s/源字符串/目的字符串/g
 " 以上是一些vim使用方法 -----------------
 
 
 """""""""""""""""""""""""General setting""""""""""""""""""
+" 设置leader键"
+let mapleader=" "
 "相对数字
 set realtive number
 " 屏幕滚动时在光标上下方保留5行预览代码
 set so=5
-nnoremap <SPACE>sc :nohlsearch<Cr>
+nnoremap <leader>sc :nohlsearch<Cr>
+" 设置寻找高亮
+set hlsearch
+exec "nohlsearch"
+set incsearch
+"从不备份
+set nobackup
+"设置字不超过窗口
+set wrap
+"不要使用vi的键盘模式，而是vim自己的
+set nocompatible
+"设置水平显示
+set cursorline
+set cuc
+" 设置tab键和自动缩进
+set tabstop=4
+set shiftwidth=4
+set softtabstop=4
+"下一行和上一行的格式相同
+set autoindent
+set cindent
+"设置窗口分隔
+set splitright
+set splitbelow
+"突出显示光标
+ser ruler
+"不区分大小写
+set ignorecase
+"
+set showmode
 "设置插件
 set NERDTree
 set surround
 set multiple-cursors
 set commentary "能用gcc gc+motion来注释代码
-:set keep-english-in-normal "普通模式强制以英文模式
+set keep-english-in-normal-and-restore-in-insert  "普通模式强制以英文模式
 set easymotion
 """"""""""""""""""""""""'''''''''''''''''''''''''
 nnoremap s <Nop> "禁用s键
@@ -51,7 +84,7 @@ nnoremap <S-TAB> :bprevious<CR>
 
 """""""""""""""""""""""""Plug Setting""""""""""""""""""""""
 "NERDTree 
-nnoremap <SPACE>e :NERDTree<CR> "打开文件树
+nnoremap <leader>e :NERDTree<CR> "打开文件树
 "multiple-cursors
 " Remap multiple-cursors shortcuts for Mac
 nmap <C-n> <Plug>NextWholeOccurrence  " ctrl n 选择下一块
@@ -68,36 +101,37 @@ map <leader>f <Plug>(easymotion-s)
 
 """"""""""""""""""""""""Debug""""""""""""""""""""""""""""""""
 "启动Debug
-nnoremap <SPACE>dl :action Debug<CR>
+nnoremap <leader>dl :action Debug<CR>
 "打上断点或取消断点
-nnoremap <SPACE>db :action ToggleLineBreakpoint<CR>
+nnoremap <leader>db :action ToggleLineBreakpoint<CR>
 "取消所有的断点
-nnoremap <SPACE>dB :action Debugger.RemoveAllBreakpointsInFile<CR>
+nnoremap <leader>dB :action Debugger.RemoveAllBreakpointsInFile<CR>
 
 "run
 "运行代码
-nnoremap <SPACE>lr :action Run<CR>
+nnoremap <leader>lr :action Run<CR>
 """""""""""""""""""""""""Window operation""""""""""""""""""
-nnoremap <SPACE>wd <C-W>c
-nnoremap <SPACE>wj <C-W>j
-nnoremap <SPACE>wk <C-W>k
-nnoremap <SPACE>wh <C-W>h
-nnoremap <SPACE>wl <C-W>l
-nnoremap <SPACE>ws <C-W>s
-nnoremap <SPACE>wv <C-W>v
+nnoremap <leader>wd <C-W>c
+nnoremap <leader>wj <C-W>j
+nnoremap <leader>wk <C-W>k
+nnoremap <leader>wh <C-W>h
+nnoremap <leader>wl <C-W>l
+nnoremap <leader>ws <C-W>s
+nnoremap <leader>wv <C-W>v
 
 """""""""""""""""""""""""Setting""""""""""""""""""""""
 " edit vimrc
-nnoremap <SPACE>fvd :e ~/.ideavimrc<CR>
+nnoremap <leader>fvd :e ~/.ideavimrc<CR>
 " save and close
-nnoremap <SPACE>w :w<CR>
-nnoremap <SPACE>q :q<CR>
+nnoremap <leader>w :w<CR>
+nnoremap <leader>q :q<CR>
 
 " copy and paste
 noremap <Leader>y "*y
 noremap <Leader>p "*p
 noremap <Leader>P "0p
-vnoremap Y "+y
+vnoremap Y y$
+nnoremap Y y$
 """""""""""""""""""""""""""Operation"""""""""""""""""""""''
 """"""""Move""""""
 nnoremap J 5j
@@ -118,6 +152,10 @@ nnoremap L $
 vnoremap H ^
 vnoremap L $
 
+"后退功能
+"nnoremap <leader>gb :action Back<CR>
+nnoremap <leader>gb :action JumpToLastChange<CR>
+
 """""""""""""""""加强操作"""""""""""""""""""""
 "move Error
  "跳转上一个错误
@@ -128,6 +166,8 @@ nnoremap ]l :action GotoNextError<CR>
 nnoremap <Leader>fu :action FindUsages<CR>
 "跳转到Action
 nnoremap <Leader>ga :action GotoAction<CR>
+"跳转SuperMethod
+nnoremap <leader>gs :action GotoSuperMethod<CR>
 "跳转到实体类
 nnoremap <Leader>gc :action GotoClass<CR>
 "跳转到声明
@@ -142,3 +182,11 @@ vnoremap  gc :action CommentByLineComment<CR>
 """""""format""""""""""
 "格式化代码
 nnoremap == :action ReformatCode<CR>
+
+
+
+" navigation
+"nnoremap gs :action GotoSuperMethod<CR>
+"nnoremap gi :action GotoImplementation<CR>
+"nnoremap gd :action GotoDeclaration<CR>
+"nnoremap gf :action FileStructurePopup<CR>
