@@ -80,6 +80,7 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 plugins=(git
 	zsh-syntax-highlighting
 	zsh-autosuggestions
+	autojump
 	)
 
 source $ZSH/oh-my-zsh.sh
@@ -109,6 +110,7 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+alias l="ll -a"
 alias ra="ranger"
 alias tnew="tmux new -s"
 alias ta="tmux a -t"
@@ -123,3 +125,7 @@ set -o vi
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 export PATH="~/.config:$PATH"
 export RANGER_LOAD_DEFAULT_Rc=FALSE
+export GOPATH=~/opt/go
+export PATH=$PATH:$GOPATH/bin
+go env -w GO111MODULE=on
+go env -w GOPROXY=https://goproxy.io,direct
