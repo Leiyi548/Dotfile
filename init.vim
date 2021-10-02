@@ -18,6 +18,7 @@ set cursorline
 "colorscheme
 "/Users/macos/.config/nvim/plugged/zephyr-nvim
 set rtp+=~/.config/nvim/plugged/zephyr-nvim
+set rtp+=~/.config/nvim/code_runner.json
 colorscheme zephyr
 set rtp+=~/.config/nvim/plugged/vscode.nvim
 "colorscheme vscode
@@ -113,6 +114,11 @@ Plug 'pta2002/intellitab.nvim'
 " =======
 Plug 'puremourning/vimspector',{'do':'~/.config/nvim/plugged/vimspector/install_gadget.py --enable-python --enable-c'}
 Plug 'mfussenegger/nvim-dap'
+Plug 'rcarriga/nvim-dap-ui'
+" =======
+" =======runcode
+" =======
+"Plug 'CRAG666/code_runner.nvim'
 
 " =======
 " =======easymotion
@@ -176,7 +182,7 @@ Plug 'voldikss/vim-floaterm'
 " =======
 " =======terminal-help
 " =======
-"Plug 'skywind3000/vim-terminal-help'  
+Plug 'skywind3000/vim-terminal-help'  
 " =======
 " =======asyncrun and asynctask
 " =======
@@ -199,7 +205,10 @@ Plug 'dhruvasagar/vim-table-mode', { 'on': 'TableModeToggle', 'for': ['text', 'm
 " =======typewriting
 " =======
 Plug 'ybian/smartim'
-
+" =======
+" =======typewriting
+" =======
+Plug 'michaelb/sniprun', {'do': 'bash install.sh'}
 " =======
 " =======Lua
 " =======
@@ -207,12 +216,35 @@ Plug 'nvim-lua/plenary.nvim'
 
 " Initialize plugin system
 call plug#end()
-""""""""""""""""""Plugins setting"""""""""""""""""""""
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""""""""""""""""""Plugins setting"""""""""""""""""""""""""
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "======
 "======CTRLP
 "======
 "开启这个插件
 let g:ctrlp_map = '<c-p>'
+"=======
+"=======Neoformat
+"=======
+let g:neoformat_python_autopep8 = {
+            \ 'exe': 'autopep8',
+            \ 'args': ['-s 4', '-E'],
+            \ 'replace': 1, 
+            \ 'stdin': 1, 
+            \ 'env': ["DEBUG=1"], 
+            \ 'valid_exit_codes': [0, 23],
+            \ 'no_append': 1,
+            \ }
+
+let g:neoformat_enabled_python = ['autopep8', 'yapf']
+
+"======
+"======sniprun
+"======
+nmap <leader>sr <Plug>SnipRun
+nmap <leader>f <Plug>SnipRunOperator
+vmap <leader>sr <Plug>SnipRun
 "======
 "======AutoSave
 "======
@@ -484,6 +516,8 @@ command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organize
 "========
 "======== vimspector
 "========
+"launch
+nnoremap <F4> :call vimspector#Launch()<CR>
 "启动debug
 nmap <silent><nowait><leader>dd <Plug>VimspectorContinue
 "重启debug
@@ -562,6 +596,9 @@ nnoremap <silent><leader>8 <Cmd>BufferLineGoToBuffer 8<CR>
 nnoremap <silent><leader>9 <Cmd>BufferLineGoToBuffer 9<CR>
 "bufferline nvim
 set termguicolors
+lua <<EOF
+require("bufferline").setup{}
+EOF
 lua << EOF
 diagnostics="coc"
 vim.opt.listchars = {
@@ -589,6 +626,65 @@ require 'nvim-treesitter.configs'.setup {
 }
 }
 EOF
+
+"========
+"========nvim-dap
+"========
+lua<<EOF
+--[[
+
+local dap = require('dap')
+dap.adapters.cppdbg = {
+  type = 'executable',
+  command = '~/Downloads/extension/debugAdapters/bin/OpenDebugAD7',
+}
+dap.configurations.cpp = {
+  {
+    name = "Launch file",
+    type = "cppdbg",
+    request = "launch",
+    program = function()
+      return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
+    end,
+    cwd = '${workspaceFolder}',
+    stopOnEntry = true,
+  },
+  {
+    name = 'Attach to gdbserver :1234',
+    type = 'cppdbg',
+    request = 'launch',
+    MIMode = 'gdb',
+    miDebuggerServerAddress = 'localhost:1234',
+    miDebuggerPath = '/usr/bin/gdb',
+    cwd = '${workspaceFolder}',
+    program = function()
+      return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
+    end,
+  },
+}
+]]
+
+EOF
+" nnoremap <leader>dh :lua require'dap'.toggle_breakpoint()<CR>
+" nnoremap <S-k> :lua require'dap'.step_out()<CR>
+" nnoremap <S-l> :lua require'dap'.step_into()<CR>
+" nnoremap <S-j> :lua require'dap'.step_over()<CR>
+" nnoremap <leader>ds :lua require'dap'.stop()<CR>
+" nnoremap <leader>dn :lua require'dap'.continue()<CR>
+" nnoremap <leader>dk :lua require'dap'.up()<CR>
+" nnoremap <leader>dj :lua require'dap'.down()<CR>
+" nnoremap <leader>d_ :lua require'dap'.disconnect();require'dap'.stop();require'dap'.run_last()<CR>
+" nnoremap <leader>dr :lua require'dap'.repl.open({}, 'vsplit')<CR><C-w>l
+" nnoremap <leader>di :lua require'dap.ui.variables'.hover()<CR>
+" vnoremap <leader>di :lua require'dap.ui.variables'.visual_hover()<CR>
+" nnoremap <leader>d? :lua require'dap.ui.variables'.scopes()<CR>
+" nnoremap <leader>de :lua require'dap'.set_exception_breakpoints({"all"})<CR>
+" nnoremap <leader>da :lua require'debugHelper'.attach()<CR>
+" nnoremap <leader>dA :lua require'debugHelper'.attachToRemote()<CR>
+" nnoremap <leader>di :lua require'dap.ui.widgets'.hover()<CR>
+" nnoremap <leader>d? :lua local widgets=require'dap.ui.widgets';widgets.centered_float(widgets.scopes)<CR>
+
+
 "========
 "========galaxyline
 "========
@@ -832,4 +928,5 @@ augroup END
 ]], true)
 vim.api.nvim_command('hi StatusLine guibg='..'#202328')
 EOF
+
 
