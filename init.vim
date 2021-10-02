@@ -46,16 +46,24 @@ set smartcase		" 智能大小写搜索
 set fileencodings=utf-8,gbk	" 写入文件时采用的编码类型
 set termencoding=utf-8		" 输出到终端时采用的编码类型
 set encoding=utf-8	" 缓存的文本、寄存器、Vim 脚本文件等
+set enc=utf-8
+language messages zh_CN.UTF-8
 "设 leadertimeout的时间
 set timeoutlen=500 "Set timeout length to 500 ms
 
 """"""""""""""基础操作'''''''''''''''''''''''''
+"快速打开我的init.vim
+nnoremap <leader>fvd :edit $MYVIMRC<CR>
 "快速移动
 nnoremap H ^
 nnoremap L $
 vnoremap H ^
 vnoremap L $
 vnoremap v <Esc>
+"快速退出
+nnoremap Q :qa!<CR>
+"快速关闭当前的buffer
+nnoremap X :bdelete<CR>
 "插入模式快速移动
 "inoremap <C-h> <Left>
 "inoremap <C-j> <Down>
@@ -78,10 +86,18 @@ nnoremap <leader>wl <C-w>l
 nnoremap <leader>wk <C-w>k
 nnoremap <leader>ws :split<CR>
 nnoremap <leader>wv :vsplit<CR>
+"使用 Alt+h/j/k/l 去移动分屏屏幕
+nnoremap <silent>˙ <C-w>2<
+nnoremap <silent>∆ <C-w>2-
+nnoremap <silent>˚ <C-w>2+
+nnoremap <silent>¬ <C-w>2>
 
 "快速切换buffers
 nnoremap <TAB> :bnext<CR>
 nnoremap <S-TAB> :bprevious<CR>
+
+"sniprun保留终端
+tnoremap <Esc> <C-\><C-n>
 """""""""""""""""""""""vimplug"""""""""""""""""""" 
 " Specify a directory for plugins
 " - For Neovim: stdpath('data') . '/plugged'
@@ -115,6 +131,10 @@ Plug 'pta2002/intellitab.nvim'
 Plug 'puremourning/vimspector',{'do':'~/.config/nvim/plugged/vimspector/install_gadget.py --enable-python --enable-c'}
 Plug 'mfussenegger/nvim-dap'
 Plug 'rcarriga/nvim-dap-ui'
+" =======
+" =======doc
+" =======
+Plug 'yianwillis/vimcdoc'
 " =======
 " =======runcode
 " =======
@@ -276,6 +296,14 @@ nmap ss <Plug>(easymotion-s2)
 "======colorizer
 "======
 set termguicolors
+"======
+"======zephyr
+"======
+lua <<EOF
+-- get zephyr color
+--local zephyr =  require('zephyr').
+--zephyr.yellow/teal/fg/bg
+EOF
 "======
 "======dashboard-nvim
 "======
@@ -597,10 +625,40 @@ nnoremap <silent><leader>9 <Cmd>BufferLineGoToBuffer 9<CR>
 "bufferline nvim
 set termguicolors
 lua <<EOF
-require("bufferline").setup{}
+require("bufferline").setup{
+  numbers = function(opts)
+    return string.format('%s·%s', opts.raise(opts.id), opts.lower(opts.ordinal))
+  end,
+  custom_areas = {
+  right = function()
+    local result = {}
+    local error = vim.lsp.diagnostic.get_count(0, [[Error]])
+    local warning = vim.lsp.diagnostic.get_count(0, [[Warning]])
+    local info = vim.lsp.diagnostic.get_count(0, [[Information]])
+    local hint = vim.lsp.diagnostic.get_count(0, [[Hint]])
+
+    if error ~= 0 then
+      table.insert(result, {text = "  " .. error, guifg = "#EC5241"})
+    end
+
+    if warning ~= 0 then
+      table.insert(result, {text = "  " .. warning, guifg = "#EFB839"})
+    end
+
+    if hint ~= 0 then
+      table.insert(result, {text = "  " .. hint, guifg = "#A3BA5E"})
+    end
+
+    if info ~= 0 then
+      table.insert(result, {text = "  " .. info, guifg = "#7EA9A7"})
+    end
+    return result
+  end,
+ }
+}
+diagnostics = "coc"
 EOF
 lua << EOF
-diagnostics="coc"
 vim.opt.listchars = {
     space = "⋅",
     eol = "↴",
