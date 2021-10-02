@@ -116,6 +116,7 @@ alias tnew="tmux new -s"
 alias ta="tmux a -t"
 alias vi="nvim"
 alias vim="nvim"
+alias pip="pip3"
 #bindkey ']' autosuggest-accept
 set -o vi
 

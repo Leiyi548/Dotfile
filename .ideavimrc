@@ -79,8 +79,8 @@ nnoremap s <Nop> "禁用s键
 nnoremap q <Nop> "禁用q键
 vnoremap v <Esc>
 "快速切换buffers
-nnoremap <TAB> :bnext<CR>
-nnoremap <S-TAB> :bprevious<CR>
+nnoremap <TAB> gt
+nnoremap <S-TAB> gT
 
 """""""""""""""""""""""""Plug Setting""""""""""""""""""""""
 "NERDTree 
@@ -170,12 +170,12 @@ nnoremap <Leader>ga :action GotoAction<CR>
 nnoremap <leader>gs :action GotoSuperMethod<CR>
 "跳转到实体类
 nnoremap <Leader>gc :action GotoClass<CR>
-"跳转到声明
-nnoremap <Leader>gd :action GotoDeclaration<CR>
 "跳转到文件
 nnoremap <Leader>gf :action GotoFile<CR>
+"跳转到声明
+nnoremap gd :action GotoDeclaration<CR>
 "跳转到实现类
-nnoremap <Leader>gi :action GotoImplementation<CR>
+nnoremap gi :action GotoImplementation<CR>
 """""""commentary""""""
 nnoremap  gcc :action CommentByLineComment<CR>
 vnoremap  gc :action CommentByLineComment<CR>
