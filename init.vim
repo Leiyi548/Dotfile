@@ -15,6 +15,8 @@ set nobackup
 set noswapfile
 set ruler
 set cursorline
+"使用中文文档
+set helplang=cn
 "colorscheme
 "/Users/macos/.config/nvim/plugged/zephyr-nvim
 set rtp+=~/.config/nvim/plugged/zephyr-nvim
@@ -63,7 +65,7 @@ vnoremap v <Esc>
 "快速退出
 nnoremap Q :qa!<CR>
 "快速关闭当前的buffer
-nnoremap X :bdelete<CR>
+nnoremap X :bdelete!<CR>
 "插入模式快速移动
 "inoremap <C-h> <Left>
 "inoremap <C-j> <Down>
@@ -95,6 +97,9 @@ nnoremap <silent>¬ <C-w>2>
 "快速切换buffers
 nnoremap <TAB> :bnext<CR>
 nnoremap <S-TAB> :bprevious<CR>
+nnoremap <leader>bf :bfirst<CR>
+nnoremap <leader>bl :blast<CR>
+nnoremap <leader>bd :bdelete!<CR>
 
 "sniprun保留终端
 tnoremap <Esc> <C-\><C-n>
@@ -128,7 +133,7 @@ Plug 'pta2002/intellitab.nvim'
 " =======
 " =======debug
 " =======
-Plug 'puremourning/vimspector',{'do':'~/.config/nvim/plugged/vimspector/install_gadget.py --enable-python --enable-c'}
+"Plug 'puremourning/vimspector',{'do':'~/.config/nvim/plugged/vimspector/install_gadget.py --enable-python --enable-c'}
 Plug 'mfussenegger/nvim-dap'
 Plug 'rcarriga/nvim-dap-ui'
 " =======
@@ -348,12 +353,14 @@ let g:smartim_default='com.apple.keylayout.ABC'
 "======
 let g:asynctasks_term_pos = "bottom"
 let g:asynctasks_term_reuse=1 
-let g:asynctasks_term_focus=0
-let g:asynctasks_term_rows=8
-let g:asynctasks_term_cols=60
+let g:asynctasks_term_focus=0 
+let g:asynctasks_term_rows=12  " 设置横向切割时，高度为 8
+let g:asynctasks_term_cols=80  " 设置纵向切割时，宽度为 80
 let g:asyncrun_open = 9
-nnoremap <silent><leader>lr :AsyncTask file-run<CR>
 let g:asynctasks_system = 'macos'
+"runcode
+nnoremap <silent><leader>lr :AsyncTask file-run<CR>
+nnoremap <silent><leader>r :AsyncTask file-run-floaterm<CR>
 "======
 "======IntelliTab 
 "======
