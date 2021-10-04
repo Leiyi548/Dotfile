@@ -134,8 +134,12 @@ Plug 'pta2002/intellitab.nvim'
 " =======debug
 " =======
 "Plug 'puremourning/vimspector',{'do':'~/.config/nvim/plugged/vimspector/install_gadget.py --enable-python --enable-c'}
-Plug 'mfussenegger/nvim-dap'
-Plug 'rcarriga/nvim-dap-ui'
+"Plug 'mfussenegger/nvim-dap'
+"Plug 'rcarriga/nvim-dap-ui'
+"======
+"======which-key.nvim
+"======
+Plug 'folke/which-key.nvim'
 " =======
 " =======doc
 " =======
@@ -177,7 +181,7 @@ Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend upda
 " =======Edit
 " =======
 Plug 'tpope/vim-surround'
-Plug 'jiangmiao/auto-pairs'
+"Plug 'jiangmiao/auto-pairs'
 Plug 'tpope/vim-commentary'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
@@ -186,7 +190,7 @@ Plug 'mg979/vim-visual-multi', {'branch': 'master'}
 " =======
 " =======Search File
 " =======
-Plug 'ctrlpvim/ctrlp.vim'
+"Plug 'ctrlpvim/ctrlp.vim' "不用了
 Plug 'nvim-telescope/telescope.nvim'
 
 " =======
@@ -245,10 +249,61 @@ call plug#end()
 """"""""""""""""""Plugins setting"""""""""""""""""""""""""
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "======
+"======whick-key.nvim
+"======
+"不用设置它的触发键,这个插件的触发键默认就是<leader>要等会他等timeout后才会出现
+"
+lua<<EOF
+require('which-key').setup{
+}
+local wk = require("which-key")
+wk.register({
+  ["<leader>b"] = {
+    name = "+Buffer",
+    d = { "<cmd>bdelete!<CR>", "Forcely delete buffer" },
+    f = { "<cmd>bfirst<CR>", "Go to first buffer" },
+    l = { "<cmd>blast<CR>", "Go to last buffer" },
+    n = { "<cmd>bnext<CR>", "Next buffer" },
+    p = { "<cmd>bprevious", "Previous buffer" },
+  },
+})
+
+wk.register({
+  ["<leader>e"] = {
+    name = "Explorer",
+  },
+})
+
+wk.register({
+  ["<leader>r"] = {
+    name = "+Run",
+    l = { "<cmd>AsyncTask file-run<CR>", "Run on default terminal" },
+	t = { "<cmd>AsyncTask file-run-floaterm<CR>","Run on floaterm" }
+  },
+})
+
+wk.register({
+  ["<leader>t"] = {
+    name = "+Terminal",
+    r = { "<cmd>FloatermNew ranger<CR>", "ranger" },
+	t = { "<cmd>FloatermNew fzf","fzf" }
+  },
+})
+
+wk.register({
+  ["<leader>p"] = {
+    name = "+Plug",
+	c = { "<cmd>PlugClean<CR>","Clean" },
+    i = { "<cmd>PlugInstall<CR>", "Install" },
+    u = { "<cmd>PlugUpdate<CR>", "Update" },
+  },
+})
+EOF
+"======
 "======CTRLP
 "======
 "开启这个插件
-let g:ctrlp_map = '<c-p>'
+"let g:ctrlp_map = '<c-p>'
 "=======
 "=======Neoformat
 "=======
@@ -265,10 +320,41 @@ let g:neoformat_python_autopep8 = {
 let g:neoformat_enabled_python = ['autopep8', 'yapf']
 
 "======
+"======p00f/nvim-ts-rainbow"
+"======
+lua << EOF
+require'nvim-treesitter.configs'.setup {
+  rainbow = {
+    enable = true,
+    extended_mode = true, -- Also highlight non-bracket delimiters like html tags, boolean or table: lang -> boolean
+    max_file_lines = nil, -- Do not enable for files with more than n lines, int
+    -- colors = {}, -- table of hex strings
+    -- termcolors = {} -- table of colour name strings
+  }
+}
+EOF
+"======
+"======nvim-ts-autotag
+"======
+lua << EOF
+require'nvim-treesitter.configs'.setup {
+  autotag = {
+    enable = true,
+  }
+}
+EOF
+
+"======
+"======nvim-autopairs
+"======
+lua << EOF
+require('nvim-autopairs').setup{}
+EOF
+"======
 "======sniprun
 "======
 nmap <leader>sr <Plug>SnipRun
-nmap <leader>f <Plug>SnipRunOperator
+"nmap <leader>f <Plug>SnipRunOperator
 vmap <leader>sr <Plug>SnipRun
 "======
 "======AutoSave
@@ -340,6 +426,7 @@ let g:floaterm_keymap_next   = '<F9>'
 let g:floaterm_keymap_kill   = '<F11>'
 let g:floaterm_keymap_toggle = '<F12>'
 nnoremap tr :FloatermNew ranger<CR>
+nnoremap tf :FloatermNew fzf<CR>
 "======
 "======Tmux Navigator
 "======
@@ -359,8 +446,8 @@ let g:asynctasks_term_cols=80  " 设置纵向切割时，宽度为 80
 let g:asyncrun_open = 9
 let g:asynctasks_system = 'macos'
 "runcode
-nnoremap <silent><leader>lr :AsyncTask file-run<CR>
-nnoremap <silent><leader>r :AsyncTask file-run-floaterm<CR>
+nnoremap <silent><leader>rl :AsyncTask file-run<CR>
+nnoremap <silent><leader>rt :AsyncTask file-run-floaterm<CR>
 "======
 "======IntelliTab 
 "======
@@ -468,8 +555,8 @@ autocmd CursorHold * silent call CocActionAsync('highlight')
 nmap <leader>rn <Plug>(coc-rename)
 
 " Formatting selected code.
-xmap <leader>f  <Plug>(coc-format-selected)
-nmap <leader>f  <Plug>(coc-format-selected)
+xmap <leader>cf  <Plug>(coc-format-selected)
+nmap <leader>cf  <Plug>(coc-format-selected)
 
 augroup mygroup
   autocmd!
@@ -584,6 +671,20 @@ sign define vimspectorBP text=☛ texthl=Normal
 sign define vimspectorBPDisabled text=☞ texthl=Normal
 sign define vimspectorPC text=🔶 texthl=SpellBad
 
+" =======
+" =======COC-translator
+" =======
+"CocCommand translator.popup [text] Display translation result via floating/popup window
+" nmap ,t <Plug>(coc-translator-p)
+" vmap ,t <Plug>(coc-translator-pv)
+"CocCommand translator.echo [text] Echo the translation result in the cmdline
+" nmap ,e <Plug>(coc-translator-e)
+" vmap ,e <Plug>(coc-translator-ev)
+"CocCommand translator.replace [text] Replace the word under the cursor with the translation
+" nmap ,r <Plug>(coc-translator-r)
+" vmap ,r <Plug>(coc-translator-rv)
+":CocCommand translator.exportHistory Export translation history
+
 "========accelerated-jk-superman
 "========
 nmap j <Plug>(accelerated_jk_gj)
@@ -681,16 +782,6 @@ require("indent_blankline").setup {
 }
 EOF
 
-"========
-"========indent_blankline
-"========
-lua<<EOF
-require 'nvim-treesitter.configs'.setup {
-	rainbow = {
-	enable = true
-}
-}
-EOF
 
 "========
 "========nvim-dap
