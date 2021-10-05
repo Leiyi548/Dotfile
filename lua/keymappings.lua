@@ -32,9 +32,33 @@ vim.api.nvim_set_keymap('v','<leader>p','"+p',{silent=true})
 vim.api.nvim_set_keymap('n','Y','y$',{silent=true})
 vim.api.nvim_set_keymap('v','Y','y$',{silent=true})
 
+--close buffer quickly
+vim.api.nvim_set_keymap('n','<leader>bf',':bfirst<CR>',{silent=true})
+vim.api.nvim_set_keymap('n','<leader>bl',':blast<CR>',{silent=true})
+vim.api.nvim_set_keymap('n','<leader>bd',':bdelete!<CR>',{silent=true})
+vim.api.nvim_set_keymap('n','X',':bdelete!<CR>',{silent=true})
+
+-- exit quickly
+vim.api.nvim_set_keymap('n','Q',':qa!<CR>',{silent=true})
+
+---
+---switch buffer quickly
+---
+vim.api.nvim_set_keymap('n','<TAB>',':BufferLineCycleNext<CR>',{noremap=true,silent=true})
+vim.api.nvim_set_keymap('n','<S-TAB>',':BufferLineCyclePrev<CR>',{noremap=true,silent=true})
+
+-- run 保持终端
+vim.api.nvim_set_keymap('t','<Esc>',"<C-\\><C-n>",{silent=true})
+
 -- nvim-tree.lua
 vim.api.nvim_set_keymap('n','<leader>e',':NvimTreeToggle<CR>',{ noremap=true,silent=true })
 
+
+-- Use Alt + H / J / K / L to change size the split screen
+vim.api.nvim_set_keymap('n','˙','<C-w>2<',{noremap=true,silent=true})
+vim.api.nvim_set_keymap('n','∆','<C-w>2-',{noremap=true,silent=true})
+vim.api.nvim_set_keymap('n','˚','<C-w>2+',{noremap=true,silent=true})
+vim.api.nvim_set_keymap('n','¬','<C-w>2>',{noremap=true,silent=true})
 
 -- accelerated-jk
 vim.api.nvim_set_keymap('n','j','<Plug>(accelerated_jk_gj)',{ silent=true })

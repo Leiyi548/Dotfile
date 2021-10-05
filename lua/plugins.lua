@@ -32,6 +32,10 @@ return require('packer').startup(function()
     }
   -- color scheme
   use 'glepnir/zephyr-nvim'
+  --vscode-theme
+  use {'Mofiqul/vscode.nvim'}
+  --onedark.vim
+  use {'joshdick/onedark.vim'}
 
   -- dashboard
   use 'glepnir/dashboard-nvim'
@@ -49,6 +53,7 @@ return require('packer').startup(function()
   'nvim-telescope/telescope.nvim',
   requires = { {'nvim-lua/plenary.nvim'} }
 }
+  use {'junegunn/fzf'}
 
   --flaoterm
   use 'voldikss/vim-floaterm'
@@ -77,5 +82,11 @@ return require('packer').startup(function()
 
   -- smartim
   use {'ybian/smartim'}
+
+
+
+  -- which-key.nvim
+  use {'folke/which-key.nvim'}
+
 end)
 
