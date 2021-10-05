@@ -18,6 +18,12 @@ wk.register({
   },
 })
 
+wk.register({
+  ["<leader>l"] = {
+    name = "+Languages",
+	f = { "<cmd>Format<CR>","Format" }
+  },
+})
 
 wk.register({
   ["<leader>r"] = {
@@ -40,7 +46,7 @@ wk.register({
     name = "+Packer",
 	c = { "<cmd>PackerClean<CR>","Clean" },
     i = { "<cmd>PackerInstall<CR>", "Install" },
-    s = { "<cmd>PackerSync<CR>", "Update" },
+    s = { "<cmd>PackerSync<CR>", "Sync" },
     u = { "<cmd>PackerUpdate<CR>", "Update" },
   },
 })

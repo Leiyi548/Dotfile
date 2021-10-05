@@ -22,8 +22,11 @@ return require('packer').startup(function()
   use 'hrsh7th/vim-vsnip'
   use 'glepnir/lspsaga.nvim'
   use 'hrsh7th/cmp-nvim-lsp'
+  use 'saadparwaiz1/cmp_luasnip' -- Snippets source for nvim-cmp
+  use 'L3MON4D3/LuaSnip'	
   use 'hrsh7th/cmp-buffer'
   use 'hrsh7th/nvim-cmp'
+  use 'kosayoda/nvim-lightbulb'
 
   -- Highlight language
     use {
@@ -84,9 +87,29 @@ return require('packer').startup(function()
   use {'ybian/smartim'}
 
 
+  --formatter.nvim
+  use {'mhartington/formatter.nvim'}
 
   -- which-key.nvim
   use {'folke/which-key.nvim'}
+
+  --comment quickly
+  use 'terrortylor/nvim-comment'
+
+  --Interesting todo comment
+  -- Lua
+  use {
+	"folke/todo-comments.nvim",
+	requires = "nvim-lua/plenary.nvim",
+	config = function()
+	  require("todo-comments").setup {
+		-- your configuration comes here
+		-- or leave it empty to use the default settings
+		-- refer to the configuration section below
+	  }
+	end
+  }
+
 
 end)
 
