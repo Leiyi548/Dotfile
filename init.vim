@@ -274,11 +274,12 @@ wk.register({
   },
 })
 
+
 wk.register({
   ["<leader>r"] = {
     name = "+Run",
-    l = { "<cmd>AsyncTask file-run<CR>", "Run on default terminal" },
-	t = { "<cmd>AsyncTask file-run-floaterm<CR>","Run on floaterm" }
+    t = { "<cmd>AsyncTask file-run<CR>", "Run on default terminal" },
+	f = { "<cmd>AsyncTask file-run-floaterm<CR>","Run on floaterm" }
   },
 })
 
@@ -296,6 +297,12 @@ wk.register({
 	c = { "<cmd>PlugClean<CR>","Clean" },
     i = { "<cmd>PlugInstall<CR>", "Install" },
     u = { "<cmd>PlugUpdate<CR>", "Update" },
+  },
+})
+
+wk.register({
+  ["<leader>w"] = {
+    name = "Windows+",
   },
 })
 EOF
@@ -446,8 +453,8 @@ let g:asynctasks_term_cols=80  " 设置纵向切割时，宽度为 80
 let g:asyncrun_open = 9
 let g:asynctasks_system = 'macos'
 "runcode
-nnoremap <silent><leader>rl :AsyncTask file-run<CR>
-nnoremap <silent><leader>rt :AsyncTask file-run-floaterm<CR>
+nnoremap <silent><leader>rt :AsyncTask file-run<CR>
+nnoremap <silent><leader>rf :AsyncTask file-run-floaterm<CR>
 "======
 "======IntelliTab 
 "======
