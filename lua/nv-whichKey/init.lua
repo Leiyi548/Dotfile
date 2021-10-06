@@ -46,7 +46,8 @@ wk.register({
     name = "+Packer",
 	c = { "<cmd>PackerClean<CR>","Clean" },
     i = { "<cmd>PackerInstall<CR>", "Install" },
-    s = { "<cmd>PackerSync<CR>", "Sync" },
+    s= { "<cmd>PackerStatus<CR>", "Status" },
+    S= { "<cmd>PackerSync<CR>", "Sync" },
     u = { "<cmd>PackerUpdate<CR>", "Update" },
   },
 })
@@ -54,5 +55,22 @@ wk.register({
 wk.register({
   ["<leader>w"] = {
     name = "Windows+",
+    h = {name = "Move to left window"},
+    j = {name = "Move to window below"},
+    k = {name = "Move to upper window"},
+    l = {name = "Move to right window"},
+	d = {name = "Delete this window"},
+	v = {name = "Vertical split screen"},
+	s = {name = "Horizontal split screen"},
+  },
+})
+
+wk.register({
+  ["<leader>x"] = {
+    name = "Trouble+",
+	x = { "<cmd>ToubleToggle<CR>","TroubleToggle" },
+	w = { "<cmd>ToubleToggle lsp_workspace_diagnostics<CR>","TroubleToggle_lsp_workspace_diagnostics" },
+	d = { "<cmd>ToubleToggle lsp_document_diagnostics<CR>","TroubleToggle_lsp_diagnostics" },
+	q = { "<cmd>ToubleToggle quickfix<CR>","TroubleToggle_quickfix" },
   },
 })

@@ -17,7 +17,7 @@ require('lspconfig').lua.setup{
                 preloadFileSize = 300
             },
 			diagnostics = {
-			  globals ={'vim'}
+			  globals ={'vim','use'}
 			}
         }
     }

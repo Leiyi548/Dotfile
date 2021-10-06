@@ -8,7 +8,6 @@ end
 return require('packer').startup(function()
   -- Packer can manage itself
   use 'wbthomason/packer.nvim'
-  
   -- nvim-tree
   use {
     'kyazdani42/nvim-tree.lua',
@@ -18,21 +17,23 @@ return require('packer').startup(function()
   --config my lsp
   use "neovim/nvim-lspconfig" --This repo handles automatically launching and initializing language servers that are installed on your system.
   use "onsails/lspkind-nvim"  -- This tiny plugin adds vscode-like pictograms to neovim built-in lsp
-  use "kabouzeid/nvim-lspinstall" 
-  use 'hrsh7th/vim-vsnip'
+  use "kabouzeid/nvim-lspinstall"
   use 'glepnir/lspsaga.nvim'
   use 'hrsh7th/cmp-nvim-lsp'
-  use 'saadparwaiz1/cmp_luasnip' -- Snippets source for nvim-cmp
-  use 'L3MON4D3/LuaSnip'	
-  use 'hrsh7th/cmp-buffer'
   use 'hrsh7th/nvim-cmp'
   use 'kosayoda/nvim-lightbulb'
+  use 'hrsh7th/cmp-buffer'
 
+  -- snippet
+  use 'rafamadriz/friendly-snippets'
+  use 'hrsh7th/vim-vsnip'
+  use 'L3MON4D3/LuaSnip'
+  use 'saadparwaiz1/cmp_luasnip' -- Snippets source for nvim-cmp
   -- Highlight language
-    use {
-        'nvim-treesitter/nvim-treesitter',
-        run = ':TSUpdate'
-    }
+  use {
+	  'nvim-treesitter/nvim-treesitter',
+	  run = ':TSUpdate'
+  }
   -- color scheme
   use 'glepnir/zephyr-nvim'
   --vscode-theme
@@ -61,6 +62,11 @@ return require('packer').startup(function()
   --flaoterm
   use 'voldikss/vim-floaterm'
 
+  -- Multi cursor
+  use 'mg979/vim-visual-multi'
+
+  -- Startup time
+  use "dstein64/vim-startuptime"
   --galxyline
   use {"glepnir/galaxyline.nvim", branch = "main"}
 
@@ -95,6 +101,19 @@ return require('packer').startup(function()
 
   --comment quickly
   use 'terrortylor/nvim-comment'
+
+  --trouble.nvim
+  use {
+  "folke/trouble.nvim",
+  requires = "kyazdani42/nvim-web-devicons",
+  config = function()
+    require("trouble").setup {
+      -- your configuration comes here
+      -- or leave it empty to use the default settings
+      -- refer to the configuration section below
+    }
+  end
+}
 
   --Interesting todo comment
   -- Lua

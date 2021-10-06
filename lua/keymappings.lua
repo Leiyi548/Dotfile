@@ -1,6 +1,4 @@
-
 vim.api.nvim_set_keymap('n','<Space>','<NOP>',{noremap=true,silent=true})
-
 vim.g.mapleader = ' '
 
 -- no hl
@@ -12,6 +10,9 @@ vim.api.nvim_set_keymap('n','L','$',{noremap=true,silent=true})
 vim.api.nvim_set_keymap('v','H','^',{noremap=true,silent=true})
 vim.api.nvim_set_keymap('v','L','$',{noremap=true,silent=true})
 
+--save quickly
+vim.api.nvim_set_keymap('n','<C-s>','<Esc>:w<CR>',{noremap=true,silent=true})
+vim.api.nvim_set_keymap('i','<C-s>','<Esc>:w<CR>',{noremap=true,silent=true})
 --split windows
 vim.api.nvim_set_keymap('n','<leader>ws',':split<CR>',{silent=true})
 vim.api.nvim_set_keymap('n','<leader>wv',':vsplit<CR>',{silent=true})
@@ -21,6 +22,7 @@ vim.api.nvim_set_keymap('n','<leader>wj','<C-w>j',{silent=true})
 vim.api.nvim_set_keymap('n','<leader>wk','<C-w>k',{silent=true})
 vim.api.nvim_set_keymap('n','<leader>wh','<C-w>h',{silent=true})
 vim.api.nvim_set_keymap('n','<leader>wl','<C-w>l',{silent=true})
+vim.api.nvim_set_keymap('n','<leader>wd','<C-w>c',{silent=true})
 
 -- use system clipboard
 vim.api.nvim_set_keymap('n','<leader>y','"+y',{silent=true})

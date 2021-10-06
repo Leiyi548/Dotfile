@@ -1,37 +1,59 @@
--- Lspkind
+--lspkind
+local cmp = require('cmp')
+local lspkind = require('lspkind')
+
 require('lspkind').init({
-    with_text = false,
+    cmp.setup {
+      formatting = {
+        format = function(entry, vim_item)
+          vim_item.kind = lspkind.presets.default[vim_item.kind]
+          return vim_item
+       end
+     }
+   },
+    -- enables text annotations
+    --
+    -- default: true
+    with_text = true,
+
+    -- default symbol map
+    -- can be either 'default' (requires nerd-fonts font) or
+    -- 'codicons' for codicon preset (requires vscode-codicons font)
+    --
+    -- default: 'default'
     preset = 'codicons',
+
+    -- override preset symbols
+    --
+    -- default: {}
     symbol_map = {
-        TreeSitter = "侮",
-        Text = "",
-        Method = "",
-        Function = "",
-        Constructor = "",
-        Field = "ﰠ",
-        Variable = "",
-        Class = "ﴯ",
-        Interface = "",
-        Module = "",
-        Property = "ﰠ",
-        Unit = "塞",
-        Value = "",
-        Enum = "",
-        Keyword = "",
-        Snippet = "",
-        Color = "",
-        File = "",
-        Reference = "",
-        Folder = "",
-        EnumMember = "",
-        Constant = "",
-        Struct = "ﴯפּ",
-        Event = "",
-        Operator = "",
-        TypeParameter = "ﰧ"
+      Text = "",
+      Method = "",
+      Function = "",
+      Constructor = "",
+      Field = "ﰠ",
+      Variable = "",
+      Class = "ﴯ",
+      Interface = "",
+      Module = "",
+      Property = "ﰠ",
+      Unit = "塞",
+      Value = "",
+      Enum = "",
+      Keyword = "",
+      Snippet = "",
+      Color = "",
+      File = "",
+      Reference = "",
+      Folder = "",
+      EnumMember = "",
+      Constant = "",
+      Struct = "פּ",
+      Event = "",
+      Operator = "",
+      TypeParameter = ""
     },
 })
-
 -- Lspsaga
 local saga = require 'lspsaga'
 saga.init_lsp_saga {
