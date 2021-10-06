@@ -1,15 +1,25 @@
-require'lspconfig'.clangd.setup{}
-require'lspconfig'.pyright.setup{}
-
-
 -- LspInstall的配置
-local function setup_servers()
-  require'lspinstall'.setup()
-  local servers = require'lspinstall'.installed_servers()
-  for _, server in pairs(servers) do
-    require'lspconfig'[server].setup{}
-  end
+
+require'lspinstall'.setup() -- important
+
+local servers = require'lspinstall'.installed_servers()
+for _, server in pairs(servers) do
+  require'lspconfig'[server].setup{}
 end
 
-setup_servers()
+
+require('lspconfig').lua.setup{
+   settings = {
+        Lua = {
+            workspace = {
+                checkThirdParty = false,
+                maxPreload = 1500,
+                preloadFileSize = 300
+            },
+			diagnostics = {
+			  globals ={'vim'}
+			}
+        }
+    }
+}
 
