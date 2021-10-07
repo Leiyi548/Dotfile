@@ -2,6 +2,10 @@ require('which-key').setup{
 }
 local wk = require("which-key")
 wk.register({
+  ["g"] = {
+  },
+})
+wk.register({
   ["<leader>b"] = {
     name = "+Buffer",
     d = { "<cmd>bdelete!<CR>", "Forcely delete buffer" },
@@ -37,7 +41,13 @@ wk.register({
 wk.register({
   ["<leader>l"] = {
     name = "+Lsp",
-	f = { "<cmd>Format<CR>","Format" }
+	a = {"<cmd>Lspsaga code_action<CR>"},
+	f = { "<cmd>Format<CR>","Format" },
+	i = {"<cmd>LspInfo<CR>","LspInfo"},
+	j = {"<cmd>Lspsaga diagnostic_jump_next<CR>","Next Diagnostic"},
+	k = {"<cmd>Lspsaga diagnostic_jump_prev<CR>","Prev Diagnostic"},
+	r = {"<cmd>Lspsaga rename<CR>","Rename"},
+
   },
 })
 

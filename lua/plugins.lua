@@ -27,7 +27,7 @@ return require('packer').startup(function()
   -- snippet
   use 'rafamadriz/friendly-snippets'
   use 'hrsh7th/vim-vsnip'
-  use 'L3MON4D3/LuaSnip'
+  use {'L3MON4D3/LuaSnip'}
   use 'saadparwaiz1/cmp_luasnip' -- Snippets source for nvim-cmp
   -- Highlight language
   use {
@@ -42,7 +42,7 @@ return require('packer').startup(function()
   use {'joshdick/onedark.vim'}
 
   -- dashboard
-  use 'glepnir/dashboard-nvim'
+  use {'glepnir/dashboard-nvim'}
 
   use 'itchyny/vim-cursorword'
 
@@ -66,7 +66,11 @@ return require('packer').startup(function()
   use 'mg979/vim-visual-multi'
 
   -- Startup time
-  use "dstein64/vim-startuptime"
+  use {
+	"dstein64/vim-startuptime",
+	opt =true,
+	cmd = "Startuptime",
+  }
   --galxyline
   use {"glepnir/galaxyline.nvim", branch = "main"}
 
@@ -97,7 +101,13 @@ return require('packer').startup(function()
   use {'mhartington/formatter.nvim'}
 
   -- which-key.nvim
-  use {'folke/which-key.nvim'}
+  use {
+	'folke/which-key.nvim',
+	opt = true,
+	keys="<leader>",
+	config= function() require("nv-whichKey")
+	end
+}
 
   --comment quickly
   use 'terrortylor/nvim-comment'
@@ -135,12 +145,19 @@ return require('packer').startup(function()
   as = 'hop',
   config = function()
     -- you can configure Hop the way you like here; see :h hop-config
-    require'hop'.setup { keys = 'etovxqpdygfblzhckisuran' }
+    require'hop'.setup { keys = 'etovxqpdygfblzhckisuran'  }
   end
 }
 
   --neoscroll.nvim
-  use 'karb94/neoscroll.nvim'
+  use {'karb94/neoscroll.nvim'}
+
+  -- Debug Adapter Protocol
+  use {'mfussenegger/nvim-dap', opt=true}
+  use {"Pocco81/DAPInstall.nvim", opt=true}
+  use { "rcarriga/nvim-dap-ui", requires = {"mfussenegger/nvim-dap"}, opt=true ,config = [[require(nv-Dap)]]}
+
+
 
 end)
 

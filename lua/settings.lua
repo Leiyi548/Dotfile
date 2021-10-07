@@ -24,7 +24,6 @@ vim.o.swapfile = false						-- No swapfile
 vim.o.encoding = 'utf-8'					-- The encoding written to file
 vim.o.updatetime = 300						-- Faster completion
 vim.o.timeoutlen = 500						-- By default timeoutlen is 1000 ms
-vim.o.showmode = false						-- We don't need to see things like -- INSERT -- anymore
 vim.o.backup = false						-- No backup File
 vim.o.mouse = 'a'							-- Enable your mouse
 vim.o.conceallevel = 0						-- So that I can see `` in markdown file

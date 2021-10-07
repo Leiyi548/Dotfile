@@ -63,7 +63,8 @@ require('lsp.lspUi')
 require('lsp.completion')
 
 --which_key
-require('nv-whichKey')
+--require('nv-whichKey')
+--require('nv-whichKey.cfg')
 
 --formatter
 require('nv-formmater')
@@ -80,3 +81,13 @@ require('nv-Hop')
 
 --neoscroll
 require('nv-neoscroll')
+
+--debug dap
+--require('nv-Dap')
+--require('nv-Dap.keymappings')
+--require('nv-Dap.config')
+
+
+vim.api.nvim_command('hi HopNextKey guifg=#ce212e')
+vim.api.nvim_command('hi HopNextKey1 guifg=#ce212e')
+vim.api.nvim_command('hi HopNextKey2 guifg=#ce212e')
