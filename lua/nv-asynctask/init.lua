@@ -1,7 +1,7 @@
 --asynctask asyncrun
-vim.g.asynctask_term_pos = 'bottom'
-vim.g.asynctask_term_cols = 80
-vim.g.asynctask_rows=12
+vim.g.asynctasks_term_pos = 'bottom'
+vim.g.asynctasks_term_cols = 60
+vim.g.asynctasks_term_rows= 12
 vim.g.asyncrun_open = 6
 vim.g.asynctasks_system = 'macos'
 

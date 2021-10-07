@@ -52,7 +52,7 @@ wk.register({
 wk.register({
   ["<leader>s"] = {
     name = "+Search",
-	c = {"<cmd>hlsearch<CR>","clear-search-result"},
+	c = {name="clear-search-result"},
     p = { "<cmd>HopPattern<CR>", "hop around by matching against a pattern (as with /)." },
 	s = { "<cmd>HopChar2<CR>","type a bigram (two keys) and hop to any occurrence of that bigram in the document." },
 	S = { "<cmd>HopChar1<CR>","type a single key and hop to any occurrence of that key in the document." },
