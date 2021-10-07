@@ -129,6 +129,18 @@ return require('packer').startup(function()
 	end
   }
 
+  --hop.nvim search file
+  use {
+  'phaazon/hop.nvim',
+  as = 'hop',
+  config = function()
+    -- you can configure Hop the way you like here; see :h hop-config
+    require'hop'.setup { keys = 'etovxqpdygfblzhckisuran' }
+  end
+}
+
+  --neoscroll.nvim
+  use 'karb94/neoscroll.nvim'
 
 end)
 

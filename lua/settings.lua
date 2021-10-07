@@ -30,3 +30,7 @@ vim.o.mouse = 'a'							-- Enable your mouse
 vim.o.conceallevel = 0						-- So that I can see `` in markdown file
 vim.o.incsearch = true						-- Search chars will show clear
 vim.o.termguicolors = true					-- Open rainbow colors
+
+vim.api.nvim_command('hi HopNextKey guifg=#ce212e')
+vim.api.nvim_command('hi HopNextKey1 guifg=#ce212e')
+vim.api.nvim_command('hi HopNextKey2 guifg=#ce212e')

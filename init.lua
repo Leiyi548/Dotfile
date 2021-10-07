@@ -75,3 +75,8 @@ require('nv-nvimComment')
 require('nv-troubleNvim')
 require('nv-troubleNvim.keymappings')
 
+--Hop easymotion plus plus
+require('nv-Hop')
+
+--neoscroll
+require('nv-neoscroll')

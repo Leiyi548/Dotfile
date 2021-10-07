@@ -19,8 +19,24 @@ wk.register({
 })
 
 wk.register({
+  ["<leader>f"] = {
+    name = "+File",
+	c = { "<cmd>Telescope colorscheme<CR>", "Change colorscheme" },
+	k = { "<cmd>Telescope keymaps<CR>", "Preview keymaps" },
+	f = { "<cmd>Telescope find_files<CR>", "Find File" },
+    r = { "<cmd>Telescope oldfiles<CR>", "Open Recent File" },
+    n = { "<cmd>enew<cr>", "New File" },
+	v = {name = "+Neovim",
+		d = {"<cmd>edit $MYVIMRC<CR>", "Open init.lua"},
+		s = {"<cmd>so%<CR>","Source File"}
+		}
+  },
+})
+
+
+wk.register({
   ["<leader>l"] = {
-    name = "+Languages",
+    name = "+Lsp",
 	f = { "<cmd>Format<CR>","Format" }
   },
 })
@@ -30,6 +46,18 @@ wk.register({
     name = "+Run",
     t = { "<cmd>AsyncTask file-run<CR>", "Run on default terminal" },
 	f = { "<cmd>AsyncTask file-run-floaterm<CR>","Run on floaterm" }
+  },
+})
+
+wk.register({
+  ["<leader>s"] = {
+    name = "+Search",
+	c = {"<cmd>hlsearch<CR>","clear-search-result"},
+    p = { "<cmd>HopPattern<CR>", "hop around by matching against a pattern (as with /)." },
+	s = { "<cmd>HopChar2<CR>","type a bigram (two keys) and hop to any occurrence of that bigram in the document." },
+	S = { "<cmd>HopChar1<CR>","type a single key and hop to any occurrence of that key in the document." },
+    w = { "<cmd>HopWord<CR>", "hop around by highlighting words" },
+	l = { "<cmd>HopLine<CR>","jump to any visible line in your buffer." },
   },
 })
 
@@ -44,7 +72,8 @@ wk.register({
 wk.register({
   ["<leader>p"] = {
     name = "+Packer",
-	c = { "<cmd>PackerClean<CR>","Clean" },
+	c = { "<cmd>PackerCompile<CR>","Compile" },
+	C = { "<cmd>PackerClean<CR>","Clean" },
     i = { "<cmd>PackerInstall<CR>", "Install" },
     s= { "<cmd>PackerStatus<CR>", "Status" },
     S= { "<cmd>PackerSync<CR>", "Sync" },
