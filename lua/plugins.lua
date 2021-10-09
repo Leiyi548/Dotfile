@@ -165,16 +165,15 @@ return require('packer').startup(function()
     require'hop'.setup { keys = 'etovxqpdygfblzhckisuran'  }
   end
 }
-  --Vista.vim
-  use {
-	'liuchengxu/vista.vim',
-	opt = true,
-	cmd = "Vista",
-	ft = {'markdown','go','php','python','c','cpp','lua','java'},
-	config = function()
+	--Vista.vim
+	   use {
+	 'liuchengxu/vista.vim',
+	  cmd = "Vista",
+	  ft = {'markdown','go','php','python','c','cpp','lua','java','vim'},
+	  config = function()
 	  vim.g.vista_default_executive = "nvim_lsp"
-	end
- }
+	 end
+	 }
 
   --neoscroll.nvim
   use {'karb94/neoscroll.nvim'}
@@ -215,9 +214,10 @@ end
   }
 
 --markdown
-  use {
-	'iamcco/markdown-preview.nvim'
-  }
+	  use {
+	'iamcco/markdown-preview.nvim',
+	ft = "markdown",
+	  }
 
 --git
   use {
@@ -226,6 +226,10 @@ end
 	  'nvim-lua/plenary.nvim'
 	},
 	-- tag = 'release' -- To use the latest release
+  }
+--ranger
+  use {
+	'kevinhwang91/rnvimr'
   }
 end)
 

@@ -47,6 +47,8 @@ wk.register({
 	r = { '<cmd>lua require"gitsigns".reset_hunk()<CR>', "Reset Hunk" },
     p = { '<cmd>lua require"gitsigns".preview_hunk()<CR>', "Preview Hunk" },
     R = { '<cmd>lua require"gitsigns".reset_buffer()<CR>', "Reset buffer" },
+	u = {'<cmd>lua require"gitsigns".undo_stage_hunk()<CR>',"Redo"},
+    U = { '<cmd>lua require"gitsigns".reset_buffer()<CR>', "Reset buffer" },
 
   },
 })
@@ -59,7 +61,6 @@ wk.register({
 	i = {"<cmd>LspInfo<CR>","LspInfo"},
 	j = {"<cmd>Lspsaga diagnostic_jump_next<CR>","Next Diagnostic"},
 	k = {"<cmd>Lspsaga diagnostic_jump_prev<CR>","Prev Diagnostic"},
-	r = {"<cmd>Lspsaga rename<CR>","Rename"},
 
   },
 })
@@ -99,8 +100,9 @@ wk.register({
 wk.register({
   ["<leader>t"] = {
     name = "+Terminal",
-    r = { "<cmd>FloatermNew ranger<CR>", "ranger" },
-	f = { "<cmd>FloatermNew fzf<CR>","fzf" }
+    r = { "<cmd>RnvimrToggle<CR>", "ranger" },
+	a = { "<cmd>RnvimrResize<CR>", "resize"},
+	--f = { "<cmd>FloatermNew fzf<CR>","fzf" },
   },
 })
 
