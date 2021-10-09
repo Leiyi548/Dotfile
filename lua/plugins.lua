@@ -17,22 +17,35 @@ return require('packer').startup(function()
   --config my lsp
   use "neovim/nvim-lspconfig" --This repo handles automatically launching and initializing language servers that are installed on your system.
   use "onsails/lspkind-nvim"  -- This tiny plugin adds vscode-like pictograms to neovim built-in lsp
-  use "kabouzeid/nvim-lspinstall"
+  use {"kabouzeid/nvim-lspinstall",
+	  --opt = true,
+	  --cmd = "LspInstall",
+	  --config = function() require("lsp.lspCfg")
+	  --end
+}
   use 'glepnir/lspsaga.nvim'
   use 'hrsh7th/cmp-nvim-lsp'
   use 'hrsh7th/nvim-cmp'
   use 'kosayoda/nvim-lightbulb'
   use 'hrsh7th/cmp-buffer'
+  use {
+  "ray-x/lsp_signature.nvim",
+  }
 
   -- snippet
   use 'rafamadriz/friendly-snippets'
   use 'hrsh7th/vim-vsnip'
   use {'L3MON4D3/LuaSnip'}
   use 'saadparwaiz1/cmp_luasnip' -- Snippets source for nvim-cmp
+
   -- Highlight language
+  -- treesitter
   use {
 	  'nvim-treesitter/nvim-treesitter',
 	  run = ':TSUpdate'
+  }
+  use {
+	  'romgrk/nvim-treesitter-context',
   }
   -- color scheme
   use 'glepnir/zephyr-nvim'
@@ -40,7 +53,8 @@ return require('packer').startup(function()
   use {'Mofiqul/vscode.nvim'}
   --onedark.vim
   use {'joshdick/onedark.vim'}
-
+  -- edge colorscheme
+  use {'sainnhe/edge'}
   -- dashboard
   use {'glepnir/dashboard-nvim'}
 
@@ -72,7 +86,10 @@ return require('packer').startup(function()
 	cmd = "Startuptime",
   }
   --galxyline
-  use {"glepnir/galaxyline.nvim", branch = "main"}
+  use {"glepnir/galaxyline.nvim", branch = "main",
+}
+
+
 
   --asyncrun and asynctask
   use {'skywind3000/asyncrun.vim'}
@@ -148,6 +165,16 @@ return require('packer').startup(function()
     require'hop'.setup { keys = 'etovxqpdygfblzhckisuran'  }
   end
 }
+  --Vista.vim
+  use {
+	'liuchengxu/vista.vim',
+	opt = true,
+	cmd = "Vista",
+	ft = {'markdown','go','php','python','c','cpp','lua','java'},
+	config = function()
+	  vim.g.vista_default_executive = "nvim_lsp"
+	end
+ }
 
   --neoscroll.nvim
   use {'karb94/neoscroll.nvim'}
@@ -157,7 +184,48 @@ return require('packer').startup(function()
   use {"Pocco81/DAPInstall.nvim", opt=true}
   use { "rcarriga/nvim-dap-ui", requires = {"mfussenegger/nvim-dap"}, opt=true ,config = [[require(nv-Dap)]]}
 
+  --orgmode.nvim
+  use {'kristijanhusak/orgmode.nvim',
+  config = function()
+        require('orgmode').setup({
+		  org_agenda_files = {'~/Dropbox/org/*', '~/my-orgs/**/*'},
+		  org_default_notes_file = '~/Dropbox/org/refile.org',
+		})
+end
+}
+-- 颜色荧光笔
+  use {
+    "norcalli/nvim-colorizer.lua",
+    ft = {
+      "html",
+      "css",
+      "sass",
+      "scss",
+      "vim",
+      "javascript",
+      "javascriptreact",
+      "typescript",
+      "typescriptreact",
+      "vue",
+      "lua"
+    },
+    config = function()
+	    require "colorizer".setup()
+	  end
+  }
 
+--markdown
+  use {
+	'iamcco/markdown-preview.nvim'
+  }
 
+--git
+  use {
+	'lewis6991/gitsigns.nvim',
+	requires = {
+	  'nvim-lua/plenary.nvim'
+	},
+	-- tag = 'release' -- To use the latest release
+  }
 end)
 

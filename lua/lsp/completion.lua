@@ -67,6 +67,40 @@ end
       -- { name = 'ultisnips' },
 
       { name = 'buffer' },
+	  { name = 'orgmode'}
     }
+  })
+
+-- LspInstall的配置
+
+--require'lspinstall'.setup() -- important
+
+--local servers = require'lspinstall'.installed_servers()
+--for _, server in pairs(servers) do
+  --require'lspconfig'[server].setup{}
+--end
+
+
+
+require('lspconfig').lua.setup{
+   settings = {
+        Lua = {
+            workspace = {
+                checkThirdParty = false,
+                maxPreload = 1500,
+                preloadFileSize = 300
+            },
+			diagnostics = {
+			  globals ={'vim','use'}
+			}
+        }
+    }
+}
+
+  -- you need setup cmp first put this after cmp.setup()
+  require("nvim-autopairs.completion.cmp").setup({
+    map_cr = true, --  map <CR> on insert mode
+    map_complete = true, -- it will auto insert `(` after select function or method item
+    auto_select = true -- automatically select the first item
   })
 

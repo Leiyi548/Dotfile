@@ -87,7 +87,14 @@ require('nv-neoscroll')
 --require('nv-Dap.keymappings')
 --require('nv-Dap.config')
 
+--treesitter
+require('nv-treesitter.nvim-treesitter-context')
 
+--lsp_signature.nvim
+require('nv-lsp-signgature')
+
+--git 
+require("nv-gitsigns")
 vim.api.nvim_command('hi HopNextKey guifg=#ce212e')
 vim.api.nvim_command('hi HopNextKey1 guifg=#ce212e')
 vim.api.nvim_command('hi HopNextKey2 guifg=#ce212e')
