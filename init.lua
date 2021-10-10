@@ -73,14 +73,14 @@ require('nv-formmater')
 require('nv-nvimComment')
 
 --trouble
-require('nv-troubleNvim')
-require('nv-troubleNvim.keymappings')
+--require('nv-troubleNvim')
+--require('nv-troubleNvim.keymappings')
 
 --Hop easymotion plus plus
 require('nv-Hop')
 
 --neoscroll
-require('nv-neoscroll')
+--require('nv-neoscroll')
 
 --debug dap
 --require('nv-Dap')
@@ -93,8 +93,11 @@ require('nv-treesitter.nvim-treesitter-context')
 --lsp_signature.nvim
 require('nv-lsp-signgature')
 
---git 
-require("nv-gitsigns")
-vim.api.nvim_command('hi HopNextKey guifg=#ce212e')
-vim.api.nvim_command('hi HopNextKey1 guifg=#ce212e')
-vim.api.nvim_command('hi HopNextKey2 guifg=#ce212e')
+--git
+--require("nv-gitsigns")
+
+--LuaSnip
+require("nv-Luasnip")
+-- vim.api.nvim_command('hi HopNextKey guifg=#ce212e')
+-- vim.api.nvim_command('hi HopNextKey1 guifg=#ce212e')
+-- vim.api.nvim_command('hi HopNextKey2 guifg=#ce212e')

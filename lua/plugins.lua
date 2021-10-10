@@ -25,7 +25,19 @@ return require('packer').startup(function()
 }
   use 'glepnir/lspsaga.nvim'
   use 'hrsh7th/cmp-nvim-lsp'
-  use 'hrsh7th/nvim-cmp'
+
+  use {
+  'hrsh7th/nvim-cmp',
+  requires = {
+	"onsails/lspkind-nvim", --美化自动完成提示信息
+	"hrsh7th/cmp-buffer", --从buffer中智能提示
+	"hrsh7th/cmp-nvim-lua", --nvim-cmp source for neovim Lua API.
+	"octaltree/cmp-look", --用于完成英语单词
+	"hrsh7th/cmp-path", --自动提示硬盘上的文件
+	"hrsh7th/cmp-calc", --输入数学算式（如1+1=）自动计算
+	"f3fora/cmp-spell", --nvim-cmp 的拼写源基于 vim 的拼写建议
+  }
+}
   use 'kosayoda/nvim-lightbulb'
   use 'hrsh7th/cmp-buffer'
   use {
@@ -35,7 +47,15 @@ return require('packer').startup(function()
   -- snippet
   use 'rafamadriz/friendly-snippets'
   use 'hrsh7th/vim-vsnip'
-  use {'L3MON4D3/LuaSnip'}
+  use 'hrsh7th/vim-vsnip-integ'
+
+  use {
+  'L3MON4D3/LuaSnip',
+  requires = {
+  "saadparwaiz1/cmp_luasnip", -- Snippets source for nvim-cmp
+  "rafamadriz/friendly-snippets" --代码段合集
+  }
+}
   use 'saadparwaiz1/cmp_luasnip' -- Snippets source for nvim-cmp
 
   -- Highlight language
@@ -48,13 +68,20 @@ return require('packer').startup(function()
 	  'romgrk/nvim-treesitter-context',
   }
   -- color scheme
-  use 'glepnir/zephyr-nvim'
+  use {'glepnir/zephyr-nvim',
+  config = [[vim.cmd('colorscheme zephyr')]]
+}
   --vscode-theme
-  use {'Mofiqul/vscode.nvim'}
+  use {
+	'Mofiqul/vscode.nvim',
+	path = "/Users/macos/.local/share/nvim/site/pack/packer/opt/vscode.nvim"
+}
   --onedark.vim
-  use {'joshdick/onedark.vim'}
+  use {'joshdick/onedark.vim',
+}
   -- edge colorscheme
-  use {'sainnhe/edge'}
+  use {'sainnhe/edge',
+}
   -- dashboard
   use {'glepnir/dashboard-nvim'}
 
@@ -71,7 +98,6 @@ return require('packer').startup(function()
   'nvim-telescope/telescope.nvim',
   requires = { {'nvim-lua/plenary.nvim'} }
 }
-  use {'junegunn/fzf'}
 
   --flaoterm
   use 'voldikss/vim-floaterm'
@@ -79,22 +105,15 @@ return require('packer').startup(function()
   -- Multi cursor
   use 'mg979/vim-visual-multi'
 
-  -- Startup time
-  use {
-	"dstein64/vim-startuptime",
-	opt =true,
-	cmd = "Startuptime",
-  }
   --galxyline
   use {"glepnir/galaxyline.nvim", branch = "main",
 }
 
 
 
-  --asyncrun and asynctask
+  --asyncrun and asynctask and sniprun
   use {'skywind3000/asyncrun.vim'}
   use {'skywind3000/asynctasks.vim'}
-
   --nvim-autopairs
   use {'windwp/nvim-autopairs'}
 
@@ -102,7 +121,11 @@ return require('packer').startup(function()
   use {'p00f/nvim-ts-rainbow'}
 
   --blankline.nvim
-  use {'lukas-reineke/indent-blankline.nvim'}
+  use {
+	'lukas-reineke/indent-blankline.nvim',
+	config = function() require("nv-indentBlankline")
+	end
+}
 
   --vim-sorround
   use {'tpope/vim-surround'}
@@ -117,30 +140,10 @@ return require('packer').startup(function()
   --formatter.nvim
   use {'mhartington/formatter.nvim'}
 
-  -- which-key.nvim
-  use {
-	'folke/which-key.nvim',
-	opt = true,
-	keys="<leader>",
-	config= function() require("nv-whichKey")
-	end
-}
 
   --comment quickly
   use 'terrortylor/nvim-comment'
 
-  --trouble.nvim
-  use {
-  "folke/trouble.nvim",
-  requires = "kyazdani42/nvim-web-devicons",
-  config = function()
-    require("trouble").setup {
-      -- your configuration comes here
-      -- or leave it empty to use the default settings
-      -- refer to the configuration section below
-    }
-  end
-}
 
   --Interesting todo comment
   -- Lua
@@ -165,33 +168,39 @@ return require('packer').startup(function()
     require'hop'.setup { keys = 'etovxqpdygfblzhckisuran'  }
   end
 }
-	--Vista.vim
-	   use {
-	 'liuchengxu/vista.vim',
-	  cmd = "Vista",
-	  ft = {'markdown','go','php','python','c','cpp','lua','java','vim'},
-	  config = function()
-	  vim.g.vista_default_executive = "nvim_lsp"
-	 end
-	 }
-
   --neoscroll.nvim
-  use {'karb94/neoscroll.nvim'}
+  --use {'karb94/neoscroll.nvim'}
 
-  -- Debug Adapter Protocol
-  use {'mfussenegger/nvim-dap', opt=true}
-  use {"Pocco81/DAPInstall.nvim", opt=true}
-  use { "rcarriga/nvim-dap-ui", requires = {"mfussenegger/nvim-dap"}, opt=true ,config = [[require(nv-Dap)]]}
-
-  --orgmode.nvim
-  use {'kristijanhusak/orgmode.nvim',
-  config = function()
-        require('orgmode').setup({
-		  org_agenda_files = {'~/Dropbox/org/*', '~/my-orgs/**/*'},
-		  org_default_notes_file = '~/Dropbox/org/refile.org',
-		})
-end
+--vim-easy-align
+use {
+  'junegunn/vim-easy-align',
 }
+
+--[[
+--
+--INFO:Lazyload
+--
+--]]--
+--
+
+--ranger
+  use {
+	'kevinhwang91/rnvimr',
+	opt = true,
+	cmd = "RnvimrToggle",
+  }
+
+--markdown
+use {
+  'iamcco/markdown-preview.nvim',
+  run = "cd app && npm install", setup = function() vim.g.mkdp_filetypes = { "markdown" } end,
+  ft = "markdown",
+	}
+use {
+  "dhruvasagar/vim-table-mode",
+  ft = "markdown"
+}
+
 -- 颜色荧光笔
   use {
     "norcalli/nvim-colorizer.lua",
@@ -201,6 +210,7 @@ end
       "sass",
       "scss",
       "vim",
+	  "markdown",
       "javascript",
       "javascriptreact",
       "typescript",
@@ -213,23 +223,68 @@ end
 	  end
   }
 
---markdown
-	  use {
-	'iamcco/markdown-preview.nvim',
-	ft = "markdown",
-	  }
+  --orgmode.nvim
+  use {'kristijanhusak/orgmode.nvim',
+    ft = {'org'},
+    config = function()
+    require('orgmode').setup{}
+    end
+	}
+
+  --trouble.nvim
+  use {
+  "folke/trouble.nvim",
+  requires = "kyazdani42/nvim-web-devicons",
+  cmd = "ToubleToggle",
+  path = "/Users/macos/.local/share/nvim/site/pack/packer/opt/trouble.nvim",
+  config = function()
+	require("nv-troubleNvim")
+  end
+ }
+  -- Debug Adapter Protocol
+  use {'mfussenegger/nvim-dap', opt=true}
+  use {"Pocco81/DAPInstall.nvim", opt=true}
+  use { "rcarriga/nvim-dap-ui", requires = {"mfussenegger/nvim-dap"}, opt=true ,config = [[require(nv-Dap)]]}
+
+	--Vista.vim
+   use {
+ 'liuchengxu/vista.vim',
+  cmd = "Vista",
+  ft = {'markdown','go','php','python','c','cpp','lua','java','vim'},
+  config = function()
+  vim.g.vista_default_executive = "nvim_lsp"
+ end
+ }
+
+  use {
+	'michaelb/sniprun',
+	cmd = "Sniprun",
+	run = 'bash ./install.sh'
+  }
+
+  -- Startup time
+  use {
+	"dstein64/vim-startuptime",
+	opt =true,
+	cmd = "Startuptime",
+  }
+  -- which-key.nvim
+  use {
+	'folke/which-key.nvim',
+	opt = true,
+	keys="<leader>",
+	config= function() require("nv-whichKey")
+	end
+}
 
 --git
-  use {
-	'lewis6991/gitsigns.nvim',
-	requires = {
-	  'nvim-lua/plenary.nvim'
+	 use {
+	 'lewis6991/gitsigns.nvim',
+	 event = {'BufRead','BufNewFile'},
+	 requires = {
+	   'nvim-lua/plenary.nvim'
 	},
-	-- tag = 'release' -- To use the latest release
-  }
---ranger
-  use {
-	'kevinhwang91/rnvimr'
-  }
+	config = function() require("nv-gitsigns.init") end
+	}
 end)
 
