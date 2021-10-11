@@ -1,17 +1,17 @@
   require'nvim-tree'.setup {
-      disable_netrw       = true,
-      hijack_netrw        = true,
+      --disable_netrw       = true,
+      --hijack_netrw        = true,
       open_on_setup       = false,
       ignore_ft_on_setup  = {},
       update_to_buf_dir   = {
         enable = true,
         auto_open = true,
       },
-      auto_close          = false,
-      open_on_tab         = false,
+      --auto_close          = false,
+      --open_on_tab         = false,
       hijack_cursor       = false,
       update_cwd          = false,
-      lsp_diagnostics     = false,
+      --lsp_diagnostics     = false,
       update_focused_file = {
         enable      = false,
         update_cwd  = false,
@@ -32,7 +32,6 @@
         }
       }
 	}
-
 local tree_cb = require'nvim-tree.config'.nvim_tree_callback
 -- default mappings
 local list = {

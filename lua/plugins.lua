@@ -4,16 +4,59 @@ if fn.empty(fn.glob(install_path)) > 0 then
   fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path}) vim.cmd 'packadd packer.nvim'
 end
 
+local uiconf = require('ui.config')
 
 return require('packer').startup(function()
   -- Packer can manage itself
   use 'wbthomason/packer.nvim'
+  -- INFO:UI
+  -- color scheme
+  use {'glepnir/zephyr-nvim',
+  config = [[vim.cmd('colorscheme zephyr')]]
+}
+  --vscode-theme
+  use {
+	'Mofiqul/vscode.nvim',
+}
+  --onedark.vim
+  use {
+	'joshdick/onedark.vim',
+}
+  -- edge colorscheme
+  use {
+	'sainnhe/edge',
+	opt = false,
+	--config = uiconf.edge,
+
+}
+--bufferline
+  use {
+	'akinsho/bufferline.nvim',
+	event = 'BufRead',
+	config = uiconf.nvim_bufferline,
+  }
+
+--galxyline
+  use {
+	"glepnir/galaxyline.nvim", branch = "main",
+	after = "nvim-web-devicons",
+	event = "BufRead",
+	config = uiconf.galaxyline,
+}
   -- nvim-tree
   use {
     'kyazdani42/nvim-tree.lua',
-    requires = 'kyazdani42/nvim-web-devicons'
+    cmd = {"NvimTreeToggle","NvimTreeOpen"},
+	config = uiconf.nvimtree,
 }
+  --blankline.nvim
+ use {
+   "lukas-reineke/indent-blankline.nvim",
+   event = "BufRead",
+   config = uiconf.indent_blankline
+ }
 
+ -- INFO:cmp
   --config my lsp
   use "neovim/nvim-lspconfig" --This repo handles automatically launching and initializing language servers that are installed on your system.
   use "onsails/lspkind-nvim"  -- This tiny plugin adds vscode-like pictograms to neovim built-in lsp
@@ -78,34 +121,18 @@ return require('packer').startup(function()
 	  end,
 	  after = "nvim-treesitter",
   }
-  -- color scheme
-  use {'glepnir/zephyr-nvim',
-  config = [[vim.cmd('colorscheme zephyr')]]
-}
-  --vscode-theme
-  use {
-	'Mofiqul/vscode.nvim',
-	path = "/Users/macos/.local/share/nvim/site/pack/packer/opt/vscode.nvim"
-}
-  --onedark.vim
-  use {'joshdick/onedark.vim',
-}
-  -- edge colorscheme
-  use {'sainnhe/edge',
-}
   -- dashboard
   use {
 'glepnir/dashboard-nvim',
-   cmd = {
-        "Dashboard",
-        "DashboardNewFile",
-        "DashboardJumpMarks",
-        "SessionLoad",
-        "SessionSave"
-    },
-setup = function()
-  require("nv-dashboard")
-end
+   -- cmd = {
+   --      "Dashboard",
+   --      "DashboardNewFile",
+   --      "DashboardJumpMarks",
+   --      "SessionLoad",
+   --      "SessionSave"
+   --  },
+event = "BufWinEnter",
+setup = uiconf.dashboard,
 }
 
   use 'itchyny/vim-cursorword'
@@ -113,8 +140,6 @@ end
   -- accelerated_jk
   use 'rhysd/accelerated-jk'
 
-  --bufferline
-  use {'akinsho/bufferline.nvim', requires = 'kyazdani42/nvim-web-devicons'}
 
   --Search File
   use {
@@ -128,9 +153,6 @@ end
   -- Multi cursor
   use 'mg979/vim-visual-multi'
 
-  --galxyline
-  use {"glepnir/galaxyline.nvim", branch = "main",
-}
 
 
 
@@ -146,14 +168,6 @@ end
 	after = "nvim-treesitter",
 }
 
-  --blankline.nvim
- use {
-   "lukas-reineke/indent-blankline.nvim",
-   event = "BufRead",
-   config = function ()
-	 require("nv-indentBlankline")
-   end,
- }
 --   use {
 -- 	'lukas-reineke/indent-blankline.nvim',
 -- 	config = function() require("nv-indentBlankline")

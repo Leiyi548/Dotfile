@@ -21,7 +21,7 @@ require('settings')
 require('colorscheme')
 
 --buffline
-require('nv-buffline')
+--require('nv-buffline')
 
 -- telescope
 require('nv-telescope')
@@ -33,13 +33,13 @@ require('nv-floaterm')
 --require('nv-dashboard')
 
 --galaxyline
-require('nv-galaxyline')
+--require('nv-galaxyline')
 
 --autopairs
 require('nv-nvimautopairs')
 
 --nvimtree
-require('nv-nvimtree')
+--require('nv-nvimtree')
 
 --nvim-ts-rainbow
 --require('nv-nvimTsRainbow')
@@ -77,7 +77,7 @@ require('nv-nvimComment')
 --require('nv-troubleNvim.keymappings')
 
 --Hop easymotion plus plus
-require('nv-Hop')
+--require('nv-Hop')
 
 --neoscroll
 --require('nv-neoscroll')
@@ -97,7 +97,7 @@ require('nv-lsp-signgature')
 --require("nv-gitsigns")
 
 --LuaSnip
-require("nv-Luasnip")
+--require("nv-Luasnip")
 -- vim.api.nvim_command('hi HopNextKey guifg=#ce212e')
 -- vim.api.nvim_command('hi HopNextKey1 guifg=#ce212e')
 -- vim.api.nvim_command('hi HopNextKey2 guifg=#ce212e')
