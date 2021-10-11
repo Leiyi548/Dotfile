@@ -30,7 +30,7 @@ require('nv-telescope')
 require('nv-floaterm')
 
 --dashboard
-require('nv-dashboard')
+--require('nv-dashboard')
 
 --galaxyline
 require('nv-galaxyline')
@@ -42,10 +42,10 @@ require('nv-nvimautopairs')
 require('nv-nvimtree')
 
 --nvim-ts-rainbow
-require('nv-nvimTsRainbow')
+--require('nv-nvimTsRainbow')
 
 --indentblankline
-require('nv-indentBlankline')
+--require('nv-indentBlankline')
 
 --tmuxnavigate
 require('nv-tmuxNavigator')
@@ -88,7 +88,7 @@ require('nv-Hop')
 --require('nv-Dap.config')
 
 --treesitter
-require('nv-treesitter.nvim-treesitter-context')
+--require('nv-treesitter.nvim-treesitter-context')
 
 --lsp_signature.nvim
 require('nv-lsp-signgature')

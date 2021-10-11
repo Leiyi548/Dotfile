@@ -39,7 +39,6 @@ return require('packer').startup(function()
   }
 }
   use 'kosayoda/nvim-lightbulb'
-  use 'hrsh7th/cmp-buffer'
   use {
   "ray-x/lsp_signature.nvim",
   }
@@ -51,21 +50,33 @@ return require('packer').startup(function()
 
   use {
   'L3MON4D3/LuaSnip',
+  loaded = false,
   requires = {
   "saadparwaiz1/cmp_luasnip", -- Snippets source for nvim-cmp
   "rafamadriz/friendly-snippets" --代码段合集
   }
 }
-  use 'saadparwaiz1/cmp_luasnip' -- Snippets source for nvim-cmp
+  use {
+	'saadparwaiz1/cmp_luasnip',
+	loaded = false,
+} -- Snippets source for nvim-cmp
 
   -- Highlight language
   -- treesitter
   use {
 	  'nvim-treesitter/nvim-treesitter',
-	  run = ':TSUpdate'
+	  run = ':TSUpdate',
+	  event = "BufRead",
+	  config = function()
+		require("nv-treesitter")
+	  end
   }
   use {
 	  'romgrk/nvim-treesitter-context',
+	  config = function()
+		require("nv-treesitter.context")
+	  end,
+	  after = "nvim-treesitter",
   }
   -- color scheme
   use {'glepnir/zephyr-nvim',
@@ -83,7 +94,19 @@ return require('packer').startup(function()
   use {'sainnhe/edge',
 }
   -- dashboard
-  use {'glepnir/dashboard-nvim'}
+  use {
+'glepnir/dashboard-nvim',
+   cmd = {
+        "Dashboard",
+        "DashboardNewFile",
+        "DashboardJumpMarks",
+        "SessionLoad",
+        "SessionSave"
+    },
+setup = function()
+  require("nv-dashboard")
+end
+}
 
   use 'itchyny/vim-cursorword'
 
@@ -118,14 +141,24 @@ return require('packer').startup(function()
   use {'windwp/nvim-autopairs'}
 
   --nvim-ts-rainbow
-  use {'p00f/nvim-ts-rainbow'}
+  use {
+	'p00f/nvim-ts-rainbow',
+	after = "nvim-treesitter",
+}
 
   --blankline.nvim
-  use {
-	'lukas-reineke/indent-blankline.nvim',
-	config = function() require("nv-indentBlankline")
-	end
-}
+ use {
+   "lukas-reineke/indent-blankline.nvim",
+   event = "BufRead",
+   config = function ()
+	 require("nv-indentBlankline")
+   end,
+ }
+--   use {
+-- 	'lukas-reineke/indent-blankline.nvim',
+-- 	config = function() require("nv-indentBlankline")
+-- 	end
+-- }
 
   --vim-sorround
   use {'tpope/vim-surround'}
@@ -163,9 +196,18 @@ return require('packer').startup(function()
   use {
   'phaazon/hop.nvim',
   as = 'hop',
+  cmd = {
+         "HopWord",
+         "HopLine",
+         "HopChar1",
+         "HopChar2",
+         "HopPattern",
+      },
   config = function()
     -- you can configure Hop the way you like here; see :h hop-config
-    require'hop'.setup { keys = 'etovxqpdygfblzhckisuran'  }
+    require'hop'.setup {
+	  keys = 'etovxqpdygfblzhckisuran'
+	}
   end
 }
   --neoscroll.nvim
@@ -204,6 +246,7 @@ use {
 -- 颜色荧光笔
   use {
     "norcalli/nvim-colorizer.lua",
+	event = "BufRead",
     ft = {
       "html",
       "css",

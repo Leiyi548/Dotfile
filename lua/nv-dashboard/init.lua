@@ -1,7 +1,11 @@
 vim.g.indent_blankline_filetype_exclude = 'dashboard'
 vim.g.dashboard_session_directory = '~/.config/nvim/tmp/session'
 vim.g.dashboard_default_executive ='telescope'
-
+vim.g.dashboard_footer_icon = '🐬 '
+  --vim.g.dashboard_preview_pipeline = 'lolcat -F 0.3'
+  --vim.g.dashboard_preview_file =  '~/.config/nvim/neovim.cat'
+  --vim.g.dashboard_preview_file_height = 12
+  --vim.g.dashboard_preview_file_width = 80
 -- 老婆 嘿嘿～～
 vim.g.dashboard_custom_header={
     '',
@@ -21,8 +25,8 @@ vim.g.dashboard_custom_header={
     ' ⢸⠇⡜⣿⡟⠄⠄⠄⠈⠙⣿⣿⣿⣿⣿⣿⣿⣿⠟⣱⣻⣿⣿⣿⣿⣿⠟⠁⢳⠃⣿⣿⣿ ',
     '  ⣰⡗⠹⣿⣄⠄⠄⠄⢀⣿⣿⣿⣿⣿⣿⠟⣅⣥⣿⣿⣿⣿⠿⠋  ⣾⡌⢠⣿⡿⠃ ',
     ' ⠜⠋⢠⣷⢻⣿⣿⣶⣾⣿⣿⣿⣿⠿⣛⣥⣾⣿⠿⠟⠛⠉            ',
-    -- '',
-    -- '',
+    '',
+    '',
     }
 --
 -- vim.g.dashboard_custom_header={

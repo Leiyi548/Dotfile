@@ -39,3 +39,8 @@ vim.g.indent_blankline_char = "│"
     "while",
     "for"
   }
+  require("indent_blankline").setup {
+    char = "|",
+    buftype_exclude = {"terminal"}
+}
+
