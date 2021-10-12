@@ -86,6 +86,7 @@ plugins=(git
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
+#source ~/.bash_profile
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
@@ -115,7 +116,6 @@ alias ra="ranger"
 alias tnew="tmux new -s"
 alias ta="tmux a -t"
 alias vi="nvim"
-alias vim="nvim"
 alias pip="pip3"
 #bindkey ']' autosuggest-accept
 set -o vi
@@ -128,5 +128,12 @@ export PATH="~/.config:$PATH"
 export RANGER_LOAD_DEFAULT_Rc=FALSE
 export GOPATH=~/opt/go
 export PATH=$PATH:$GOPATH/bin
-go env -w GO111MODULE=on
+export PATH=$PATH:~/.local/bin
+#export PATH="$HOME/.local/bin"
+go env -w GO111MODULE=auto
 go env -w GOPROXY=https://goproxy.io,direct
+#maven
+export M2_HOME=/Users/macos/Downloads/apache-maven-3.8.3
+export PATH=$PATH:$M2_HOME/bin
+PATH=/bin:/usr/bin:/usr/local/bin:${PATH} 
+export PATH
