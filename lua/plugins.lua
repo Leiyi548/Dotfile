@@ -14,7 +14,7 @@ return require('packer').startup(function()
   -- INFO:UI
   -- color scheme
   use {'glepnir/zephyr-nvim',
-  config = [[vim.cmd('colorscheme zephyr')]]
+  --config = [[vim.cmd('colorscheme zephyr')]]
 }
 
   --vscode-theme
@@ -24,6 +24,8 @@ return require('packer').startup(function()
   --onedark.vim
   use {
 	'joshdick/onedark.vim',
+	config = [[vim.cmd('colorscheme onedark')]]
+
 }
   -- edge colorscheme
   use {
@@ -102,6 +104,13 @@ use {
   'iamcco/markdown-preview.nvim',
   run = "cd app && npm install", setup = function() vim.g.mkdp_filetypes = { "markdown" } end,
   ft = "markdown",
+  config = function ()
+vim.g.mkdp_markdown_css = "~/.config/nvim/colorscheme/markdown.css"
+vim.cmd([[
+source ~/.config/nvim/md-snippets.vim
+autocmd BufRead,BufNewFile *.md setlocal spell
+]])
+  end
 }
 
 use {

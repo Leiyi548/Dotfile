@@ -39,5 +39,5 @@ vim.g.rnvimr_enable_picker = 1
 
 
 --markdownpreview.nvim
-vim.g.mkdp_markdown_css = "~/.config/nvim/colorscheme/markdown.css"
+
 --vim.g.mkdp_browser = 'chrome'
