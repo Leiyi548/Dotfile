@@ -106,6 +106,7 @@ use {
   ft = "markdown",
   config = function ()
 vim.g.mkdp_markdown_css = "~/.config/nvim/colorscheme/markdown.css"
+vim.g.mkdp_auto_close =0
 vim.cmd([[
 source ~/.config/nvim/md-snippets.vim
 autocmd BufRead,BufNewFile *.md setlocal spell
