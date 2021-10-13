@@ -69,7 +69,8 @@ wk.register({
   ["<leader>m"] = {
     name = "+Markdown",
 	p = {"<cmd>MarkdownPreview<CR>","Preview"},
-	t = {"<cmd>TableModeToggle<CR>","TableMode"}
+	t = {"<cmd>TableModeToggle<CR>","TableMode"},
+	g = {"<cmd>Glow<CR>","Glow"}
 
   },
 })

@@ -5,6 +5,8 @@ if fn.empty(fn.glob(install_path)) > 0 then
 end
 
 local uiconf = require('ui.config')
+local editorconf = require("editor.config")
+local completionconf = require("completion.config")
 
 return require('packer').startup(function()
   -- Packer can manage itself
@@ -14,6 +16,7 @@ return require('packer').startup(function()
   use {'glepnir/zephyr-nvim',
   config = [[vim.cmd('colorscheme zephyr')]]
 }
+
   --vscode-theme
   use {
 	'Mofiqul/vscode.nvim',
@@ -36,6 +39,9 @@ return require('packer').startup(function()
 	config = uiconf.nvim_bufferline,
   }
 
+-- --lualine.nvim
+-- use {
+-- }
 --galxyline
   use {
 	"glepnir/galaxyline.nvim", branch = "main",
@@ -56,6 +62,57 @@ return require('packer').startup(function()
    config = uiconf.indent_blankline
  }
 
+-- INFO:editor
+  -- accelerated_jk
+  use 'rhysd/accelerated-jk'
+
+  use {
+	'itchyny/vim-cursorword',
+	event = {"BufReadPre","BufNewFile"},
+  }
+
+  use {
+	"simrat39/symbols-outline.nvim",
+	cmd = {'SymbolsOutline', 'SymbolsOulineOpen'},
+  }
+
+  --vim-sorround
+  use {
+	'tpope/vim-surround',
+	keys = {"c","d","y"},
+  }
+
+  use {
+	  'romgrk/nvim-treesitter-context',
+	  config = function()
+		require("nv-treesitter.context")
+	  end,
+	  after = "nvim-treesitter",
+  }
+
+--vim-easy-align
+use {
+  'junegunn/vim-easy-align',
+  cmd = "EasyAlign",
+}
+
+-- INFO:Markdown
+--markdown
+use {
+  'iamcco/markdown-preview.nvim',
+  run = "cd app && npm install", setup = function() vim.g.mkdp_filetypes = { "markdown" } end,
+  ft = "markdown",
+}
+
+use {
+  "npxbr/glow.nvim",
+  ft = {"markdown"},
+}
+
+use {
+  "dhruvasagar/vim-table-mode",
+  ft = "markdown"
+}
  -- INFO:cmp
   --config my lsp
   use "neovim/nvim-lspconfig" --This repo handles automatically launching and initializing language servers that are installed on your system.
@@ -67,43 +124,28 @@ return require('packer').startup(function()
 	  --end
 }
   use 'glepnir/lspsaga.nvim'
+  use {
+	'hrsh7th/nvim-cmp',
+	config = completionconf.cmp
+  }
   use 'hrsh7th/cmp-nvim-lsp'
+  use "hrsh7th/cmp-buffer"
+  --use "hrsh7th/cmp-nvim-lsp"
+  use "hrsh7th/cmp-path"
+  use "hrsh7th/cmp-nvim-lua"
+  use "hrsh7th/cmp-emoji"
+  use "quangnguyen30192/cmp-nvim-ultisnips"
 
   use {
-  'hrsh7th/nvim-cmp',
-  requires = {
-	"onsails/lspkind-nvim", --美化自动完成提示信息
-	"hrsh7th/cmp-buffer", --从buffer中智能提示
-	"hrsh7th/cmp-nvim-lua", --nvim-cmp source for neovim Lua API.
-	"octaltree/cmp-look", --用于完成英语单词
-	"hrsh7th/cmp-path", --自动提示硬盘上的文件
-	"hrsh7th/cmp-calc", --输入数学算式（如1+1=）自动计算
-	"f3fora/cmp-spell", --nvim-cmp 的拼写源基于 vim 的拼写建议
-  }
+	'windwp/nvim-autopairs',
 }
   use 'kosayoda/nvim-lightbulb'
   use {
   "ray-x/lsp_signature.nvim",
   }
-
   -- snippet
-  use 'rafamadriz/friendly-snippets'
-  use 'hrsh7th/vim-vsnip'
-  use 'hrsh7th/vim-vsnip-integ'
-
-  use {
-  'L3MON4D3/LuaSnip',
-  loaded = false,
-  requires = {
-  "saadparwaiz1/cmp_luasnip", -- Snippets source for nvim-cmp
-  "rafamadriz/friendly-snippets" --代码段合集
-  }
-}
-  use {
-	'saadparwaiz1/cmp_luasnip',
-	loaded = false,
-} -- Snippets source for nvim-cmp
-
+  use "SirVer/ultisnips"
+  use "Allen191819/vim-snippets"
   -- Highlight language
   -- treesitter
   use {
@@ -114,13 +156,11 @@ return require('packer').startup(function()
 		require("nv-treesitter")
 	  end
   }
+  --nvim-ts-rainbow
   use {
-	  'romgrk/nvim-treesitter-context',
-	  config = function()
-		require("nv-treesitter.context")
-	  end,
-	  after = "nvim-treesitter",
-  }
+	'p00f/nvim-ts-rainbow',
+	after = "nvim-treesitter",
+}
   -- dashboard
   use {
 'glepnir/dashboard-nvim',
@@ -135,10 +175,7 @@ event = "BufWinEnter",
 setup = uiconf.dashboard,
 }
 
-  use 'itchyny/vim-cursorword'
 
-  -- accelerated_jk
-  use 'rhysd/accelerated-jk'
 
 
   --Search File
@@ -159,14 +196,6 @@ setup = uiconf.dashboard,
   --asyncrun and asynctask and sniprun
   use {'skywind3000/asyncrun.vim'}
   use {'skywind3000/asynctasks.vim'}
-  --nvim-autopairs
-  use {'windwp/nvim-autopairs'}
-
-  --nvim-ts-rainbow
-  use {
-	'p00f/nvim-ts-rainbow',
-	after = "nvim-treesitter",
-}
 
 --   use {
 -- 	'lukas-reineke/indent-blankline.nvim',
@@ -174,22 +203,30 @@ setup = uiconf.dashboard,
 -- 	end
 -- }
 
-  --vim-sorround
-  use {'tpope/vim-surround'}
 
   --tmux-navigator
   use {'christoomey/vim-tmux-navigator'}
 
   -- smartim
-  use {'ybian/smartim'}
+  use {
+	'ybian/smartim',
+	event = {"InsertEnter"},
+  }
 
 
   --formatter.nvim
-  use {'mhartington/formatter.nvim'}
+  use {
+	'mhartington/formatter.nvim',
+	opt = true,
+  }
 
 
   --comment quickly
-  use 'terrortylor/nvim-comment'
+  use {
+	'terrortylor/nvim-comment',
+	keys = {"gc","gcc"},
+	config = editorconf.nvim_comment,
+  }
 
 
   --Interesting todo comment
@@ -197,13 +234,8 @@ setup = uiconf.dashboard,
   use {
 	"folke/todo-comments.nvim",
 	requires = "nvim-lua/plenary.nvim",
-	config = function()
-	  require("todo-comments").setup {
-		-- your configuration comes here
-		-- or leave it empty to use the default settings
-		-- refer to the configuration section below
-	  }
-	end
+	event = "BufRead",
+	config =editorconf.todocomments,
   }
 
   --hop.nvim search file
@@ -227,10 +259,6 @@ setup = uiconf.dashboard,
   --neoscroll.nvim
   --use {'karb94/neoscroll.nvim'}
 
---vim-easy-align
-use {
-  'junegunn/vim-easy-align',
-}
 
 --[[
 --
@@ -246,16 +274,6 @@ use {
 	cmd = "RnvimrToggle",
   }
 
---markdown
-use {
-  'iamcco/markdown-preview.nvim',
-  run = "cd app && npm install", setup = function() vim.g.mkdp_filetypes = { "markdown" } end,
-  ft = "markdown",
-	}
-use {
-  "dhruvasagar/vim-table-mode",
-  ft = "markdown"
-}
 
 -- 颜色荧光笔
   use {
@@ -292,8 +310,7 @@ use {
   use {
   "folke/trouble.nvim",
   requires = "kyazdani42/nvim-web-devicons",
-  cmd = "ToubleToggle",
-  path = "/Users/macos/.local/share/nvim/site/pack/packer/opt/trouble.nvim",
+  cmd = {"ToubleToggle","TroubleToggle","TroubleRefresh"},
   config = function()
 	require("nv-troubleNvim")
   end
@@ -315,7 +332,7 @@ use {
 
   use {
 	'michaelb/sniprun',
-	cmd = "Sniprun",
+	cmd = {"Sniprun","'<,'>SnipRun"},
 	run = 'bash ./install.sh'
   }
 

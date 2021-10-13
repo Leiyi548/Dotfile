@@ -60,17 +60,17 @@ require('nv-asynctask')
 require('lsp.keymappings')
 require('lsp.lspCfg')
 require('lsp.lspUi')
-require('lsp.completion')
+--require('lsp.completion')
 
 --which_key
 --require('nv-whichKey')
 --require('nv-whichKey.cfg')
 
 --formatter
-require('nv-formmater')
+--require('nv-formmater')
 
 --comment
-require('nv-nvimComment')
+--require('nv-nvimComment')
 
 --trouble
 --require('nv-troubleNvim')
