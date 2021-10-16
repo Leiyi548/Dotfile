@@ -1,75 +1,36 @@
-local M = {}
+local M={}
 
 M.config = function()
-  lvim.builtin.which_key = {
-    ---@usage disable which-key completely [not recommeded]
-    active = true,
-    on_config_done = nil,
-    setup = {
-      plugins = {
-        marks = true, -- shows a list of your marks on ' and `
-        registers = true, -- shows your registers on " in NORMAL or <C-r> in INSERT mode
-        -- the presets plugin, adds help for a bunch of default keybindings in Neovim
-        -- No actual key bindings are created
-        presets = {
-          operators = false, -- adds help for operators like d, y, ...
-          motions = false, -- adds help for motions
-          text_objects = false, -- help for text objects triggered after entering an operator
-          windows = true, -- default bindings on <c-w>
-          nav = true, -- misc bindings to work with windows
-          z = true, -- bindings for folds, spelling and others prefixed with z
-          g = true, -- bindings for prefixed with g
-        },
-        spelling = { enabled = true, suggestions = 20 }, -- use which-key for spelling hints
-      },
-      icons = {
-        breadcrumb = "»", -- symbol used in the command line area that shows your active key combo
-        separator = "➜", -- symbol used between a key and it's label
-        group = "+", -- symbol prepended to a group
-      },
-      window = {
-        border = "single", -- none, single, double, shadow
-        position = "bottom", -- bottom, top
-        margin = { 1, 0, 1, 0 }, -- extra window margin [top, right, bottom, left]
-        padding = { 2, 2, 2, 2 }, -- extra window padding [top, right, bottom, left]
-      },
-      layout = {
-        height = { min = 4, max = 25 }, -- min and max height of the columns
-        width = { min = 20, max = 50 }, -- min and max width of the columns
-        spacing = 3, -- spacing between columns
-      },
-      hidden = { "<silent>", "<cmd>", "<Cmd>", "<CR>", "call", "lua", "^:", "^ " }, -- hide mapping boilerplate
-      show_help = true, -- show help message on the command line when the popup is visible
-    },
+   --Generates keybindings
+   vim.opt.relativenumber = true
+   vim.opt.cmdheight = 1
+   vim.opt.timeoutlen = 500
 
-    opts = {
-      mode = "n", -- NORMAL mode
-      prefix = "<leader>",
-      buffer = nil, -- Global mappings. Specify a buffer number for buffer local mappings
-      silent = true, -- use `silent` when creating keymaps
-      noremap = true, -- use `noremap` when creating keymaps
-      nowait = true, -- use `nowait` when creating keymaps
-    },
-    vopts = {
-      mode = "v", -- VISUAL mode
-      prefix = "<leader>",
-      buffer = nil, -- Global mappings. Specify a buffer number for buffer local mappings
-      silent = true, -- use `silent` when creating keymaps
-      noremap = true, -- use `noremap` when creating keymaps
-      nowait = true, -- use `nowait` when creating keymaps
-    },
-    -- NOTE: Prefer using : over <cmd> as the latter avoids going back in normal-mode.
-    -- see https://neovim.io/doc/user/map.html#:map-cmd
-    vmappings = {
-      ["/"] = { "<ESC><CMD>lua ___comment_gc(vim.fn.visualmode())<CR>", "Comment" },
-    },
-    mappings = {
-      ["w"] = { "<cmd>w!<CR>", "Save" },
+   lvim.keys.normal_mode["<esc><esc>"] = "<cmd>nohlsearch<cr>"
+   lvim.keys.normal_mode["H"] = "0"
+   lvim.keys.normal_mode["L"] = "$"
+   lvim.keys.normal_mode["<leader>sc"] = "<cmd>nohlsearch<cr>"
+   --quickcopy
+   lvim.keys.normal_mode["Y"] = "y$"
+   lvim.keys.normal_mode["<leader>y"] = '"+y'
+   lvim.keys.normal_mode["<leader>yy"] = '"+yy'
+   lvim.keys.normal_mode["<leader>p"] = '"+p"'
+
+   -- X closes a buffer
+   lvim.keys.normal_mode["<S-x>"] = ":BufferClose<CR>"
+   -- accelerated-jk
+   vim.api.nvim_set_keymap('n','j','<Plug>(accelerated_jk_gj)',{ silent=true })
+   vim.api.nvim_set_keymap('n','k','<Plug>(accelerated_jk_gk)',{ silent=true })
+   -- run 保持终端
+   vim.api.nvim_set_keymap('t','<Esc>',"<C-\\><C-n>",{silent=true})
+   --whichkey
+   lvim.builtin.which_key.mappings = {
       ["q"] = { "<cmd>q!<CR>", "Quit" },
-      ["/"] = { "<cmd>lua require('Comment').toggle()<CR>", "Comment" },
+      --["/"] = { "<cmd>lua require('Comment').toggle()<CR>", "Comment" },
       ["c"] = { "<cmd>BufferClose!<CR>", "Close Buffer" },
       --["f"] = { "<cmd>Telescope find_files<CR>", "Find File" },
-      ["h"] = { "<cmd>nohlsearch<CR>", "No Highlight" },
+      --["h"] = { "<cmd>nohlsearch<CR>", "No Highlight" },
+      --Whichkey-b
       b = {
         name = "Buffers",
         j = { "<cmd>BufferPick<cr>", "Jump" },
@@ -94,6 +55,7 @@ M.config = function()
           "Sort by language",
         },
       },
+      --Whichkey-p
       p = {
         name = "Packer",
         c = { "<cmd>PackerCompile<cr>", "Compile" },
@@ -103,6 +65,25 @@ M.config = function()
         S = { "<cmd>PackerSync<cr>", "Sync" },
         u = { "<cmd>PackerUpdate<cr>", "Update" },
       },
+      --Whichkey-E
+      E = {
+        name = "Hello",
+        v = { "<cmd>Vista<CR>", "Vista" },
+	      u = { "<cmd>UndotreeToggle<CR>","UndoTree"},
+      },
+      --Whichkey-t
+      t = {
+        name = "Terminal",
+        r = { "<cmd>RnvimrToggle<CR>", "ranger" },
+	      a = { "<cmd>RnvimrResize<CR>", "resize"},
+      },
+      --Whichkey-r
+      r = {
+        name = "Run",
+         t = { "<cmd>AsyncTask file-run<CR>", "Run on default terminal" },
+	       f = { "<cmd>AsyncTask file-run-floaterm<CR>","Run on floaterm" }
+      },
+      --Whichkey-f
       f = {
         name = "+File",
         b = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
@@ -116,13 +97,7 @@ M.config = function()
         R = { "<cmd>Telescope registers<cr>", "Registers" },
         t = { "<cmd>Telescope live_grep<cr>", "Text" },
       },
-      -- " Available Debug Adapters:
-      -- "   https://microsoft.github.io/debug-adapter-protocol/implementors/adapters/
-      -- " Adapter configuration and installation instructions:
-      -- "   https://github.com/mfussenegger/nvim-dap/wiki/Debug-Adapter-installation
-      -- " Debug Adapter protocol:
-      -- "   https://microsoft.github.io/debug-adapter-protocol/
-      -- " Debugging
+      --Whichkey-g
       g = {
         name = "Git",
         j = { "<cmd>lua require 'gitsigns'.next_hunk()<cr>", "Next Hunk" },
@@ -148,7 +123,7 @@ M.config = function()
           "Git Diff",
         },
       },
-
+      --Whichkey-l
       l = {
         name = "LSP",
         a = { "<cmd>lua require('lvim.core.telescope').code_actions()<cr>", "Code Action" },
@@ -186,6 +161,7 @@ M.config = function()
           "Workspace Symbols",
         },
       },
+      --Whichkey-L
       L = {
         name = "+LunarVim",
         c = {
@@ -235,6 +211,7 @@ M.config = function()
         r = { "<cmd>lua require('lvim.utils').reload_lv_config()<cr>", "Reload configurations" },
         u = { "<cmd>LvimUpdate<cr>", "Update LunarVim" },
       },
+      --Whichkey-s
       s = {
         name = "Search",
         c = {name="clear-search-result"},
@@ -248,27 +225,8 @@ M.config = function()
         name = "Treesitter",
         i = { ":TSConfigInfo<cr>", "Info" },
       },
-    },
-  }
-end
+}
 
-M.setup = function()
-  local which_key = require "which-key"
-
-  which_key.setup(lvim.builtin.which_key.setup)
-
-  local opts = lvim.builtin.which_key.opts
-  local vopts = lvim.builtin.which_key.vopts
-
-  local mappings = lvim.builtin.which_key.mappings
-  local vmappings = lvim.builtin.which_key.vmappings
-
-  which_key.register(mappings, opts)
-  which_key.register(vmappings, vopts)
-
-  if lvim.builtin.which_key.on_config_done then
-    lvim.builtin.which_key.on_config_done(which_key)
-  end
 end
 
 return M

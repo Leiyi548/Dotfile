@@ -115,7 +115,7 @@ alias l="ll -a"
 alias ra="ranger"
 alias tnew="tmux new -s"
 alias ta="tmux a -t"
-alias vi="nvim"
+alias vi="lvim"
 alias pip="pip3"
 #bindkey ']' autosuggest-accept
 set -o vi
