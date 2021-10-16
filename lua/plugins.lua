@@ -17,6 +17,11 @@ return require('packer').startup(function()
   --config = [[vim.cmd('colorscheme zephyr')]]
 }
 
+  --tokyonight.nvim
+  use{
+	"folke/tokyonight.nvim",
+	config = vim.cmd[[colorscheme tokyonight]];
+  }
   --vscode-theme
   use {
 	'Mofiqul/vscode.nvim',
@@ -24,7 +29,7 @@ return require('packer').startup(function()
   --onedark.vim
   use {
 	'joshdick/onedark.vim',
-	config = [[vim.cmd('colorscheme onedark')]]
+	--config = [[vim.cmd('colorscheme onedark')]]
 
 }
   -- edge colorscheme
@@ -78,6 +83,10 @@ return require('packer').startup(function()
 	cmd = {'SymbolsOutline', 'SymbolsOulineOpen'},
   }
 
+  use {
+	'mbbill/undotree',
+	cmd = {"UndotreeToggle"},
+  }
   --vim-sorround
   use {
 	'tpope/vim-surround',

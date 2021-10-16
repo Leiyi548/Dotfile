@@ -15,3 +15,4 @@ vim.opt.termguicolors = true
 --vim.g.vscode_style = "light"
 --vim.cmd[[colorscheme vscode]]
 
+vim.g.tokyonight_style = "night"

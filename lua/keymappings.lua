@@ -51,6 +51,7 @@ vim.api.nvim_set_keymap('n','<S-TAB>',':BufferLineCyclePrev<CR>',{noremap=true,s
 
 -- run 保持终端
 vim.api.nvim_set_keymap('t','<Esc>',"<C-\\><C-n>",{silent=true})
+vim.api.nvim_set_keymap('t','q',"<Esc><C-\\><C-n>:q<CR>",{silent=true})
 
 -- nvim-tree.lua
 vim.api.nvim_set_keymap('n','<leader>e',':NvimTreeToggle<CR>',{ noremap=true,silent=true })

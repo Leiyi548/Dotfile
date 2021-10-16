@@ -20,6 +20,7 @@ wk.register({
   ["<leader>e"] = {
     name = "Explorer",
 	v = { "<cmd>Vista<CR>", "Vista" },
+	u = { "<cmd>UndotreeToggle<CR>","UndoTree"},
   },
 })
 

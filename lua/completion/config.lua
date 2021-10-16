@@ -140,7 +140,6 @@ cmp.setup {
             -- set a name for each source
             vim_item.menu =
                 ({
-				lsp = "[LSP]",
                 buffer = "[Buffer]",
                 emoji = "[Emoji]",
                 ultisnips = "[UltiSnip]",
