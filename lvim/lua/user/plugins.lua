@@ -147,8 +147,28 @@ lvim.plugins={
       config = function ()
         require("rnvimr")
       end
-    }
-
+    },
+    --smartim
+    {
+      'ybian/smartim',
+      event = {"InsertEnter"},
+      config = function ()
+        vim.g.smartim_default = 'com.apple.keylayout.ABC'
+      end
+    },
+    --trouble
+    {
+      "folke/trouble.nvim",
+        cmd = "TroubleToggle",
+    },
+    --
+    {
+      "ray-x/lsp_signature.nvim",
+      config = function()
+        require("user.lsp_signature").config()
+      end,
+      event = "BufRead",
+    },
 }
 end
 return M

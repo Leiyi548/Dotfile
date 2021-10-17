@@ -12,9 +12,9 @@ M.config = function()
    lvim.keys.normal_mode["<leader>sc"] = "<cmd>nohlsearch<cr>"
    --quickcopy
    lvim.keys.normal_mode["Y"] = "y$"
-   lvim.keys.normal_mode["<leader>y"] = '"+y'
-   lvim.keys.normal_mode["<leader>yy"] = '"+yy'
-   lvim.keys.normal_mode["<leader>p"] = '"+p"'
+-- lvim.keys.normal_mode["<leader>y"] = '"+y'
+   -- lvim.keys.normal_mode["<leader>yy"] = '"+yy'
+   -- lvim.keys.normal_mode["<leader>p"] = '"+p"'
 
    -- X closes a buffer
    lvim.keys.normal_mode["<S-x>"] = ":BufferClose<CR>"
@@ -96,6 +96,16 @@ M.config = function()
         r = { "<cmd>Telescope oldfiles<CR>", "Open Recent File" },
         R = { "<cmd>Telescope registers<cr>", "Registers" },
         t = { "<cmd>Telescope live_grep<cr>", "Text" },
+      },
+      --which_key-x
+      x = {
+        name = "Diagnostics",
+        t = { "<cmd>TroubleToggle<cr>", "trouble" },
+        w = { "<cmd>TroubleToggle lsp_workspace_diagnostics<cr>", "workspace" },
+        d = { "<cmd>TroubleToggle lsp_document_diagnostics<cr>", "document" },
+        q = { "<cmd>TroubleToggle quickfix<cr>", "quickfix" },
+        l = { "<cmd>TroubleToggle loclist<cr>", "loclist" },
+        r = { "<cmd>TroubleToggle lsp_references<cr>", "references" },
       },
       --Whichkey-g
       g = {
