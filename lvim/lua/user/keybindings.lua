@@ -19,6 +19,8 @@ M.config = function()
    lvim.keys.normal_mode["<leader>wv"] = "<cmd>vsplit<cr>"
    lvim.keys.normal_mode["<leader>ws"] = "<cmd>split<cr>"
    lvim.keys.normal_mode["<leader>wd"] = "<C-w>c"
+   lvim.keys.visual_mode["H"] = "0"
+   lvim.keys.visual_mode["L"] = "$"
     --quickcopy
    lvim.keys.normal_mode["Y"] = "y$"
 -- lvim.keys.normal_mode["<leader>y"] = '"+y'
@@ -46,7 +48,7 @@ M.config = function()
       --["h"] = { "<cmd>nohlsearch<CR>", "No Highlight" },
       --Whichkey-b
   --lvim.builtin.which_key.mappings[";"] = { "<cmd>Dashboard<CR>", "Dashboard" }
-      [";"] = { "<cmd>Dashboard<CR>","Dashboard"},
+      [";"] = { "<cmd>Alpha<CR>","Dashboard"},
   --lvim.builtin.which_key.mappings["e"] = { "<cmd>NvimTreeToggle<CR>", "Explorer" }
       ["e"] = { "<cmd>NvimTreeToggle<CR>","Explorer"},
       b = {
@@ -88,6 +90,7 @@ M.config = function()
         name = "Hello",
         v = { "<cmd>Vista<CR>", "Vista" },
 	      u = { "<cmd>UndotreeToggle<CR>","UndoTree"},
+        s = { "<cmd>SymbolsOutline<CR>","SymbolsOutline"},
       },
       --Whichkey-t
       t = {
@@ -188,6 +191,12 @@ M.config = function()
           "<cmd>Telescope lsp_dynamic_workspace_symbols<cr>",
           "Workspace Symbols",
         },
+      },
+      --WhichKey-m
+      m ={
+        name="Markdown",
+        p = {"<cmd>MarkdownPreview<CR>","Preview"},
+	      g = {"<cmd>Glow<CR>","Glow"}
       },
       --Whichkey-L
       L = {

@@ -128,7 +128,7 @@ lvim.plugins={
     config = function()
     require('orgmode').setup{}
     end,
-    --disable = not lvim.builtin.orgmode.active,
+    disable = not lvim.builtin.orgmode.active,
 	  },
 
     --Startup time
@@ -223,7 +223,7 @@ lvim.plugins={
     config = function()
       require("autosave").setup()
     end,
-    disable = true,
+    disable = not lvim.builtin.autosave.active,
     },
   {
     "karb94/neoscroll.nvim",
@@ -261,7 +261,21 @@ lvim.plugins={
     config = function()
         require('Navigator').setup()
     end
-  }
+  },
+  {
+    "goolord/alpha-nvim",
+    config = function()
+      require("user.dashboard").config()
+    end,
+    disable = not lvim.builtin.fancy_dashboard.active,
+  },
+  {
+      "simrat39/symbols-outline.nvim",
+      config = function()
+        vim.g.symbols_outline.auto_preview = false
+      end,
+      cmd = "SymbolsOutline",
+  },
 }
 end
 return M

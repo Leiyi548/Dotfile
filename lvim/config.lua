@@ -7,6 +7,16 @@ lvim.lint_on_save = true
 
 lvim.format_on_save = false
 
+lvim.builtin.orgmode = { active = false } -- change to true if you want orgmode.nvim
+lvim.builtin.autosave = { active = false } -- change to true if you want to autosave file
+lvim.builtin.fancy_dashboard = {active = true}
+lvim.builtin.dashboard.active = not lvim.builtin.fancy_dashboard.active
+lvim.builtin.terminal.active = true
+lvim.builtin.nvimtree.setup.view.side = "left"
+lvim.builtin.nvimtree.show_icons.git = 0
+lvim.builtin.treesitter.ensure_installed = {}
+lvim.builtin.treesitter.ignore_install = { "haskell" }
+lvim.builtin.treesitter.highlight.enabled = true
 
 -- Additional Plugins
 -- =========================================
@@ -17,13 +27,3 @@ require("user.plugins").config()
 require("user.keybindings").config()
 -- Customization
 -- =========================================
-lvim.builtin.orgmode = { active = false } -- change to true if you want orgmode.nvim
-lvim.builtin.dashboard.active = true
-lvim.builtin.terminal.active = true
-lvim.builtin.nvimtree.setup.view.side = "left"
-lvim.builtin.nvimtree.show_icons.git = 0
-lvim.builtin.treesitter.ensure_installed = {}
-lvim.builtin.treesitter.ignore_install = { "haskell" }
-lvim.builtin.treesitter.highlight.enabled = true
-
-
