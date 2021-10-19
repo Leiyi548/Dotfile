@@ -90,7 +90,6 @@ nnoremap <S-TAB> gT
 "NERDTree
 nnoremap <leader>e :NERDTree<CR> "打开文件树
 nnoremap Q :NERDTreeClose<CR> "关闭文件树
-nnoremap <leader>ff :NERDTreeFind<CR> "搜索文件
 
 "multiple-cursors
 " Remap multiple-cursors shortcuts for Mac

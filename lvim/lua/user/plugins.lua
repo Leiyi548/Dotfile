@@ -17,6 +17,42 @@ lvim.plugins={
       end,
     },
     {
+      "abzcoding/zephyr-nvim",
+      config = function()
+        vim.cmd [[
+       colorscheme zephyr
+       ]]
+      end,
+      cond = function()
+        local _time = os.date "*t"
+        return (_time.hour >= 5 and _time.hour < 8)
+      end,
+    },
+    {
+      "Pocco81/Catppuccino.nvim",
+      config = function()
+        require("user.theme").catppuccino()
+      end,
+      cond = function()
+        local _time = os.date "*t"
+        return (_time.hour >= 8 and _time.hour < 11)
+      end,
+    },
+    {
+      "abzcoding/doom-one.nvim",
+      branch = "feat/nvim-cmp-floating",
+      config = function()
+        require("user.theme").doom()
+        vim.cmd [[
+      colorscheme doom-one
+      ]]
+      end,
+      cond = function()
+        local _time = os.date "*t"
+        return (_time.hour >= 17 and _time.hour < 21)
+      end,
+    },
+    {
       "rhysd/accelerated-jk"
     },
 
@@ -91,7 +127,8 @@ lvim.plugins={
     ft = {'org'},
     config = function()
     require('orgmode').setup{}
-    end
+    end,
+    --disable = not lvim.builtin.orgmode.active,
 	  },
 
     --Startup time
@@ -161,7 +198,7 @@ lvim.plugins={
       "folke/trouble.nvim",
         cmd = "TroubleToggle",
     },
-    --
+    --lsp_signature
     {
       "ray-x/lsp_signature.nvim",
       config = function()
@@ -169,6 +206,62 @@ lvim.plugins={
       end,
       event = "BufRead",
     },
+    --Emmet-vim
+    {
+      "mattn/emmet-vim",
+      ft = {"html","css","markdown"},
+      config = function ()
+        require("user.emmet").config()
+        vim.cmd([[
+        source ~/.config/nvim/html-snippets.vim
+        autocmd BufRead,BufNewFile *.md setlocal spell
+        ]])
+      end
+    },
+    {
+    "Pocco81/AutoSave.nvim",
+    config = function()
+      require("autosave").setup()
+    end,
+    disable = true,
+    },
+  {
+    "karb94/neoscroll.nvim",
+    event = "WinScrolled",
+    config = function()
+    require('neoscroll').setup({
+          -- All these keys will be mapped to their corresponding default scrolling animation
+          mappings = {'<C-u>', '<C-d>', '<C-b>', '<C-f>',
+          '<C-y>', '<C-e>', 'zt', 'zz', 'zb'},
+          hide_cursor = true,          -- Hide cursor while scrolling
+          stop_eof = true,             -- Stop at <EOF> when scrolling downwards
+          use_local_scrolloff = false, -- Use the local scope of scrolloff instead of the global scope
+          respect_scrolloff = false,   -- Stop scrolling when the cursor reaches the scrolloff margin of the file
+          cursor_scrolls_alone = true, -- The cursor will keep on scrolling even if the window cannot scroll further
+          easing_function = nil,        -- Default easing function
+          pre_hook = nil,              -- Function to run before the scrolling animation starts
+          post_hook = nil,              -- Function to run after the scrolling animation ends
+          })
+    end
+  },
+  {
+    "ZSaberLv0/ZFVimIM",
+    event = "InsertEnter",
+  },
+  {
+    'ZSaberLv0/ZFVimJob',
+    event = "InsertEnter",
+  },
+  {
+    'qdzhang/ZFVimIM_xiaohe',
+    after="ZFVimIM",
+  },
+  {
+    'numToStr/Navigator.nvim',
+    config = function()
+        require('Navigator').setup()
+    end
+  }
 }
 end
 return M

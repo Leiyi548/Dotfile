@@ -379,5 +379,22 @@ setup = uiconf.dashboard,
 	},
 	config = function() require("nv-gitsigns.init") end
 	}
+
+    use {
+      "mattn/emmet-vim",
+      ft = {"html","css","markdown"},
+    }
+--加快下载
+ config = { 
+		max_jobs = 16,
+		git = {
+			default_url_format = 'https://hub.fastgit.org/%s'
+		},
+		display = {
+			open_fn = function()
+				return require('packer.util').float({ border = 'single' })
+			end
+		}
+	}
 end)
 

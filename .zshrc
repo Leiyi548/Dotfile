@@ -117,6 +117,12 @@ alias tnew="tmux new -s"
 alias ta="tmux a -t"
 alias vi="lvim"
 alias pip="pip3"
+alias live="live-server"
+alias py="python3"
+
+#alias git
+alias gs="git status"
+alias ga="git add"
 #bindkey ']' autosuggest-accept
 set -o vi
 

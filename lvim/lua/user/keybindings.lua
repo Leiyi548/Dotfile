@@ -5,12 +5,21 @@ M.config = function()
    vim.opt.relativenumber = true
    vim.opt.cmdheight = 1
    vim.opt.timeoutlen = 500
+   vim.opt.encoding = "utf-8"
 
+   -- keymappings [view all the defaults by pressing <leader>Lk]
+   lvim.leader = "space"
+   -- add your own keymapping
+   lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
+   lvim.keys.normal_mode["Q"]=":qa!<cr>"
    lvim.keys.normal_mode["<esc><esc>"] = "<cmd>nohlsearch<cr>"
    lvim.keys.normal_mode["H"] = "0"
    lvim.keys.normal_mode["L"] = "$"
    lvim.keys.normal_mode["<leader>sc"] = "<cmd>nohlsearch<cr>"
-   --quickcopy
+   lvim.keys.normal_mode["<leader>wv"] = "<cmd>vsplit<cr>"
+   lvim.keys.normal_mode["<leader>ws"] = "<cmd>split<cr>"
+   lvim.keys.normal_mode["<leader>wd"] = "<C-w>c"
+    --quickcopy
    lvim.keys.normal_mode["Y"] = "y$"
 -- lvim.keys.normal_mode["<leader>y"] = '"+y'
    -- lvim.keys.normal_mode["<leader>yy"] = '"+yy'
@@ -23,6 +32,11 @@ M.config = function()
    vim.api.nvim_set_keymap('n','k','<Plug>(accelerated_jk_gk)',{ silent=true })
    -- run 保持终端
    vim.api.nvim_set_keymap('t','<Esc>',"<C-\\><C-n>",{silent=true})
+   --tmux navigation
+   lvim.keys.normal_mode["<C-h>"] = "<CMD>lua require('Navigator').left()<CR>";
+   lvim.keys.normal_mode["<C-j>"] = "<CMD>lua require('Navigator').down()<CR>"
+   lvim.keys.normal_mode["<C-k>"] = "<CMD>lua require('Navigator').up()<CR>"
+   lvim.keys.normal_mode["<C-l>"] = "<CMD>lua require('Navigator').right()<CR>"
    --whichkey
    lvim.builtin.which_key.mappings = {
       ["q"] = { "<cmd>q!<CR>", "Quit" },
@@ -31,6 +45,10 @@ M.config = function()
       --["f"] = { "<cmd>Telescope find_files<CR>", "Find File" },
       --["h"] = { "<cmd>nohlsearch<CR>", "No Highlight" },
       --Whichkey-b
+  --lvim.builtin.which_key.mappings[";"] = { "<cmd>Dashboard<CR>", "Dashboard" }
+      [";"] = { "<cmd>Dashboard<CR>","Dashboard"},
+  --lvim.builtin.which_key.mappings["e"] = { "<cmd>NvimTreeToggle<CR>", "Explorer" }
+      ["e"] = { "<cmd>NvimTreeToggle<CR>","Explorer"},
       b = {
         name = "Buffers",
         j = { "<cmd>BufferPick<cr>", "Jump" },
