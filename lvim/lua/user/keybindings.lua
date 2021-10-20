@@ -198,6 +198,12 @@ M.config = function()
         p = {"<cmd>MarkdownPreview<CR>","Preview"},
 	      g = {"<cmd>Glow<CR>","Glow"}
       },
+      --WhichKey-m
+      n ={
+        name="Neogen",
+         c = { "<cmd>lua require('neogen').generate({ type = 'class'})<CR>", "Class Documentation" },
+         f = { "<cmd>lua require('neogen').generate({ type = 'func'})<CR>", "Function Documentation" },
+      },
       --Whichkey-L
       L = {
         name = "+LunarVim",

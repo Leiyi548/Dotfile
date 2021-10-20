@@ -210,13 +210,13 @@ lvim.plugins={
     {
       "mattn/emmet-vim",
       ft = {"html","css","markdown"},
-      config = function ()
-        require("user.emmet").config()
-        vim.cmd([[
-        source ~/.config/nvim/html-snippets.vim
-        autocmd BufRead,BufNewFile *.md setlocal spell
-        ]])
-      end
+      -- config = function ()
+      --   require("user.emmet").config()
+      --   vim.cmd([[
+      --   source ~/.config/nvim/html-snippets.vim
+      --   autocmd BufRead,BufNewFile *.md setlocal spell
+      --   ]])
+      -- end
     },
     {
     "Pocco81/AutoSave.nvim",
@@ -276,6 +276,27 @@ lvim.plugins={
       end,
       cmd = "SymbolsOutline",
   },
+  {
+    "machakann/vim-sandwich",
+
+  },
+  {
+      "danymat/neogen",
+      config = function()
+        require("neogen").setup {
+          enabled = true,
+        }
+      end,
+      ft = { "lua", "python", "javascript", "typescriptreact", "c", "cpp", "go" },
+      event = "InsertEnter",
+      requires = "nvim-treesitter/nvim-treesitter",
+  },
+  -- {
+  --   'nvim-treesitter/nvim-treesitter-textobjects',
+  --   config = function ()
+  --     require("user.treesitter-textobjects")
+  --   end
+  -- }
 }
 end
 return M

@@ -543,7 +543,7 @@ local num_plugins_loaded = #vim.fn.globpath(get_runtime_dir() .. "/site/pack/pac
     val = {
       button("f", "   Find File ", ":Telescope find_files<CR>"),
       button("n", "   New file", ":ene <BAR> startinsert <CR>"),
-      button("s", "   Recent Projects", ":Telescope projects"),
+      button("s", "   Recent Projects", ":Telescope projects<CR>"),
       button("r", "   Recent Files", ":Telescope oldfiles<CR>"),
       button("b", "   Find Buffers", ":Telescope buffers<CR>"),
       button("o", "   Configure", ":e ~/.config/lvim/config.lua <CR>"),--| :cd %:p:h | split . | wincmd k | pwd

@@ -18,6 +18,7 @@ lvim.builtin.treesitter.ensure_installed = {}
 lvim.builtin.treesitter.ignore_install = { "haskell" }
 lvim.builtin.treesitter.highlight.enabled = true
 
+
 -- Additional Plugins
 -- =========================================
 require("user.plugins").config()
@@ -27,3 +28,14 @@ require("user.plugins").config()
 require("user.keybindings").config()
 -- Customization
 -- =========================================
+
+-- Additional Formatters
+-- =========================================
+-- exe value can be "clang_format" or "uncrustify"
+--C or C++
+lvim.lang.c.formatters = { { exe = "clang-format" } }
+lvim.lang.cpp.formatters = lvim.lang.c.formatters
+--Python
+-- exe value can be "black", "yapf", or "isort"
+--lvim.lang.python.linters = { { exe = "isort" } }
+--lvim.lang.python.formatters = { { exe = "black" } }
