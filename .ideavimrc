@@ -113,9 +113,14 @@ nnoremap <leader>db :action ToggleLineBreakpoint<CR>
 "取消所有的断点
 nnoremap <leader>dB :action Debugger.RemoveAllBreakpointsInFile<CR>
 
-"run
+""""""""""""""""""""""""Run""""""""""""""""""""""""""""""""
 "运行代码
-nnoremap <leader>lr :action Run<CR>
+"设置运行配置
+nnoremap <Space>rc :action RunConfiguration<CR>
+"运行上次运行的类
+noremap <Space>rr :action Run<CR>
+"运行当前(now)类
+noremap <Space>rc :action RunClass<CR>
 """""""""""""""""""""""""Window operation""""""""""""""""""
 nnoremap <leader>wd <C-W>c
 nnoremap <leader>wj <C-W>j

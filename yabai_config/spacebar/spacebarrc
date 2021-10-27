@@ -34,4 +34,4 @@ spacebar -m config left_shell_command  "echo 🤦🏼💆🏻🙆🏼"
 # right shell command
 spacebar -m config right_shell          on
 spacebar -m config right_shell_icon     ​
-spacebar -m config right_shell_command  "~/.config/spacebar/spacebar_status.sh"
+#spacebar -m config right_shell_command  "~/.config/spacebar/spacebar_status.sh"

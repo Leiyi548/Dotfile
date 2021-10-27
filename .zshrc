@@ -116,6 +116,7 @@ alias ra="ranger"
 alias tnew="tmux new -s"
 alias ta="tmux a -t"
 alias vi="lvim"
+alias cl="clear"
 alias pip="pip3"
 alias live="live-server"
 alias py="python3"
@@ -123,6 +124,7 @@ alias py="python3"
 #alias git
 alias gs="git status"
 alias ga="git add"
+alias lg="lazygit"
 #bindkey ']' autosuggest-accept
 set -o vi
 
@@ -143,3 +145,12 @@ export M2_HOME=/Users/macos/Downloads/apache-maven-3.8.3
 export PATH=$PATH:$M2_HOME/bin
 PATH=/bin:/usr/bin:/usr/local/bin:${PATH} 
 export PATH
+export LUNARVIM_CONFIG_DIR="${LUNARVIM_CONFIG_DIR:-$HOME/.config/lvim}"
+export LUNARVIM_RUNTIME_DIR="${LUNARVIM_RUNTIME_DIR:-$HOME/.local/share/lunarvim}"
+export LUNARVIM_CACHE_DIR="${LUNARVIM_CACHE_DIR:-$HOME/.cache/lvim}"
+export PATH=${PATH}:/usr/local/mysql/bin
+export RANGER_LOAD_DEFAULT_RC=FALSE
+#exec neovide -- -u "$LUNARVIM_RUNTIME_DIR/lvim/init.lua" "$@"
+
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+
