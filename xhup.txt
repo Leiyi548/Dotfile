@@ -2593,7 +2593,7 @@ bnda 表达
 bndd 表带
 bndh 瀌
 bndi 标的
-bndj 百年大计
+bndj 表单 百年大计
 bndm 标点
 bndu 本年度
 bnf 不耐烦
@@ -6402,7 +6402,7 @@ dizy 迪
 dj 但
 dja 石
 djak 石
-djb 疸
+djb 单 疸
 djbc 担保
 djbd 蛋白
 djbe 郸

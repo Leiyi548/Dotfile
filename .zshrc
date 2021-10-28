@@ -125,6 +125,10 @@ alias py="python3"
 alias gs="git status"
 alias ga="git add"
 alias lg="lazygit"
+
+#alias fuck_desktop_icon
+alias fuck_desktop_icon="defaults write com.apple.finder CreateDesktop -bool FALSE; killall Finder"
+alias fuck_backup_icon="defaults write com.apple.finder CreateDesktop -bool true; killall Finder"
 #bindkey ']' autosuggest-accept
 set -o vi
 
