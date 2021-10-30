@@ -18,7 +18,8 @@ spacebar -m config spacing_left       18
 spacebar -m config spacing_right      18
 spacebar -m config text_font          "JetBrainsMono Nerd Font Mono:Bold:14.0"
 spacebar -m config icon_font          "Font Awesome 5 Free:Solid:12.0"
-#spacebar -m config background_color   0xff004D40
+###############default colorscheme##############
+# spacebar -m config background_color   0xff004D40
 # spacebar -m config background_color   0xff1f1f1f
 # spacebar -m config foreground_color   0xffffffff
 # spacebar -m config space_icon_color   0xff54baf9
@@ -26,13 +27,24 @@ spacebar -m config icon_font          "Font Awesome 5 Free:Solid:12.0"
 # spacebar -m config battery_icon_color 0xffde5d57
 # spacebar -m config dnd_icon_color     0xffa8a8a8
 # spacebar -m config clock_icon_color   0xffa4d4ce
-spacebar -m config background_color     0xff282828
-spacebar -m config foreground_color     0xffebdbb2
-spacebar -m config space_icon_color     0xfffb4934
-spacebar -m config power_icon_color     0xffcd950c
-spacebar -m config battery_icon_color   0xffd75f5f
-spacebar -m config dnd_icon_color       0xff83a598
-spacebar -m config clock_icon_color     0xffebdbb2
+###############grouvbox colorscheme##############
+# spacebar -m config background_color     0xff282828
+# spacebar -m config foreground_color     0xffebdbb2
+# spacebar -m config space_icon_color     0xfffb4934
+# spacebar -m config power_icon_color     0xffcd950c
+# spacebar -m config battery_icon_color   0xffd75f5f
+# spacebar -m config dnd_icon_color       0xff83a598
+# spacebar -m config clock_icon_color     0xffebdbb2
+###############blue colorscheme##############
+spacebar -m config space_icon_color            0xff5E81AC #5E81AC
+spacebar -m config space_icon_color_secondary  0xff81A1C1 #81A1C1
+spacebar -m config space_icon_color_tertiary   0xfffff9b0 #fff9b0
+spacebar -m config background_color            0xda2E3440 #2E3440da
+spacebar -m config foreground_color            0xaaE5E9F0 #E5E9F0aa
+spacebar -m config right_shell_icon_color      0xffEBCB8B #EBCB8B
+spacebar -m config power_icon_color            0xffD08770 #D08770
+spacebar -m config battery_icon_color          0xffBF616A #BF616A
+spacebar -m config dnd_icon_color              0xffB48EAD #B48EAD
 #spacebar -m config space_icon_strip       
 #spacebar -m config space_icon_strip   🀙 🀚 🀛 🀜 🀝 🀞 🀟 🀠 🀡
 spacebar -m config space_icon_strip   Ⅰ Ⅱ Ⅲ Ⅳ Ⅴ Ⅵ Ⅶ Ⅷ Ⅸ
@@ -41,7 +53,7 @@ spacebar -m config power_icon_strip      
 spacebar -m config space_icon         
 spacebar -m config clock_icon         
 spacebar -m config dnd_icon           
-spacebar -m config clock_format       "%m-%d %R"
+spacebar -m config clock_format       "%a, %m-%d %R"
 
 # left shell command
 spacebar -m config left_shell          on
