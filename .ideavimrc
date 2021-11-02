@@ -64,7 +64,6 @@ set cindent
 set splitright
 set splitbelow
 "突出显示光标
-ser ruler
 "不区分大小写
 set ignorecase
 "
@@ -103,7 +102,7 @@ nmap <S-C-n> <Plug>AllWholeOccurrences "ctrl shift n 选择所有块
 xmap <S-C-n> <Plug>AllWholeOccurrences
 
 " easymotion
-map <leader>ss <Plug>(easymotion-s2)
+map ss <Plug>(easymotion-s2)
 
 """"""""""""""""""""""""Debug""""""""""""""""""""""""""""""""
 "启动Debug
@@ -146,10 +145,10 @@ vnoremap Y y$
 nnoremap Y y$
 """""""""""""""""""""""""""Operation"""""""""""""""""""""''
 """"""""Movej""""""
-nnoremap J 5j
-nnoremap K 5k
-vnoremap J 5j
-vnoremap K 5k
+" nnoremap J 5j
+" nnoremap K 5k
+" vnoremap J 5j
+" vnoremap K 5k
 " Insert mode shortcut
 inoremap <C-h> <Left>
 inoremap <C-j> <Down>
@@ -163,6 +162,9 @@ nnoremap H ^
 nnoremap L $
 vnoremap H ^
 vnoremap L $
+
+nnoremap > >>
+nnoremap < <<
 
 "后退功能
 "nnoremap <leader>gb :action Back<CR>
