@@ -46,8 +46,8 @@ ctrl + alt - d : yabai -m space --destroy
 
 # fast focus desktop(切换空间焦点)
 alt - tab : yabai -m space --focus recent
-alt - n : yabai -m space --focus prev || yabai -m space --focus last
-alt - m : yabai -m space --focus next || yabai -m space --focus first
+alt - p : yabai -m space --focus prev || yabai -m space --focus last
+alt - n : yabai -m space --focus next || yabai -m space --focus first
 alt - 1 : yabai -m space --focus 1
 alt - 2 : yabai -m space --focus 2
 alt - 3 : yabai -m space --focus 3
