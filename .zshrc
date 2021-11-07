@@ -112,6 +112,8 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+# alias v zshrc
+#alias vzsh ="nvim ~/.zshrc"
 alias l="ll -a"
 alias ra="ranger"
 alias s="neofetch"
@@ -161,6 +163,9 @@ export LUNARVIM_CONFIG_DIR="${LUNARVIM_CONFIG_DIR:-$HOME/.config/lvim}"
 export LUNARVIM_RUNTIME_DIR="${LUNARVIM_RUNTIME_DIR:-$HOME/.local/share/lunarvim}"
 export LUNARVIM_CACHE_DIR="${LUNARVIM_CACHE_DIR:-$HOME/.cache/lvim}"
 export PATH=${PATH}:/usr/local/mysql/bin
+export PATH=${PATH}:~/Library/Python/3.8/bin/flake8
+export PATH=${PATH}:~/Library/Python/3.8/bin/flake8
+export PATH=${PATH}:~/Library/Python/3.8/lib/python/site-packages/flake8
 export RANGER_LOAD_DEFAULT_RC=FALSE
 #exec neovide -- -u "$LUNARVIM_RUNTIME_DIR/lvim/init.lua" "$@"
 
