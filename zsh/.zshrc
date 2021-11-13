@@ -83,6 +83,8 @@ plugins=(git
 	zsh-syntax-highlighting
 	zsh-autosuggestions
 	autojump
+  vi-mode
+  zsh-completions
 	)
 
 source $ZSH/oh-my-zsh.sh
@@ -110,6 +112,13 @@ source $ZSH/oh-my-zsh.sh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
 #
+#zsh-completions
+autoload -U compinit && compinit
+# vi-mode(vim)
+VI_MODE_RESET_PROMPT_ON_MODE_CHANGE=true
+VI_MODE_SET_CURSOR=true
+#MODE_INDICATOR="%F{yellow}+%f"
+MODE_INDICATOR=""
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
@@ -141,7 +150,7 @@ alias lg="lazygit"
 alias fuck_desktop_icon="defaults write com.apple.finder CreateDesktop -bool FALSE; killall Finder"
 alias backup_desktop_icon="defaults write com.apple.finder CreateDesktop -bool true; killall Finder"
 #bindkey ']' autosuggest-accept
-set -o vi
+#set -o vi
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 # [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
