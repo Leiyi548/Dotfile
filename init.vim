@@ -55,7 +55,8 @@ set timeoutlen=500 "Set timeout length to 500 ms
 
 """"""""""""""基础操作'''''''''''''''''''''''''
 "快速打开我的init.vim
-nnoremap <leader>fvd :edit $MYVIMRC<CR>
+" nnoremap <leader>fvd :edit $MYVIMRC<CR>
+nnoremap q: :q
 "快速移动
 nnoremap H ^
 nnoremap L $
@@ -89,17 +90,17 @@ nnoremap <leader>wk <C-w>k
 nnoremap <leader>ws :split<CR>
 nnoremap <leader>wv :vsplit<CR>
 "使用 Alt+h/j/k/l 去移动分屏屏幕
-nnoremap <silent>˙ <C-w>2<
-nnoremap <silent>∆ <C-w>2-
-nnoremap <silent>˚ <C-w>2+
-nnoremap <silent>¬ <C-w>2>
+" nnoremap <silent>˙ <C-w>2<
+" nnoremap <silent>∆ <C-w>2-
+" nnoremap <silent>˚ <C-w>2+
+" nnoremap <silent>¬ <C-w>2>
 
 "快速切换buffers
 nnoremap <TAB> :bnext<CR>
 nnoremap <S-TAB> :bprevious<CR>
-nnoremap <leader>bf :bfirst<CR>
-nnoremap <leader>bl :blast<CR>
-nnoremap <leader>bd :bdelete!<CR>
+" nnoremap <leader>bf :bfirst<CR>
+" nnoremap <leader>bl :blast<CR>
+" nnoremap <leader>bd :bdelete!<CR>
 
 "sniprun保留终端
 tnoremap <Esc> <C-\><C-n>
@@ -116,7 +117,7 @@ Plug 'glepnir/zephyr-nvim' "theme
 Plug 'Mofiqul/vscode.nvim' "vscode theme
 Plug 'akinsho/bufferline.nvim' "buffline
 Plug 'norcalli/nvim-colorizer.lua'
-Plug 'glepnir/dashboard-nvim'  "dashboard
+" Plug 'glepnir/dashboard-nvim'  "dashboard
 Plug 'kyazdani42/nvim-web-devicons' " Recommended (for coloured icons)
 " Plug 'ryanoasis/vim-devicons' Icons without colours
 Plug 'lukas-reineke/indent-blankline.nvim'
@@ -129,7 +130,7 @@ Plug 'dstein64/vim-startuptime'
 "======
 "======IntelliTab 只按一次tab就可以
 "======
-Plug 'pta2002/intellitab.nvim'
+" Plug 'pta2002/intellitab.nvim'
 " =======
 " =======debug
 " =======
@@ -162,13 +163,13 @@ Plug 'kyazdani42/nvim-tree.lua'
 " =======
 " =======Neoformat
 " =======
-Plug 'sbdchd/neoformat'
+" Plug 'sbdchd/neoformat'
 
 " =======
 " =======fzf.vim
 " =======
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim'
+" Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+" Plug 'junegunn/fzf.vim'
 " =======
 " =======uodoTree
 " =======
@@ -185,7 +186,7 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
-Plug 'mg979/vim-visual-multi', {'branch': 'master'}
+" Plug 'mg979/vim-visual-multi', {'branch': 'master'}
 " Plug 'Pocco81/AutoSave.nvim'
 " =======
 " =======Search File
@@ -211,13 +212,13 @@ Plug 'voldikss/vim-floaterm'
 " =======
 " =======terminal-help
 " =======
-Plug 'skywind3000/vim-terminal-help'  
+" Plug 'skywind3000/vim-terminal-help'  
 " =======
 " =======asyncrun and asynctask
 " =======
 Plug 'skywind3000/asyncrun.vim'
 Plug 'skywind3000/asynctasks.vim'
-Plug 'skywind3000/asyncrun.extra'
+" Plug 'skywind3000/asyncrun.extra'
 
 " =======
 " =======accelerated_jk
@@ -227,8 +228,8 @@ Plug 'skywind3000/asyncrun.extra'
 " =======
 " =======markdown
 " =======
-Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
-Plug 'dhruvasagar/vim-table-mode', { 'on': 'TableModeToggle', 'for': ['text', 'markdown','html', 'vim-plug'] }
+" Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install' 'for': ['markdown']}
+" Plug 'dhruvasagar/vim-table-mode', { 'on': 'TableModeToggle', 'for': ['text', 'markdown','html', 'vim-plug'] }
 
 " =======
 " =======typewriting
@@ -237,7 +238,7 @@ Plug 'ybian/smartim'
 " =======
 " =======typewriting
 " =======
-Plug 'michaelb/sniprun', {'do': 'bash install.sh'}
+" Plug 'michaelb/sniprun', {'do': 'bash install.sh'}
 " =======
 " =======Lua
 " =======
@@ -280,6 +281,7 @@ wk.register({
     f = { "<cmd>Telescope find_files<cr>", "Find File" },
     r = { "<cmd>Telescope oldfiles<cr>", "Open Recent File" },
     n = { "<cmd>enew<cr>", "New File" },
+	c = { "<cmd>Telescope colorscheme<cr>", "colorscheme"},
   },
 })
 
@@ -420,7 +422,7 @@ EOF
 "======
 "======dashboard-nvim
 "======
-let g:dashboard_default_executive ='telescope'
+"let g:dashboard_default_executive ='telescope'
 "======
 "======nvim-tree.lua
 "=====
@@ -661,37 +663,37 @@ command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organize
 "======== vimspector
 "========
 "launch
-nnoremap <F4> :call vimspector#Launch()<CR>
-"启动debug
-nmap <silent><nowait><leader>dd <Plug>VimspectorContinue
-"重启debug
-nmap <silent><nowait><leader>dr <Plug>VimspectorRestart
-"暂停debug
-nmap <silent><nowait><leader>dp <Plug>VimspectorPause
-"打上断点
-nmap <silent><nowait><leader>db <Plug>VimspectorToggleBreakpoint 
-"单步调试
-nmap <silent><nowait><leader>di <Plug>VimspectorStepInto
-"单步跳出 
-nmap <silent><nowait><leader>do <Plug>VimspectorStepOver
-"单步跳过 <f11>
-nmap <silent><nowait><leader>ds <Plug>VimspectorStepOut
-"
-let g:vimspector_install_gadgets = ['debugpy', 'vscode-cpptools' ]
+"nnoremap <F4> :call vimspector#Launch()<CR>
+""启动debug
+"nmap <silent><nowait><leader>dd <Plug>VimspectorContinue
+""重启debug
+"nmap <silent><nowait><leader>dr <Plug>VimspectorRestart
+""暂停debug
+"nmap <silent><nowait><leader>dp <Plug>VimspectorPause
+""打上断点
+"nmap <silent><nowait><leader>db <Plug>VimspectorToggleBreakpoint 
+""单步调试
+"nmap <silent><nowait><leader>di <Plug>VimspectorStepInto
+""单步跳出 
+"nmap <silent><nowait><leader>do <Plug>VimspectorStepOver
+""单步跳过 <f11>
+"nmap <silent><nowait><leader>ds <Plug>VimspectorStepOut
+""
+"let g:vimspector_install_gadgets = ['debugpy', 'vscode-cpptools' ]
 
-function! s:read_template_into_buffer(template)
-	" has to be a function to avoid the extra space fzf#run insers otherwise
-	execute '0r ~/.config/nvim/sample_vimspector_json/'.a:template
-endfunction
-command! -bang -nargs=* LoadVimSpectorJsonTemplate call fzf#run({
-			\   'source': 'ls -1 ~/.config/nvim/sample_vimspector_json',
-			\   'down': 20,
-			\   'sink': function('<sid>read_template_into_buffer')
-			\ })
-noremap <leader>vs :tabe .vimspector.json<CR>:LoadVimSpectorJsonTemplate<CR>
-sign define vimspectorBP text=☛ texthl=Normal
-sign define vimspectorBPDisabled text=☞ texthl=Normal
-sign define vimspectorPC text=🔶 texthl=SpellBad
+"function! s:read_template_into_buffer(template)
+"	" has to be a function to avoid the extra space fzf#run insers otherwise
+"	execute '0r ~/.config/nvim/sample_vimspector_json/'.a:template
+"endfunction
+"command! -bang -nargs=* LoadVimSpectorJsonTemplate call fzf#run({
+"			\   'source': 'ls -1 ~/.config/nvim/sample_vimspector_json',
+"			\   'down': 20,
+"			\   'sink': function('<sid>read_template_into_buffer')
+"			\ })
+"noremap <leader>vs :tabe .vimspector.json<CR>:LoadVimSpectorJsonTemplate<CR>
+"sign define vimspectorBP text=☛ texthl=Normal
+"sign define vimspectorBPDisabled text=☞ texthl=Normal
+"sign define vimspectorPC text=🔶 texthl=SpellBad
 
 " =======
 " =======COC-translator
@@ -714,7 +716,7 @@ sign define vimspectorPC text=🔶 texthl=SpellBad
 "========
 "======== 'SirVer/ultisnips'
 "========
-let g:tex_flavor="latex"
+" let g:tex_flavor="latex"
 inoremap <c-e> <nop>
 let g:UltiSnipsExpandTrigger="<c-e>"
 let g:UltiSnipsJumpForwardTrigger="<c-k>"
