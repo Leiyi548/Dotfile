@@ -222,7 +222,7 @@ Plug 'skywind3000/asyncrun.extra'
 " =======
 " =======accelerated_jk
 " =======
-Plug 'rhysd/accelerated-jk'
+" Plug 'rhysd/accelerated-jk'
 
 " =======
 " =======markdown
@@ -370,7 +370,7 @@ EOF
 "======nvim-autopairs
 "======
 lua << EOF
-require('nvim-autopairs').setup{}
+--require('nvim-autopairs').setup{}
 EOF
 "======
 "======sniprun
@@ -709,8 +709,8 @@ sign define vimspectorPC text=🔶 texthl=SpellBad
 
 "========accelerated-jk-superman
 "========
-nmap j <Plug>(accelerated_jk_gj)
-nmap k <Plug>(accelerated_jk_gk)
+" nmap j <Plug>(accelerated_jk_gj)
+" nmap k <Plug>(accelerated_jk_gk)
 "========
 "======== 'SirVer/ultisnips'
 "========
