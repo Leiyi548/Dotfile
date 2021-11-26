@@ -182,3 +182,4 @@ export RANGER_LOAD_DEFAULT_RC=FALSE
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
 export PATH="/usr/local/bin:$PATH"
+export PATH="$PATH:/usr/local/texlive/2021/bin"
