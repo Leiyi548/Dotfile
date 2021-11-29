@@ -139,6 +139,7 @@ alias cl="clear"
 alias pip="pip3"
 alias live="live-server"
 #alias python="python3"
+alias gotop="gt"
 alias python -m="python3 -m"
 
 #alias git
