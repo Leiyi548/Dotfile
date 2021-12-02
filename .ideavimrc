@@ -77,11 +77,12 @@ set textobj-entire
 """""""""""""""""""""""'''''''''''''''''''''''''
 nnoremap s <Nop>
 nnoremap X :q<cr>
-vnoremap v <Esc>
 "快速切换buffers
 nnoremap <TAB> gt
 nnoremap <S-TAB> gT
 
+vnoremap J :action MoveLineDown<CR>
+vnoremap K :action MoveLineUp<CR>
 """""""""""""""""""""""""Plugins Setting""""""""""""""""""""""
 "NERDTree
 nnoremap <leader>e :NERDTree<CR> "打开文件树
