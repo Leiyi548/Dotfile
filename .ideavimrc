@@ -31,7 +31,7 @@ let mapleader=" "
 set timeoutlen=500
 nnoremap <SPACE> <nop>
 "相对数字
-set relative number
+set relativenumber
 " 屏幕滚动时在光标上下方保留5行预览代码
 set so=5
 nnoremap <leader>sc :nohlsearch<Cr>
@@ -172,9 +172,13 @@ nnoremap <leader>gb :action JumpToLastChange<CR>
 
 """""""""""""""""""""""""""whichkey-f"""""""""""""""""""""''
 "RenameFile
-noremap <leader>fR :action RenameFile<CR>
+noremap <leader>rn :action RenameFile<CR>
+"Find File
+nnoremap <leader>ff :action GotoFile<CR>
+"Find recent file
+nnoremap <leader>fr :action RecentFiles<CR>
 "change colorscheme
-nnoremap <leader>fc <action>(QuickChangeScheme)
+nnoremap <leader>fc :action QuickChangeScheme<CR>
 "查找用法
 nnoremap <Leader>fu :action FindUsages<CR>
 " whichkey-g
@@ -199,11 +203,11 @@ nnoremap <leader>lj :action GotoNextError<CR>
 nnoremap <leader>lk :action GotoPreviousError<CR>
 
 nnoremap K  :action QuickJavaDoc<CR>
-nnoremap gl <action>(ShowErrorDescription)
-nnoremap ga <action>(Generate)
+nnoremap gl :action ShowErrorDescription<CR>
+nnoremap ga :action Generate<CR>
 
 """""""""""""""""Git"""""""""""""""""""""
-nnoremap <leader>g <action>(Git.Menu)
+nnoremap <leader>g :action Git.Menu<CR>
 
 " navigation
 nnoremap gs :action GotoSuperMethod<CR>
