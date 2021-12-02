@@ -69,8 +69,10 @@ set surround
 set multiple-cursors
 set commentary "能用gcc gc+motion来注释代码
 set keep-english-in-normal-and-restore-in-insert  "普通模式强制以英文模式
-set easymotio
+set easymotion
 set argtextobj
+set highlightyank
+set textobj-entire
 "set whichkey
 """""""""""""""""""""""'''''''''''''''''''''''''
 nnoremap s <Nop>
