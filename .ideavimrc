@@ -31,7 +31,7 @@ let mapleader=" "
 set timeoutlen=500
 nnoremap <SPACE> <nop>
 "相对数字
-set realtive number
+set relative number
 " 屏幕滚动时在光标上下方保留5行预览代码
 set so=5
 nnoremap <leader>sc :nohlsearch<Cr>
@@ -76,6 +76,7 @@ set textobj-entire
 "set whichkey
 """""""""""""""""""""""'''''''''''''''''''''''''
 nnoremap s <Nop>
+nnoremap X :q<cr>
 vnoremap v <Esc>
 "快速切换buffers
 nnoremap <TAB> gt
@@ -97,8 +98,8 @@ nmap <S-C-n> <Plug>AllWholeOccurrences
 xmap <S-C-n> <Plug>AllWholeOccurrences
 
 " easymotion
-map ss <Plug>(easymotion-s2)
-map E <Plug>(easymotion-s)
+nmap ss <Plug>(easymotion-s2)
+nmap E <Plug>(easymotion-s)
 
 """"""""""""""""""""""""Debug""""""""""""""""""""""""""""""""
 "启动Debug
@@ -112,7 +113,7 @@ nnoremap <leader>dB :action Debugger.RemoveAllBreakpointsInFile<CR>
 "运行代码
 "设置运行配置
 nnoremap <Space>rc :action RunConfiguration<CR>
-"运行上次运行的类
+"运行上次运行类
 noremap <Space>rr :action Run<CR>
 "运行当前(now)类
 noremap <Space>rc :action RunClass<CR>
@@ -148,10 +149,6 @@ vnoremap Y y$
 nnoremap Y y$
 """""""""""""""""""""""""""Operation"""""""""""""""""""""''
 """"""""Movej""""""
-" nnoremap J 5j
-" nnoremap K 5k
-" vnoremap J 5j
-" vnoremap K 5k
 " Insert mode shortcut
 inoremap <C-h> <Left>
 inoremap <C-j> <Down>
@@ -173,14 +170,14 @@ nnoremap < <<
 "nnoremap <leader>gb :action Back<CR>
 nnoremap <leader>gb :action JumpToLastChange<CR>
 
-"""""""""""""""""加强操作"""""""""""""""""""""
-"move Error
- "跳转上一个错误
-nnoremap [l :action GotoPreviousError<CR>
-"跳转下一个错误
-nnoremap ]l :action GotoNextError<CR>
+"""""""""""""""""""""""""""whichkey-f"""""""""""""""""""""''
+"RenameFile
+noremap <leader>fR :action RenameFile<CR>
+"change colorscheme
+nnoremap <leader>fc <action>(QuickChangeScheme)
 "查找用法
 nnoremap <Leader>fu :action FindUsages<CR>
+" whichkey-g
 "跳转到Action
 nnoremap <Leader>ga :action GotoAction<CR>
 "跳转SuperMethod
@@ -193,17 +190,23 @@ nnoremap <Leader>gf :action GotoFile<CR>
 nnoremap gd :action GotoDeclaration<CR>
 "跳转到实现类
 nnoremap gi :action GotoImplementation<CR>
-"""""""commentary""""""
-"nnoremap  gcc :action CommentByLineComment<CR>
-"vnoremap  gc :action CommentByLineComment<CR>
-"""""""format""""""""""
-"格式化代码
-nnoremap == :action ReformatCode<CR>
 
+"""""""""""""""""LSP"""""""""""""""""""""
+nnoremap <leader>lf :action ReformatCode<CR>
+"跳转下一个错误
+nnoremap <leader>lj :action GotoNextError<CR>
+ "跳转上一个错误
+nnoremap <leader>lk :action GotoPreviousError<CR>
 
+nnoremap K  :action QuickJavaDoc<CR>
+nnoremap gl <action>(ShowErrorDescription)
+nnoremap ga <action>(Generate)
+
+"""""""""""""""""Git"""""""""""""""""""""
+nnoremap <leader>g <action>(Git.Menu)
 
 " navigation
-"nnoremap gs :action GotoSuperMethod<CR>
-"nnoremap gi :action GotoImplementation<CR>
-"nnoremap gd :action GotoDeclaration<CR>
-"nnoremap gf :action FileStructurePopup<CR>
+nnoremap gs :action GotoSuperMethod<CR>
+nnoremap gi :action GotoImplementation<CR>
+nnoremap gd :action GotoDeclaration<CR>
+nnoremap gf :action FileStructurePopup<CR>
