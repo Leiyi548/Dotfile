@@ -66,15 +66,14 @@ set showmode
 "Plug
 set NERDTree
 set surround
-set multiaple-cursors
+set multiple-cursors
 set commentary "能用gcc gc+motion来注释代码
 set keep-english-in-normal-and-restore-in-insert  "普通模式强制以英文模式
-set easymotion
+set easymotio
 set argtextobj
 "set whichkey
 """""""""""""""""""""""'''''''''''''''''''''''''
 nnoremap s <Nop>
-nnoremap q <Nop>
 vnoremap v <Esc>
 "快速切换buffers
 nnoremap <TAB> gt
@@ -86,18 +85,18 @@ nnoremap <leader>e :NERDTree<CR> "打开文件树
 nnoremap Q :NERDTreeClose<CR> "关闭文件树
 
 "multiple-cursors
-" Remap multiple-cursors shortcuts for Mac
-nmap <C-n> <Plug>NextWholeOccurrence  "ctrl n 选择下一块
-xmap <C-n> <Plug>NextWholeOccurrence 
-nmap <C-x> <Plug>SkipOccurrence  "ctrl x 跳过这一块
+nmap <C-n> <Plug>NextWholeOccurrence
+xmap <C-n> <Plug>NextWholeOccurrence
+nmap <C-x> <Plug>SkipOccurrence
 xmap <C-x> <Plug>SkipOccurrence
-nmap <C-p> <Plug>RemoveOccurrence  " ctrl p 移除这个选择
-xmap <C-p> <Plug>RemoveOccurrence
-nmap <S-C-n> <Plug>AllWholeOccurrences "ctrl shift n 选择所有块
+nmap <C-q> <Plug>RemoveOccurrence
+xmap <C-q> <Plug>RemoveOccurrence
+nmap <S-C-n> <Plug>AllWholeOccurrences
 xmap <S-C-n> <Plug>AllWholeOccurrences
 
 " easymotion
 map ss <Plug>(easymotion-s2)
+map E <Plug>(easymotion-s)
 
 """"""""""""""""""""""""Debug""""""""""""""""""""""""""""""""
 "启动Debug
@@ -116,6 +115,13 @@ noremap <Space>rr :action Run<CR>
 "运行当前(now)类
 noremap <Space>rc :action RunClass<CR>
 """""""""""""""""""""""""Window operation""""""""""""""""""
+nnoremap <C-j> <C-W>j
+nnoremap <C-k> <C-W>k
+nnoremap <C-h> <C-W>h
+nnoremap <C-l> <C-W>l
+nnoremap sc <C-W>c
+nnoremap sv :vsplit<cr>
+nnoremap sg :split<cr>
 nnoremap <leader>wd <C-W>c
 nnoremap <leader>wj <C-W>j
 nnoremap <leader>wk <C-W>k
