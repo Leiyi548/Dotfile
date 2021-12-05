@@ -31,6 +31,7 @@ let mapleader=" "
 set timeoutlen=500
 nnoremap <SPACE> <nop>
 "相对数字
+set number
 set relativenumber
 " 屏幕滚动时在光标上下方保留5行预览代码
 set so=5
@@ -83,6 +84,8 @@ nnoremap <S-TAB> gT
 
 vnoremap J :action MoveLineDown<CR>
 vnoremap K :action MoveLineUp<CR>
+"""""""""""""""""""""""""Terminal """"""""""""""""""""""
+" nnoremap <C-t> :action Terminal.OpenInTerminal<CR> 添加快捷键 <C-t>在idea快捷键绑定到Terminal
 """""""""""""""""""""""""Plugins Setting""""""""""""""""""""""
 "NERDTree
 nnoremap <leader>e :NERDTree<CR> "打开文件树
