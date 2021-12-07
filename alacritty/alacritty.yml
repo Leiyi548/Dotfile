@@ -1,0 +1,102 @@
+colors:
+  # Default colors
+  primary:
+    #background: "#1e2127"
+    background: "#1f2227"
+    # background: "#2E3440"
+    #foreground: "#D8DEE9"
+    foreground: "#abb2bf"
+
+  # Normal colors
+  normal:
+    # black: "#3B4252"
+    # red: "#BF616A"
+    # green: "#A3BE8C"
+    # yellow: "#EBCB8B"
+    # blue: "#81A1C1"
+    # magenta: "#B48EAD"
+    # cyan: "#88C0D0"
+    # white: "#abb2bf"
+    black: "#4C566A"
+    red: "#bf616a"
+    green: "#A3BE8C"
+    yellow: "#D7BA7D"
+    blue: "#5e81ac"
+    magenta: "#B48EAD"
+    cyan: "#88c0d0"
+    white: "#abb2bf"
+
+  # Bright colors
+  bright:
+    black: "#4C566A"
+    red: "#bf616a"
+    green: "#A3BE8C"
+    yellow: "#D7BA7D"
+    blue: "#5e81ac"
+    magenta: "#B48EAD"
+    cyan: "#88c0d0"
+    white: "#abb2bf"
+  cursor:
+      text: "#3B4252"
+      cursor: "#ECEFF4"
+
+  import:
+      - ~/.config/alacritty/colors/dracula.yml
+background_opacity: 1.0
+
+font:
+  normal:
+    family: "Hack Nerd Font"
+    style: Regular
+  bold:
+    family: "Hack Nerd Font"
+    style: Bold
+  italic:
+    family: "Hack Nerd Font"
+    style: Italic
+  bold_italic:
+    family: "Hack Nerd Font"
+    style: Bold Italic
+
+  # Point size
+  size: 20.0
+
+  offset:
+    x: 0
+    y: 0
+  glyph_offset:
+    x: 0
+    y: 0
+
+window:
+  padding:
+    x: 0
+    y: 0
+
+scrolling:
+  # Maximum number of lines in the scrollback buffer.
+  # Specifying '0' will disable scrolling.
+  history: 10000
+
+  # Number of lines the viewport will move for every line scrolled when
+  # scrollback is enabled (history > 0).
+  multiplier: 10
+
+# If `true`, bold text is drawn using the bright color variants.
+draw_bold_text_with_bright_colors: true
+
+cursor:
+  style:
+    blinking: Never
+
+selection:
+  semantic_escape_chars: ',│`|:"'' ()[]{}<>'
+  save_to_clipboard: true
+
+live_config_reload: true
+
+key_bindings:
+  - { key: V, mods: command, action: Paste }
+  - { key: C, mods: command, action: Copy }
+
+    #alacritty-colorscheme apply dracula.yml
