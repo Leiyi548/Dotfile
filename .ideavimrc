@@ -129,13 +129,13 @@ nnoremap <C-l> <C-W>l
 nnoremap sc <C-W>c
 nnoremap sv :vsplit<cr>
 nnoremap sg :split<cr>
-nnoremap <leader>wd <C-W>c
-nnoremap <leader>wj <C-W>j
-nnoremap <leader>wk <C-W>k
-nnoremap <leader>wh <C-W>h
-nnoremap <leader>wl <C-W>l
-nnoremap <leader>ws <C-W>s
-nnoremap <leader>wv <C-W>v
+" nnoremap <leader>wd <C-W>c
+" nnoremap <leader>wj <C-W>j
+" nnoremap <leader>wk <C-W>k
+" nnoremap <leader>wh <C-W>h
+" nnoremap <leader>wl <C-W>l
+" nnoremap <leader>ws <C-W>s
+" nnoremap <leader>wv <C-W>v
 
 """""""""""""""""""""""""Setting""""""""""""""""""""""
 " edit vimrc
