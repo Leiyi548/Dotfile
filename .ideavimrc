@@ -84,6 +84,8 @@ nnoremap <S-TAB> gT
 
 vnoremap J :action MoveLineDown<CR>
 vnoremap K :action MoveLineUp<CR>
+vnoremap > >gv
+vnoremap < <gv
 """""""""""""""""""""""""Terminal """"""""""""""""""""""
 " nnoremap <C-t> :action Terminal.OpenInTerminal<CR> 添加快捷键 <C-t>在idea快捷键绑定到Terminal
 """""""""""""""""""""""""Plugins Setting""""""""""""""""""""""
