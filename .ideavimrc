@@ -118,19 +118,32 @@ nnoremap <leader>dB :action Debugger.RemoveAllBreakpointsInFile<CR>
 """"""""""""""""""""""""Run""""""""""""""""""""""""""""""""
 "运行代码
 "设置运行配置
-nnoremap <Space>rc :action RunConfiguration<CR>
+nnoremap <leader>rc :action RunConfiguration<CR>
 "运行上次运行类
-noremap <Space>rr :action Run<CR>
+nnoremap <leader>rr :action Run<CR>
 "运行当前(now)类
-noremap <Space>rc :action RunClass<CR>
+nnoremap <leader>rc :action RunClass<CR>
+" 停止运行
+nnoremap <leader>rp :action Stop<CR>
+
+
+""""""""""""""""""""""""Window""""""""""""""""""""""""""""""""
+" 激活run的运行窗口
+nnoremap <leader>wr  :action ActivateRunToolWindow<CR>
+"隐藏窗口(windows hide)
+nnoremap <leader>wh :action HideActiveWindow<CR>
+"激活debug的运行窗口
+nnoremap <leader>wd :action ActivateDebugToolWindow<CR>
+"窗口最大化windows max
+nnoremap <leader>z :action MaximizeToolWindow<CR>
 """""""""""""""""""""""""Window operation""""""""""""""""""
 nnoremap <C-j> <C-W>j
 nnoremap <C-k> <C-W>k
 nnoremap <C-h> <C-W>h
 nnoremap <C-l> <C-W>l
 nnoremap sc <C-W>c
-nnoremap sv :vsplit<cr>
-nnoremap sg :split<cr>
+nnoremap sv :vsplit<CR>
+nnoremap sg :split<CR>
 " nnoremap <leader>wd <C-W>c
 " nnoremap <leader>wj <C-W>j
 " nnoremap <leader>wk <C-W>k
@@ -148,9 +161,9 @@ nnoremap <leader>w :w<CR>
 nnoremap <leader>q :q<CR>
 
 " copy and paste
-noremap <Leader>y "*y
-noremap <Leader>p "*p
-noremap <Leader>P "0p
+noremap <leader>y "*y
+noremap <leader>p "*p
+noremap <leader>P "0p
 vnoremap Y y$
 nnoremap Y y$
 """""""""""""""""""""""""""Operation"""""""""""""""""""""''
@@ -186,10 +199,10 @@ nnoremap <leader>fr :action RecentFiles<CR>
 "change colorscheme
 nnoremap <leader>fc :action QuickChangeScheme<CR>
 "查找用法
-nnoremap <Leader>fu :action FindUsages<CR>
+nnoremap <leader>fu :action FindUsages<CR>
 " whichkey-g
 "跳转到Action
-nnoremap <Leader>ga :action GotoAction<CR>
+nnoremap <leader>ga :action GotoAction<CR>
 "跳转SuperMethod
 nnoremap <leader>gs :action GotoSuperMethod<CR>
 "跳转到实体类
