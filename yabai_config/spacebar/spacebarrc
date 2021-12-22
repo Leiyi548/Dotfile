@@ -47,7 +47,8 @@ spacebar -m config battery_icon_color          0xffBF616A #BF616A
 spacebar -m config dnd_icon_color              0xffB48EAD #B48EAD
 #spacebar -m config space_icon_strip       
 #spacebar -m config space_icon_strip   🀙 🀚 🀛 🀜 🀝 🀞 🀟 🀠 🀡
-spacebar -m config space_icon_strip   Ⅰ Ⅱ Ⅲ Ⅳ Ⅴ Ⅵ Ⅶ Ⅷ Ⅸ
+# spacebar -m config space_icon_strip   Ⅰ Ⅱ Ⅲ Ⅳ Ⅴ Ⅵ Ⅶ Ⅷ Ⅸ
+spacebar -m config space_icon_strip   一 二 三 四 五 六 七 八 九
 #spacebar -m config power_icon_strip    
 spacebar -m config power_icon_strip      
 spacebar -m config space_icon         
