@@ -130,16 +130,16 @@ nmap E <Plug>(easymotion-s)
 nmap sl <Plug>(easymotion-bd-jk) 
 nmap sw <Plug>(easymotion-bd-w)
 " use easymotion to replace orginal f F t T
-nmap f <Plug>(easymotion-fl)
-nmap F <Plug>(easymotion-Fl)
-nmap t <Plug>(easymotion-tl)
-nmap T <Plug>(easymotion-Tl)
+" nmap f <Plug>(easymotion-fl)
+" nmap F <Plug>(easymotion-Fl)
+" nmap t <Plug>(easymotion-tl)
+" nmap T <Plug>(easymotion-Tl)
 
-vmap E <Plug>(easymotion-s)
-vmap f <Plug>(easymotion-fl)
-vmap F <Plug>(easymotion-Fl)
-vmap t <Plug>(easymotion-tl)
-vmap T <Plug>(easymotion-Tl)
+" vmap E <Plug>(easymotion-s)
+" vmap f <Plug>(easymotion-fl)
+" vmap F <Plug>(easymotion-Fl)
+" vmap t <Plug>(easymotion-tl)
+" vmap T <Plug>(easymotion-Tl)
 """"""""""""""""""""""""Debug""""""""""""""""""""""""""""""""
 "启动Debug
  <leader>dl :action Debug<CR>
