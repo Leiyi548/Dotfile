@@ -159,7 +159,11 @@ nnoremap <leader>rc :action RunClass<CR>
 " 停止运行
 nnoremap <leader>rp :action Stop<CR>
 
-
+""""""""""""""""""""""""""""""""""""""重构篇""""""""""""""""""""""""""""""""""""""
+"抽取方法重构
+noremap <Space>em :action ExtractMethod<CR>
+"抽取接口重构
+noremap <Space>ei :action ExtractInterface<CR>
 """"""""""""""""""""""""Window""""""""""""""""""""""""""""""""
 " 激活run的运行窗口
 nnoremap <leader>wr  :action ActivateRunToolWindow<CR>
@@ -222,9 +226,13 @@ nnoremap < <<
 "nnoremap <leader>gb :action Back<CR>
 nnoremap <leader>gb :action JumpToLastChange<CR>
 
+"""""""""""""""""""""""""""CREATE"""""""""""""""""""""''
+nnoremap <leader>nc :action NewClass<CR>
+"关闭到只剩当前tab栏
+nnoremap <leader>bo :action CloseAllEditorsButActive<CR>
 """""""""""""""""""""""""""whichkey-f"""""""""""""""""""""''
 "RenameFile
-noremap <leader>rn :action RenameFile<CR>
+nnoremap <leader>rn :action RenameFile<CR>
 "Find File
 nnoremap <leader>ff :action GotoFile<CR>
 "Find recent file
@@ -233,7 +241,11 @@ nnoremap <leader>fr :action RecentFiles<CR>
 nnoremap <leader>fc :action QuickChangeScheme<CR>
 "查找用法
 nnoremap <leader>fu :action FindUsages<CR>
-" whichkey-g
+
+"""""""""""""""""""""""""""whichkey-s"""""""""""""""""""""''
+"相当于鼠标右键
+nnoremap <leader>sp :action ShowPopupMenu<CR>
+"""""""""""""""""""""""""""whichkey-g"""""""""""""""""""""''
 "跳转到Action
 nnoremap <leader>ga :action GotoAction<CR>
 "跳转SuperMethod
@@ -249,10 +261,13 @@ nnoremap gi :action GotoImplementation<CR>
 
 """""""""""""""""LSP"""""""""""""""""""""
 nnoremap <leader>lf :action ReformatCode<CR>
-"跳转下一个错误
+" 跳转下一个错误
 nnoremap <leader>lj :action GotoNextError<CR>
- "跳转上一个错误
+" 跳转上一个错误
 nnoremap <leader>lk :action GotoPreviousError<CR>
+
+" 命名元素
+nnoremap <leader>lr :action RenameElement<CR>
 
 nnoremap K  :action QuickJavaDoc<CR>
 nnoremap gl :action ShowErrorDescription<CR>
