@@ -48,7 +48,6 @@ set wrap
 set nocompatible
 "设置水平显示
 set cursorline
-set cuc
 " 设置tab键和自动缩进
 set tabstop=4
 set shiftwidth=4
@@ -81,6 +80,10 @@ nnoremap X :q<cr>
 "快速切换buffers
 nnoremap <TAB> gt
 nnoremap <S-TAB> gT
+
+"左右移动视野
+nnoremap zh 50zh
+nnoremap zl 50zl
 
 vnoremap J :action MoveLineDown<CR>
 vnoremap K :action MoveLineUp<CR>
@@ -161,9 +164,9 @@ nnoremap <leader>rp :action Stop<CR>
 
 """"""""""""""""""""""""""""""""""""""重构篇""""""""""""""""""""""""""""""""""""""
 "抽取方法重构
-noremap <Space>em :action ExtractMethod<CR>
+nnoremap <leader>om :action ExtractMethod<CR>
 "抽取接口重构
-noremap <Space>ei :action ExtractInterface<CR>
+nnoremap <leader>oi :action ExtractInterface<CR>
 """"""""""""""""""""""""Window""""""""""""""""""""""""""""""""
 " 激活run的运行窗口
 nnoremap <leader>wr  :action ActivateRunToolWindow<CR>
