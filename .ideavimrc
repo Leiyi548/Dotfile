@@ -1,11 +1,4 @@
-" ███╗   ██╗ ███████╗ ██████╗  ██╗   ██╗ ██╗ ███╗   ███╗
-" ████╗  ██║ ██╔════╝██╔═══██╗ ██║   ██║ ██║ ████╗ ████║
-" ██╔██╗ ██║ █████╗  ██║   ██║ ██║   ██║ ██║ ██╔████╔██║
-" ██║╚██╗██║ ██╔══╝  ██║   ██║ ╚██╗ ██╔╝ ██║ ██║╚██╔╝██║
-" ██║ ╚████║ ███████╗╚██████╔╝  ╚████╔╝  ██║ ██║ ╚═╝ ██║
-" ╚═╝  ╚═══╝ ╚══════╝ ╚═════╝    ╚═══╝   ╚═╝ ╚═╝     ╚═╝
-"""""""""""""""""""""""""""""""""""""""""""""""""""""
-" ###### 7.2 替换
+" ###### 替换
 "           :s/old/new - 用new替换当前行第一个old。
 "           :s/old/new/g - 用new替换当前行所有的old。
 "           :n1,n2s/old/new/g - 用new替换文件n1行到n2行所有的old。
@@ -13,40 +6,26 @@
 "           :%s/^/xxx/g - 在每一行的行首插入xxx，^表示行首。
 "           :%s/$/xxx/g - 在每一行的行尾插入xxx，$表示行尾。
 "           有替换命令末尾加上c，每个替换都将需要用户确认。 如：%s/old/new/gc，加上i则忽略大小写(ignore)。
-"           有一种比替换更灵活的方式，它是匹配到某个模式后执行某种命令，
-"           法为 :[range]g/pattern/command
-"           如 :%g/^ xyz/normal dd。
-"           示对于以一个空格和xyz开头的行执行normal模式下的dd命令。
-"           于range的规定为：
-"           果不指定range，则表示当前行。
-"           ,n: 从m行到n行。
-"           : 最开始一行（可能是这样）。
-"           $: 最后一行
-"           .: 当前行
-"           %: 所有行 " 全局替换 vim全局替换命令 "语法为 :[addr]s/字符串/目的字符串/[option] "全局替换命令为：:%s/源字符串/目的字符串/g " 以上是一些vim使用方法 -----------------
-
-"""""""""""""""""""""""""General setting""""""""""""""""""
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""""""""""""""""""""""""Setting""""""""""""""""""""""""""""""
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " 设置leader键"
 let mapleader=" "
 set timeoutlen=500
+" 防止按leader键乱移动
 nnoremap <SPACE> <nop>
-"相对数字
+" 相对数字
 set number
 set relativenumber
 " 屏幕滚动时在光标上下方保留5行预览代码
-set so=5
-nnoremap <leader>sc :nohlsearch<Cr>
+set so=8
+" 取消高亮
 " 设置寻找高亮
 set hlsearch
-exec "nohlsearch"
 set incsearch
-"从不备份
-set nobackup
 "设置字不超过窗口
 set wrap
-"不要使用vi的键盘模式，而是vim自己的
-set nocompatible
-"设置水平显示
+"突出水平显示
 set cursorline
 " 设置tab键和自动缩进
 set tabstop=4
@@ -55,15 +34,24 @@ set softtabstop=4
 "下一行和上一行的格式相同
 set autoindent
 set cindent
-"设置窗口分隔
+"设置窗口分屏方向
 set splitright
 set splitbelow
-"突出显示光标
 "不区分大小写
 set ignorecase
-"
-set showmode
-"Plug
+" 取消高亮
+nnoremap <leader>sc :nohlsearch<Cr>
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""UI"""""""""""""""""""""""""""""""
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" change colorscheme
+nnoremap <leader>fc :action QuickChangeScheme<CR>
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""""""""""""""""""""""""Plugins""""""""""""""""""""""""""""""
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" ===
+" === Open
+" ===
 set NERDTree
 set surround
 set multiple-cursors
@@ -73,48 +61,8 @@ set easymotion
 set argtextobj
 set highlightyank
 set textobj-entire
-"set whichkey
-"""""""""""""""""""""""'''''''''''''''''''''''''
-nnoremap s <Nop>
-nnoremap X :q<cr>
-"快速切换buffers
-nnoremap <TAB> gt
-nnoremap <S-TAB> gT
-
-"左右移动视野
-nnoremap zh 50zh
-nnoremap zl 50zl
-
-vnoremap J :action MoveLineDown<CR>
-vnoremap K :action MoveLineUp<CR>
-vnoremap > >gv
-vnoremap < <gv
-"""""""""""""""""""""""""Terminal """"""""""""""""""""""
-" nnoremap <C-t> :action Terminal.OpenInTerminal<CR> 添加快捷键 <C-t>在idea快捷键绑定到Terminal
-"""""""""""""""""""""""""Plugins Setting""""""""""""""""""""""
 " ===
-" === NERDTree 
-" ===
-""""Usage""""
-" o <key> open menu in NERDTree
-" O <key> Recursively open the selected directory
-" i <key> Open selected file in a split window (horizontal)
-" gi <key> Same as i, but leave the cursor on the NERDTree
-" s <key> Open selected file in a new vsplit
-" gs <key> Same as s, but leave the cursor on the NERDTree
-" m <key> open menu in NERDTree
-" A <key> Zoom (maximize/minimize) the NERDTree window" 
-" K <key> Jump up inside directories at the current tree depth
-" J <key> Jump down inside directories at the current tree depth
-" x <key> Close the current nodes parent (not close flie)
-" X <key> Recursively close all children of the current node (not close flie)
-""""End""""
-" open NERDTree
-nnoremap <leader>e :NERDTree<CR> 
-" nnoremap Q :NERDTreeClose<CR>
-
-" ===
-" === multiple-cursors 
+" === multiple-cursors
 " ===
 nmap <C-n> <Plug>NextWholeOccurrence
 xmap <C-n> <Plug>NextWholeOccurrence
@@ -124,13 +72,12 @@ nmap <C-q> <Plug>RemoveOccurrence
 xmap <C-q> <Plug>RemoveOccurrence
 nmap <S-C-n> <Plug>AllWholeOccurrences
 xmap <S-C-n> <Plug>AllWholeOccurrences
-
 " ===
-" ===easymotion
+" === easymotion
 " ===
 nmap ss <Plug>(easymotion-s2)
 nmap E <Plug>(easymotion-s)
-nmap sl <Plug>(easymotion-bd-jk) 
+nmap sl <Plug>(easymotion-bd-jk)
 nmap sw <Plug>(easymotion-bd-w)
 " use easymotion to replace orginal f F t T
 " nmap f <Plug>(easymotion-fl)
@@ -143,40 +90,109 @@ nmap sw <Plug>(easymotion-bd-w)
 " vmap F <Plug>(easymotion-Fl)
 " vmap t <Plug>(easymotion-tl)
 " vmap T <Plug>(easymotion-Tl)
-""""""""""""""""""""""""Debug""""""""""""""""""""""""""""""""
-"启动Debug
- <leader>dl :action Debug<CR>
-"打上断点或取消断点
-nnoremap <leader>db :action ToggleLineBreakpoint<CR>
-"取消所有的断点
-nnoremap <leader>dB :action Debugger.RemoveAllBreakpointsInFile<CR>
 
-""""""""""""""""""""""""Run""""""""""""""""""""""""""""""""
-"运行代码
-"设置运行配置
-nnoremap <leader>rc :action RunConfiguration<CR>
-"运行上次运行类
+" ===
+" === NERDTree
+" ===
+""""Usage""""
+" o <key> open menu in NERDTree
+" O <key> Recursively open the selected directory
+" i <key> Open selected file in a split window (horizontal)
+" gi <key> Same as i, but leave the cursor on the NERDTree
+" s <key> Open selected file in a new vsplit
+" gs <key> Same as s, but leave the cursor on the NERDTree
+" m <key> open menu in NERDTree
+" A <key> Zoom (maximize/minimize) the NERDTree window"
+" K <key> Jump up inside directories at the current tree depth
+" J <key> Jump down inside directories at the current tree depth
+" x <key> Close the current nodes parent (not close flie)
+" X <key> Recursively close all children of the current node (not close flie)
+""""End""""
+" open NERDTree
+nnoremap <leader>e :NERDTree<CR>
+" nnoremap Q :NERDTreeClose<CR>
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""""""""""""""""""""""""Move""""""""""""""""""""""""""""""
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"取消vim s键原生映射
+nnoremap s <Nop>
+vnoremap s <Nop>
+"快速关闭buffers
+nnoremap X :q<cr>
+"使用tab键快速切换buffers
+nnoremap <TAB> gt
+nnoremap <S-TAB> gT
+vnoremap <TAB> gt
+vnoremap <S-TAB> gT
+"左右移动视野
+nnoremap zh 50zh
+nnoremap zl 50zl
+"像vscode一样行移动
+vnoremap J :action MoveLineDown<CR>
+vnoremap K :action MoveLineUp<CR>
+"多次进行缩进在visual mode
+vnoremap > >gv
+vnoremap < <gv
+" 复制到剪贴板
+noremap <leader>y "*y
+noremap <leader>p "*p
+noremap <leader>P "0p
+" 快速复制到行尾
+vnoremap Y y$
+nnoremap Y y$
+" 插入模式快速移动
+inoremap <C-a> <Home>
+inoremap <C-e> <End>
+" 其他模式快速移动
+nnoremap H ^
+nnoremap L $
+vnoremap H ^
+vnoremap L $
+" 快速进行缩进
+nnoremap > >>
+nnoremap < <<
+"后退功能
+"nnoremap <leader>gb :action Back<CR>
+"nnoremap <leader>gb :action JumpToLastChange<CR>
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""""""""""""""""""""""""Debug""""""""""""""""""""""""""""""""
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" 启动Debug
+ <leader>dl :action Debug<CR>
+" 打上断点或取消断点
+nnoremap <leader>db :action ToggleLineBreakpoint<CR>
+" 取消所有的断点
+nnoremap <leader>dB :action Debugger.RemoveAllBreakpointsInFile<CR>
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""RUN""""""""""""""""""""""""""""""
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" 设置运行配置 (未知)
+" nnoremap <leader>rc :action RunConfiguration<CR>
+" 运行上次运行类
 nnoremap <leader>rr :action Run<CR>
-"运行当前(now)类
+" 运行当前(now)类
 nnoremap <leader>rc :action RunClass<CR>
 " 停止运行
 nnoremap <leader>rp :action Stop<CR>
-
-""""""""""""""""""""""""""""""""""""""重构篇""""""""""""""""""""""""""""""""""""""
-"抽取方法重构
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""重构篇""""""""""""""""""""""""""""
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" 抽取方法重构(不熟悉)
 nnoremap <leader>om :action ExtractMethod<CR>
-"抽取接口重构
+" 抽取接口重构(不熟悉)
 nnoremap <leader>oi :action ExtractInterface<CR>
-""""""""""""""""""""""""Window""""""""""""""""""""""""""""""""
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""窗口篇""""""""""""""""""""""""""""
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " 激活run的运行窗口
 nnoremap <leader>wr  :action ActivateRunToolWindow<CR>
-"隐藏窗口(windows hide)
+" 隐藏窗口(windows hide)
 nnoremap <leader>wh :action HideActiveWindow<CR>
-"激活debug的运行窗口
+" 激活debug的运行窗口
 nnoremap <leader>wd :action ActivateDebugToolWindow<CR>
-"窗口最大化windows max
+" 窗口最大化windows max(就是保留代码编辑区[文件树什么都关掉,但是下面窗口还在])
 nnoremap <leader>z :action MaximizeToolWindow<CR>
-"""""""""""""""""""""""""Window operation""""""""""""""""""
+" 快速移动窗口
 nnoremap <C-j> <C-W>j
 nnoremap <C-k> <C-W>k
 nnoremap <C-h> <C-W>h
@@ -184,103 +200,55 @@ nnoremap <C-l> <C-W>l
 nnoremap sc <C-W>c
 nnoremap sv :vsplit<CR>
 nnoremap sg :split<CR>
-" nnoremap <leader>wd <C-W>c
-" nnoremap <leader>wj <C-W>j
-" nnoremap <leader>wk <C-W>k
-" nnoremap <leader>wh <C-W>h
-" nnoremap <leader>wl <C-W>l
-" nnoremap <leader>ws <C-W>s
-" nnoremap <leader>wv <C-W>v
-
-"""""""""""""""""""""""""Setting""""""""""""""""""""""
-" edit vimrc
-nnoremap <leader>fvd :e ~/.ideavimrc<CR>
-nnoremap <leader>fvs :source ~/.ideavimrc<CR>
-" save and close
-nnoremap <leader>w :w<CR>
-nnoremap <leader>q :q<CR>
-
-" copy and paste
-noremap <leader>y "*y
-noremap <leader>p "*p
-noremap <leader>P "0p
-vnoremap Y y$
-nnoremap Y y$
-"""""""""""""""""""""""""""Operation"""""""""""""""""""""''
-""""""""Movej""""""
-" Insert mode shortcut
-inoremap <C-h> <Left>
-inoremap <C-j> <Down>
-inoremap <C-k> <Up>
-inoremap <C-l> <Right>
-inoremap <C-a> <Home>
-inoremap <C-e> <End>
-inoremap <C-d> <Delete>
-"move quickly
-nnoremap H ^
-nnoremap L $
-vnoremap H ^
-vnoremap L $
-
-nnoremap > >>
-nnoremap < <<
-
-"后退功能
-"nnoremap <leader>gb :action Back<CR>
-nnoremap <leader>gb :action JumpToLastChange<CR>
-
-"""""""""""""""""""""""""""CREATE"""""""""""""""""""""''
-nnoremap <leader>nc :action NewClass<CR>
 "关闭到只剩当前tab栏
 nnoremap <leader>bo :action CloseAllEditorsButActive<CR>
-"""""""""""""""""""""""""""whichkey-f"""""""""""""""""""""''
-"RenameFile
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""Create"""""""""""""""""""""""""""
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+nnoremap <leader>nc :action NewClass<CR>
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""文件和跳转"""""""""""""""""""""""""
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" 重命名文件
 nnoremap <leader>rn :action RenameFile<CR>
-"Find File
-nnoremap <leader>ff :action GotoFile<CR>
-"Find recent file
-nnoremap <leader>fr :action RecentFiles<CR>
-"change colorscheme
-nnoremap <leader>fc :action QuickChangeScheme<CR>
-"查找用法
+" 查找文件
+nnoremap <leader>ff mm`m:action GotoFile<CR>
+" 查找最近文件
+nnoremap <leader>fr mm`m:action RecentFiles<CR>
+" 查找用法
 nnoremap <leader>fu :action FindUsages<CR>
-
-"""""""""""""""""""""""""""whichkey-s"""""""""""""""""""""''
+"跳转到声明
+"nnoremap gd :action GotoDeclaration<CR>
+" 打开General菜单
+nnoremap ga :action Generate<CR>
+"跳转到实现类
+nnoremap gi mm`m:action GotoImplementation<CR>
+" 查找类
+nnoremap gc mm`m:action GotoClass<CR>
+" 跳转SuperMethod
+nnoremap gs mm`m:action GotoSuperMethod<CR>
+" 目前还不熟悉 (后面搞懂回来补充)
+nnoremap gf mm`m:action FileStructurePopup<CR>
+" 搜索 action
+nnoremap <leader>ga :action GotoAction<CR>
 "相当于鼠标右键
 nnoremap <leader>sp :action ShowPopupMenu<CR>
-"""""""""""""""""""""""""""whichkey-g"""""""""""""""""""""''
-"跳转到Action
-nnoremap <leader>ga :action GotoAction<CR>
-"跳转SuperMethod
-nnoremap <leader>gs :action GotoSuperMethod<CR>
-"跳转到实体类
-nnoremap <Leader>gc :action GotoClass<CR>
-"跳转到文件
-nnoremap <Leader>gf :action GotoFile<CR>
-"跳转到声明
-nnoremap gd :action GotoDeclaration<CR>
-"跳转到实现类
-nnoremap gi :action GotoImplementation<CR>
-
-"""""""""""""""""LSP"""""""""""""""""""""
+"""""""""""""""""""""""""""LSP"""""""""""""""""""""''""""""""
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" 格式化代码
 nnoremap <leader>lf :action ReformatCode<CR>
 " 跳转下一个错误
 nnoremap <leader>lj :action GotoNextError<CR>
 " 跳转上一个错误
 nnoremap <leader>lk :action GotoPreviousError<CR>
-
 " 命名元素
 nnoremap <leader>lr :action RenameElement<CR>
-
+" 快速显示文档
 nnoremap K  :action QuickJavaDoc<CR>
+" 显示错误描述
 nnoremap gl :action ShowErrorDescription<CR>
-nnoremap ga :action Generate<CR>
-
-"""""""""""""""""Git"""""""""""""""""""""
-nnoremap <leader>g :action Git.Menu<CR>
-
-" navigation
-nnoremap gs :action GotoSuperMethod<CR>
-nnoremap gi :action GotoImplementation<CR>
-nnoremap gd :action GotoDeclaration<CR>
-nnoremap gf :action FileStructurePopup<CR>
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""Git""""""""""""""""""""""""""""""
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" 显示git菜单
+nnoremap <leader>gm :action Git.Menu<CR>
