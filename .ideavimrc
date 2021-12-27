@@ -23,21 +23,21 @@ set so=8
 " 设置寻找高亮
 set hlsearch
 set incsearch
-"设置字不超过窗口
+" 设置字不超过窗口
 set wrap
-"突出水平显示
+" 突出水平显示
 set cursorline
 " 设置tab键和自动缩进
 set tabstop=4
 set shiftwidth=4
 set softtabstop=4
-"下一行和上一行的格式相同
+" 下一行和上一行的格式相同
 set autoindent
 set cindent
-"设置窗口分屏方向
+" 设置窗口分屏方向
 set splitright
 set splitbelow
-"不区分大小写
+" 不区分大小写
 set ignorecase
 " 取消高亮
 nnoremap <leader>sc :nohlsearch<Cr>
@@ -114,26 +114,28 @@ nmap sw <Plug>(easymotion-bd-w)
 nnoremap <leader>e :NERDTree<CR>
 " close NERDTree
 nnoremap Q :NERDTreeClose<CR>
+" 弹出文件结构信息(相当于显示大纲)
+nnoremap <leader>o mm`m:action FileStructurePopup<CR>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """"""""""""""""""""""""Move""""""""""""""""""""""""""""""
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"取消vim s键原生映射
+" 取消vim s键原生映射
 nnoremap s <Nop>
 vnoremap s <Nop>
-"快速关闭buffers
+" 快速关闭buffers
 nnoremap X :q<cr>
-"使用tab键快速切换buffers
+" 使用tab键快速切换buffers
 nnoremap <TAB> gt
 nnoremap <S-TAB> gT
 vnoremap <TAB> gt
 vnoremap <S-TAB> gT
-"左右移动视野
+" 左右移动视野
 nnoremap zh 50zh
 nnoremap zl 50zl
-"像vscode一样行移动
+" 像vscode一样行移动
 vnoremap J :action MoveLineDown<CR>
 vnoremap K :action MoveLineUp<CR>
-"多次进行缩进在visual mode
+" 多次进行缩进在visual mode
 vnoremap > >gv
 vnoremap < <gv
 " 复制到剪贴板
@@ -181,9 +183,9 @@ nnoremap <leader>rp :action Stop<CR>
 """"""""""""""""""""""""""""重构篇""""""""""""""""""""""""""""
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " 抽取方法重构(不熟悉)
-nnoremap <leader>om :action ExtractMethod<CR>
+" nnoremap <leader>om :action ExtractMethod<CR>
 " 抽取接口重构(不熟悉)
-nnoremap <leader>oi :action ExtractInterface<CR>
+" nnoremap <leader>oi :action ExtractInterface<CR>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """"""""""""""""""""""""""""窗口篇""""""""""""""""""""""""""""
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -220,6 +222,7 @@ nnoremap <leader>nd :action SafeDelete<CR>
 nnoremap <leader>ny :action CopyElement<CR>
 " 代码环绕(快速添加if 或者while)
 nnoremap <leader>ns :action SurroundWith<CR>
+vnoremap <leader>ns :action SurroundWith<CR>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """"""""""""""""""""""""""""文件和跳转"""""""""""""""""""""""""
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
