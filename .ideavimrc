@@ -222,7 +222,7 @@ nnoremap <leader>ny :action CopyElement<CR>
 " 重命名文件
 nnoremap <leader>rn :action RenameFile<CR>
 "最近改动文件间相互跳转
-nnoremap <leader>rc mm`m:action RecentChangedFiles<CR>
+nnoremap <leader>rf mm`m:action RecentChangedFiles<CR>
 " 查找文件
 nnoremap <leader>ff mm`m:action GotoFile<CR>
 " 最近查看文件间相互跳转
@@ -230,7 +230,7 @@ nnoremap <leader>fr mm`m:action RecentFiles<CR>
 " 查找用法
 nnoremap <leader>fu :action FindUsages<CR>
 "跳转到声明
-"nnoremap gd :action GotoDeclaration<CR>
+nnoremap gd mm`m:action GotoDeclaration<CR>
 " 打开General菜单
 nnoremap ga :action Generate<CR>
 "跳转到实现类
