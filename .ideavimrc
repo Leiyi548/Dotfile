@@ -46,6 +46,8 @@ nnoremap <leader>sc :nohlsearch<Cr>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " change colorscheme
 nnoremap <leader>fc :action QuickChangeScheme<CR>
+" 改变视图
+nnoremap <leader>cv :action ChangeView<CR>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """"""""""""""""""""""""Plugins""""""""""""""""""""""""""""""
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -216,6 +218,8 @@ nnoremap <leader>ne :action NewElement<CR>
 nnoremap <leader>nd :action SafeDelete<CR>
 " 复制文件元素
 nnoremap <leader>ny :action CopyElement<CR>
+" 代码环绕(快速添加if 或者while)
+nnoremap <leader>ns :action SurroundWith<CR>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """"""""""""""""""""""""""""文件和跳转"""""""""""""""""""""""""
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -232,7 +236,7 @@ nnoremap <leader>fu :action FindUsages<CR>
 "跳转到声明
 nnoremap gd mm`m:action GotoDeclaration<CR>
 " 打开General菜单
-nnoremap ga :action Generate<CR>
+nnoremap go :action Generate<CR>
 "跳转到实现类
 nnoremap gi mm`m:action GotoImplementation<CR>
 " 查找类
@@ -258,6 +262,8 @@ nnoremap <leader>lk :action GotoPreviousError<CR>
 nnoremap <leader>lr :action RenameElement<CR>
 " 快速显示文档
 nnoremap K  :action QuickJavaDoc<CR>
+"idea智能提示
+nnoremap ga :action ShowIntentionActions<CR>
 " 显示错误描述
 nnoremap gl :action ShowErrorDescription<CR>
 " 弹出参数信息(打类的时候有奇效)
