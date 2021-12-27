@@ -110,7 +110,8 @@ nmap sw <Plug>(easymotion-bd-w)
 """"End""""
 " open NERDTree
 nnoremap <leader>e :NERDTree<CR>
-" nnoremap Q :NERDTreeClose<CR>
+" close NERDTree
+nnoremap Q :NERDTreeClose<CR>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """"""""""""""""""""""""Move""""""""""""""""""""""""""""""
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -192,7 +193,7 @@ nnoremap <leader>wh :action HideActiveWindow<CR>
 nnoremap <leader>wd :action ActivateDebugToolWindow<CR>
 " 窗口最大化windows max(就是保留代码编辑区[文件树什么都关掉,但是下面窗口还在])
 nnoremap <leader>z :action MaximizeToolWindow<CR>
-" 快速移动窗口
+" vim窗口操作
 nnoremap <C-j> <C-W>j
 nnoremap <C-k> <C-W>k
 nnoremap <C-h> <C-W>h
@@ -205,15 +206,26 @@ nnoremap <leader>bo :action CloseAllEditorsButActive<CR>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """"""""""""""""""""""""""""Create"""""""""""""""""""""""""""
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" 新建类
 nnoremap <leader>nc :action NewClass<CR>
+" 新建项目
+nnoremap <leader>np :action NewProject<CR>
+" 新建文件 (嘻嘻,啥都可以直接用快捷键建立,一个字爽)
+nnoremap <leader>ne :action NewElement<CR>
+" 删除当前文件 (快速删除)
+nnoremap <leader>nd :action SafeDelete<CR>
+" 复制文件元素
+nnoremap <leader>ny :action CopyElement<CR>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """"""""""""""""""""""""""""文件和跳转"""""""""""""""""""""""""
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " 重命名文件
 nnoremap <leader>rn :action RenameFile<CR>
+"最近改动文件间相互跳转
+nnoremap <leader>rc mm`m:action RecentChangedFiles<CR>
 " 查找文件
 nnoremap <leader>ff mm`m:action GotoFile<CR>
-" 查找最近文件
+" 最近查看文件间相互跳转
 nnoremap <leader>fr mm`m:action RecentFiles<CR>
 " 查找用法
 nnoremap <leader>fu :action FindUsages<CR>
@@ -233,6 +245,7 @@ nnoremap gf mm`m:action FileStructurePopup<CR>
 nnoremap <leader>ga :action GotoAction<CR>
 "相当于鼠标右键
 nnoremap <leader>sp :action ShowPopupMenu<CR>
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """""""""""""""""""""""""""LSP"""""""""""""""""""""''""""""""
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " 格式化代码
@@ -247,6 +260,10 @@ nnoremap <leader>lr :action RenameElement<CR>
 nnoremap K  :action QuickJavaDoc<CR>
 " 显示错误描述
 nnoremap gl :action ShowErrorDescription<CR>
+" 弹出参数信息(打类的时候有奇效)
+nnoremap gp :action ParameterInfo<CR>
+" 弹出类型信息 (显示这个是什么类型)
+nnoremap <leader>st :action ExpressionTypeInfo<CR>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """"""""""""""""""""""""""""Git""""""""""""""""""""""""""""""
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
