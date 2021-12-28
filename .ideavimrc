@@ -139,9 +139,9 @@ vnoremap K :action MoveLineUp<CR>
 vnoremap > >gv
 vnoremap < <gv
 " 复制到剪贴板
-noremap <leader>y "*y
-noremap <leader>p "*p
-noremap <leader>P "0p
+nnoremap <leader>y "*y
+nnoremap <leader>p "*p
+nnoremap <leader>P "0p
 " 快速复制到行尾
 vnoremap Y y$
 nnoremap Y y$
@@ -165,9 +165,26 @@ nnoremap < <<
 " 启动Debug
  <leader>dl :action Debug<CR>
 " 打上断点或取消断点
-nnoremap <leader>db :action ToggleLineBreakpoint<CR>
+nnoremap <leader>dt :action ToggleLineBreakpoint<CR>
 " 取消所有的断点
-nnoremap <leader>dB :action Debugger.RemoveAllBreakpointsInFile<CR>
+nnoremap <leader>dT :action Debugger.RemoveAllBreakpointsInFile<CR>
+" debug上次运行的类
+nnoremap <leader>dd :action Debug<CR>
+" debug当前(now)类
+nnoremap <leader>dc :action DebugClass<CR>
+" debug神器
+" StepInto (F7)
+nnoremap <leader>di :action ForceStepInto<CR>
+" ForceStepInto(CMD + SHIFT + F7)
+nnoremap <leader>dI :action ForceStepInto
+" StepOver (F8)
+nnoremap <leader>do :action StepOver<CR>
+" Resume
+nnoremap <leader>dr :action Resume<CR>
+" StepOut (SHIFT+F8)
+nnoremap <leader>du :action StepOut<CR>
+" debug强制运行到光标处
+nnoremap <leader>dC :action ForceRunToCursor<CR>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """"""""""""""""""""""""""""RUN""""""""""""""""""""""""""""""
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -265,7 +282,7 @@ nnoremap <leader>lk :action GotoPreviousError<CR>
 nnoremap <leader>lr :action RenameElement<CR>
 " 快速显示文档
 nnoremap K  :action QuickJavaDoc<CR>
-"idea智能提示
+" idea智能提示
 nnoremap ga :action ShowIntentionActions<CR>
 " 显示错误描述
 nnoremap gl :action ShowErrorDescription<CR>
