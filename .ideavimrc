@@ -18,7 +18,7 @@ nnoremap <SPACE> <nop>
 set number
 set relativenumber
 " 屏幕滚动时在光标上下方保留5行预览代码
-set so=8
+set so=5
 " 取消高亮
 " 设置寻找高亮
 set hlsearch
@@ -139,11 +139,12 @@ vnoremap K :action MoveLineUp<CR>
 vnoremap > >gv
 vnoremap < <gv
 " 复制到剪贴板
-nnoremap <leader>y "*y
-nnoremap <leader>p "*p
-nnoremap <leader>P "0p
-vnoremap <leader>p "*p
-vnoremap <leader>P "0p
+nnoremap <leader>y "+y
+nnoremap <leader>p "+p
+nnoremap <leader>P "+P
+vnoremap <leader>y "+y
+vnoremap <leader>p "+p
+vnoremap <leader>P "+p
 " 快速复制到行尾
 vnoremap Y y$
 nnoremap Y y$
@@ -158,14 +159,12 @@ vnoremap L $
 " 快速进行缩进
 nnoremap > >>
 nnoremap < <<
-"后退功能
+" 后退功能
 "nnoremap <leader>gb :action Back<CR>
 "nnoremap <leader>gb :action JumpToLastChange<CR>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """"""""""""""""""""""""Debug""""""""""""""""""""""""""""""""
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" 启动Debug
- <leader>dl :action Debug<CR>
 " 打上断点或取消断点
 nnoremap <leader>dt :action ToggleLineBreakpoint<CR>
 " 取消所有的断点
@@ -181,7 +180,7 @@ nnoremap <leader>di :action ForceStepInto<CR>
 nnoremap <leader>dI :action ForceStepInto
 " StepOver (F8)
 nnoremap <leader>do :action StepOver<CR>
-" Resume
+" Resume (跳到下个断点运行)
 nnoremap <leader>dr :action Resume<CR>
 " StepOut (SHIFT+F8)
 nnoremap <leader>du :action StepOut<CR>
