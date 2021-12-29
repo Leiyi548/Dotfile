@@ -142,6 +142,8 @@ vnoremap < <gv
 nnoremap <leader>y "*y
 nnoremap <leader>p "*p
 nnoremap <leader>P "0p
+vnoremap <leader>p "*p
+vnoremap <leader>P "0p
 " 快速复制到行尾
 vnoremap Y y$
 nnoremap Y y$
