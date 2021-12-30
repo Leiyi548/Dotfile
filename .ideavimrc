@@ -135,10 +135,10 @@ nnoremap zl 50zl
 " 像vscode一样行移动
 vnoremap J :action MoveLineDown<CR>
 vnoremap K :action MoveLineUp<CR>
-" 多次进行缩进在visual mode
+" 多行缩进在visual mode
 vnoremap > >gv
 vnoremap < <gv
-" 复制到剪贴板
+" 复制粘贴剪贴板
 nnoremap <leader>y "+y
 nnoremap <leader>p "+p
 nnoremap <leader>P "+P
