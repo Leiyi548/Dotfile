@@ -229,7 +229,7 @@ nnoremap <leader>dC :action ForceRunToCursor<CR>
 " 运行上次运行类
 nnoremap <leader>rr :action Run<CR>
 " 运行当前(now)类
-nnoremap <leader>rc :action RunClass<CR>
+nnoremap <leader>rf :action RunClass<CR>
 " 停止运行
 nnoremap <leader>rp :action Stop<CR>
 "--━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━--
@@ -294,7 +294,7 @@ vnoremap <leader>ns :action SurroundWith<CR>
 " 重命名文件
 nnoremap <leader>rn :action RenameFile<CR>
 "最近改动文件间相互跳转
-nnoremap <leader>rf mm`m:action RecentChangedFiles<CR>
+" nnoremap <leader>rf mm`m:action RecentChangedFiles<CR>
 " 查找文件
 nnoremap <leader>ff mm`m:action GotoFile<CR>
 " 最近查看文件间相互跳转

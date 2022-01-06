@@ -16,8 +16,8 @@ export ZSH="/Users/macos/.oh-my-zsh"
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 #ZSH_THEME="powerlevel10k/powerlevel10k"
-#ZSH_THEME="jispwoso"
-ZSH_THEME="robbyrussell"
+#ZSH_THEME="jispwoso" robbyrussell
+ZSH_THEME="spaceship"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -156,7 +156,22 @@ alias backup_desktop_icon="defaults write com.apple.finder CreateDesktop -bool t
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 # [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
+# ===
+# === fzf
+# ===
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+# Using highlight (http://www.andre-simon.de/doku/highlight/en/highlight.html)
+# if you want to preview file
+# export FZF_CTRL_T_OPTS="--preview '(highlight -O ansi -l {} 2> /dev/null || cat {} || tree -C {}) 2> /dev/null | head -200'"
+# Use ~~ as the trigger sequence instead of the default **
+#export FZF_COMPLETION_TRIGGER='~~'
+# FZF_DEFAULT_COMMAND是用来列出文件以供fzf搜索的命令
+# export FZF_DEFAULT_COMMAND='fdfind --hidden --follow -E ".git" -E "node_modules" . /etc /home'
+export FZF_DEFAULT_OPTS='--bind=ctrl-y:toggle+down  --height 50% --layout=reverse  --border --preview-window=down'
+
+# ===
+# === path
+# ===
 export PATH="~/.config:$PATH"
 export RANGER_LOAD_DEFAULT_Rc=FALSE
 export GOPATH=~/opt/go
@@ -189,3 +204,6 @@ if [[ $TMUX != "" ]] then
 else
     export TERM="xterm-256color"
 fi
+# auto update zsh
+zstyle ':omz:update' mode auto
+export TERM=xterm-256color
