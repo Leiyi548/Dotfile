@@ -1,22 +1,5 @@
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
-# Initialization code that may require console input (password prompts, [y/n]
-# confirmations, etc.) must go above this block; everything else may go below.
-# if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-#   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-# fi
-
-# If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
-
-# Path to your oh-my-zsh installation.
 export ZSH="/Users/macos/.oh-my-zsh"
 
-# Set name of the theme to load --- if set to "random", it will
-# load a random theme each time oh-my-zsh is loaded, in which case,
-# to know which specific one was loaded, run: echo $RANDOM_THEME
-# See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-#ZSH_THEME="powerlevel10k/powerlevel10k"
-#ZSH_THEME="jispwoso" robbyrussell
 ZSH_THEME="spaceship"
 
 # Set list of themes to pick from when loading at random
@@ -119,6 +102,9 @@ VI_MODE_RESET_PROMPT_ON_MODE_CHANGE=true
 VI_MODE_SET_CURSOR=true
 #MODE_INDICATOR="%F{yellow}+%f"
 MODE_INDICATOR=""
+# ===
+# === alias
+# ===
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
@@ -138,23 +124,19 @@ alias vi="lvim"
 alias cl="clear"
 alias pip="pip3"
 alias live="live-server"
-#alias python="python3"
 alias gt="gotop"
 alias python -m="python3 -m"
-
-#alias git
+# alias git
 alias gs="git status"
 alias ga="git add"
 alias lg="lazygit"
-
-#alias fuck_desktop_icon
+# alias fuck_desktop_icon
 alias fuck_desktop_icon="defaults write com.apple.finder CreateDesktop -bool FALSE; killall Finder"
 alias backup_desktop_icon="defaults write com.apple.finder CreateDesktop -bool true; killall Finder"
-#bindkey ']' autosuggest-accept
-#set -o vi
 
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-# [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+# ===
+# === Neovim
+# ===
 
 # ===
 # === fzf
@@ -189,9 +171,6 @@ export LUNARVIM_CONFIG_DIR="${LUNARVIM_CONFIG_DIR:-$HOME/.config/lvim}"
 export LUNARVIM_RUNTIME_DIR="${LUNARVIM_RUNTIME_DIR:-$HOME/.local/share/lunarvim}"
 export LUNARVIM_CACHE_DIR="${LUNARVIM_CACHE_DIR:-$HOME/.cache/lvim}"
 export PATH=${PATH}:/usr/local/mysql/bin
-# export PATH=${PATH}:~/Library/Python/3.8/bin/flake8
-# export PATH=${PATH}:~/Library/Python/3.8/bin/flake8
-# export PATH=${PATH}:~/Library/Python/3.8/lib/python/site-packages/flake8
 export RANGER_LOAD_DEFAULT_RC=FALSE
 #exec neovide -- -u "$LUNARVIM_RUNTIME_DIR/lvim/init.lua" "$@"
 
@@ -199,11 +178,15 @@ test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell
 
 export PATH="/usr/local/bin:$PATH"
 export PATH="$PATH:/usr/local/texlive/2021/bin"
+# auto update zsh
+zstyle ':omz:update' mode auto
+# Fixed that Ranger cannot be used in tmux
+# ===
+# === Tmux
+# ===
 if [[ $TMUX != "" ]] then
     export TERM="tmux-256color"
 else
     export TERM="xterm-256color"
 fi
-# auto update zsh
-zstyle ':omz:update' mode auto
 export TERM=xterm-256color
