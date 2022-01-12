@@ -90,11 +90,6 @@ source $ZSH/oh-my-zsh.sh
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
-#
 #zsh-completions
 autoload -U compinit && compinit
 # vi-mode(vim)
@@ -109,7 +104,7 @@ MODE_INDICATOR=""
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 # alias v zshrc
-#alias vzsh ="nvim ~/.zshrc"
+# alias vzsh ="nvim ~/.zshrc"
 alias l="ll -a"
 alias ra="ranger"
 alias s="neofetch"
@@ -121,7 +116,9 @@ alias sudo v="sudo lvim"
 alias sudo vi="sudo lvim"
 alias v="lvim"
 alias vi="lvim"
-alias c="clear"
+alias vim="nvim"
+alias nv="nvim"
+alias cl="clear"
 alias pip="pip3"
 alias live="live-server"
 alias gt="gotop"
