@@ -260,6 +260,8 @@ nnoremap <leader>wh :action HideActiveWindow<CR>
 nnoremap <leader>wd :action ActivateDebugToolWindow<CR>
 " 窗口最大化windows max(就是保留代码编辑区[文件树什么都关掉,但是下面窗口还在])
 " nnoremap <leader>z :action MaximizeToolWindow<CR>
+"激活todo的窗口
+nnoremap <leader>wt :action ActivateTODOToolWindow<CR>
 " vim窗口操作
 nnoremap <C-j> <C-W>j
 nnoremap <C-k> <C-W>k
@@ -268,7 +270,7 @@ nnoremap <C-l> <C-W>l
 nnoremap sc <C-W>c
 nnoremap sv :vsplit<CR>
 nnoremap sg :split<CR>
-"关闭到只剩当前tab栏
+"关闭到只剩当前tab栏 close other buffer
 nnoremap <leader>bo :action CloseAllEditorsButActive<CR>
 "--━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━--
 "--━━━━━━━━━━━━━━━━━━━❰ end 窗口篇 ❱━━━━━━━━━━━━━━━━--
