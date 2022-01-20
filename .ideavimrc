@@ -131,9 +131,16 @@ nmap sw <Plug>(easymotion-bd-w)
 nnoremap <leader>e :NERDTreeToggle<CR>
 " 弹出文件结构信息(相当于显示大纲)
 nnoremap <leader>o mm`m:action FileStructurePopup<CR>
+" ===
+" === custom comment
+" ===
+nnoremap gcA A //<space>
+nnoremap gco o//<space>
+nnoremap gcO O//<space>
 "--━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━--
 "--━━━━━━━━━━━━━━━━━❰ end Plugins ❱━━━━━━━━━━━━━━━━━--
 "--━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━--
+
 "--━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━--
 "--━━━━━━━━━━━━━━━━━━━❰ Move ❱━━━━━━━━━━━━━━━━━━━━━━--
 "--━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━--
@@ -301,7 +308,7 @@ vnoremap <leader>ns :action SurroundWith<CR>
 "--━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━--
 " 重命名文件
 nnoremap <leader>rn :action RenameFile<CR>
-"最近改动文件间相互跳转
+" 最近改动文件间相互跳转
 " nnoremap <leader>rf mm`m:action RecentChangedFiles<CR>
 " 查找文件
 nnoremap <leader>ff mm`m:action GotoFile<CR>
@@ -313,10 +320,10 @@ nnoremap <leader>fu :action FindUsages<CR>
 nnoremap gd mm`m:action GotoDeclaration<CR>
 " 打开General菜单
 nnoremap go :action Generate<CR>
-"跳转到实现类
-nnoremap gi mm`m:action GotoImplementation<CR>
+" 跳转到实现类
+nnoremap gr mm`m:action GotoImplementation<CR>
 " 查找类
-nnoremap gc mm`m:action GotoClass<CR>
+nnoremap <leader>Fc mm`m:action GotoClass<CR>
 " 跳转SuperMethod
 nnoremap gs mm`m:action GotoSuperMethod<CR>
 " 目前还不熟悉 (后面搞懂回来补充)
