@@ -330,7 +330,7 @@ nnoremap gs mm`m:action GotoSuperMethod<CR>
 nnoremap gf mm`m:action FileStructurePopup<CR>
 " 搜索 action
 nnoremap <leader>ga :action GotoAction<CR>
-"相当于鼠标右键
+" 相当于鼠标右键
 nnoremap <leader>sp :action ShowPopupMenu<CR>
 " 跳转上一个位置
 " cmd + [ (mac) ctrl + [ (windows)
