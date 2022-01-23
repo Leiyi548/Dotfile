@@ -1,3 +1,5 @@
+" unmap space
+unmap <Space>
 " Have j and k navigate visual lines rather than logical ones
 nmap j gj
 nmap k gk
@@ -5,9 +7,11 @@ nmap k gk
 nmap H ^
 nmap L $
 " Windows navigation
-nnoremap sv :obcommand workspace:split-vertical
+nmap sv :obcommand workspace:split-vertical
 " Quickly remove search highlights
-nmap <space>sc :nohl
+nmap <Space>sc :nohl
+
+"custom keybindings
 
 " Yank to system clipboard
 set clipboard=unnamed
@@ -22,3 +26,5 @@ nmap <C-i> :forward
 " NOTE: must use 'map' and not 'nmap'
 exmap wiki surround [[ ]]
 map [[ :wiki
+
+
