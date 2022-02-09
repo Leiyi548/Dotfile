@@ -47,7 +47,9 @@ gui:
 git:
   paging:
     colorArg: always
-    useConfig: false
+    pager: delta --dark  --paging=never
+    # default diff page
+    # useConfig: false
   merging:
     # only applicable to unix users
     manualCommit: false
@@ -208,4 +210,3 @@ keybinding:
     init: 'i'
     update: 'u'
     bulkMenu: 'b'
-
