@@ -19,15 +19,17 @@ gui:
       # - blue
       # - white
       - black
+      - bold
+    # 快捷键提示框内文字的颜色
     optionsTextColor:
       - blue
+    #  当前光标所在行的背景颜色
     selectedLineBgColor:
       - default
       # - reverse
-      # - blue
     selectedRangeBgColor:
-      - blue
-      # - reverse
+      # - blue
+      - reverse
     cherryPickedCommitBgColor:
       - blue
     cherryPickedCommitFgColor:
@@ -124,8 +126,8 @@ keybinding:
     openFile: 'o'
     scrollUpMain: '<pgup>' # main panel scroll up
     scrollDownMain: '<pgdown>' # main panel scroll down
-    scrollUpMain-alt1: 'K' # main panel scroll up
-    scrollDownMain-alt1: 'J' # main panel scroll down
+    # scrollUpMain-alt1: 'K' # main panel scroll up
+    # scrollDownMain-alt1: 'J' # main panel scroll down
     scrollUpMain-alt2: '<c-u>' # main panel scroll up
     scrollDownMain-alt2: '<c-d>' # main panel scroll down
     executeCustomCommand: ':'
@@ -184,8 +186,8 @@ keybinding:
     markCommitAsFixup: 'f'
     createFixupCommit: 'F' # create fixup commit for this commit
     squashAboveCommits: 'S'
-    moveDownCommit: '<c-j>' # move commit down one
-    moveUpCommit: '<c-k>' # move commit up one
+    moveDownCommit: 'J' # move commit down one
+    moveUpCommit: 'K' # move commit up one
     amendToCommit: 'A'
     pickCommit: 'p' # pick commit (when mid-rebase)
     revertCommit: 't'
