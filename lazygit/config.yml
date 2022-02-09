@@ -8,16 +8,12 @@ gui:
   language: 'zh' # one of 'auto' | 'en' | 'zh' | 'pl' | 'nl'
   theme:
     lightTheme: false # For terminals with a light background
-    # 被选中的框
+    # 被选中窗口的边框
     activeBorderColor:
-      # - white
       - green
       - bold
-    # 没有被选中的框
+    # 没有被选中窗口的边框
     inactiveBorderColor:
-      # - green
-      # - blue
-      # - white
       - black
       - bold
     # 快捷键提示框内文字的颜色
@@ -26,9 +22,7 @@ gui:
     #  当前光标所在行的背景颜色
     selectedLineBgColor:
       - default
-      # - reverse
     selectedRangeBgColor:
-      # - blue
       - reverse
     cherryPickedCommitBgColor:
       - blue
@@ -87,13 +81,12 @@ confirmOnQuit: true
 # determines whether hitting 'esc' will quit the application when there is nothing to cancel/close
 quitOnTopLevelReturn: false
 disableStartupPopups: false
-notARepository: 'prompt' # one of: 'prompt' | 'create' | 'skip'
+notARepository: 'skip' # one of: 'prompt' | 'create' | 'skip'
 keybinding:
   universal:
     quit: 'q'
     quit-alt1: '<c-c>' # alternative/alias of quit
     return: '<esc>' # return to previous menu, will quit if there's nowhere to return
-    # return: '<c-q>' # return to previous menu, will quit if there's nowhere to return
     quitWithoutChangingDirectory: 'Q'
     togglePanel: '<tab>' # goto the next panel
     prevItem: '<up>' # go one line up
