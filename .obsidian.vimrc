@@ -6,6 +6,10 @@ nmap k gk
 " I like using H and L for beginning/end of line
 nmap H ^
 nmap L $
+vmap H ^
+vmap L $
+nmap Y y$
+vmap Y y$
 " Windows navigation
 nmap sv :obcommand workspace:split-vertical
 " Quickly remove search highlights

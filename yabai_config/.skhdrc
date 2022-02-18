@@ -60,5 +60,3 @@ alt - 9 : yabai -m space --focus 9
 alt - 0 : yabai -m space --focus 10
 # close window
 alt - x : yabai -m window --close
-
-
