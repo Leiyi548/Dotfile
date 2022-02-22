@@ -212,7 +212,7 @@ nnoremap <leader>dT :action Debugger.RemoveAllBreakpointsInFile<CR>
 " debug上次运行的类
 nnoremap <leader>dd :action Debug<CR>
 " debug当前(now)类
-nnoremap <leader>dc :action DebugClass<CR>
+nnoremap <leader>ds :action DebugClass<CR>
 " debug神器
 " StepInto (F7)
 nnoremap <leader>di :action ForceStepInto<CR>
@@ -347,8 +347,10 @@ nnoremap <leader>sp :action ShowPopupMenu<CR>
 nnoremap <leader>lf :action ReformatCode<CR>
 " 跳转下一个错误
 nnoremap <leader>lj :action GotoNextError<CR>
+nnoremap ]d :action GotoNextError<CR>
 " 跳转上一个错误
 nnoremap <leader>lk :action GotoPreviousError<CR>
+nnoremap [d :action GotoPreviousError<cr>
 " 命名元素
 nnoremap <leader>lr :action RenameElement<CR>
 " 快速显示文档

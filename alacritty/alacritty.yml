@@ -2,10 +2,10 @@ colors:
   # Default colors
   primary:
     #background: "#1e2127"
-    background: "#1f2227"
+    background: '#1f2227'
     # background: "#2E3440"
     #foreground: "#D8DEE9"
-    foreground: "#abb2bf"
+    foreground: '#abb2bf'
 
   # Normal colors
   normal:
@@ -17,45 +17,46 @@ colors:
     # magenta: "#B48EAD"
     # cyan: "#88C0D0"
     # white: "#abb2bf"
-    black: "#4C566A"
-    red: "#bf616a"
-    green: "#A3BE8C"
-    yellow: "#D7BA7D"
-    blue: "#5e81ac"
-    magenta: "#B48EAD"
-    cyan: "#88c0d0"
-    white: "#abb2bf"
+    black: '#4C566A'
+    red: '#bf616a'
+    green: '#A3BE8C'
+    yellow: '#D7BA7D'
+    blue: '#5e81ac'
+    magenta: '#B48EAD'
+    cyan: '#88c0d0'
+    white: '#abb2bf'
 
   # Bright colors
   bright:
-    black: "#4C566A"
-    red: "#bf616a"
-    green: "#A3BE8C"
-    yellow: "#D7BA7D"
-    blue: "#5e81ac"
-    magenta: "#B48EAD"
-    cyan: "#88c0d0"
-    white: "#abb2bf"
+    black: '#4C566A'
+    red: '#bf616a'
+    green: '#A3BE8C'
+    yellow: '#D7BA7D'
+    blue: '#5e81ac'
+    magenta: '#B48EAD'
+    cyan: '#88c0d0'
+    white: '#abb2bf'
   cursor:
-      text: "#3B4252"
-      cursor: "#ECEFF4"
+    text: '#3B4252'
+    cursor: '#ECEFF4'
 
   import:
-      - ~/.config/alacritty/colors/dracula.yml
+    - ~/.config/alacritty/colors/dracula.yml
 background_opacity: 1.0
 
 font:
   normal:
-    family: "Hack Nerd Font"
+    # family: 'Sarasa Mono Sc Nerd Font'
+    family: 'Hack Nerd Font'
     style: Regular
   bold:
-    family: "Hack Nerd Font"
+    family: 'Hack Nerd Font'
     style: Bold
   italic:
-    family: "Hack Nerd Font"
+    family: 'Hack Nerd Font'
     style: Italic
   bold_italic:
-    family: "Hack Nerd Font"
+    family: 'Hack Nerd Font'
     style: Bold Italic
 
   # Point size
