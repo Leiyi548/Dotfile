@@ -9,17 +9,6 @@
   === 文件树操作
   ===
   */
-  // 打开大纲悬浮
-  {
-    "key": "cmd+o",
-    "command": "breadcrumbs.focusAndSelect",
-    "when": "breadcrumbsPossible"
-  },
-  {
-    "key": "shift+cmd+.",
-    "command": "-breadcrumbs.focusAndSelect",
-    "when": "breadcrumbsPossible"
-  },
   // 打开左侧文件树
   {
     "key": "ctrl+e",
@@ -130,16 +119,17 @@
     "command": "editor.action.inlineSuggest.commit",
     "when": "inlineSuggestionHasIndentationLessThanTabSize && inlineSuggestionVisible && !editorTabMovesFocus"
   },
-  {
-    "key": "ctrl+y",
-    "command": "editor.action.triggerSuggest",
-    "when": "editorHasCompletionItemProvider && textInputFocus && !editorReadonly && vim.mode=='Insert'"
-  },
-  {
-    "key": "ctrl+space",
-    "command": "-editor.action.triggerSuggest",
-    "when": "editorHasCompletionItemProvider && textInputFocus && !editorReadonly"
-  },
+  // remove ctrl + y open completition window
+  // {
+  //   "key": "ctrl+y",
+  //   "command": "editor.action.triggerSuggest",
+  //   "when": "editorHasCompletionItemProvider && textInputFocus && !editorReadonly && vim.mode=='Insert'"
+  // },
+  // {
+  //   "key": "ctrl+space",
+  //   "command": "-editor.action.triggerSuggest",
+  //   "when": "editorHasCompletionItemProvider && textInputFocus && !editorReadonly"
+  // },
   // 用Ctrl+n tab 进行向下选择  用Ctrl+p shift+tab 进行向上选择 
   {
     "key": "ctrl+n",
@@ -275,5 +265,36 @@
     "key": "ctrl+n",
     "command": "editor.action.addSelectionToNextFindMatch",
     "when": "editorFocus && vim.mode=='Normal' && !inQuickOpen"
+  },
+  /*
+  ===
+  === 窗口移动 
+  ===
+  */
+  // {
+  //   "key": "ctrl+h",
+  //   "command": "workbench.action.navigateLeft",
+  //   "when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus",
+  // },
+  // {
+  //   "key": "q",
+  //   "command": "workbench.action.closePanel",
+  //   "when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus"
+  // },
+  /*
+  ===
+  === 移除vscode自带快捷键冲突
+  ===
+  */
+  // remove conflict with vim keybinding
+  {
+    "key": "ctrl+h",
+    "command": "-testing.toggleTestingPeekHistory",
+    "when": "testing.isPeekVisible"
+  },
+  {
+    "key": "ctrl+h",
+    "command": "-editor.action.startFindReplaceAction",
+    "when": "editorFocus || editorIsOpen"
   },
 ]

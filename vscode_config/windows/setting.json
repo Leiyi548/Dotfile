@@ -1491,7 +1491,7 @@
       "key": "o",
       "name": "Outline",
       "type": "command",
-      "command": "outline.focus"
+      "command": "breadcrumbs.focusAndSelect"
     },
     //whichkey-O
     {
@@ -2071,6 +2071,8 @@
     // change ghostText color
     // "editorGhostText.background": "#ff0000"
     "tab.hoverBackground": "#027bcc"
+    // "[GitHub Light Default]": {
+    // }
   },
   "editor.cursorSmoothCaretAnimation": true,
   "editor.tokenColorCustomizations": {
@@ -2087,13 +2089,25 @@
         ],
         "settings": {
           "fontStyle": "italic bold",
-          "foreground": "#7712dd"
+          // "foreground": "#7712dd"
           //斜体 "fontStyle": "italic",
           //斜体下划线 "fontStyle": "italic underline",
           //斜体粗体下划线 "fontStyle": "italic bold underline",
         }
       },
-    ]
+    ],
+    "[GitHub Light Default]": {
+      "comments": {
+        "foreground": "#7712dd",
+        "fontStyle": "bold italic",
+      }
+    },
+    "[GitHub Light]": {
+      "comments": {
+        "foreground": "#7712dd",
+        "fontStyle": "bold italic",
+      }
+    },
   },
   "editor.formatOnSave": true,
   // autoupdate [Oh My Zsh]
@@ -2102,6 +2116,6 @@
   },
   "terminal.integrated.defaultLocation": "editor",
   "editor.cursorBlinking": "smooth",
-  "workbench.colorTheme": "GitHub Dark Colorblind (Beta)",
+  "workbench.colorTheme": "GitHub Light Default",
   "gitlens.hovers.currentLine.over": "line"
 }
