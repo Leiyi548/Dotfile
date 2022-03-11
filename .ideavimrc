@@ -220,15 +220,15 @@ nnoremap <leader>ds :action DebugClass<cr>
 " StepInto (F7)
 nnoremap <leader>di :action ForceStepInto<cr>
 " ForceStepInto(CMD + SHIFT + F7)
-nnoremap <leader>dI :action ForceStepInto<cr>
-" StepOver (F8)
-nnoremap <leader>do :action StepOver<cr>
+nnoremap <leader>df :action ForceStepInto<cr>
+" StepOver (F8) 光标向下
+nnoremap <leader>dn :action StepOver<cr>
 " Resume (跳到下个断点运行)
 nnoremap <leader>dr :action Resume<cr>
 " StepOut (SHIFT+F8)
-nnoremap <leader>du :action StepOut<cr>
+nnoremap <leader>do :action StepOut<cr>
 " debug强制运行到光标处
-nnoremap <leader>dC :action ForceRunToCursor<cr>
+nnoremap <leader>dc :action ForceRunToCursor<cr>
 " 结束debug
 nnoremap <leader>dq :action Stop<cr>
 "--━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━--
