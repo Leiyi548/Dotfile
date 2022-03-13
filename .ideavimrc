@@ -222,11 +222,11 @@ nnoremap <leader>di :action ForceStepInto<cr>
 " ForceStepInto(CMD + SHIFT + F7)
 nnoremap <leader>df :action ForceStepInto<cr>
 " StepOver (F8) 光标向下
-nnoremap <leader>dn :action StepOver<cr>
+nnoremap <leader>do :action StepOver<cr>
 " Resume (跳到下个断点运行)
 nnoremap <leader>dr :action Resume<cr>
 " StepOut (SHIFT+F8)
-nnoremap <leader>do :action StepOut<cr>
+nnoremap <leader>du :action StepOut<cr>
 " debug强制运行到光标处
 nnoremap <leader>dc :action ForceRunToCursor<cr>
 " 结束debug
@@ -319,6 +319,7 @@ nnoremap <leader>rn :action RenameFile<cr>
 nnoremap <leader>ff mm`m:action GotoFile<cr>
 " 最近查看文件间相互跳转
 nnoremap <leader>fr mm`m:action RecentFiles<cr>
+nnoremap <leader><leader> mm`m:action RecentFiles<cr>
 " 查找用法
 nnoremap <leader>fu :action FindUsages<cr>
 "跳转到声明
