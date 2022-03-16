@@ -2,7 +2,7 @@
   {
     "key": "space",
     "command": "whichkey.show",
-    "when": "vim.mode!='Insert' && !inputFocus"
+    "when": "vim.mode != 'Insert'&&!inputFocus"
   },
   /*
   ===
@@ -296,5 +296,20 @@
     "key": "ctrl+h",
     "command": "-editor.action.startFindReplaceAction",
     "when": "editorFocus || editorIsOpen"
+  },
+  /*
+  ===
+  === git
+  ===
+  */
+  {
+    "key": "ctrl+g",
+    "command": "workbench.view.scm",
+    "when": "workbench.scm.active"
+  },
+  {
+    "key": "ctrl+shift+g",
+    "command": "-workbench.view.scm",
+    "when": "workbench.scm.active && vim.mode != 'Insert'&&!inputFocus"
   },
 ]

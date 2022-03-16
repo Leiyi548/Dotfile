@@ -697,7 +697,6 @@
   "picgo.picBed.tcyun.customUrl": "https://leiyi-1305815567.cos.ap-nanjing.myqcloud.com",
   "markdown.preview.fontSize": 16,
   "debug.console.fontSize": 18,
-  // "java.home": "/Library/Java/JavaVirtualMachines/jdk-16.0.2.jdk/Contents/Home",
   "sync.gist": "f25cf7986ba54b02527ad8ff2ddc413b",
   // markdown
   "[markdown]": {
@@ -1070,6 +1069,12 @@
           "command": "git.stage"
         },
         {
+          "key": "A",
+          "name": "Stage All",
+          "type": "command",
+          "command": "git.stageAll"
+        },
+        {
           "key": "b",
           "name": "Checkout",
           "type": "command",
@@ -1146,6 +1151,12 @@
           "name": "Previous Change",
           "type": "command",
           "command": "workbench.action.editor.previousChange"
+        },
+        {
+          "key": "o",
+          "name": "Open Repository",
+          "type": "command",
+          "command": "git.openRepository"
         },
         {
           "key": "l",
@@ -1943,9 +1954,6 @@
   "emmet.triggerExpansionOnTab": true,
   "html-css-class-completion.enableEmmetSupport": true,
   "editor.bracketPairColorization.enabled": true,
-  // "[python]": {
-  //   "editor.defaultFormatter": "ms-python.python"
-  // },
   "errorLens.gutterIconsEnabled": true,
   "errorLens.gutterIconSize": "125%",
   "errorLens.enabledDiagnosticLevels": [
@@ -1954,102 +1962,7 @@
     "hint",
     "error"
   ],
-  "markdown-preview-enhanced.previewTheme": "github-dark.css",
-  // latex setting
-  "latex-workshop.latex.tools": [
-    {
-      "name": "xelatex",
-      "command": "xelatex",
-      "args": [
-        "-synctex=1",
-        "-interaction=nonstopmode",
-        "-file-line-error",
-        "%DOCFILE%"
-      ]
-    },
-    {
-      "name": "latexmk",
-      "command": "latexmk",
-      "args": [
-        "-synctex=1",
-        "-interaction=nonstopmode",
-        "-file-line-error",
-        "-pdf",
-        "%DOCFILE%"
-      ]
-    },
-    {
-      "name": "pdflatex",
-      "command": "pdflatex",
-      "args": [
-        "-synctex=1",
-        "-interaction=nonstopmode",
-        "-file-line-error",
-        "%DOCFILE%"
-      ]
-    },
-    {
-      "name": "bibtex",
-      "command": "bibtex",
-      "args": [
-        "%DOCFILE%"
-      ]
-    }
-  ],
-  "latex-workshop.latex.recipes": [
-    {
-      "name": "xelatex",
-      "tools": [
-        "xelatex"
-      ]
-    },
-    {
-      "name": "pdflatex",
-      "tools": [
-        "pdflatex"
-      ]
-    },
-    {
-      "name": "latexmk",
-      "tools": [
-        "latexmk"
-      ]
-    },
-    {
-      "name": "pdflatex -> bibtex -> pdflatex*2",
-      "tools": [
-        "pdflatex",
-        "bibtex",
-        "pdflatex",
-        "pdflatex"
-      ]
-    }
-  ],
-  "latex-workshop.latex.clean.enabled": false,
-  "latex-workshop.latex.clean.fileTypes": [
-    "*.aux",
-    "*.bbl",
-    "*.blg",
-    "*.idx",
-    "*.ind",
-    "*.lof",
-    "*.lot",
-    "*.out",
-    "*.toc",
-    "*.acn",
-    "*.acr",
-    "*.alg",
-    "*.glg",
-    "*.glo",
-    "*.gls",
-    "*.ist",
-    "*.fls",
-    "*.log",
-    "*.fdb_latexmk",
-    "*.gz"
-  ],
-  "latex-workshop.view.pdf.viewer": "tab",
-  "latex-workshop.latex.autoClean.run": "onBuilt",
+  "markdown-preview-enhanced.previewTheme": "github-light.css",
   "files.associations": {
     "*.tex": "tex"
   },
@@ -2070,9 +1983,18 @@
   "workbench.colorCustomizations": {
     // change ghostText color
     // "editorGhostText.background": "#ff0000"
-    "tab.hoverBackground": "#027bcc"
-    // "[GitHub Light Default]": {
-    // }
+    "tab.hoverBackground": "#027bcc",
+    "[Community Material Theme Ocean]": {
+      "statusBar.background": "#007acc",
+      "statusBar.foreground": "#fff7f2",
+      // "editor.findMatchBackground": "#613214",
+      "editor.findMatchHighlightBackground": "#007acc"
+    },
+    "[Default Light+]": {
+      // "button.background": "#ff0000",
+      // "activityBar.activeBackground": "#ff0000",
+      // "sideBar.background": "#ff0000"
+    }
   },
   "editor.cursorSmoothCaretAnimation": true,
   "editor.tokenColorCustomizations": {
@@ -2088,7 +2010,7 @@
           "punctuation.definition.comment",
         ],
         "settings": {
-          "fontStyle": "italic bold",
+          "fontStyle": "italic",
           // "foreground": "#7712dd"
           //斜体 "fontStyle": "italic",
           //斜体下划线 "fontStyle": "italic underline",
@@ -2115,7 +2037,6 @@
     "[Oh My Zsh] Would you like to check for updates? [Y/n]": "Y\r"
   },
   "terminal.integrated.defaultLocation": "editor",
-  "editor.cursorBlinking": "smooth",
-  "workbench.colorTheme": "GitHub Light Default",
-  "gitlens.hovers.currentLine.over": "line"
+  "gitlens.hovers.currentLine.over": "line",
+  "workbench.colorTheme": "Default Light+"
 }
