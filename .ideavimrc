@@ -155,8 +155,8 @@ nnoremap <S-TAB> gT
 vnoremap <TAB> gt
 vnoremap <S-TAB> gT
 " 左右移动视野
-nnoremap zh 50zh
-nnoremap zl 50zl
+nnoremap zh :action EditorScrollLeft<cr>
+nnoremap zl :action EditorScrollRight<cr>
 " 像vscode一样行移动
 vnoremap J :action MoveLineDown<cr>
 vnoremap K :action MoveLineUp<cr>
@@ -244,6 +244,8 @@ nnoremap <leader>rc :action RunConfiguration<cr>
 nnoremap <leader>rr :action Run<cr>
 " 运行当前(now)类 (run file)
 nnoremap <leader>rf :action RunClass<cr>
+" 运行鼠标右击的run
+nnoremap <leader>ru :action EditorPopupMenu.Run<cr>
 " 停止运行
 nnoremap <leader>rp :action Stop<cr>
 "--━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━--
@@ -319,7 +321,7 @@ nnoremap <leader>rn :action RenameFile<cr>
 nnoremap <leader>ff mm`m:action GotoFile<cr>
 " 最近查看文件间相互跳转
 nnoremap <leader>fr mm`m:action RecentFiles<cr>
-nnoremap <leader><leader> mm`m:action RecentFiles<cr>
+nnoremap <leader><SPACE> mm`m:action RecentFiles<cr>
 " 查找用法
 nnoremap <leader>fu :action FindUsages<cr>
 "跳转到声明
@@ -332,8 +334,6 @@ nnoremap gr mm`m:action GotoImplementation<cr>
 nnoremap <leader>Fc mm`m:action GotoClass<cr>
 " 跳转SuperMethod
 nnoremap gs mm`m:action GotoSuperMethod<cr>
-" 目前还不熟悉 (后面搞懂回来补充)
-nnoremap gf mm`m:action FileStructurePopup<cr>
 " 搜索 action
 nnoremap <leader>ga :action GotoAction<cr>
 " 相当于鼠标右键
@@ -395,6 +395,7 @@ nnoremap <leader>hp :action Vcs.ShowHistoryForBlock<cr>
 "--━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━--
 "--━━━━━━━━━━━━━━━━━━━❰ windows ❱━━━━━━━━━━━━━━━━━━━━━━━--
 "--━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━--
+" select all text
 nnoremap <C-a> ggVG
 "--━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━--
 "--━━━━━━━━━━━━━━━━━━━❰ end windows❱━━━━━━━━━━━━━━━━━━━--
