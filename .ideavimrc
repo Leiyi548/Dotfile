@@ -58,7 +58,7 @@ nnoremap <leader>sc :nohlsearch<cr>
 "--━━━━━━━━━━━━━━━━━━━❰ UI ❱━━━━━━━━━━━━━━━━━━━━━━━━--
 "--━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━--
 " change colorscheme
-nnoremap <leader>fc :action QuickChangeScheme<cr>
+nnoremap <leader>fc :action ChangeColorScheme<cr>
 " 改变视图
 nnoremap <leader>z :action ChangeView<cr>
 "--━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━--
@@ -154,6 +154,12 @@ nnoremap <TAB> gt
 nnoremap <S-TAB> gT
 vnoremap <TAB> gt
 vnoremap <S-TAB> gT
+" 上下方法的移动
+nnoremap [m :action MethodUp<cr>
+nnoremap ]m :action MethodDown<cr>
+" 多个项目窗口之间的移动
+nnoremap <leader>wp :action PreviousProjectWindow<cr>
+nnoremap <leader>wn :action NextProjectWindow<cr>
 " 左右移动视野
 nnoremap zh :action EditorScrollLeft<cr>
 nnoremap zl :action EditorScrollRight<cr>
@@ -335,7 +341,7 @@ nnoremap <leader>Fc mm`m:action GotoClass<cr>
 " 跳转SuperMethod
 nnoremap gs mm`m:action GotoSuperMethod<cr>
 " 搜索 action
-nnoremap <leader>ga :action GotoAction<cr>
+nnoremap <leader>Fa :action GotoAction<cr>
 " 相当于鼠标右键
 nnoremap <leader>sp :action ShowPopupMenu<cr>
 " 跳转上一个位置
@@ -390,6 +396,15 @@ nnoremap <leader>hu :action Vcs.RollbackChangedLines<cr>
 nnoremap <leader>hp :action Vcs.ShowHistoryForBlock<cr>
 "--━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━--
 "--━━━━━━━━━━━━━━━━━━━❰ end Git ❱━━━━━━━━━━━━━━━━━━━--
+"--━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━--
+
+"--━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━--
+"--━━━━━━━━━━━━━━━━━━━❰ Fold ❱━━━━━━━━━━━━━━━━━━━━━━━--
+"--━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━--
+vnoremap za :action CollapseSelection<cr>
+nnoremap zd :action CollapseDocComments<cr>
+"--━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━--
+"--━━━━━━━━━━━━━━━━━━━❰ end Fold ❱━━━━━━━━━━━━━━━━━━━--
 "--━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━--
 
 "--━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━--
