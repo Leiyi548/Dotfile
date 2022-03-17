@@ -1,31 +1,107 @@
 {
   "workbench.iconTheme": "vscode-icons",
+  "workbench.colorTheme": "Gruvbox Dark Hard",
   "vsicons.dontShowNewVersionMessage": true,
-  "workbench.editorAssociations": {
-    "*.ipynb": "jupyter-notebook"
-  },
-  "notebook.cellToolbarLocation": {
-    "default": "right",
-    "jupyter-notebook": "left"
-  },
+  /*--━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━--
+  --━━━━━━━━━━━━━━━━━━━❰ editor setting ❱━━━━━━━━━━━━━━━━━━━--
+  --━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━--*/
   // like cmp ghost text(my favourite action)
   "editor.suggest.preview": true,
+  // 控制是否及如何在“导航路径”视图中显示文件路径。 last: 在导航路径视图中仅显示文件路径的最后一个元素。
+  //"breadcrumbs.filePath": "last",
+  // 控制在资源管理器内拖放移动文件或文件夹时是否进行确认。
+  "explorer.confirmDragAndDrop": false,
   // always show Fold icon
   "editor.showFoldingControls": "always",
+  "editor.bracketPairColorization.enabled": true,
   "editor.suggestSelection": "first",
-  "editor.fontSize": 18,
+  "editor.fontSize": 15,
+  "debug.console.fontSize": 18, // debug console fontsize
   "editor.cursorSurroundingLines": 8, //equal set scrolloff = 8
   "editor.linkedEditing": true,
   "editor.fontFamily": "Fira Code,Cascadia Code,Menlo, Monaco, 'Courier New', monospace,'Hack Nerd Font'",
   "editor.fontLigatures": true, // 开启连字效果
   "editor.tabSize": 2, //空格大小
-  // vim
+  "editor.minimap.enabled": false, // minimap
+  "editor.cursorSmoothCaretAnimation": true, // 使用平滑插入动画
+  "editor.formatOnSave": true,
+  "editor.unicodeHighlight.nonBasicASCII": false, // 控制是否突出显示所有非基本ASCII 字符
+  "editor.inlineSuggest.enabled": true,
+  "zenMode.centerLayout": false,
+  "zenMode.fullScreen": false,
+  "emmet.triggerExpansionOnTab": true, // use tab to trigger emmet
+  "html-css-class-completion.enableEmmetSupport": true,
+  "errorLens.gutterIconsEnabled": true,
+  "errorLens.gutterIconSize": "125%",
+  "errorLens.enabledDiagnosticLevels": ["warning", "info", "hint", "error"],
+  "editor.tokenColorCustomizations": {
+    "textMateRules": [
+      {
+        "name": "Comment",
+        "scope": [
+          "comment",
+          "comment.block",
+          "comment.block.documentation",
+          "comment.line",
+          "comment.line.double-slash",
+          "punctuation.definition.comment"
+        ],
+        "settings": {
+          "fontStyle": "italic"
+          // "foreground": "#7712dd"
+          //斜体 "fontStyle": "italic",
+          //斜体下划线 "fontStyle": "italic underline",
+          //斜体粗体下划线 "fontStyle": "italic bold underline",
+        }
+      }
+    ],
+    "[GitHub Light Default]": {
+      "comments": {
+        "foreground": "#7712dd",
+        "fontStyle": "bold italic"
+      }
+    },
+    "[GitHub Light]": {
+      "comments": {
+        "foreground": "#7712dd",
+        "fontStyle": "bold italic"
+      }
+    }
+  },
+  "workbench.colorCustomizations": {
+    // change ghostText color
+    // "editorGhostText.background": "#ff0000"
+    "tab.hoverBackground": "#027bcc",
+    "[Community Material Theme Ocean]": {
+      "statusBar.background": "#007acc",
+      "statusBar.foreground": "#fff7f2",
+      // "editor.findMatchBackground": "#613214",
+      "editor.findMatchHighlightBackground": "#007acc"
+    },
+    "[Default Light+]": {
+      // "button.background": "#ff0000",
+      // "activityBar.activeBackground": "#ff0000",
+      // "sideBar.background": "#ff0000"
+    }
+  },
+  /*--━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━--
+  --━━━━━━━━━━━━━━━━━━━❰ end editor ❱━━━━━━━━━━━━━━━━━━━--
+  --━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━--*/
+
+  /*--━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━--
+  --━━━━━━━━━━━━━━━━━━━❰ vim config ❱━━━━━━━━━━━━━━━━━━━--
+  --━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━--*/
   "vim.incsearch": true,
   "vim.autoSwitchInputMethod.enable": true,
+  "vim.handleKeys": {
+    "<C-a>": false,
+    "<C-f>": true
+  },
   "vim.useCtrlKeys": true,
   "vim.hlsearch": true,
   "vim.easymotion": true,
   "vim.showcmd": true,
+  "vim.shell": "C:\\Program Files\\PowerShell\\7\\pwsh.exe",
   "vim.timeout": 500,
   "vim.showmodename": true,
   "vim.leader": "\\",
@@ -34,7 +110,6 @@
   "vim.autoSwitchInputMethod.defaultIM": "1033",
   "vim.autoSwitchInputMethod.obtainIMCmd": "D:\\im\\im-select.exe",
   "vim.autoSwitchInputMethod.switchIMCmd": "D:\\im\\im-select.exe {im}",
-  "http.proxyStrictSSL": false,
   "vim.history": 1000,
   "vim.showMarksInGutter": true,
   "vim.highlightedyank.enable": true,
@@ -44,16 +119,6 @@
     {
       "before": ["ctrl+e"],
       "commands": ["cursorEnd"]
-    }
-  ],
-  "vim.operatorPendingModeKeyBindings": [
-    {
-      "before": ["L"],
-      "after": ["$"]
-    },
-    {
-      "before": ["H"],
-      "after": ["^"]
     }
   ],
   "vim.visualModeKeyBindingsNonRecursive": [
@@ -75,10 +140,6 @@
       "when": [" editorTextFocus && !editorReadonly "]
     },
     {
-      "before": ["p"],
-      "after": ["p", "g", "v", "y"]
-    },
-    {
       "before": ["L"],
       "after": ["$"]
     },
@@ -87,16 +148,8 @@
       "after": ["^"]
     },
     {
-      "before": ["<leader>", "y"],
-      "after": ["\"", "+", "y"]
-    },
-    {
-      "before": ["<leader>", "Y"],
-      "after": ["\"", "+", "Y"]
-    },
-    {
-      "before": ["<leader>", "p"],
-      "after": ["\"", "+", "p"]
+      "before": ["<"],
+      "commands": ["editor.action.outdentLines"]
     },
     {
       "before": [">"],
@@ -109,10 +162,6 @@
     {
       "before": ["k"],
       "after": ["g", "k"]
-    },
-    {
-      "before": ["<"],
-      "commands": ["editor.action.outdentLines"]
     },
     {
       "before": ["J"],
@@ -174,16 +223,8 @@
       "after": ["^", "D"]
     },
     {
-      "before": ["<leader>", "s", "c"],
-      "commands": [":nohl"] //取消高亮
-    },
-    {
       "before": ["X"],
       "commands": [":q!"]
-    },
-    {
-      "before": ["Y"],
-      "after": ["y", "$"]
     },
     {
       "before": ["<TAB>"],
@@ -266,16 +307,12 @@
     {
       "before": ["ctrl+l"],
       "commands": ["workbench.action.navigateRight"]
-    },
-    {
-      "before": ["=", "="],
-      "commands": ["editor.action.formatDocument"]
     }
   ],
-  "vim.handleKeys": {
-    "<C-a>": false,
-    "<C-f>": false
-  },
+  /*--━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━--
+  --━━━━━━━━━━━━━━━━━━━❰ end vim ❱━━━━━━━━━━━━━━━━━━━--
+  --━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━--*/
+  // 添加忽略文件
   "files.exclude": {
     "**/.classpath": true,
     "**/.project": true,
@@ -286,6 +323,9 @@
     "**/*.out": true,
     "**/.factorypath": true
   },
+  /*--━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━--
+  --━━━━━━━━━━━━━━━━━━━❰ runner config ❱━━━━━━━━━━━━━━━━━━━--
+  --━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━--*/
   // "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
   "code-runner.executorMap": {
     "javascript": "node",
@@ -295,97 +335,13 @@
     "php": "php",
     "bat": "cmd /c",
     "shellscript": "bash",
-    "fsharp": "fsi",
-    "csharp": "scriptcs",
-    "vbscript": "cscript //Nologo",
     "typescript": "ts-node",
-    "coffeescript": "coffee",
     "scala": "scala",
-    "swift": "swift",
-    "julia": "julia",
-    "crystal": "crystal",
-    "ocaml": "ocaml",
-    "r": "Rscript",
-    "applescript": "osascript",
-    "clojure": "lein exec",
-    "haxe": "haxe --cwd $dirWithoutTrailingSlash --run $fileNameWithoutExt",
     "rust": "cd $dir && rustc $fileName && $dir$fileNameWithoutExt",
-    "racket": "racket",
     "scheme": "csi -script",
     "ahk": "autohotkey",
-    "autoit": "autoit3",
-    "dart": "dart",
-    "pascal": "cd $dir && fpc $fileName && $dir$fileNameWithoutExt",
-    "d": "cd $dir && dmd $fileName && $dir$fileNameWithoutExt",
-    "haskell": "runhaskell",
-    "nim": "nim compile --verbosity:0 --hints:off --run",
-    "lisp": "sbcl --script",
-    "kit": "kitc --run",
-    "v": "v run",
-    "sass": "sass --style expanded",
-    "scss": "scss --style expanded",
-    "less": "cd $dir && lessc $fileName $fileNameWithoutExt.css",
-    "FortranFreeForm": "cd $dir && gfortran $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
-    "fortran-modern": "cd $dir && gfortran $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
-    "fortran_fixed-form": "cd $dir && gfortran $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
-    "fortran": "cd $dir && gfortran $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
-    // Introduction:
-    //   Make sure the executor PATH of each language is set in the environment variable.
-    //   You could also add entry into "code-runner.executorMap" to set the executor PATH.
-    // Supported customized parameters:
-    //   $workspaceRoot: The path of the folder opened in VS Code
-    //   $dir: The directory of the code file being run
-    //   $fullFileName: The full name of the code file being run
-    //   $fileName: The base name of the code file being run, that is the file without the directory
-    //   $fileNameWithoutExt: The base name of the code file being run without its extension
-    /* ------ 编译、运行只有一个文件的cpp文件 ------ */
-    // 注：路径中有空格不会出现问题
     "cpp": "g++ $fullFileName -o $dir\"$fileNameWithoutExt\"\".out\" -W -Wall -O2 -std=c++17 && $dir\"$fileNameWithoutExt\"\".out\"",
-    // 其中 $fullFileName 是绝对路径，是主文件
-    // 自己决定是否加入 && rm $dir\"$fileNameWithoutExt\"\".out\"（也可以添加"files.exclude"）
-    /* ------ 编译、运行多个cpp文件 ------ */
-    // "cpp": "g++ $fullFileName <file_to_link> -o $dir\"$fileNameWithoutExt\"\".out\" -W -Wall -O2 -std=c++17 && $dir\"$fileNameWithoutExt\"\".out\"",
-    // <file_to_link>的写法：
-    //   一般的，你也可以直接写绝对路径
-    //     \"/path/xxxx.cpp\"
-    //   如果你链接的cpp文件和主文件在一个目录下：
-    //     $dir\"xxxx.cpp\"
-    //   更一般的，如果你链接的cpp文件不和主文件在一个目录下，需要从当前VSCode的工作目录补充相对路径从而形成绝对路径：
-    //     $workspaceRoot\"relative/path/xxxx.cpp\"
-    /* ------ 编译c文件 ------ */
     "c": "gcc $fullFileName -o $dir\"$fileNameWithoutExt\"\".out\" -W -Wall -O2 -std=c17 && $dir\"$fileNameWithoutExt\"\".out\""
-    // "c": "gcc $fullFileName <file_to_link> -o $dir\"$fileNameWithoutExt\"\".out\" -W -Wall -O2 -std=c17 && $dir\"$fileNameWithoutExt\"\".out\"",
-  },
-  "code-runner.executorMapByFileExtension": {
-    "java": "javac -encoding utf-8 $fileName && java $fileNameWithoutExt",
-    ".vb": "cd $dir && vbc /nologo $fileName && $dir$fileNameWithoutExt",
-    ".vbs": "cscript //Nologo",
-    ".scala": "scala",
-    ".jl": "julia",
-    ".cr": "crystal",
-    ".ml": "ocaml",
-    ".exs": "elixir",
-    ".hx": "haxe --cwd $dirWithoutTrailingSlash --run $fileNameWithoutExt",
-    ".rkt": "racket",
-    ".scm": "csi -script",
-    ".ahk": "autohotkey",
-    ".au3": "autoit3",
-    ".kt": "cd $dir && kotlinc $fileName -include-runtime -d $fileNameWithoutExt.jar && java -jar $fileNameWithoutExt.jar",
-    ".kts": "kotlinc -script",
-    ".dart": "dart",
-    ".pas": "cd $dir && fpc $fileName && $dir$fileNameWithoutExt",
-    ".pp": "cd $dir && fpc $fileName && $dir$fileNameWithoutExt",
-    ".d": "cd $dir && dmd $fileName && $dir$fileNameWithoutExt",
-    ".hs": "runhaskell",
-    ".nim": "nim compile --verbosity:0 --hints:off --run",
-    ".csproj": "dotnet run --project",
-    ".fsproj": "dotnet run --project",
-    ".lisp": "sbcl --script",
-    ".kit": "kitc --run",
-    ".v": "v run",
-    ".vsh": "v run",
-    ".sass": "sass --style expanded",
-    ".cu": "cd $dir && nvcc $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt"
   },
   // Whether to save the current file before running.
   "code-runner.fileDirectoryAsCwd": true, //true设置为 true后，终端默认目录为运行文件的目录。
@@ -398,69 +354,58 @@
   "code-runner.clearPreviousOutput": true, // 每次run code前清空属于code runner的终端消息，默认false
   // Whether to ignore selection to always run entire file.
   "code-runner.ignoreSelection": false,
-  // picgo
-  "picgo.picBed.current": "tcyun",
-  "picgo.picBed.uploader": "tcyun",
-  "picgo.picBed.github.branch": "main",
-  "picgo.picBed.github.customUrl": "https://cdn.jsdelivr.net/gh/Leiyi548/@main",
-  "picgo.picBed.github.path": "blogs/pictures/",
-  "picgo.picBed.github.repo": "Leiyi548 / blogImg",
-  "picgo.picBed.github.token": "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",
-  "picgo.picBed.tcyun.appId": "1305815567v",
-  "picgo.picBed.smms.token": "vb1C8pGRN3TdXCbkcFcjZ8QRBl46rLZX",
-  "picgo.picBed.tcyun.secretId": "AKID74lBKCn79uPey1oJXT9ZhY8RTEhuqVpv",
-  "picgo.picBed.tcyun.secretKey": "vb1C8pGRN3TdXCbkcFcjZ8QRBl46rLZX",
-  "picgo.picBed.tcyun.area": "ap-nanjing",
-  "picgo.picBed.tcyun.bucket": "leiyi-1305815567",
-  "picgo.picBed.tcyun.path": "picture/",
-  "picgo.picBed.tcyun.customUrl": "https://leiyi-1305815567.cos.ap-nanjing.myqcloud.com",
-  "markdown.preview.fontSize": 16,
-  "debug.console.fontSize": 18,
+  /*--━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━--
+  --━━━━━━━━━━━━━━━━━━━❰ end runner ❱━━━━━━━━━━━━━━━━━━━--
+  --━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━--*/
+
+  /*--━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━--
+  --━━━━━━━━━━━━━━━━━━━❰ git config ❱━━━━━━━━━━━━━━━━━━━--
+  --━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━--*/
+  // 同步我的vscode配置
   "sync.gist": "f25cf7986ba54b02527ad8ff2ddc413b",
-  // markdown
-  "[markdown]": {
-    "editor.wordWrap": "on",
-    "editor.quickSuggestions": true,
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  // 指定应抑制哪些消息
+  "gitlens.advanced.messages": {
+    "suppressGitMissingWarning": true
   },
-  // terminal
+  /*--━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━--
+    --━━━━━━━━━━━━━━━━━━━❰ end git ❱━━━━━━━━━━━━━━━━━━━--
+  --━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━--*/
+
+  /*--━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━--
+  --━━━━━━━━━━━━━━━━━━━❰ markdown config ❱━━━━━━━━━━━━━━━━━━━--
+  --━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━--*/
+  // 控制 Markdown 预览中使用的字号(以像素为单位)。
+  "markdown.preview.fontSize": 16,
+  "markdown-preview-enhanced.previewTheme": "github-dark.css",
+  "markdown-preview-enhanced.enableHTML5Embed": true,
+  "markdown-preview-enhanced.enableExtendedTableSyntax": true,
+  /*--━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━--
+    --━━━━━━━━━━━━━━━━━━━❰ end markdown ❱━━━━━━━━━━━━━━━━━━━--
+  --━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━--*/
+
+  /*--━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━--
+  --━━━━━━━━━━━━━━━━━━━❰ terminal config ❱━━━━━━━━━━━━━━━━━━━--
+  --━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━--*/
+  //macos
   "terminal.external.osxExec": "iTerm.app",
-  // language
-  "go.inferGopath": true,
-  "go.useCodeSnippetsOnFunctionSuggest": true,
-  "auto-close-tag.enableAutoCloseTag": true,
-  "auto-close-tag.activationOnLanguage": [
-    "xml",
-    "php",
-    "blade",
-    "ejs",
-    "jinja",
-    "javascript",
-    "javascriptreact",
-    "typescript",
-    "typescriptreact",
-    "plaintext",
-    "markdown",
-    "vue",
-    "liquid",
-    "erb",
-    "lang-cfml",
-    "cfml",
-    "HTML (EEx)",
-    "HTML (Eex)",
-    "plist"
-  ],
-  "[html]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  // windows
+  "terminal.external.windowsExec": "C:\\ProgramData\\Microsoft\\Windows\\Start Menu\\Programs\\PowerShell\\PowerShell 7 (x64)",
+  // autoupdate [Oh My Zsh]
+  "terminal.integrated.autoReplies": {
+    "[Oh My Zsh] Would you like to check for updates? [Y/n]": "Y\r"
   },
-  "[css]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
+  /*--━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━--
+    --━━━━━━━━━━━━━━━━━━━❰ end terminal ❱━━━━━━━━━━━━━━━━━━━--
+  --━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━--*/
   "liveServer.settings.donotShowInfoMsg": true,
+  // explorer
   "explorer.confirmDelete": false,
+  // 控制如何处理在受信任的工作区中打开不受信任的文件
   "security.workspace.trust.untrustedFiles": "open",
   "whichkey.bindings": [
-    //whichkeynobinding
+    /*--━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━--
+    --━━━━━━━━━━━━━━━━━━━❰ whichkeyconfig ❱━━━━━━━━━━━━━━━━━━━--
+  --━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━--*/
     {
       "key": ";",
       "name": "commands",
@@ -1658,94 +1603,31 @@
       "command": "workbench.action.toggleZenMode"
     }
   ],
-  "[jsonc]": {
-    "editor.defaultFormatter": "vscode.json-language-features"
-  },
-  "emmet.triggerExpansionOnTab": true,
-  "html-css-class-completion.enableEmmetSupport": true,
-  "editor.bracketPairColorization.enabled": true,
-  "errorLens.gutterIconsEnabled": true,
-  "errorLens.gutterIconSize": "125%",
-  "errorLens.enabledDiagnosticLevels": ["warning", "info", "hint", "error"],
-  "markdown-preview-enhanced.previewTheme": "github-dark.css",
-  "files.associations": {
-    "*.tex": "tex"
-  },
-  "scm.inputFontSize": 16,
-  "editor.minimap.enabled": false,
-  "editor.unicodeHighlight.nonBasicASCII": false,
-  "gitlens.advanced.messages": {
-    "suppressGitMissingWarning": true
-  },
-  "editor.inlineSuggest.enabled": true,
-  "[javascript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "zenMode.fullScreen": false,
-  "zenMode.centerLayout": false,
-  "explorer.confirmDragAndDrop": false,
-  // "breadcrumbs.filePath": "last",
-  "workbench.colorCustomizations": {
-    // change ghostText color
-    // "editorGhostText.background": "#ff0000"
-    "tab.hoverBackground": "#027bcc",
-    "[Community Material Theme Ocean]": {
-      "statusBar.background": "#007acc",
-      "statusBar.foreground": "#fff7f2",
-      // "editor.findMatchBackground": "#613214",
-      "editor.findMatchHighlightBackground": "#007acc"
-    },
-    "[Default Light+]": {
-      // "button.background": "#ff0000",
-      // "activityBar.activeBackground": "#ff0000",
-      // "sideBar.background": "#ff0000"
-    }
-  },
-  "editor.cursorSmoothCaretAnimation": true,
-  "editor.tokenColorCustomizations": {
-    "textMateRules": [
-      {
-        "name": "Comment",
-        "scope": [
-          "comment",
-          "comment.block",
-          "comment.block.documentation",
-          "comment.line",
-          "comment.line.double-slash",
-          "punctuation.definition.comment"
-        ],
-        "settings": {
-          "fontStyle": "italic"
-          // "foreground": "#7712dd"
-          //斜体 "fontStyle": "italic",
-          //斜体下划线 "fontStyle": "italic underline",
-          //斜体粗体下划线 "fontStyle": "italic bold underline",
-        }
-      }
-    ],
-    "[GitHub Light Default]": {
-      "comments": {
-        "foreground": "#7712dd",
-        "fontStyle": "bold italic"
-      }
-    },
-    "[GitHub Light]": {
-      "comments": {
-        "foreground": "#7712dd",
-        "fontStyle": "bold italic"
-      }
-    }
-  },
-  "editor.formatOnSave": true,
-  // autoupdate [Oh My Zsh]
-  "terminal.integrated.autoReplies": {
-    "[Oh My Zsh] Would you like to check for updates? [Y/n]": "Y\r"
-  },
-  "terminal.integrated.defaultLocation": "editor",
-  "gitlens.hovers.currentLine.over": "line",
-  "terminal.external.windowsExec": "C:\\ProgramData\\Microsoft\\Windows\\Start Menu\\Programs\\PowerShell\\PowerShell 7 (x64)",
-  "workbench.colorTheme": "monokai-charcoal",
+  /*--━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━--
+  --━━━━━━━━━━━━━━━━━━━❰ end whichkey ❱━━━━━━━━━━━━━━━━━━━--
+  --━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━--*/
+
+  /*--━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━--
+  --━━━━━━━━━━━━━━━━━━━❰ language config ❱━━━━━━━━━━━━━━━━━━━--
+  --━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━--*/
   "[json]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[markdown]": {
+    "editor.wordWrap": "on",
+    "editor.quickSuggestions": true,
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[css]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
   }
+  /*--━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━--
+    --━━━━━━━━━━━━━━━━━━━❰ end language ❱━━━━━━━━━━━━━━━━━━━--
+  --━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━--*/
 }
