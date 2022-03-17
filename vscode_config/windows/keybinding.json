@@ -132,13 +132,18 @@
   // },
   // 用Ctrl+n tab 进行向下选择  用Ctrl+p shift+tab 进行向上选择 
   {
-    "key": "ctrl+n",
+    "key": "ctrl+[",
     "command": "workbench.action.quickOpenNavigateNext",
     "when": "inQuickOpen"
   },
   {
     "key": "ctrl+p",
     "command": "workbench.action.quickOpenNavigatePrevious",
+    "when": "inQuickOpen"
+  },
+  {
+    "key": "ctrl+n",
+    "command": "workbench.action.quickOpenNavigateNext",
     "when": "inQuickOpen"
   },
   {
@@ -260,12 +265,12 @@
     "key": "ctrl+\\",
     "command": "workbench.action.focusFirstEditorGroup"
   },
-  // 多光标
-  {
-    "key": "ctrl+n",
-    "command": "editor.action.addSelectionToNextFindMatch",
-    "when": "editorFocus && vim.mode=='Normal' && !inQuickOpen"
-  },
+  // 多光标 (macos)
+  // {
+  //   "key": "ctrl+n",
+  //   "command": "editor.action.addSelectionToNextFindMatch",
+  //   "when": "editorFocus && vim.mode=='Normal' && !inQuickOpen"
+  // },
   /*
   ===
   === 窗口移动 
@@ -311,5 +316,14 @@
     "key": "ctrl+shift+g",
     "command": "-workbench.view.scm",
     "when": "workbench.scm.active && vim.mode != 'Insert'&&!inputFocus"
+  },
+  {
+    "key": "ctrl+n",
+    "command": "-workbench.action.files.newUntitledFile"
+  },
+  {
+    "key": "ctrl+n",
+    "command": "-extension.vim_ctrl+n",
+    "when": "editorTextFocus && vim.active && vim.use<C-n> && !inDebugRepl || vim.active && vim.use<C-n> && !inDebugRepl && vim.mode == 'CommandlineInProgress' || vim.active && vim.use<C-n> && !inDebugRepl && vim.mode == 'SearchInProgressMode'"
   },
 ]

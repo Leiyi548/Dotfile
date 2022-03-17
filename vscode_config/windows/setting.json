@@ -706,8 +706,6 @@
   },
   // terminal
   "terminal.external.osxExec": "iTerm.app",
-  "terminal.integrated.fontFamily": "Hack Nerd Font Mono",
-  "terminal.integrated.fontSize": 18,
   // language
   "go.inferGopath": true,
   "go.useCodeSnippetsOnFunctionSuggest": true,
@@ -750,12 +748,30 @@
       "type": "command",
       "command": "workbench.action.showCommands"
     },
+    // {
+    //   "key": "?",
+    //   "name": "View All References",
+    //   "type": "command",
+    //   "command": "references-view.find",
+    //   "when": "editorHasReferenceProvider"
+    // },
     {
       "key": "?",
-      "name": "View All References",
+      "name": "Search keybindings",
       "type": "command",
-      "command": "references-view.find",
-      "when": "editorHasReferenceProvider"
+      "command": "whichkey.searchBindings",
+    },
+    {
+      "key": "/",
+      "name": "Search in project",
+      "type": "command",
+      "command": "workbench.action.findInFiles",
+    },
+    {
+      "key": "*",
+      "name": "Search in project with selection",
+      "type": "command",
+      "command": "workbench.action.findInFiles search.action.focusSearchList",
     },
     //whichkey-b
     {
@@ -1795,36 +1811,42 @@
       "name": "Window...",
       "type": "bindings",
       "bindings": [
-        // {
-        //   "key": "W",
-        //   "name": "Focus previous editor group",
-        //   "type": "command",
-        //   "command": "workbench.action.focusPreviousGroup"
-        // },
-        // {
-        //   "key": "h",
-        //   "name": "Move editor group left",
-        //   "type": "command",
-        //   "command": "workbench.action.navigateLeft"
-        // },
-        // {
-        //   "key": "j",
-        //   "name": "Move editor group down",
-        //   "type": "command",
-        //   "command": "workbench.action.navigateDown"
-        // },
-        // {
-        //   "key": "k",
-        //   "name": "Move editor group up",
-        //   "type": "command",
-        //   "command": "workbench.action.navigateUp"
-        // },
-        // {
-        //   "key": "l",
-        //   "name": "Move editor group right",
-        //   "type": "command",
-        //   "command": "workbench.action.navigateRight"
-        // },
+        {
+          "key": "W",
+          "name": "Focus previous editor group",
+          "type": "command",
+          "command": "workbench.action.focusPreviousGroup"
+        },
+        {
+          "key": "w",
+          "name": "Focus next editor group",
+          "type": "command",
+          "command": "workbench.action.focusNextGroup"
+        },
+        {
+          "key": "h",
+          "name": "Move editor group left",
+          "type": "command",
+          "command": "workbench.action.navigateLeft"
+        },
+        {
+          "key": "j",
+          "name": "Move editor group down",
+          "type": "command",
+          "command": "workbench.action.navigateDown"
+        },
+        {
+          "key": "k",
+          "name": "Move editor group up",
+          "type": "command",
+          "command": "workbench.action.navigateUp"
+        },
+        {
+          "key": "l",
+          "name": "Move editor group right",
+          "type": "command",
+          "command": "workbench.action.navigateRight"
+        },
         {
           "key": "H",
           "name": "Move editor group left",
@@ -1857,9 +1879,9 @@
         },
         {
           "key": "m",
-          "name": "Maximize editor group",
+          "name": "Toggle Maximize windows",
           "type": "command",
-          "command": "workbench.action.minimizeOtherEditors"
+          "command": "workbench.action.toggleEditorWidths"
         },
         {
           "key": "M",
@@ -2038,5 +2060,6 @@
   },
   "terminal.integrated.defaultLocation": "editor",
   "gitlens.hovers.currentLine.over": "line",
-  "workbench.colorTheme": "Default Light+"
+  "terminal.external.windowsExec": "C:\\ProgramData\\Microsoft\\Windows\\Start Menu\\Programs\\PowerShell\\PowerShell 7 (x64)",
+  "workbench.colorTheme": "monokai-charcoal"
 }
