@@ -98,6 +98,8 @@ scoop bucket add extras
 scoop install lazygit
 ```
 
+[lazygit 中文默认键位文档](git@github.com:74th/vscode-monokaicharcoal.git)
+
 #### lazygit 存放配置的位置
 
 默认路径:
