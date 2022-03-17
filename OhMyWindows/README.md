@@ -126,6 +126,8 @@ vscode 是我最喜欢的编辑器之一,主要原因就是这个编译器打开
 
 - [vscode 自定义主题](https://code.visualstudio.com/docs/getstarted/themes#_customizing-a-color-theme)
 
+- [vscode Extension API](https://code.visualstudio.com/api)
+
 **我自己的配置通过 git 同步**
 
 ## Intelij IDEA 配置
