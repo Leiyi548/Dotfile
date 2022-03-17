@@ -107,7 +107,7 @@
   === 补全 (cmp)
   ===
   */
-  // remove tab to accept copilot suggestions 
+  // remove tab to accept copilot suggestions
   // use ctrl + ] to accept copilot suggestions
   {
     "key": "tab",
@@ -130,7 +130,7 @@
   //   "command": "-editor.action.triggerSuggest",
   //   "when": "editorHasCompletionItemProvider && textInputFocus && !editorReadonly"
   // },
-  // 用Ctrl+n tab 进行向下选择  用Ctrl+p shift+tab 进行向上选择 
+  // 用Ctrl+n tab 进行向下选择  用Ctrl+p shift+tab 进行向上选择
   {
     "key": "ctrl+[",
     "command": "workbench.action.quickOpenNavigateNext",
@@ -325,5 +325,5 @@
     "key": "ctrl+n",
     "command": "-extension.vim_ctrl+n",
     "when": "editorTextFocus && vim.active && vim.use<C-n> && !inDebugRepl || vim.active && vim.use<C-n> && !inDebugRepl && vim.mode == 'CommandlineInProgress' || vim.active && vim.use<C-n> && !inDebugRepl && vim.mode == 'SearchInProgressMode'"
-  },
+  }
 ]

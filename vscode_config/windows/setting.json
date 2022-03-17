@@ -42,515 +42,234 @@
   "vim.wrapscan": true,
   "vim.insertModeKeyBindingsNonRecursive": [
     {
-      "before": [
-        "ctrl+e"
-      ],
-      "commands": [
-        "cursorEnd"
-      ]
+      "before": ["ctrl+e"],
+      "commands": ["cursorEnd"]
     }
   ],
   "vim.operatorPendingModeKeyBindings": [
     {
-      "before": [
-        "L"
-      ],
-      "after": [
-        "$"
-      ]
+      "before": ["L"],
+      "after": ["$"]
     },
     {
-      "before": [
-        "H"
-      ],
-      "after": [
-        "^"
-      ]
-    },
+      "before": ["H"],
+      "after": ["^"]
+    }
   ],
   "vim.visualModeKeyBindingsNonRecursive": [
     {
-      "before": [
-        "<Space>"
-      ],
-      "commands": [
-        "whichkey.show"
-      ]
+      "before": ["<Space>"],
+      "commands": ["whichkey.show"]
     },
     {
-      "before": [
-        "u"
-      ],
-      "commands": [
-        "undo"
-      ]
+      "before": ["u"],
+      "commands": ["undo"]
     },
     {
-      "before": [
-        "ctrl+r"
-      ],
-      "commands": [
-        "redo"
-      ]
+      "before": ["ctrl+r"],
+      "commands": ["redo"]
     },
     {
-      "before": [
-        "ctrl+j"
-      ],
-      "commands": [
-        "editor.action.joinLines"
-      ],
-      "when": [
-        " editorTextFocus && !editorReadonly "
-      ]
+      "before": ["ctrl+j"],
+      "commands": ["editor.action.joinLines"],
+      "when": [" editorTextFocus && !editorReadonly "]
     },
     {
-      "before": [
-        "p",
-      ],
-      "after": [
-        "p",
-        "g",
-        "v",
-        "y"
-      ]
+      "before": ["p"],
+      "after": ["p", "g", "v", "y"]
     },
     {
-      "before": [
-        "L"
-      ],
-      "after": [
-        "$"
-      ]
+      "before": ["L"],
+      "after": ["$"]
     },
     {
-      "before": [
-        "H"
-      ],
-      "after": [
-        "^"
-      ]
+      "before": ["H"],
+      "after": ["^"]
     },
     {
-      "before": [
-        "<leader>",
-        "y"
-      ],
-      "after": [
-        "\"",
-        "+",
-        "y"
-      ]
+      "before": ["<leader>", "y"],
+      "after": ["\"", "+", "y"]
     },
     {
-      "before": [
-        "<leader>",
-        "Y"
-      ],
-      "after": [
-        "\"",
-        "+",
-        "Y"
-      ]
+      "before": ["<leader>", "Y"],
+      "after": ["\"", "+", "Y"]
     },
     {
-      "before": [
-        "<leader>",
-        "p"
-      ],
-      "after": [
-        "\"",
-        "+",
-        "p"
-      ]
+      "before": ["<leader>", "p"],
+      "after": ["\"", "+", "p"]
     },
     {
-      "before": [
-        ">"
-      ],
-      "commands": [
-        "editor.action.indentLines"
-      ]
+      "before": [">"],
+      "commands": ["editor.action.indentLines"]
     },
     {
-      "before": [
-        "j"
-      ],
-      "after": [
-        "g",
-        "j"
-      ]
+      "before": ["j"],
+      "after": ["g", "j"]
     },
     {
-      "before": [
-        "k"
-      ],
-      "after": [
-        "g",
-        "k"
-      ]
+      "before": ["k"],
+      "after": ["g", "k"]
     },
     {
-      "before": [
-        "<"
-      ],
-      "commands": [
-        "editor.action.outdentLines"
-      ]
+      "before": ["<"],
+      "commands": ["editor.action.outdentLines"]
     },
     {
-      "before": [
-        "J"
-      ],
-      "commands": [
-        "editor.action.moveLinesDownAction"
-      ]
+      "before": ["J"],
+      "commands": ["editor.action.moveLinesDownAction"]
     },
     {
-      "before": [
-        "K"
-      ],
-      "commands": [
-        "editor.action.moveLinesUpAction"
-      ]
+      "before": ["K"],
+      "commands": ["editor.action.moveLinesUpAction"]
     }
   ],
   // vim normalKeybinding
   "vim.normalModeKeyBindingsNonRecursive": [
     {
-      "before": [
-        "<Space>"
-      ],
-      "commands": [
-        "whichkey.show"
-      ]
+      "before": ["<Space>"],
+      "commands": ["whichkey.show"]
     },
     {
-      "before": [
-        "g",
-        "l",
-      ],
-      "commands": [
-        "editor.action.marker.nextInFiles"
-      ],
-      "when": [
-        "editorFocus"
-      ]
+      "before": ["g", "l"],
+      "commands": ["editor.action.marker.nextInFiles"],
+      "when": ["editorFocus"]
     },
     {
-      "before": [
-        "g",
-        "p",
-      ],
-      "commands": [
-        "editor.action.peekDefinition"
-      ],
+      "before": ["g", "p"],
+      "commands": ["editor.action.peekDefinition"],
       "when": [
         "editorHasDefinitionProvider && editorTextFocus && !inReferenceSearchEditor && !isInEmbeddedEditor"
       ]
     },
     {
-      "before": [
-        "ctrl+e"
-      ],
-      "commands": [
-        "workbench.view.explorer"
-      ]
+      "before": ["ctrl+e"],
+      "commands": ["workbench.view.explorer"]
     },
     {
-      "before": [
-        "j"
-      ],
-      "after": [
-        "g",
-        "j",
-      ]
+      "before": ["j"],
+      "after": ["g", "j"]
     },
     {
-      "before": [
-        "k"
-      ],
-      "after": [
-        "g",
-        "k",
-      ]
+      "before": ["k"],
+      "after": ["g", "k"]
     },
     {
-      "before": [
-        "u"
-      ],
-      "commands": [
-        "undo"
-      ]
+      "before": ["u"],
+      "commands": ["undo"]
     },
     {
-      "before": [
-        "ctrl+r"
-      ],
-      "commands": [
-        "redo"
-      ]
+      "before": ["ctrl+r"],
+      "commands": ["redo"]
     },
     {
-      "before": [
-        "K"
-      ],
-      "commands": [
-        "editor.action.showHover"
-      ]
+      "before": ["K"],
+      "commands": ["editor.action.showHover"]
     },
     {
-      "before": [
-        "c",
-        "i",
-        "l"
-      ],
-      "after": [
-        "^",
-        "C",
-      ]
+      "before": ["c", "i", "l"],
+      "after": ["^", "C"]
     },
     {
-      "before": [
-        "d",
-        "i",
-        "l"
-      ],
-      "after": [
-        "^",
-        "D",
-      ]
+      "before": ["d", "i", "l"],
+      "after": ["^", "D"]
     },
     {
-      "before": [
-        "<leader>",
-        "s",
-        "c"
-      ],
-      "commands": [
-        ":nohl"
-      ] //取消高亮
+      "before": ["<leader>", "s", "c"],
+      "commands": [":nohl"] //取消高亮
     },
     {
-      "before": [
-        "X",
-      ],
-      "commands": [
-        ":q!"
-      ]
+      "before": ["X"],
+      "commands": [":q!"]
     },
     {
-      "before": [
-        "Y",
-      ],
-      "after": [
-        "y",
-        "$",
-      ]
+      "before": ["Y"],
+      "after": ["y", "$"]
     },
     {
-      "before": [
-        "<TAB>"
-      ],
-      "commands": [
-        ":bnext"
-      ]
+      "before": ["<TAB>"],
+      "commands": [":bnext"]
     },
     {
-      "before": [
-        "<S-TAB>"
-      ],
-      "commands": [
-        ":bprevious"
-      ]
+      "before": ["<S-TAB>"],
+      "commands": [":bprevious"]
     },
     {
-      "before": [
-        ">"
-      ],
-      "after": [
-        ">",
-        ">"
-      ]
+      "before": [">"],
+      "after": [">", ">"]
     },
     {
-      "before": [
-        "<"
-      ],
-      "after": [
-        "<",
-        "<"
-      ]
+      "before": ["<"],
+      "after": ["<", "<"]
     },
     // easymotion setting
     {
-      "before": [
-        "s",
-        "s",
-      ],
-      "after": [
-        "<leader>",
-        "<leader>",
-        "2",
-        "s",
-      ]
+      "before": ["s", "s"],
+      "after": ["<leader>", "<leader>", "2", "s"]
     },
     {
-      "before": [
-        "s",
-        "w",
-      ],
-      "after": [
-        "<leader>",
-        "<leader>",
-        "<leader>",
-        "b",
-        "d",
-        "w",
-      ]
+      "before": ["s", "w"],
+      "after": ["<leader>", "<leader>", "<leader>", "b", "d", "w"]
     },
     {
-      "before": [
-        "E",
-      ],
-      "after": [
-        "leader",
-        "leader",
-        "s"
-      ]
+      "before": ["E"],
+      "after": ["leader", "leader", "s"]
     },
     {
-      "before": [
-        "s",
-        "l",
-      ],
-      "after": [
-        "leader",
-        "leader",
-        "leader",
-        "b",
-        "d",
-        "j",
-        "k",
-      ]
+      "before": ["s", "l"],
+      "after": ["leader", "leader", "leader", "b", "d", "j", "k"]
     },
     // end easymotion setting
     {
-      "before": [
-        "L"
-      ],
-      "after": [
-        "$"
-      ]
+      "before": ["L"],
+      "after": ["$"]
     },
     {
-      "before": [
-        "H"
-      ],
-      "after": [
-        "^"
-      ]
+      "before": ["H"],
+      "after": ["^"]
     },
     {
-      "before": [
-        "<leader>",
-        "y"
-      ],
-      "after": [
-        "\"",
-        "+",
-        "y"
-      ]
+      "before": ["<leader>", "y"],
+      "after": ["\"", "+", "y"]
     },
     {
-      "before": [
-        "<leader>",
-        "Y"
-      ],
-      "after": [
-        "\"",
-        "+",
-        "Y"
-      ]
+      "before": ["<leader>", "Y"],
+      "after": ["\"", "+", "Y"]
     },
     {
-      "before": [
-        "<leader>",
-        "p"
-      ],
-      "after": [
-        "\"",
-        "+",
-        "p"
-      ]
+      "before": ["<leader>", "p"],
+      "after": ["\"", "+", "p"]
     },
     {
-      "before": [
-        "s",
-        "v",
-      ],
-      "commands": [
-        ":vsplit"
-      ]
+      "before": ["s", "v"],
+      "commands": [":vsplit"]
     },
     {
-      "before": [
-        "s",
-        "g",
-      ],
-      "commands": [
-        ":split"
-      ]
+      "before": ["s", "g"],
+      "commands": [":split"]
     },
     {
-      "before": [
-        "s",
-        "c",
-      ],
-      "commands": [
-        "workbench.action.closeEditorsInGroup"
-      ]
+      "before": ["s", "c"],
+      "commands": ["workbench.action.closeEditorsInGroup"]
     },
     {
-      "before": [
-        "ctrl+k",
-      ],
-      "commands": [
-        "workbench.action.navigateUp"
-      ]
+      "before": ["ctrl+k"],
+      "commands": ["workbench.action.navigateUp"]
     },
     {
-      "before": [
-        "ctrl+j",
-      ],
-      "commands": [
-        "workbench.action.navigateDown"
-      ]
+      "before": ["ctrl+j"],
+      "commands": ["workbench.action.navigateDown"]
     },
     {
-      "before": [
-        "ctrl+h",
-      ],
-      "commands": [
-        "workbench.action.navigateLeft"
-      ]
+      "before": ["ctrl+h"],
+      "commands": ["workbench.action.navigateLeft"]
     },
     {
-      "before": [
-        "ctrl+l",
-      ],
-      "commands": [
-        "workbench.action.navigateRight"
-      ]
+      "before": ["ctrl+l"],
+      "commands": ["workbench.action.navigateRight"]
     },
     {
-      "before": [
-        "=",
-        "="
-      ],
-      "commands": [
-        "editor.action.formatDocument"
-      ]
+      "before": ["=", "="],
+      "commands": ["editor.action.formatDocument"]
     }
   ],
   "vim.handleKeys": {
@@ -759,19 +478,19 @@
       "key": "?",
       "name": "Search keybindings",
       "type": "command",
-      "command": "whichkey.searchBindings",
+      "command": "whichkey.searchBindings"
     },
     {
       "key": "/",
       "name": "Search in project",
       "type": "command",
-      "command": "workbench.action.findInFiles",
+      "command": "workbench.action.findInFiles"
     },
     {
       "key": "*",
       "name": "Search in project with selection",
       "type": "command",
-      "command": "workbench.action.findInFiles search.action.focusSearchList",
+      "command": "workbench.action.findInFiles search.action.focusSearchList"
     },
     //whichkey-b
     {
@@ -966,7 +685,7 @@
       "key": "e",
       "name": "Toggle Explorer",
       "type": "command",
-      "command": "workbench.action.toggleSidebarVisibility",
+      "command": "workbench.action.toggleSidebarVisibility"
     },
     //whichkey-r
     {
@@ -985,7 +704,7 @@
           "name": "Rename",
           "type": "command",
           "command": "fileutils.renameFile"
-        },
+        }
       ]
     },
     //whichkey-n
@@ -999,7 +718,7 @@
           "name": "New file",
           "type": "command",
           "command": "fileutils.newFile"
-        },
+        }
         // {
         //   "key": "d",
         //   "name": "Delete file",
@@ -1300,7 +1019,7 @@
           "name": "Jump to next change",
           "type": "command",
           "command": "workbench.action.editor.nextChange"
-        },
+        }
       ]
     },
     //whichkey-l
@@ -1502,7 +1221,7 @@
           "name": "Markdown Preview",
           "type": "command",
           "command": "markdown-preview-enhanced.openPreviewToTheSide",
-          "when": "editorLangId == 'markdown'",
+          "when": "editorLangId == 'markdown'"
         }
       ]
     },
@@ -1598,11 +1317,7 @@
           "type": "command",
           "command": "vim.remap",
           "args": {
-            "after": [
-              "leader",
-              "leader",
-              "s"
-            ]
+            "after": ["leader", "leader", "s"]
           }
         },
         {
@@ -1611,15 +1326,7 @@
           "type": "command",
           "command": "vim.remap",
           "args": {
-            "after": [
-              "leader",
-              "leader",
-              "leader",
-              "b",
-              "d",
-              "j",
-              "k",
-            ]
+            "after": ["leader", "leader", "leader", "b", "d", "j", "k"]
           }
         },
         {
@@ -1628,11 +1335,7 @@
           "type": "command",
           "command": "vim.remap",
           "args": {
-            "after": [
-              "leader",
-              "leader",
-              "/",
-            ]
+            "after": ["leader", "leader", "/"]
           }
         },
         {
@@ -1647,14 +1350,7 @@
           "type": "command",
           "command": "vim.remap",
           "args": {
-            "after": [
-              "leader",
-              "leader",
-              "leader",
-              "b",
-              "d",
-              "w"
-            ]
+            "after": ["leader", "leader", "leader", "b", "d", "w"]
           }
         },
         {
@@ -1669,7 +1365,7 @@
               }
             ]
           }
-        },
+        }
       ]
     },
     //whichkey-S
@@ -1752,7 +1448,7 @@
           "type": "command",
           "command": "workbench.action.terminal.toggleTerminal",
           "when": "!terminalFocus"
-        },
+        }
       ]
     },
     //whichkey-u
@@ -1924,7 +1620,7 @@
           "name": "Split Vertical",
           "type": "command",
           "command": "workbench.action.splitEditor"
-        },
+        }
       ]
     },
     //whichkey-x
@@ -1941,11 +1637,7 @@
       "type": "command",
       "command": "vim.remap",
       "args": {
-        "after": [
-          "\"",
-          "+",
-          "y",
-        ]
+        "after": ["\"", "+", "y"]
       }
     },
     //whichkey-p
@@ -1955,11 +1647,7 @@
       "type": "command",
       "command": "vim.remap",
       "args": {
-        "after": [
-          "\"",
-          "+",
-          "p",
-        ]
+        "after": ["\"", "+", "p"]
       }
     },
     //whichkey-z
@@ -1978,13 +1666,8 @@
   "editor.bracketPairColorization.enabled": true,
   "errorLens.gutterIconsEnabled": true,
   "errorLens.gutterIconSize": "125%",
-  "errorLens.enabledDiagnosticLevels": [
-    "warning",
-    "info",
-    "hint",
-    "error"
-  ],
-  "markdown-preview-enhanced.previewTheme": "github-light.css",
+  "errorLens.enabledDiagnosticLevels": ["warning", "info", "hint", "error"],
+  "markdown-preview-enhanced.previewTheme": "github-dark.css",
   "files.associations": {
     "*.tex": "tex"
   },
@@ -2029,29 +1712,29 @@
           "comment.block.documentation",
           "comment.line",
           "comment.line.double-slash",
-          "punctuation.definition.comment",
+          "punctuation.definition.comment"
         ],
         "settings": {
-          "fontStyle": "italic",
+          "fontStyle": "italic"
           // "foreground": "#7712dd"
           //斜体 "fontStyle": "italic",
           //斜体下划线 "fontStyle": "italic underline",
           //斜体粗体下划线 "fontStyle": "italic bold underline",
         }
-      },
+      }
     ],
     "[GitHub Light Default]": {
       "comments": {
         "foreground": "#7712dd",
-        "fontStyle": "bold italic",
+        "fontStyle": "bold italic"
       }
     },
     "[GitHub Light]": {
       "comments": {
         "foreground": "#7712dd",
-        "fontStyle": "bold italic",
+        "fontStyle": "bold italic"
       }
-    },
+    }
   },
   "editor.formatOnSave": true,
   // autoupdate [Oh My Zsh]
@@ -2061,5 +1744,8 @@
   "terminal.integrated.defaultLocation": "editor",
   "gitlens.hovers.currentLine.over": "line",
   "terminal.external.windowsExec": "C:\\ProgramData\\Microsoft\\Windows\\Start Menu\\Programs\\PowerShell\\PowerShell 7 (x64)",
-  "workbench.colorTheme": "monokai-charcoal"
+  "workbench.colorTheme": "monokai-charcoal",
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  }
 }
