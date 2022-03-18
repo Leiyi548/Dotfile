@@ -126,3 +126,4 @@ npm install -g cz-conventional-changelog
 - [zuoxiaobai/commitizen-practice-demo](https://github.com/zuoxiaobai/commitizen-practice-demo)
 - [git commit 中文规范](https://github.com/feflow/git-commit-style-guide)
 - [如何规范 git commit](https://www.cnblogs.com/jiaoshou/p/11190619.html)
+- [[完全版] Windows 安装与配置 Git cz (commitizen)](https://blog.csdn.net/weixin_43128203/article/details/118194415)

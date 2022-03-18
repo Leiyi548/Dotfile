@@ -122,6 +122,9 @@ scoop install lazygit
 
 # Install delta
 scoop install delta
+
+# Install grep
+scoop install grep
 ```
 
 ### delta 配置
