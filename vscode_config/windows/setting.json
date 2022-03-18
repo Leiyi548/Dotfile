@@ -135,6 +135,10 @@
       "commands": ["redo"]
     },
     {
+      "before": ["ctrl+n"],
+      "after": ["g", "b"]
+    },
+    {
       "before": ["ctrl+j"],
       "commands": ["editor.action.joinLines"],
       "when": [" editorTextFocus && !editorReadonly "]
@@ -162,6 +166,10 @@
     {
       "before": ["k"],
       "after": ["g", "k"]
+    },
+    {
+      "before": ["Y"],
+      "after": ["y", "$"]
     },
     {
       "before": ["J"],
@@ -242,10 +250,18 @@
       "before": ["<"],
       "after": ["<", "<"]
     },
+    {
+      "before": ["ctrl+n"],
+      "after": ["g", "b"]
+    },
     // easymotion setting
     {
       "before": ["s", "s"],
       "after": ["<leader>", "<leader>", "2", "s"]
+    },
+    {
+      "before": ["Y"],
+      "after": ["y", "$"]
     },
     {
       "before": ["s", "w"],
@@ -674,7 +690,6 @@
     },
     //whichkey-f
     {
-      // cmd + cr 垂直分屏打开文件
       "key": "f",
       "name": "File...",
       "type": "bindings",
@@ -698,12 +713,6 @@
           "command": "workbench.action.openRecent"
         },
         {
-          "key": "b",
-          "name": "Buffer",
-          "type": "command",
-          "command": "workbench.action.showAllEditors"
-        },
-        {
           "key": "t",
           "name": "Text",
           "type": "command",
@@ -714,12 +723,6 @@
           "name": "Directory",
           "type": "command",
           "command": "fileutils.newFolder"
-        },
-        {
-          "key": "p",
-          "name": "Project",
-          "type": "command",
-          "command": "workbench.action.replaceInFiles"
         }
       ]
     },
@@ -910,18 +913,6 @@
       "type": "bindings",
       "bindings": [
         {
-          "key": "j",
-          "name": "Insert line below",
-          "type": "command",
-          "command": "editor.action.insertLineAfter"
-        },
-        {
-          "key": "k",
-          "name": "Insert line above",
-          "type": "command",
-          "command": "editor.action.insertLineBefore"
-        },
-        {
           "key": "s",
           "name": "Insert snippet",
           "type": "command",
@@ -935,12 +926,6 @@
       "name": "+Jump/Join/Split",
       "type": "bindings",
       "bindings": [
-        {
-          "key": "+",
-          "name": "Format buffer",
-          "type": "command",
-          "command": "editor.action.formatDocument"
-        },
         {
           "key": "=",
           "name": "Format region or buffer",
@@ -1245,36 +1230,6 @@
       "type": "bindings",
       "bindings": [
         {
-          "key": "f",
-          "name": "Files",
-          "type": "command",
-          "command": "workbench.action.quickOpen"
-        },
-        {
-          "key": "t",
-          "name": "Text",
-          "type": "command",
-          "command": "workbench.action.findInFiles"
-        },
-        {
-          "key": "s",
-          "name": "Jump to character",
-          "type": "command",
-          "command": "vim.remap",
-          "args": {
-            "after": ["leader", "leader", "s"]
-          }
-        },
-        {
-          "key": "l",
-          "name": "Jump to line",
-          "type": "command",
-          "command": "vim.remap",
-          "args": {
-            "after": ["leader", "leader", "leader", "b", "d", "j", "k"]
-          }
-        },
-        {
           "key": "/",
           "name": "Jump to line",
           "type": "command",
@@ -1290,17 +1245,8 @@
           "command": "fuzzySearch.activeTextEditorWithCurrentSelection"
         },
         {
-          "key": "w",
-          "name": "Jump to word",
-          "type": "command",
-          "command": "vim.remap",
-          "args": {
-            "after": ["leader", "leader", "leader", "b", "d", "w"]
-          }
-        },
-        {
           "key": "c",
-          "name": "Clear highlight",
+          "name": "Clear Highlight",
           "type": "command",
           "command": "vim.remap",
           "args": {
