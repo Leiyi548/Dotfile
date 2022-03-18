@@ -113,7 +113,11 @@ git log HEAD --grep chore(package.json)
 #### commitizen 的安装
 
 ```sh
+# Node Version Manager（Node版本管理器），用它可以方便的在机器上安装并维护多个Node的版本
+scoop install nvm
 npm install -g commitizen
+npm install -g conventional-changelog-cli
+npm install -g cz-conventional-changelog
 ```
 
 #### 相关链接
