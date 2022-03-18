@@ -131,3 +131,9 @@ man git-<verb>
 ```sh
 git help config
 ```
+
+### 解决 git status 中文乱码
+
+```sh
+git config --global core.quotepath false
+```

@@ -125,6 +125,9 @@ scoop install delta
 
 # Install grep
 scoop install grep
+
+# Install mingw
+scoop install mingw
 ```
 
 ### delta 配置
