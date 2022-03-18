@@ -13,3 +13,7 @@ function lg {C:\Users\9\scoop\apps\lazygit\0.33\lazygit.exe}
 function cl {clear}
 function ll {ls -la}
 function vim {nvim}
+# git alias
+function gs {git status -s}
+function gp {git push origin main}
+function ga {git add $args}
