@@ -126,7 +126,7 @@ scoop install delta
 
 ### delta 配置
 
-delta 配置文件在 **C:Users\{用户名}\.gitconfig**
+delta 配置文件在 **C:\Users\{UserName}\.gitconfig**
 不知道为啥现在 lazygit 中 delta 没有效果，以后有效果再配置。
 
 #### 相关 资料
