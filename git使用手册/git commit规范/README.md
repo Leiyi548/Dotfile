@@ -112,14 +112,27 @@ git log HEAD --grep chore(package.json)
 
 #### commitizen 的安装
 
+**windows**
+
 ```sh
 # Node Version Manager（Node版本管理器），用它可以方便的在机器上安装并维护多个Node的版本
 scoop install nvm
 npm install -g commitizen
 npm install -g conventional-changelog-cli
 npm install -g cz-conventional-changelog
+echo '{ "path": "cz-conventional-changelog" }' > ~/.czrc
 ```
 
+**macos**
+
+```sh
+# Node Version Manager（Node版本管理器），用它可以方便的在机器上安装并维护多个Node的版本
+brew install nvm
+npm install -g commitizen
+npm install -g conventional-changelog-cli
+npm install -g cz-conventional-changelog
+echo '{ "path": "cz-conventional-changelog" }' > ~/.czrc
+```
 #### 相关链接
 
 - [commitizen/cz-cli](https://github.com/commitizen/cz-cli)
