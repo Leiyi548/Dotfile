@@ -15,5 +15,6 @@ function ll {ls -la}
 function vim {nvim}
 # git alias
 function gs {git status -s}
-function gp {git push origin main}
+function gp {git push}
+function gP {git pull}
 function ga {git add $args}
