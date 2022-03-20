@@ -10,6 +10,7 @@ Set-PSReadlineKeyHandler -Key Tab -Function MenuComplete
 
 # 设置powershell别名
 function lg {C:\Users\9\scoop\apps\lazygit\0.33\lazygit.exe}
+function s  {neofetch}
 function cl {clear}
 function ll {ls -la}
 function vim {nvim}

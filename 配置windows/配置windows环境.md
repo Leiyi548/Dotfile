@@ -128,6 +128,9 @@ scoop install grep
 
 # Install mingw
 scoop install mingw
+
+# Install neofetch
+scoop install neofetch
 ```
 
 ### delta 配置
