@@ -152,7 +152,40 @@ scoop install neofetch
 delta 配置文件在 **C:\Users\{UserName}\.gitconfig**
 不知道为啥现在 lazygit 中 delta 没有效果，以后有效果再配置。
 
-#### 相关 资料
+### ZLocation 的使用 (windows 上的 autojump)
+
+#### 安装及导入模块
+
+```sh
+# 安装模块
+Install-Module ZLocation -Scope CurrentUser
+POWERS
+
+# 导入模块
+Import-Module ZLocation
+```
+
+#### 使用
+
+**列出所有已知的位置**
+`z` 没有参数的话,就会列出所有已知的位置以及他们的权重
+
+`z -l des` 将会列出包含有 des 的位置,当然这看的是最后的路径而不是全部路径
+例如:
+
+> User/9/desktop/des
+> User/9/desktop/abc
+
+他只会列出第一个因为只看 des 和 abc
+
+**使用 tab completion 导航到不太常见的目录**
+
+需要先取消 tab 自动补全 我是取消了,windows 的自动补全实在是太差了,取消也没啥.哈哈
+
+**返回上次位置**
+命令 `z -`
+
+#### 相关资料
 
 - [lazygit 中文默认键位文档](git@github.com:74th/vscode-monokaicharcoal.git)
 - [delta github](https://github.com/dandavison/delta)
@@ -160,6 +193,8 @@ delta 配置文件在 **C:\Users\{UserName}\.gitconfig**
 - [scoop 官方介绍](https://scoop.sh/)
 - [scoop 知乎文章](https://zhuanlan.zhihu.com/p/128955118)
 - [scoop github](https://github.com/ScoopInstaller/Scoop)
+- [PowerShell 在线中文教程](https://www.pstips.net/powershell-online-tutorials)
+- [ZLocation](https://github.com/vors/ZLocation)
 
 #### lazygit 存放配置的位置
 
