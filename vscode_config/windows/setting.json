@@ -1,6 +1,5 @@
 {
   "workbench.iconTheme": "vscode-icons",
-  "workbench.colorTheme": "Gruvbox Dark Hard",
   "vsicons.dontShowNewVersionMessage": true,
   /*--━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━--
   --━━━━━━━━━━━━━━━━━━━❰ editor setting ❱━━━━━━━━━━━━━━━━━━━--
@@ -19,7 +18,8 @@
   "debug.console.fontSize": 18, // debug console fontsize
   "editor.cursorSurroundingLines": 8, //equal set scrolloff = 8
   "editor.linkedEditing": true,
-  "editor.fontFamily": "Fira Code,Cascadia Code,Menlo, Monaco, 'Courier New', monospace,'Hack Nerd Font'",
+  // "editor.fontFamily": "Fira Code,Cascadia Code,Menlo, Monaco, 'Courier New', monospace,'Hack Nerd Font'",
+  "editor.fontFamily": "FiraCode Nerd Font,Cascadia Code,Menlo, Monaco, 'Courier New', monospace,'Hack Nerd Font'",
   "editor.fontLigatures": true, // 开启连字效果
   "editor.tabSize": 2, //空格大小
   "editor.minimap.enabled": false, // minimap
@@ -69,20 +69,11 @@
     }
   },
   "workbench.colorCustomizations": {
-    // change ghostText color
-    // "editorGhostText.background": "#ff0000"
     "tab.hoverBackground": "#027bcc",
     "[Community Material Theme Ocean]": {
-      "statusBar.background": "#007acc",
-      "statusBar.foreground": "#fff7f2",
-      // "editor.findMatchBackground": "#613214",
       "editor.findMatchHighlightBackground": "#007acc"
     },
-    "[Default Light+]": {
-      // "button.background": "#ff0000",
-      // "activityBar.activeBackground": "#ff0000",
-      // "sideBar.background": "#ff0000"
-    }
+    "[Default Light+]": {}
   },
   /*--━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━--
   --━━━━━━━━━━━━━━━━━━━❰ end editor ❱━━━━━━━━━━━━━━━━━━━--
@@ -113,6 +104,7 @@
   "vim.history": 1000,
   "vim.showMarksInGutter": true,
   "vim.highlightedyank.enable": true,
+  "vim.highlightedyank.color": "rgba(250, 240, 170, 0.5)",
   "vim.useSystemClipboard": false,
   "vim.wrapscan": true,
   "vim.insertModeKeyBindingsNonRecursive": [
@@ -203,8 +195,22 @@
       "commands": ["workbench.view.explorer"]
     },
     {
-      "before": ["j"],
-      "after": ["g", "j"]
+      "before": ["[", "d"],
+      "commands": ["editor.action.marker.prevInFiles"],
+      "when": "editorFocus"
+    },
+    {
+      "before": ["]", "d"],
+      "commands": ["editor.action.marker.nextInFiles"],
+      "when": "editorFocus"
+    },
+    {
+      "before": ["[", "g"],
+      "commands": ["workbench.action.editor.previousChange"]
+    },
+    {
+      "before": ["]", "g"],
+      "commands": ["workbench.action.editor.nextChange"]
     },
     {
       "before": ["k"],
@@ -359,6 +365,8 @@
     "cpp": "g++ $fullFileName -o $dir\"$fileNameWithoutExt\"\".out\" -W -Wall -O2 -std=c++17 && $dir\"$fileNameWithoutExt\"\".out\"",
     "c": "gcc $fullFileName -o $dir\"$fileNameWithoutExt\"\".out\" -W -Wall -O2 -std=c17 && $dir\"$fileNameWithoutExt\"\".out\""
   },
+  // custom run command to use lazygit
+  "code-runner.customCommand": "lazygit",
   // Whether to save the current file before running.
   "code-runner.fileDirectoryAsCwd": true, //true设置为 true后，终端默认目录为运行文件的目录。
   "code-runner.saveFileBeforeRun": true, // run code前保存
@@ -367,9 +375,17 @@
   // Whether to preserve focus on codej  editor after code run is triggered.
   "code-runner.preserveFocus": false, // 若为false，run code后光标会聚焦到终端上。如果需要频繁输入数据可设为false
   // Whether to clear previous output before each run.
-  "code-runner.clearPreviousOutput": true, // 每次run code前清空属于code runner的终端消息，默认false
+  "code-runner.clearPreviousOutput": false, // 每次run code前清空属于code runner的终端消息，默认false
   // Whether to ignore selection to always run entire file.
   "code-runner.ignoreSelection": false,
+  // To set whether to show extra execution message like [Running] ... and [Done] ... (default is true):
+  "code-runner.showExecutionMessage": true,
+  // Whether to show 'Run Code' icon in editor title menu. (Default is true)
+  "code-runner.showRunIconInEditorTitleMenu": false,
+  // Whether to show 'Run Code' command in editor context menu. (Default is true)
+  "code-runner.showRunCommandInEditorContextMenu": true,
+  // Whether to show 'Run Code' command in explorer context menu. (Default is true)
+  "code-runner.showRunCommandInExplorerContextMenu": false,
   /*--━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━--
   --━━━━━━━━━━━━━━━━━━━❰ end runner ❱━━━━━━━━━━━━━━━━━━━--
   --━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━--*/
@@ -762,6 +778,12 @@
           "name": "Checkout",
           "type": "command",
           "command": "git.checkout"
+        },
+        {
+          "key": "g",
+          "name": "Lazygit",
+          "type": "command",
+          "command": "code-runner.runCustomCommand"
         },
         {
           "key": "B",
@@ -1572,7 +1594,8 @@
   },
   "[jsonc]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
-  }
+  },
+  "workbench.activityBar.visible": false
   /*--━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━--
     --━━━━━━━━━━━━━━━━━━━❰ end language ❱━━━━━━━━━━━━━━━━━━━--
   --━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━--*/

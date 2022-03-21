@@ -1,4 +1,5 @@
 [
+  // space 呼出 whichkey
   {
     "key": "space",
     "command": "whichkey.show",
@@ -15,6 +16,7 @@
     "command": "workbench.view.explorer",
     "when": "vim.mode != 'Insert'&&!inputFocus"
   },
+  // 光标到outline
   {
     "key": "ctrl+;",
     "command": "outline.focus"
@@ -30,7 +32,7 @@
     "command": "-renameFile",
     "when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus"
   },
-  // 刷新资源管理器
+  // 刷新文件树
   {
     "key": "shift+r",
     "command": "workbench.files.action.refreshFilesExplorer",
@@ -92,11 +94,7 @@
     "command": "deleteFile",
     "when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceReadonly && !inputFocus"
   },
-  {
-    "key": "alt+cmd+backspace",
-    "command": "-deleteFile",
-    "when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceReadonly && !"
-  },
+  // 用ctrl + l 在文件树和代码移动
   {
     "key": "ctrl+l",
     "when": "sideBarFocus",
@@ -214,12 +212,21 @@
   ===
   === 终端 
   ===
+  使用细节(windows)
+  1. ctrl+l 清屏
   */
-  /*
-  使用细节
-   1.可以使用ctrl + cmd + 方向左右键来控制终端位置
-   2.可以用cmd+k 快速清屏
-  */
+  // remove default ctrl+up/down keybindings
+  {
+    "key": "ctrl+up",
+    "command": "-workbench.action.terminal.navigationModeFocusPrevious",
+    "when": "accessibilityModeEnabled && terminalA11yTreeFocus && terminalProcessSupported || accessibilityModeEnabled && terminalFocus && terminalProcessSupported"
+  },
+  {
+    "key": "ctrl+down",
+    "command": "-workbench.action.terminal.navigationModeFocusNext",
+    "when": "accessibilityModeEnabled && terminalA11yTreeFocus && terminalProcessSupported || accessibilityModeEnabled && terminalFocus && terminalProcessSupported"
+  },
+  // use ctrl+up/down to control winodow size
   {
     "key": "ctrl+up",
     "command": "workbench.action.terminal.resizePaneUp",
@@ -230,26 +237,49 @@
     "command": "workbench.action.terminal.resizePaneDown",
     "when": "terminalFocus && terminalHasBeenCreated || terminalFocus && terminalProcessSupported"
   },
+  // windows 快捷键冲突 移除 ctrl+left/right
   {
     "key": "ctrl+left",
-    "command": "workbench.action.terminal.resizePaneLeft",
+    "command": "-workbench.action.terminal.resizePaneLeft",
     "when": "terminalFocus && terminalHasBeenCreated || terminalFocus && terminalProcessSupported"
   },
   {
     "key": "ctrl+right",
-    "command": "workbench.action.terminal.resizePaneRight",
+    "command": "-workbench.action.terminal.resizePaneRight",
     "when": "terminalFocus && terminalHasBeenCreated || terminalFocus && terminalProcessSupported"
   },
+  {
+    "key": "ctrl+p",
+    "command": "workbench.action.terminal.navigationModeFocusPrevious"
+  },
+  {
+    "key": "ctrl+n",
+    "command": "workbench.action.terminal.navigationModeFocusNext"
+  },
+  // 使用 pageup / pagedwon 上下移动终端页面
+  {
+    "key": "pagedown",
+    "command": "workbench.action.terminal.scrollToNextCommand",
+    "when": "terminalFocus"
+  },
+  {
+    "key": "pageup",
+    "command": "workbench.action.terminal.scrollToPreviousCommand",
+    "when": "terminalFocus"
+  },
+  // 使用 ctrl + t 去 toggle 终端
   {
     "key": "ctrl+t",
     "command": "workbench.action.terminal.toggleTerminal",
     "when": "terminal.active"
   },
+  // 移除原来的键位绑定
   {
     "key": "ctrl+`",
     "command": "-workbench.action.terminal.toggleTerminal",
     "when": "terminal.active"
   },
+  // 在终端内使用 ctrl + k 回到代码区
   {
     "key": "ctrl+k",
     "command": "workbench.action.focusActiveEditorGroup",
@@ -267,21 +297,6 @@
   },
   /*
   ===
-  === 窗口移动 
-  ===
-  */
-  // {
-  //   "key": "ctrl+h",
-  //   "command": "workbench.action.navigateLeft",
-  //   "when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus",
-  // },
-  // {
-  //   "key": "q",
-  //   "command": "workbench.action.closePanel",
-  //   "when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus"
-  // },
-  /*
-  ===
   === 移除vscode自带快捷键冲突
   ===
   */
@@ -296,6 +311,7 @@
     "command": "-editor.action.startFindReplaceAction",
     "when": "editorFocus || editorIsOpen"
   },
+  // 移除 ctrl + n 生成新文件
   {
     "key": "ctrl+n",
     "command": "-workbench.action.files.newUntitledFile"
@@ -305,14 +321,21 @@
   === git
   ===
   */
+  // 使用 ctrl + g 立马跳转到 vscode git视图
   {
     "key": "ctrl+g",
     "command": "workbench.view.scm",
     "when": "workbench.scm.active"
   },
+  // 运行 lazygit
   {
-    "key": "ctrl+shift+g",
-    "command": "-workbench.view.scm",
-    "when": "workbench.scm.active && vim.mode != 'Insert'&&!inputFocus"
+    "key": "alt+g",
+    "command": "workbench.action.tasks.runTask",
+    "args": "lazygit"
+  },
+  // 移除原来的键位绑定 code-runner.runCustomCommand
+  {
+    "key": "ctrl+alt+k",
+    "command": "-code-runner.runCustomCommand"
   }
 ]
