@@ -76,6 +76,14 @@ sudo add-apt-repository ppa:neovim-ppa/unstable
 sudo apt-get update
 sudo apt-get install neovim
 
+# install clang dependence
+sudo apt install clang
 # install gcc dependence
 sudo apt install gcc
+```
+
+## Install fzf
+
+```sh
+sudo apt-get install fzf
 ```
