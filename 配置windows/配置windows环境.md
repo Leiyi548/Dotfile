@@ -7,6 +7,7 @@
 - [Pycharm 安装地址](https://www.jetbrains.com/pycharm/)
 - [GolLand 安装地址](https://www.jetbrains.com/go/download/#section=windows)
 - [jetbrain Ide 大全安装地址](https://www.jetbrains.com/products/#type=ide)
+- [jetbrain Toolbox](https://www.jetbrains.com/zh-cn/toolbox-app/)
 
 ## windows PowerShell 定制
 
@@ -145,7 +146,28 @@ scoop install mingw
 
 # Install neofetch
 scoop install neofetch
+
+# Install komorebi (windows 下的平铺桌面)
+scoop bucket add komorebi https://github.com/LGUG2Z/komorebi-bucket
+scoop install komorebi
+
+# 安装windows的改建软件(autohotkey)
+scoop install extras/autohotkey
 ```
+
+### windows 下的窗口管理器(平铺窗口)[komorebi]
+
+#### 启动
+
+在 terminal 输入这个命令 `komorebic start`就可以启动这个软件
+
+#### 停止
+
+在 terminal 输入这个命令 `komorebic stop`就可以启动这个软件
+
+#### 参考资料
+
+[komorebi 中文文档](https://github.com/LGUG2Z/komorebi/wiki/README-zh)
 
 ### delta 配置
 

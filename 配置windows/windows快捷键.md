@@ -51,11 +51,12 @@
 
 ## windows powershell 常用命令
 
-| 命令     | 动作                   |
-| -------- | ---------------------- |
-| h        | 显示历史记录           |
-| clhy     | 清空历史记录           |
-| explorer | 相当于 linux unix open |
+| 命令                         | 动作                   |
+| ---------------------------- | ---------------------- |
+| h                            | 显示历史记录           |
+| clhy                         | 清空历史记录           |
+| explorer                     | 相当于 linux unix open |
+| SystemPropertiesAdvanced.exe | 打开系统属性窗口       |
 
 ### 参考资料
 
