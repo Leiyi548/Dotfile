@@ -43,9 +43,11 @@ gui:
 git:
   paging:
     colorArg: always
-    pager: delta --dark  --paging=never
-    # default diff page
     # useConfig: false
+    #pager: delta --dark  --paging=never
+    pager: delta
+    # default diff page
+
   merging:
     # only applicable to unix users
     manualCommit: false
@@ -125,8 +127,8 @@ keybinding:
     scrollDownMain-alt2: "<c-d>" # main panel scroll down
     executeCustomCommand: ":"
     createRebaseOptionsMenu: "m"
-    pushFiles: "p"
-    pullFiles: "P"
+    pushFiles: "P"
+    pullFiles: "p"
     refresh: "R"
     createPatchOptionsMenu: "<c-p>"
     nextTab: "]"

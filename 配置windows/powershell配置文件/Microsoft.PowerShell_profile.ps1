@@ -11,7 +11,10 @@ Import-Module PSReadLine
 Import-Module ZLocation; Add-Content -Value "`r`n`r`nImport-Module ZLocation`r`n" -Encoding utf8 -Path $PROFILE.CurrentUserAllHosts
 
 # 设置powershell主题
-Set-PoshPrompt -Theme powerlevel10k_rainbow
+# Set-PoshPrompt -Theme powerlevel10k_rainbow
+# Set-PoshPrompt -Theme clean-detailed
+Set-PoshPrompt -Theme powerlevel10k_modern
+
 # 设置能够记录历史命令进行补全
 Set-PSReadLineOption -PredictionSource History
 # 设置tab自动补全
@@ -26,6 +29,7 @@ function s {neofetch}
 function cl {clear}
 function ll {ls -la}
 function vim {nvim}
+function open {explorer}
 # git alias
 function gs {git status -s}
 function ga {git add $args}
