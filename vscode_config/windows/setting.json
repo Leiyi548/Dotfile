@@ -1,79 +1,103 @@
 {
-  "workbench.iconTheme": "vscode-icons",
+  "workbench.iconTheme": "material-icon-theme",
   "vsicons.dontShowNewVersionMessage": true,
   /*--━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━--
   --━━━━━━━━━━━━━━━━━━━❰ editor setting ❱━━━━━━━━━━━━━━━━━━━--
   --━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━--*/
-  // like cmp ghost text(my favourite action)
+  "bookmarks.navigateThroughAllFiles": true,
+  "bookmarks.saveBookmarksInProject": true,
+  "bookmarks.sideBar.expanded": true,
+  "bookmarks.useWorkaroundForFormatters": true,
+  "workbench.tree.renderIndentGuides": "always",
+  "search.searchOnType": true,
+  "search.showLineNumbers": true,
+  "search.smartCase": true,
+  // like cmp ghost text(My favorite feature)
   "editor.suggest.preview": true,
-  // 控制是否及如何在“导航路径”视图中显示文件路径。 last: 在导航路径视图中仅显示文件路径的最后一个元素。
-  //"breadcrumbs.filePath": "last",
-  // 控制在资源管理器内拖放移动文件或文件夹时是否进行确认。
   "explorer.confirmDragAndDrop": false,
-  // always show Fold icon
   "editor.showFoldingControls": "always",
   "editor.bracketPairColorization.enabled": true,
   "editor.suggestSelection": "first",
-  "editor.fontSize": 15,
-  "debug.console.fontSize": 18, // debug console fontsize
-  "editor.cursorSurroundingLines": 8, //equal set scrolloff = 8
+  "editor.fontSize": 16,
+  "debug.console.fontSize": 18,
+  "editor.cursorSurroundingLines": 8,
   "editor.linkedEditing": true,
-  // "editor.fontFamily": "Fira Code,Cascadia Code,Menlo, Monaco, 'Courier New', monospace,'Hack Nerd Font'",
-  "editor.fontFamily": "FiraCode Nerd Font,Cascadia Code,Menlo, Monaco, 'Courier New', monospace,'Hack Nerd Font'",
-  "editor.fontLigatures": true, // 开启连字效果
-  "editor.tabSize": 2, //空格大小
-  "editor.minimap.enabled": false, // minimap
-  "editor.cursorSmoothCaretAnimation": true, // 使用平滑插入动画
+  // "editor.fontFamily": "FiraCode Nerd Font,Cascadia Code,Menlo, Monaco, 'Courier New', monospace,'Hack Nerd Font'",
+  "editor.fontFamily": "Operator Mono Lig",
+  "terminal.integrated.fontFamily": "FiraCode Nerd Font",
+  "editor.tabSize": 2, // minimap
+  "editor.cursorSmoothCaretAnimation": true,
   "editor.formatOnSave": true,
-  "editor.unicodeHighlight.nonBasicASCII": false, // 控制是否突出显示所有非基本ASCII 字符
+  "editor.unicodeHighlight.nonBasicASCII": false,
   "editor.inlineSuggest.enabled": true,
   "zenMode.centerLayout": false,
   "zenMode.fullScreen": false,
-  "emmet.triggerExpansionOnTab": true, // use tab to trigger emmet
-  "html-css-class-completion.enableEmmetSupport": true,
-  "errorLens.gutterIconsEnabled": true,
-  "errorLens.gutterIconSize": "125%",
+  "zenMode.hideLineNumbers": false,
+  "emmet.triggerExpansionOnTab": true,
   "errorLens.enabledDiagnosticLevels": ["warning", "info", "hint", "error"],
+  // UI Customizations
+  "editor.fontLigatures": true, // 这个控制是否启用字体连字
   "editor.tokenColorCustomizations": {
     "textMateRules": [
       {
-        "name": "Comment",
+        "name": "italic font",
         "scope": [
           "comment",
-          "comment.block",
-          "comment.block.documentation",
-          "comment.line",
-          "comment.line.double-slash",
-          "punctuation.definition.comment"
+          "keyword",
+          "storage",
+          "keyword.control.import",
+          "keyword.control.default",
+          "keyword.control.from",
+          "keyword.operator.new",
+          "keyword.control.export",
+          "keyword.control.flow",
+          "storage.type.class",
+          "storage.type.function",
+          "storage.type",
+          "storage.type.class",
+          "variable.language",
+          "variable.language.super",
+          "variable.language.this",
+          "meta.class",
+          "meta.var.expr",
+          "constant.language.null",
+          "support.type.primitive",
+          "entity.name.method.js",
+          "entity.other.attribute-name",
+          "punctuation.definition.comment",
+          "text.html.basic entity.other.attribute-name.html",
+          "text.html.basic entity.other.attribute-name",
+          "tag.decorator.js entity.name.tag.js",
+          "tag.decorator.js punctuation.definition.tag.js",
+          "source.js constant.other.object.key.js string.unquoted.label.js"
         ],
         "settings": {
           "fontStyle": "italic"
-          // "foreground": "#7712dd"
-          //斜体 "fontStyle": "italic",
-          //斜体下划线 "fontStyle": "italic underline",
-          //斜体粗体下划线 "fontStyle": "italic bold underline",
         }
       }
-    ],
-    "[GitHub Light Default]": {
-      "comments": {
-        "foreground": "#7712dd",
-        "fontStyle": "bold italic"
-      }
-    },
-    "[GitHub Light]": {
-      "comments": {
-        "foreground": "#7712dd",
-        "fontStyle": "bold italic"
-      }
-    }
+    ]
   },
   "workbench.colorCustomizations": {
     "tab.hoverBackground": "#027bcc",
-    "[Community Material Theme Ocean]": {
-      "editor.findMatchHighlightBackground": "#007acc"
+    "[Monokai Pro]": {
+      // "editor.background": "#22282d",
+      "terminal.background": "#221f22",
+      "editorLineNumber.foreground": "#2d2a2e",
+      "editorLineNumber.activeForeground": "#ffff50", //
+      "statusBar.background": "#007acc",
+      "statusBar.foreground": "#efffff",
+      "editor.selectionBackground": "#2e8a87",
+      "editor.findMatchHighlightBackground": "#3069db" // #442726 #7306f0 #6688cc
     },
-    "[Default Light+]": {}
+    "[monokai-charcoal]": {
+      "editorLineNumber.foreground": "#2d2a2e",
+      "editorLineNumber.activeForeground": "#ffff50",
+      "tab.activeBorder": "#ffd866",
+      "tab.activeBackground": "#363337",
+      // vim搜索文本高亮
+      "editor.findMatchHighlightBackground": "#3069db" // #442726 #7306f0 #6688cc
+      // "editor.background": "#2d2a2e"
+    }
   },
   /*--━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━--
   --━━━━━━━━━━━━━━━━━━━❰ end editor ❱━━━━━━━━━━━━━━━━━━━--
@@ -92,12 +116,12 @@
   "vim.hlsearch": true,
   "vim.easymotion": true,
   "vim.showcmd": true,
-  "vim.shell": "C:\\Program Files\\PowerShell\\7\\pwsh.exe",
+  // "vim.shell": "C:\\Program Files\\PowerShell\\7\\pwsh.exe",
   "vim.timeout": 500,
   "vim.showmodename": true,
   "vim.leader": "\\",
   // "editor.lineNumbers": "relative",
-  "vim.smartRelativeLine": false,
+  "vim.smartRelativeLine": true,
   "vim.autoSwitchInputMethod.defaultIM": "1033",
   "vim.autoSwitchInputMethod.obtainIMCmd": "D:\\im\\im-select.exe",
   "vim.autoSwitchInputMethod.switchIMCmd": "D:\\im\\im-select.exe {im}",
@@ -179,6 +203,16 @@
       "commands": ["whichkey.show"]
     },
     {
+      "before": ["g", "a"],
+      "commands": ["editor.action.quickFix"],
+      "when": "editorHasCodeActionsProvider && editorTextFocus && !editorReadonly"
+    },
+    {
+      "before": ["g", "r"],
+      "commands": ["editor.action.goToImplementation"],
+      "when": "editorHasImplementationProvider && editorTextFocus && !isInEmbeddedEditor"
+    },
+    {
       "before": ["g", "l"],
       "commands": ["editor.action.marker.nextInFiles"],
       "when": ["editorFocus"]
@@ -211,6 +245,10 @@
     {
       "before": ["]", "g"],
       "commands": ["workbench.action.editor.nextChange"]
+    },
+    {
+      "before": ["j"],
+      "after": ["g", "j"]
     },
     {
       "before": ["k"],
@@ -291,18 +329,6 @@
       "after": ["^"]
     },
     {
-      "before": ["<leader>", "y"],
-      "after": ["\"", "+", "y"]
-    },
-    {
-      "before": ["<leader>", "Y"],
-      "after": ["\"", "+", "Y"]
-    },
-    {
-      "before": ["<leader>", "p"],
-      "after": ["\"", "+", "p"]
-    },
-    {
       "before": ["s", "v"],
       "commands": [":vsplit"]
     },
@@ -348,8 +374,8 @@
   /*--━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━--
   --━━━━━━━━━━━━━━━━━━━❰ runner config ❱━━━━━━━━━━━━━━━━━━━--
   --━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━--*/
-  // "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
   "code-runner.executorMap": {
+    "go": "go run",
     "javascript": "node",
     "java": "cd $dir && javac $fileName && java $fileNameWithoutExt",
     "objective-c": "cd $dir && gcc -framework Cocoa $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
@@ -367,24 +393,15 @@
   },
   // custom run command to use lazygit
   "code-runner.customCommand": "lazygit",
-  // Whether to save the current file before running.
-  "code-runner.fileDirectoryAsCwd": true, //true设置为 true后，终端默认目录为运行文件的目录。
+  "code-runner.fileDirectoryAsCwd": false, //true设置为 true后，终端默认目录为运行文件的目录。
   "code-runner.saveFileBeforeRun": true, // run code前保存
-  // Whether to save the current file before running.
   "code-runner.runInTerminal": true, // 设置成false会在"OUTPUT"中只读输出，无法输入数据
-  // Whether to preserve focus on codej  editor after code run is triggered.
   "code-runner.preserveFocus": false, // 若为false，run code后光标会聚焦到终端上。如果需要频繁输入数据可设为false
-  // Whether to clear previous output before each run.
   "code-runner.clearPreviousOutput": false, // 每次run code前清空属于code runner的终端消息，默认false
-  // Whether to ignore selection to always run entire file.
   "code-runner.ignoreSelection": false,
-  // To set whether to show extra execution message like [Running] ... and [Done] ... (default is true):
   "code-runner.showExecutionMessage": true,
-  // Whether to show 'Run Code' icon in editor title menu. (Default is true)
   "code-runner.showRunIconInEditorTitleMenu": false,
-  // Whether to show 'Run Code' command in editor context menu. (Default is true)
-  "code-runner.showRunCommandInEditorContextMenu": true,
-  // Whether to show 'Run Code' command in explorer context menu. (Default is true)
+  "code-runner.showRunCommandInEditorContextMenu": false,
   "code-runner.showRunCommandInExplorerContextMenu": false,
   /*--━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━--
   --━━━━━━━━━━━━━━━━━━━❰ end runner ❱━━━━━━━━━━━━━━━━━━━--
@@ -408,7 +425,7 @@
   --━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━--*/
   // 控制 Markdown 预览中使用的字号(以像素为单位)。
   "markdown.preview.fontSize": 16,
-  "markdown-preview-enhanced.previewTheme": "github-dark.css",
+  "markdown-preview-enhanced.previewTheme": "monokai.css",
   "markdown-preview-enhanced.enableHTML5Embed": true,
   "markdown-preview-enhanced.enableExtendedTableSyntax": true,
   /*--━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━--
@@ -418,7 +435,7 @@
   /*--━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━--
   --━━━━━━━━━━━━━━━━━━━❰ terminal config ❱━━━━━━━━━━━━━━━━━━━--
   --━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━--*/
-  //macos
+  // macos
   "terminal.external.osxExec": "iTerm.app",
   // windows
   "terminal.external.windowsExec": "C:\\ProgramData\\Microsoft\\Windows\\Start Menu\\Programs\\PowerShell\\PowerShell 7 (x64)",
@@ -426,6 +443,8 @@
   "terminal.integrated.autoReplies": {
     "[Oh My Zsh] Would you like to check for updates? [Y/n]": "Y\r"
   },
+  // gpu acceleration
+  "terminal.integrated.gpuAcceleration": "on",
   /*--━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━--
     --━━━━━━━━━━━━━━━━━━━❰ end terminal ❱━━━━━━━━━━━━━━━━━━━--
   --━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━--*/
@@ -1129,6 +1148,12 @@
           "command": "bookmarks.clear"
         },
         {
+          "key": "C",
+          "name": "Clear All Bookmarks",
+          "type": "command",
+          "command": "bookmarks.clearFromAllFiles"
+        },
+        {
           "key": "j",
           "name": "Next Bookmark",
           "type": "command",
@@ -1187,7 +1212,7 @@
     //whichkey-o
     {
       "key": "o",
-      "name": "Outline",
+      "name": "Outline Float Window",
       "type": "command",
       "command": "breadcrumbs.focusAndSelect"
     },
@@ -1196,7 +1221,7 @@
       "key": "O",
       "name": "OutlineToggle",
       "type": "command",
-      "command": "outline.toggleVisibility"
+      "command": "workbench.action.toggleAuxiliaryBar"
     },
     //whichkey-P
     {
@@ -1595,6 +1620,9 @@
   "[jsonc]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
+  "editor.minimap.enabled": false,
+  "workbench.colorTheme": "monokai-charcoal",
+  "workbench.statusBar.visible": false,
   "workbench.activityBar.visible": false
   /*--━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━--
     --━━━━━━━━━━━━━━━━━━━❰ end language ❱━━━━━━━━━━━━━━━━━━━--

@@ -16,10 +16,11 @@
     "command": "workbench.view.explorer",
     "when": "vim.mode != 'Insert'&&!inputFocus"
   },
-  // 光标到outline
+  // 光标到 outline
   {
     "key": "ctrl+;",
-    "command": "outline.focus"
+    "command": "outline.focus",
+    "when": "vim.mode != 'Insert'&&!inputFocus"
   },
   // 重命名文件
   {
@@ -185,11 +186,6 @@
     "when": "editorLangId == 'markdown'"
   },
   {
-    "key": "alt+shift+enter",
-    "command": "markdown-preview-enhanced.openPreviewToTheSide",
-    "when": "editorLangId == 'markdown'"
-  },
-  {
     "key": "shift+enter",
     "command": "-markdown-preview-enhanced.runCodeChunk",
     "when": "editorLangId == 'markdown'"
@@ -199,15 +195,6 @@
   === window 
   ===
   */
-  // 移动标签位置
-  {
-    "key": "ctrl+shift+h",
-    "command": "workbench.action.moveEditorLeftInGroup"
-  },
-  {
-    "key": "ctrl+shift+l",
-    "command": "workbench.action.moveEditorRightInGroup"
-  },
   /*
   ===
   === 终端 
@@ -248,14 +235,6 @@
     "command": "-workbench.action.terminal.resizePaneRight",
     "when": "terminalFocus && terminalHasBeenCreated || terminalFocus && terminalProcessSupported"
   },
-  {
-    "key": "ctrl+p",
-    "command": "workbench.action.terminal.navigationModeFocusPrevious"
-  },
-  {
-    "key": "ctrl+n",
-    "command": "workbench.action.terminal.navigationModeFocusNext"
-  },
   // 使用 pageup / pagedwon 上下移动终端页面
   {
     "key": "pagedown",
@@ -265,6 +244,16 @@
   {
     "key": "pageup",
     "command": "workbench.action.terminal.scrollToPreviousCommand",
+    "when": "terminalFocus"
+  },
+  {
+    "key": "ctrl+p",
+    "command": "workbench.action.terminal.scrollToPreviousCommand",
+    "when": "terminalFocus"
+  },
+  {
+    "key": "ctrl+n",
+    "command": "workbench.action.terminal.scrollToNextCommand",
     "when": "terminalFocus"
   },
   // 使用 ctrl + t 去 toggle 终端
@@ -285,6 +274,25 @@
     "command": "workbench.action.focusActiveEditorGroup",
     "when": "terminalFocus"
   },
+  // 使用ctrl + enter 让terminal 变成最大
+  {
+    "key": "ctrl+enter",
+    "command": "workbench.action.toggleMaximizedPanel",
+    "when": "terminalFocus"
+  },
+  // 使用ctrl + d 关闭终端
+  {
+    "key": "ctrl+d",
+    "command": "workbench.action.terminal.kill",
+    "when": "terminalFocus"
+  },
+  // Use the same shortcut keys as PowerShell to split the screen
+  // Vertical split screen (vscode terminal 只有垂直分屏)
+  {
+    "key": "alt+shift+=",
+    "command": "workbench.action.terminal.split",
+    "when": "terminalFocus && terminalProcessSupported || terminalFocus && terminalWebExtensionContributedProfile"
+  },
   /*
   ===
   === 编辑区
@@ -300,17 +308,6 @@
   === 移除vscode自带快捷键冲突
   ===
   */
-  // remove conflict with vim keybinding
-  {
-    "key": "ctrl+h",
-    "command": "-testing.toggleTestingPeekHistory",
-    "when": "testing.isPeekVisible"
-  },
-  {
-    "key": "ctrl+h",
-    "command": "-editor.action.startFindReplaceAction",
-    "when": "editorFocus || editorIsOpen"
-  },
   // 移除 ctrl + n 生成新文件
   {
     "key": "ctrl+n",
@@ -328,14 +325,29 @@
     "when": "workbench.scm.active"
   },
   // 运行 lazygit
+  // {
+  //   "key": "alt+g",
+  //   "command": "workbench.action.tasks.runTask",
+  //   "args": "lazygit"
+  // },
+  // {
+  //   "key": "ctrl+j",
+  //   "command": "workbench.action.togglePanel"
+  // }
+  /*
+  ===
+  === 侧面板 
+  ===
+  */
+  // 实现侧边栏导航
   {
-    "key": "alt+g",
-    "command": "workbench.action.tasks.runTask",
-    "args": "lazygit"
+    "key": "ctrl+h",
+    "command": "workbench.action.focusActiveEditorGroup",
+    "when": "vim.mode != 'normal'&&!inputFocus"
   },
-  // 移除原来的键位绑定 code-runner.runCustomCommand
+  // 防止ctrl + j 乱走
   {
-    "key": "ctrl+alt+k",
-    "command": "-code-runner.runCustomCommand"
+    "key": "ctrl+j",
+    "command": "-workbench.action.togglePanel"
   }
 ]

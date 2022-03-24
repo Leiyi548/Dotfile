@@ -153,6 +153,10 @@ scoop install komorebi
 
 # 安装windows的改建软件(autohotkey)
 scoop install extras/autohotkey
+
+# Install im-select
+scoop bucket add im-select https://github.com/daipeihust/im-select
+scoop install im-select
 ```
 
 ### windows 下的窗口管理器(平铺窗口)[komorebi]
