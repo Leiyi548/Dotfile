@@ -21,7 +21,7 @@
 - comment italic
 - keyword italic
 - Function declaration italic
-- 改变编辑区背景颜色
+- 改变编辑区背景颜
   > (原本 #2D2A2E)改为 #1e2122(黑色) <font color=red>general text default text background 修改</font>
 - 改变行的颜色
   > 在 <font color=red>General editor 里面 gutters background 为</font>#1e2122

@@ -31,9 +31,6 @@ autohotkey 是 windows 上有名的改建软件,学会了会让你的效率得�
 3. 定位到程序文件夹中的启动文件夹.
 4. 在菜单栏选择 编辑 -> 粘贴快捷方式.  脚本的快捷方式现在应该出现在启动文件夹中了.
 路径如下：
-> C:\Users\用户名称\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup
-我的路径如下:
-> C:\Users\9\AppData\Roaming\Microsoft\Windows\Start Menu\Programs
 > C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Startup
 
 #### 参考资料
