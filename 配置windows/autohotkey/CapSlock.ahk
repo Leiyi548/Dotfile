@@ -187,7 +187,7 @@ return                                                               ;|
 ;                      CapsLock Page Navigator                       ;|
 ;-----------------------------------o---------------------------------o
 ;                      CapsLock + u |  PageUp                        ;|
-;                      CapsLock + d |  PageDown                      ;|
+;                      CapsLock + p |  PageDown                      ;|
 ;                      Ctrl, Alt Compatible                          ;|
 ;-----------------------------------o---------------------------------o
 CapsLock & u::                                                       ;|
@@ -354,8 +354,8 @@ CapsLock & F6:: Send, {Media_Stop}                                   ;|
 ;-----------------------------------o---------------------------------o
 ;                     CapsLock + 0  |  Open Chrome                    ;|
 ;                     CapsLock + 1  |  Open Wechat                    ;|
-;                     CapsLock + 3  |  Open jetbarin idea             ;|
 ;                     CapsLock + 4  |  Open VsCode                    ;|
+;                     CapsLock + 6  |  Open jetbarin idea             ;|
 ;-----------------------------------o---------------------------------o
 CapsLock & 0::                                                        ;|
     IfWinNotExist ahk_exe chrome.exe                                  ;|
@@ -408,6 +408,22 @@ CapsLock & 4::                                                        ;|
     VS_CODE_ID := WinExist(".- Visual Studio Code")                   ;|
     #WinActivateForce                                                 ;|
     WinActivate ahk_id %VS_CODE_ID%                                   ;|
+  }                                                                   ;|
+  Else                                                                ;|
+  {                                                                   ;|
+    WinMinimize                                                       ;|
+  }                                                                   ;|
+Return                                                                ;|
+;----------------------------------------------------------------------o
+CapsLock & 6::                                                        ;|
+  IfWinNotExist ahk_exe idea64.exe                                    ;|
+  {                                                                   ;|
+    Send #2                                                           ;|
+  }                                                                   ;|
+  Else IfWinNotActive ahk_class SunAwtFrame
+  {                                                                   ;|
+    #WinActivateForce                                                 ;|
+    WinActivate                                                       ;|
   }                                                                   ;|
   Else                                                                ;|
   {                                                                   ;|
