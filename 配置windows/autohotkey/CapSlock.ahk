@@ -354,6 +354,7 @@ CapsLock & F6:: Send, {Media_Stop}                                   ;|
 ;-----------------------------------o---------------------------------o
 ;                     CapsLock + 0  |  Open Chrome                    ;|
 ;                     CapsLock + 1  |  Open Wechat                    ;|
+;                     CapsLock + 3  |  Open Obsidian                  ;|
 ;                     CapsLock + 4  |  Open VsCode                    ;|
 ;                     CapsLock + 6  |  Open jetbarin idea             ;|
 ;-----------------------------------o---------------------------------o
@@ -388,6 +389,25 @@ CapsLock & 1::                                                        ;|
     WinMinimize                                                       ;|
     }                                                                 ;|
 return                                                                ;|
+;----------------------------------------------------------------------o
+CapsLock & 3::                                                        ;|
+  IfWinNotExist ahk_exe Obsidian.exe                                  ;|
+  {                                                                   ;|
+    Send #4                                                           ;|
+  }                                                                   ;|
+  Else IfWinNotActive ahk_exe Obsidian.exe                                ;|
+  {                                                                   ;|
+    SetTitleMatchMode RegEx                                           ;|
+    Obsidian_ID := WinExist(".- Obsidian")                   ;|
+    #WinActivateForce                                                 ;|
+    WinActivate ahk_id %Obsidian_ID%                                   ;|
+  }                                                                   ;|
+  Else                                                                ;|
+  {                                                                   ;|
+    WinMinimize                                                       ;|
+  }                                                                   ;|
+Return                                                                ;|
+;----------------------------------------------------------------------o
 ;----------------------------------------------------------------------o
 CapsLock & 4::                                                        ;|
   IfWinNotExist ahk_exe Code.exe                                      ;|
