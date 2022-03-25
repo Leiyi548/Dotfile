@@ -2,16 +2,6 @@
 SendMode Input
 SetWorkingDir, %A_ScriptDir%
 
-/*
-===
-=== 快捷激活应用窗口
-===
-*/
-; use alt v to open vscode
-!v::
-  WinActivate ahk_exe D:\vscode\Microsoft VS Code\Code.exe
-return
-
 ; Use alt g to open Chrome
 !g::
   WinActivate ahk_exe C:\Program Files\Google\Chrome\Application\chrome.exe
@@ -100,8 +90,8 @@ CenterActiveWindow()
   tooltip,
 return
 
-; 使用 ctrl alt t 窗口置顶 
-^!t:: Winset, AlwaysOnTop, , A 
+; 使用 alt t 窗口置顶 
+!t:: Winset, AlwaysOnTop, , A 
 /*
 ===
 === 缩写
