@@ -1,24 +1,35 @@
 # 配置 tomcat
 
-## 设置 tomcat 环境变量
+- [配置 tomcat](#配置-tomcat)
+  - [下载 tomcat](#下载-tomcat)
+    - [tomcat 文件结构](#tomcat-文件结构)
+  - [jetbrain IDEA 配置 tomcat](#jetbrain-idea-配置-tomcat)
+    - [新建一个干净的 java 项目](#新建一个干净的-java-项目)
+    - [右键项目，然后点击 Add Framework Support…](#右键项目然后点击-add-framework-support)
+    - [添加 Web Application 勾选 Create web.xml](#添加-web-application-勾选-create-webxml)
+    - [添加 maven](#添加-maven)
+    - [项目初始化，只需要设置 groupId 就不会报错](#项目初始化只需要设置-groupid-就不会报错)
+      - [导入依赖 (mvn)](#导入依赖-mvn)
+    - [在 src／main／java 目录下新建一个包，并且新建一个 HelloServlet,java 文件](#在-srcmainjava-目录下新建一个包并且新建一个-helloservletjava-文件)
+    - [web/WEB-INF/web.xml 书写 Servlet 映射](#webweb-infwebxml-书写-servlet-映射)
+    - [点击 Add Configuration…然后点击加号添加 Tomcat 服务器](#点击-add-configuration然后点击加号添加-tomcat-服务器)
+      - [部署 web 项目](#部署-web-项目)
+      - [向下拉有设置访问路径](#向下拉有设置访问路径)
+    - [运行](#运行)
+      - [成功运行](#成功运行)
+    - [解决 Tomcat 控制台中文乱码](#解决-tomcat-控制台中文乱码)
+  - [参考链接](#参考链接)
 
-### 下载 tomcat
 
-1. 进入官网<http://tomcat.apache.org/>，选择 download，下载所需 tomcat 版本。
-   下载 tomcat 9.0 版本
-   ![](https://s2.loli.net/2022/03/22/sixtAuQSJN2IcUT.png)
+## 下载 tomcat
 
-2. tomcat 配置环境变量
+进入官网<http://tomcat.apache.org/>，选择 download，下载所需 tomcat 版本。
+下载 tomcat 9.0 版本
+![](https://s2.loli.net/2022/03/22/sixtAuQSJN2IcUT.png)
 
 ### tomcat 文件结构
 
 ![20220322153135](https://img-blog.csdnimg.cn/d7b699387f1f487db39eae90fd495c76.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA55CG5oOzLQ==,size_20,color_FFFFFF,t_70,g_se,x_16)
-
-### Tomcat 环境配置
-
-1. 点击 windows 设置搜索环境变量
-   ![](https://s2.loli.net/2022/03/25/fVG1TM2iHWYsJtD.png)
-2. 进入环境变量
 
 ## jetbrain IDEA 配置 tomcat
 
@@ -143,7 +154,7 @@ public class HelloServlet extends HttpServlet {
 打开 idea setting -> 设置 console encoding utf-8
 ![](https://s2.loli.net/2022/03/25/ADpYhbEB8L7fSCV.png)
 
-### 参考链接
+## 参考链接
 
 [使用 IntelliJ IDEA 配置 Tomcat 入门教程](http://www.zzvips.com/article/187586.html)
 

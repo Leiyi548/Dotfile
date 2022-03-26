@@ -9,6 +9,16 @@
 					"label": ""
 				}
 			]
+		},
+		{
+			"path": "../../../AppData/Roaming/Code/User/settings.json",
+			"bookmarks": [
+				{
+					"line": 296,
+					"column": 0,
+					"label": ""
+				}
+			]
 		}
 	]
 }
