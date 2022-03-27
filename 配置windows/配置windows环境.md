@@ -172,6 +172,13 @@ scoop install im-select
 
 # Install fzf
 scoop install fzf
+
+# Install fd
+scoop install fd
+
+# Install python
+# This command will install python2 and newest python3
+scoop install python
 ```
 
 ### windows 下的窗口管理器(平铺窗口)[komorebi]

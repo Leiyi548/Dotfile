@@ -1,6 +1,6 @@
 # fzf 的使用(win11)
 
-[fzf](https://github.com/junegunn/fzf) 是个用 go 写的多平台模糊搜索神器，（fuzzy finder）
+[fzf](https://github.com/junegunn/fzf) 是个用 go 写的多平台模糊搜索神器，（fuzzy finder finder）
 
 ## Install
 
@@ -20,6 +20,11 @@ scoop install fzf
 `fzf --reverse` 默认的搜索位置在最下面，可以通过 `reverse` 参数调换搜索的上下位置。
 
 ### 修改 fzf 默认配置
+
+```sh
+# 添加边框
+$env:FZF_DEFAULT_OPTS="--border"
+```
 
 ### 移动 (浏览)
 
@@ -78,3 +83,4 @@ Install-Module -Name PSFzf -Scope CurrentUser -SkipPublisherCheck
 
 - [fzf github](https://github.com/junegunn/fzf)
 - [fzf - 命令行模糊搜索神器](https://www.jianshu.com/p/b48131e4ad06)
+- [fzf Advenced use](https://github.com/junegunn/fzf/blob/master/ADVANCED.md)
