@@ -282,7 +282,3 @@ vscode 是我最喜欢的编辑器之一,主要原因就是这个编译器打开
 - [vscode Extension API](https://code.visualstudio.com/api)
 
 **我自己的配置通过 git 同步**
-
-## Intelij IDEA 配置
-
-**idea 配置**我同步了,所以不怎么需要描写
