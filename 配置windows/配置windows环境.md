@@ -31,8 +31,20 @@ Install-Module -Name Terminal-Icons -Repository PSGallery
 
 用 notepad 快速打开 PowerShell 配置文件
 
-```powershell
+```sh
 notepad.exe $PROFILE
+```
+
+用 neovim 快速打开 Powershell 配置文件
+
+```sh
+nvim $PROFILE
+```
+
+用 vscode 快速打开 Powershell 配置文件
+
+```sh
+code $PROFILE
 ```
 
 在配置文件内导入模块
@@ -157,6 +169,9 @@ scoop install extras/autohotkey
 # Install im-select
 scoop bucket add im-select https://github.com/daipeihust/im-select
 scoop install im-select
+
+# Install fzf
+scoop install fzf
 ```
 
 ### windows 下的窗口管理器(平铺窗口)[komorebi]
