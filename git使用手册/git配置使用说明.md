@@ -80,13 +80,13 @@ git config --global alias.lg "log --color --graph --pretty=format:'%Cred%h%Crese
 ```
 
 `$ git lg`
-![](https://img-blog.csdnimg.cn/44dd54a7cc884c57a818f41e799583a9.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5a2m6YCXYg==,size_20,color_FFFFFF,t_70,g_se,x_16)
+![git alias example](https://img-blog.csdnimg.cn/44dd54a7cc884c57a818f41e799583a9.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5a2m6YCXYg==,size_20,color_FFFFFF,t_70,g_se,x_16)
 
 ### 6.检查你的配置
 
 如果你要检查你的设置,你可以使用 `git config --list` 命令来列出 Git 可以在该处找到所有的设置
 
-```
+```git-config
 diff.astextplain.textconv=astextplain
 filter.lfs.clean=git-lfs clean -- %f
 filter.lfs.smudge=git-lfs smudge -- %f
@@ -111,7 +111,7 @@ alias.lg=log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Crese
 
 你也可以查看 Git 认为的一个特定的关键字目前的值，使用如下命令 git config {key}:
 
-```
+```git-config
  git config user.name
  # 'Leiyi548'
 ```

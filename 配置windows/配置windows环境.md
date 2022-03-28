@@ -273,12 +273,10 @@ vscode 是我最喜欢的编辑器之一,主要原因就是这个编译器打开
 > code.cmd 在的位置是 D:\vscode\Microsoft VS Code\bin\code.cmd
 > D:\vscode\Microsoft VS Code\bin 加入环境变量(path)中
 
-### vscode 参考配置以及资料:
+### vscode 参考配置以及资料
 
 - [VSpaceCode default keybindings](https://vspacecode.github.io/docs/default-keybindings)
 
 - [vscode 自定义主题](https://code.visualstudio.com/docs/getstarted/themes#_customizing-a-color-theme)
 
 - [vscode Extension API](https://code.visualstudio.com/api)
-
-**我自己的配置通过 git 同步**

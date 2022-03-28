@@ -1,6 +1,6 @@
 # Git 常用命令及方法大全
 
-![](https://imgconvert.csdnimg.cn/aHR0cDovL3d3dy5ydWFueWlmZW5nLmNvbS9ibG9naW1nL2Fzc2V0LzIwMTUvYmcyMDE1MTIwOTAxLnBuZw?x-oss-process=image/format,png)
+![git 大图](https://imgconvert.csdnimg.cn/aHR0cDovL3d3dy5ydWFueWlmZW5nLmNvbS9ibG9naW1nL2Fzc2V0LzIwMTUvYmcyMDE1MTIwOTAxLnBuZw?x-oss-process=image/format,png)
 
 下面是我整理的常用 Git 命令清单。几个专用名词的译名如下。
 
@@ -453,7 +453,7 @@ git merge --no-ff fixbug-0.1
 git branch -d fixbug-0.1
 ```
 
-### <font color="red">版本回退-撤销文件修改</font>
+### 版本回退-撤销文件修改
 
 {针对文件修改恢复}
 
@@ -477,12 +477,12 @@ no changes added to commit (use "git add" and/or "git commit -a")
 这时 Git 会告诉你，git checkout -- file 可以丢弃工作区的修改：
 
 ```sh
-$ git checkout -- readme.txt
+git checkout -- readme.txt
 ```
 
 **Note**:
 
-1\. <font color=pink>git checkout -- file</font> 命令中的<font color=pink>\--</font>很重要，没有<font color=pink>\--</font>，就变成了“切换到另一个分支”的命令，我们在后面的分支管理中会再次遇到 <font color=pink>git checkout</font> 命令。
+1\. `git checkout -- file` 命令中的`--`很重要，没有`--`，就变成了“切换到另一个分支”的命令，我们在后面的分支管理中会再次遇到 `git checkout` 命令。
 
 2\. 命令 `git checkout -- readme.txt` 意思就是，把 readme.txt 文件在工作区的修改全部撤销，这里有两种情况：
 
@@ -578,7 +578,7 @@ cb926e7ea50ad11b8f9e909c05226233bf755030 wrote a readme file
 现在，我们要把当前版本“append GPL”回退到上一个版本“add distributed”，就可以使用 git reset 命令：
 
 ```sh
-$ git reset --hard HEAD^HEAD is now at ea34578 add distributed
+git reset --hard HEAD^HEAD is now at ea34578 add distributed
 ```
 
 这时 readme.txt 的内容就成了版本 add distributed
@@ -609,7 +609,7 @@ Date:   Mon Aug 19 17:51:55 2013 +0800
 只要上面的命令行窗口还没有被关掉，你就可以顺着往上找啊找啊，找到那个 append GPL 的 commit id 是 3628164...，于是就可以指定回到未来的某个版本：
 
 ```html
-$ git reset --hard 3628164HEAD is now at 3628164 append GPL
+git reset --hard 3628164HEAD is now at 3628164 append GPL
 ```
 
 版本号没必要写全，前几位就可以了，Git 会自动去找。
