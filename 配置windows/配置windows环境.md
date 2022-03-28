@@ -181,7 +181,7 @@ scoop install fd
 scoop install python
 ```
 
-### windows 下的窗口管理器(平铺窗口)[komorebi]
+### windows 下的窗口管理器(平铺窗口)
 
 #### 启动
 
@@ -226,14 +226,14 @@ Import-Module ZLocation
 
 他只会列出第一个因为只看 des 和 abc
 
-**使用 tab completion 导航到不太常见的目录**
+使用 tab completion 导航到不太常见的目录
 
 需要先取消 tab 自动补全 我是取消了,windows 的自动补全实在是太差了,取消也没啥.哈哈
 
 **返回上次位置**
 命令 `z -`
 
-#### 相关资料
+#### reference
 
 - [lazygit 中文默认键位文档](git@github.com:74th/vscode-monokaicharcoal.git)
 - [delta github](https://github.com/dandavison/delta)

@@ -1,7 +1,5 @@
 # git 使用手册
 
-##
-
 ## git commit 规范
 
 ### 规范介绍
@@ -17,7 +15,7 @@
 
 既然有了方案，就会按照某些规则执行，以下是 Google AnguarJS 规范的要求：
 
-**规范目标**
+### 规范目标
 
 - 允许通过脚本生成 CHANGELOG.md
 - 可以通过范围的关键词，快速的搜索到指定版本
@@ -25,9 +23,9 @@
 > #在 packge.json 文件里新增新特性
 > git log HEAD --grep feat(package.json)
 
-**格式要求**
+### 格式要求
 
-```
+```txt
 # 标题行：50个字符以内，描述主要变更内容
 #
 # 主体内容：更详细的说明文本，建议72个字符以内。 需要描述的信息包括:
@@ -39,9 +37,9 @@
 # 尾部：如果需要的化可以添加一个链接到issue地址或者其它文档，或者关闭某个issue。
 ```
 
-**Git commit 日志基本规范**
+### Git commit 日志基本规范
 
-```
+```git
 <type>(<scope>): <subject>
 <BLANK LINE>
 <body>
@@ -112,7 +110,7 @@ git log HEAD --grep chore(package.json)
 
 #### commitizen 的安装
 
-**windows**
+##### windows
 
 ```sh
 # Node Version Manager（Node版本管理器），用它可以方便的在机器上安装并维护多个Node的版本
@@ -123,7 +121,7 @@ npm install -g cz-conventional-changelog
 echo '{ "path": "cz-conventional-changelog" }' > ~/.czrc
 ```
 
-**macos**
+##### macos
 
 ```sh
 # Node Version Manager（Node版本管理器），用它可以方便的在机器上安装并维护多个Node的版本
@@ -133,6 +131,7 @@ npm install -g conventional-changelog-cli
 npm install -g cz-conventional-changelog
 echo '{ "path": "cz-conventional-changelog" }' > ~/.czrc
 ```
+
 #### 相关链接
 
 - [commitizen/cz-cli](https://github.com/commitizen/cz-cli)
