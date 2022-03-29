@@ -17,5 +17,5 @@ Windows Registry Editor Version 5.00
 
 > 1.win+R 2.输入 regedit，回车 3.打开路径：
 > HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Keyboard Layout
-
+>
 > 4.找到映射文件：`Scancode Map`，其之后跟着的一长串数字，即为当初修改按键映射的数字串。 5.删除该映射文件，再重启电脑，键盘就可以恢复按键原本的位置了。

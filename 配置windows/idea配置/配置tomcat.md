@@ -20,12 +20,11 @@
     - [解决 Tomcat 控制台中文乱码](#解决-tomcat-控制台中文乱码)
   - [参考链接](#参考链接)
 
-
 ## 下载 tomcat
 
 进入官网<http://tomcat.apache.org/>，选择 download，下载所需 tomcat 版本。
 下载 tomcat 9.0 版本
-![](https://s2.loli.net/2022/03/22/sixtAuQSJN2IcUT.png)
+![download](https://s2.loli.net/2022/03/22/sixtAuQSJN2IcUT.png)
 
 ### tomcat 文件结构
 
@@ -35,19 +34,19 @@
 
 ### 新建一个干净的 java 项目
 
-![](https://s2.loli.net/2022/03/25/R6dcT3DF1kuMbzl.png)
+![newProject](https://s2.loli.net/2022/03/25/R6dcT3DF1kuMbzl.png)
 
 ### 右键项目，然后点击 Add Framework Support…
 
-![](https://s2.loli.net/2022/03/25/l6FhvXSfydpqCc2.png)
+![new](https://s2.loli.net/2022/03/25/l6FhvXSfydpqCc2.png)
 
 ### 添加 Web Application 勾选 Create web.xml
 
-![](https://s2.loli.net/2022/03/25/k37WDFeyK5Bcg9A.png)
+![new](https://s2.loli.net/2022/03/25/k37WDFeyK5Bcg9A.png)
 
 ### 添加 maven
 
-![](https://s2.loli.net/2022/03/25/N86DOjsnekBirAH.png)
+![maven](https://s2.loli.net/2022/03/25/N86DOjsnekBirAH.png)
 
 ### 项目初始化，只需要设置 groupId 就不会报错
 
@@ -152,7 +151,7 @@ public class HelloServlet extends HttpServlet {
 ### 解决 Tomcat 控制台中文乱码
 
 打开 idea setting -> 设置 console encoding utf-8
-![](https://s2.loli.net/2022/03/25/ADpYhbEB8L7fSCV.png)
+![console](https://s2.loli.net/2022/03/25/ADpYhbEB8L7fSCV.png)
 
 ## 参考链接
 

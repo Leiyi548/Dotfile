@@ -7,6 +7,6 @@
 | `ctrl` +`shift` +`n` |    查找文件    |
 |     `ctrl` +`r`      | 全局替换字符串 |
 
-#### 参考资料
+## 参考资料
 
 - [idea 查找 string_idea 使用心得](https://blog.csdn.net/weixin_39654619/article/details/111852116)

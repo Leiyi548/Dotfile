@@ -16,20 +16,20 @@
 
 ### 主题配置
 
-**Monokai Pro theme**
+#### Monokai Pro theme
 
 - comment italic
 - keyword italic
 - Function declaration italic
 - 改变编辑区背景颜
-  > (原本 #2D2A2E)改为 #1e2122(黑色) <font color=red>general text default text background 修改</font>
+  > (原本 #2D2A2E)改为 #1e2122(黑色) general text default text background 修改
 - 改变行的颜色
-  > 在 <font color=red>General editor 里面 gutters background 为</font>#1e2122
-  > 在 <font color=red>General 里的 linenumber 和 line number on caret row 修改</font>
+  > 在 General editor 里面 gutters background 为#1e2122
+  > 在 General 里的 linenumber 和 line number on caret row 修改
 - 改变搜索颜色
   > 在 general Editor Selection background 中改变 background 为#198483
 
-**Visual Studio Code Theme**
+#### Visual Studio Code Theme
 
 - comment italic
 - keyword italic
@@ -53,7 +53,7 @@ git clone https://hub.fastgit.xyz/Leiyi548/dev-fonts.git
 git clone https://github.com/Leiyi548/dev-fonts.git
 ```
 
-### <font color=red>问题</font>
+### 问题
 
 idea 无法识别 OperatorMono 这个字体，通过我的 google 大法，我在[这一篇文章](https://youtrack.jetbrains.com/issue/IDEA-180897#focus=streamItem-27-3474742.0-0)这里找到了解决方法。
 
