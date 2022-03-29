@@ -69,7 +69,7 @@ git:
   disableForcePushing: false
   parseEmoji: false
 os:
-  editCommand: "code" # see 'Configuring File Editing' section
+  editCommand: "nvim" # see 'Configuring File Editing' section
   editCommandTemplate: "{{editor}} {{filename}}"
   openCommand: ""
 refresher:
