@@ -44,11 +44,11 @@ git clone --depth=1 https://gitee.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$H
 ZSH_THEME="powerlevel10k/powerlevel10k"
 plugins=(
   git
-	zsh-syntax-highlighting
-	zsh-autosuggestions
-	autojump
+  zsh-syntax-highlighting
+  zsh-autosuggestions
+  autojump
   zsh-completions
-	)
+)
 ```
 
 ### 配置 powerlevel10k
