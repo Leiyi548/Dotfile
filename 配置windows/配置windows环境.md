@@ -16,6 +16,7 @@
 1. 下载安装 [windows terminal](https://github.com/microsoft/terminal)
 
 2. 下载安装 [PowerShell7](https://docs.microsoft.com/zh-cn/powershell/scripting/install/installing-powershell-on-windows?view=powershell-7.2#winget)
+
 3. 下载相应的模块
 
 ```powershell
@@ -66,9 +67,6 @@ Set-PoshPrompt -Theme powerlevel10k_rainbow
 Set-PSReadLineOption -PredictionSource History
 # 设置tab自动补全
 Set-PSReadlineKeyHandler -Key Tab -Function MenuComplete
-# alt在windows中有特殊用途，这里使用ctrl键代替
-# 用ctrl + -> 来接受自动补全命令
-Set-PSReadLineKeyHandler -Chord "Ctrl+RightArrow" -Function ForwardWord
 ```
 
 #### 相关资料
@@ -103,61 +101,10 @@ function ga {git add $args}
 function gz {git cz $args}
 ```
 
-### 安装 scoop
-
-#### 步骤一: 在 PowerShell 中打开远程权限
-
 ```powershell
-Set-ExecutionPolicy RemoteSigned -scope CurrentUser;
-```
-
-#### 步骤二: 自定义安装目录
-
-```powershell
-$env:SCOOP='Your_Scoop_Path'
-[Environment]::SetEnvironmentVariable('SCOOP', $env:SCOOP, 'User')
-```
-
-> 如果跳过该步骤， Scoop 将默认把所有用户安装的 App 和 Scoop 本身置于 C:\Users\user_name\scoop
-
-#### 步骤三: 下载安装 scoop
-
-```powershell
-$ Invoke-Expression (New-Object System.Net.WebClient).DownloadString('https://get.scoop.sh')
-# 或者使用下面这条命令
-$ iwr -useb get.scoop.sh | iex
-```
-
-**添加国内镜像(gitee):**
-
-```powershell
-iwr -useb https://gitee.com/glsnames/scoop-installer/raw/master/bin/install.ps1 | iex
-scoop config SCOOP_REPO 'https://gitee.com/glsnames/Scoop-Core'
-scoop update
-```
-
-### 安装 lazygit (scoop)
-
-You can install `lazygit` using scoop. It's in the extras bucket:
-
-```powershell
-# Add the extras bucket
-scoop bucket add extras
-
-# Install lazygit
-scoop install lazygit
-
-# Install delta
-scoop install delta
-
-# Install grep
-scoop install grep
 
 # Install mingw
 scoop install mingw
-
-# Install neofetch
-scoop install neofetch
 
 # Install komorebi (windows 下的平铺桌面)
 scoop bucket add komorebi https://github.com/LGUG2Z/komorebi-bucket
@@ -169,12 +116,6 @@ scoop install extras/autohotkey
 # Install im-select
 scoop bucket add im-select https://github.com/daipeihust/im-select
 scoop install im-select
-
-# Install fzf
-scoop install fzf
-
-# Install fd
-scoop install fd
 
 # Install python
 # This command will install python2 and newest python3
@@ -193,90 +134,5 @@ scoop install python
 
 #### 参考资料
 
-[komorebi 中文文档](https://github.com/LGUG2Z/komorebi/wiki/README-zh)
-
-### delta 配置
-
-delta 配置文件在 **C:\Users\{UserName}\.gitconfig**
-不知道为啥现在 lazygit 中 delta 没有效果，以后有效果再配置。
-
-### ZLocation 的使用 (windows 上的 autojump)
-
-#### 安装及导入模块
-
-```sh
-# 安装模块
-Install-Module ZLocation -Scope CurrentUser
-POWERS
-
-# 导入模块
-Import-Module ZLocation
-```
-
-#### 使用
-
-**列出所有已知的位置**
-`z` 没有参数的话,就会列出所有已知的位置以及他们的权重
-
-`z -l des` 将会列出包含有 des 的位置,当然这看的是最后的路径而不是全部路径
-例如:
-
-> User/9/desktop/des
-> User/9/desktop/abc
-
-他只会列出第一个因为只看 des 和 abc
-
-使用 tab completion 导航到不太常见的目录
-
-需要先取消 tab 自动补全 我是取消了,windows 的自动补全实在是太差了,取消也没啥.哈哈
-
-**返回上次位置**
-命令 `z -`
-
-#### reference
-
-- [lazygit 中文默认键位文档](git@github.com:74th/vscode-monokaicharcoal.git)
-- [delta github](https://github.com/dandavison/delta)
-- [delta 官方文档](https://dandavison.github.io/delta/introduction.html)
-- [scoop 官方介绍](https://scoop.sh/)
-- [scoop 知乎文章](https://zhuanlan.zhihu.com/p/128955118)
-- [scoop github](https://github.com/ScoopInstaller/Scoop)
+- [komorebi 中文文档](https://github.com/LGUG2Z/komorebi/wiki/README-zh)
 - [PowerShell 在线中文教程](https://www.pstips.net/powershell-online-tutorials)
-- [ZLocation](https://github.com/vors/ZLocation)
-
-#### lazygit 存放配置的位置
-
-默认路径:
-%APPDATA%\lazygit\config.yml
-
-> 其中%APPDATA% 这个代表的路径 C:\Users\9\AppData\Roaming
-> 完整路径 C:\Users\9\AppData\Roaming\lazygit\config.yml
-
-[lazygit 官方配置文档](https://github.com/jesseduffield/lazygit/blob/master/docs/Config.md)
-
-## vscode 配置
-
-vscode 是我最喜欢的编辑器之一,主要原因就是这个编译器打开速度快,而且插件多。
-
-### 我最喜欢的主题
-
-- vscode 默认主题
-- Monokai Charcoal high contrast
-- One dark pro
-- github theme
-- material theme
-
-### vscode 配置 code 命令
-
-加自己的 code.cmd 所在文件夹的位置加入 windows 的环境变量(系统变量)path 中:
-
-> code.cmd 在的位置是 D:\vscode\Microsoft VS Code\bin\code.cmd
-> D:\vscode\Microsoft VS Code\bin 加入环境变量(path)中
-
-### vscode 参考配置以及资料
-
-- [VSpaceCode default keybindings](https://vspacecode.github.io/docs/default-keybindings)
-
-- [vscode 自定义主题](https://code.visualstudio.com/docs/getstarted/themes#_customizing-a-color-theme)
-
-- [vscode Extension API](https://code.visualstudio.com/api)

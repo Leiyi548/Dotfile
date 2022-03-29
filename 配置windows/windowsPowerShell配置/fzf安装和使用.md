@@ -1,4 +1,4 @@
-# fzf 的使用(win11)
+# fzf 安装和使用 (windows11)
 
 [fzf](https://github.com/junegunn/fzf) 是个用 go 写的多平台模糊搜索神器，（fuzzy finder finder）
 

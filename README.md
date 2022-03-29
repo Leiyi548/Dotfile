@@ -7,7 +7,7 @@ This is my dotfile
 - PowerShell config
 - vscode config
 
-## PowerShell setup (Windows
+## PowerShell setup (Windows)
 
 - [Scoop](https://scoop.sh/) - A command-line installer
 - [Git for Windows](https://gitforwindows.org/)
@@ -17,3 +17,5 @@ This is my dotfile
 - [ZLocation](https://github.com/vors/ZLocation) - Directory jumper
 - [PSFzf](https://github.com/kelleyma49/PSFzf) - Fuzzy finder
 - [Lazygit](https://github.com/jesseduffield/lazygit) - A simple terminal UI for git commands
+- [gitmoji-cli](https://github.com/carloscuesta/gitmoji-cli) - git commit emoji
+- [commitizen/cz-cli](https://github.com/commitizen/cz-cli) - Commitizen for contributors

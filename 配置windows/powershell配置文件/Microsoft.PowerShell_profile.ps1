@@ -42,6 +42,7 @@ Import-Module PSFzf
 Set-PsFzfOption -TabExpansion
 Set-PsFzfOption -PSReadLineChordProvider 'Ctrl+f' -PSReadlineChordReversehistory 'Ctrl+r'
 Set-PsFzfOption -EnableAliasFuzzyEdit
+Set-PsFzfOption -EnableAliasFuzzyHistory
 Set-PsFzfOption -EnableAliasFuzzyKillProcess
 Set-PsFzfOption -EnableAliasFuzzyZLocation
 Set-PsFzfOption -EnableAliasFuzzyKillProcess
