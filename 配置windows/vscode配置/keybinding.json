@@ -330,10 +330,6 @@
   //   "command": "workbench.action.tasks.runTask",
   //   "args": "lazygit"
   // },
-  // {
-  //   "key": "ctrl+j",
-  //   "command": "workbench.action.togglePanel"
-  // }
   /*
   ===
   === 侧面板 
@@ -349,5 +345,60 @@
   {
     "key": "ctrl+j",
     "command": "-workbench.action.togglePanel"
+  },
+  /*
+  ===
+  === Markdown All in One
+  ===
+  */
+  {
+    "key": "shift+tab",
+    "command": "-markdown.extension.onShiftTabKey",
+    "when": "editorTextFocus && !editorReadonly && !editorTabMovesFocus && !hasOtherSuggestions && !hasSnippetCompletions && !inSnippetMode && !suggestWidgetVisible && editorLangId == 'markdown'"
+  },
+  {
+    "key": "tab",
+    "command": "-markdown.extension.onTabKey",
+    "when": "editorTextFocus && !editorReadonly && !editorTabMovesFocus && !hasOtherSuggestions && !hasSnippetCompletions && !inSnippetMode && !suggestWidgetVisible && editorLangId == 'markdown'"
+  },
+  {
+    "key": "ctrl+enter",
+    "command": "markdown.extension.checkTaskList",
+    "when": "editorTextFocus && editorLangId == 'markdown'"
+  },
+  {
+    "key": "ctrl+b",
+    "command": "markdown.extension.editing.toggleBold",
+    "when": "editorTextFocus && !editorReadonly && editorLangId == 'markdown' || vim.mode =='Visual'"
+  },
+  {
+    "key": "ctrl+i",
+    "command": "markdown.extension.editing.toggleItalic",
+    "when": "editorTextFocus && !editorReadonly && editorLangId == 'markdown' || vim.mode =='Visual'"
+  },
+  {
+    "key": "ctrl+c",
+    "command": "markdown.extension.toc.create"
+  },
+  {
+    "key": "ctrl+alt+v",
+    "command": "extension.pasteImage",
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "alt+s",
+    "command": "editor.action.insertSnippet",
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "ctrl+f",
+    "command": "-workbench.action.terminal.focusFind",
+    "when": "terminalFindFocused && terminalHasBeenCreated || terminalFindFocused && terminalProcessSupported || terminalFocus && terminalHasBeenCreated || terminalFocus && terminalProcessSupported"
+  },
+  // remove ctrl + . to codeaction
+  {
+    "key": "ctrl+oem_period",
+    "command": "-editor.action.quickFix",
+    "when": "editorHasCodeActionsProvider && editorTextFocus && !editorReadonly"
   }
 ]

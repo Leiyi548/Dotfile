@@ -14,6 +14,8 @@
   "search.smartCase": true,
   // like cmp ghost text(My favorite feature)
   "editor.suggest.preview": true,
+  "workbench.editor.limit.enabled": false,
+  "workbench.editor.limit.value": 5,
   "explorer.confirmDragAndDrop": false,
   "editor.showFoldingControls": "always",
   "editor.bracketPairColorization.enabled": true,
@@ -22,8 +24,8 @@
   "debug.console.fontSize": 18,
   "editor.cursorSurroundingLines": 8,
   "editor.linkedEditing": true,
-  // "editor.fontFamily": "FiraCode Nerd Font,Cascadia Code,Menlo, Monaco, 'Courier New', monospace,'Hack Nerd Font'",
-  "editor.fontFamily": "Operator Mono Lig",
+  "editor.fontFamily": "Cascadia Code,FiraCode Nerd Font,Menlo, Monaco, 'Courier New', monospace,'Hack Nerd Font'",
+  // "editor.fontFamily": "Operator Mono Lig",
   "terminal.integrated.fontFamily": "FiraCode Nerd Font",
   "editor.tabSize": 2, // minimap
   "editor.cursorSmoothCaretAnimation": true,
@@ -77,17 +79,31 @@
       }
     ]
   },
+  "monokaiPro.fileIconsMonochrome": false,
   "workbench.colorCustomizations": {
-    "tab.hoverBackground": "#027bcc",
+    // "tab.hoverBackground": "#027bcc",
     "[Monokai Pro]": {
-      // "editor.background": "#22282d",
-      "terminal.background": "#221f22",
-      "editorLineNumber.foreground": "#2d2a2e",
-      "editorLineNumber.activeForeground": "#ffff50", //
-      "statusBar.background": "#007acc",
-      "statusBar.foreground": "#efffff",
+      "editor.background": "#1e2122",
+      "sideBar.background": "#252526",
+      "editorGutter.background": "#1e2122",
+      "panel.background": "#1e1e1e",
+      "terminal.background": "#1e1e1e", // #221f22
+      "editorLineNumber.foreground": "#5b595c",
+      "editorLineNumber.activeForeground": "#ffff50",
+      // default status
+      // "statusBar.background": "#007acc",
+      // "statusBar.foreground": "#efffff",
+      // monokai charcoral orange
+      "statusBar.background": "#000000",
+      "statusBar.foreground": "#FD971F",
+      "statusBar.border": "#FD971F75",
+      "statusBar.noFolderBackground": "#000000",
+      "statusBar.noFolderForeground": "#FD971F",
+      "statusBar.debuggingBackground": "#43B9D815",
+      "statusBar.debuggingForeground": "#FD971F",
+      "statusBarItem.hoverBackground": "#101010",
       "editor.selectionBackground": "#2e8a87",
-      "editor.findMatchHighlightBackground": "#3069db" // #442726 #7306f0 #6688cc
+      "editor.findMatchHighlightBackground": "#5b595c"
     },
     "[monokai-charcoal]": {
       "editorLineNumber.foreground": "#2d2a2e",
@@ -97,6 +113,26 @@
       // vim搜索文本高亮
       "editor.findMatchHighlightBackground": "#3069db" // #442726 #7306f0 #6688cc
       // "editor.background": "#2d2a2e"
+    },
+    "[One Dark Pro]": {
+      "tab.activeBackground": "#1e2122",
+      "tab.activeForeground": "#43B9D8",
+      "tab.border": "#181a1f",
+      "tab.activeBorder": "#43B9D8",
+      "tab.unfocusedActiveBorder": "#919288",
+      "tab.inactiveBackground": "#1e2227",
+      "tab.inactiveForeground": "#ffffff",
+      "tab.unfocusedActiveForeground": "#c0c1b5",
+      "tab.unfocusedInactiveForeground": "#919288",
+      "tab.hoverBackground": "#323842",
+      "tab.unfocusedHoverBackground": "#323842",
+      "tab.hoverBorder": "#57584f",
+      "tab.unfocusedHoverBorder": "#272822",
+      "tab.activeModifiedBorder": "#57584f",
+      "tab.inactiveModifiedBorder": "#57584f",
+      "tab.unfocusedActiveModifiedBorder": "#3b3c35",
+      "tab.unfocusedInactiveModifiedBorder": "#3b3c35",
+      "tab.lastPinnedBorder": "#57584f"
     }
   },
   /*--━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━--
@@ -108,20 +144,21 @@
   --━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━--*/
   "vim.incsearch": true,
   "vim.autoSwitchInputMethod.enable": true,
+  "vim.useCtrlKeys": true,
   "vim.handleKeys": {
     "<C-a>": false,
-    "<C-f>": true
+    "<C-f>": false
   },
-  "vim.useCtrlKeys": true,
   "vim.hlsearch": true,
   "vim.easymotion": true,
+  "vim.camelCaseMotion.enable": true,
   "vim.showcmd": true,
   // "vim.shell": "C:\\Program Files\\PowerShell\\7\\pwsh.exe",
   "vim.timeout": 500,
   "vim.showmodename": true,
   "vim.leader": "\\",
   // "editor.lineNumbers": "relative",
-  "vim.smartRelativeLine": true,
+  "vim.smartRelativeLine": false,
   "vim.autoSwitchInputMethod.defaultIM": "1033",
   "vim.autoSwitchInputMethod.obtainIMCmd": "D:\\im\\im-select.exe",
   "vim.autoSwitchInputMethod.switchIMCmd": "D:\\im\\im-select.exe {im}",
@@ -320,6 +357,20 @@
       "after": ["leader", "leader", "leader", "b", "d", "j", "k"]
     },
     // end easymotion setting
+
+    // CamelCaseMotion setting
+    {
+      "before": ["[", "w"],
+      "after": ["leader", "w"]
+    },
+    {
+      "before": ["]", "w"],
+      "after": ["leader", "e"]
+    },
+    {
+      "before": ["[", "e"],
+      "after": ["leader", "b"]
+    },
     {
       "before": ["L"],
       "after": ["$"]
@@ -416,6 +467,73 @@
   "gitlens.advanced.messages": {
     "suppressGitMissingWarning": true
   },
+  "GitCommitPlugin.ShowEmoji": true,
+  "GitCommitPlugin.MaxSubjectWords": 20,
+  "GitCommitPlugin.CustomCommitType": [
+    // If there are duplicate keys, rewrite the config，otherwise add As a new configuration addition
+    {
+      "key": "fix",
+      "label": "fix",
+      "detail": "修复bug",
+      "icon": "🐛"
+    },
+    {
+      "key": "style",
+      "label": "style",
+      "detail": "仅仅修改了空格、格式缩进、逗号等等、不改变代码逻辑",
+      "icon": "🎨"
+    },
+    {
+      "key": "perf",
+      "label": "perf",
+      "detail": "优化相关，比如提升性能、体验",
+      "icon": "⚡️"
+    },
+    {
+      "key": "docs",
+      "label": "docs",
+      "detail": "添加或更新文档",
+      "icon": "📝"
+    },
+    {
+      "key": "ci",
+      "label": "ci",
+      "detail": "更改我们的CI配置文件和脚本(示例范围:Travis, Circle, BrowserStack, SauceLabs)",
+      "icon": "👷"
+    },
+    {
+      "key": "refactor",
+      "label": "refactor",
+      "detail": "",
+      "icon": "♻️"
+    },
+    {
+      "key": "git ",
+      "label": "git",
+      "detail": "添加或更新 .gitignore file.",
+      "icon": "🙈"
+    },
+    {
+      "key": "patch",
+      "label": "patch",
+      "detail": "关键的热修复补丁",
+      "icon": "🚑️"
+    },
+    {
+      "key": "test",
+      "label": "test",
+      "detail": "添加、更新或通过测试",
+      "icon": "✅"
+    }
+  ],
+  "GitCommitPlugin.Templates": [
+    {
+      "templateName": "git-cz",
+      "templateContent": "<type>(<scope>):<space><icon><space><subject><enter><body><enter><footer>",
+      // Set as default commit template
+      "default": true
+    }
+  ],
   /*--━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━--
     --━━━━━━━━━━━━━━━━━━━❰ end git ❱━━━━━━━━━━━━━━━━━━━--
   --━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━--*/
@@ -423,11 +541,17 @@
   /*--━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━--
   --━━━━━━━━━━━━━━━━━━━❰ markdown config ❱━━━━━━━━━━━━━━━━━━━--
   --━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━--*/
-  // 控制 Markdown 预览中使用的字号(以像素为单位)。
   "markdown.preview.fontSize": 16,
-  "markdown-preview-enhanced.previewTheme": "monokai.css",
+  "markdown-preview-enhanced.previewTheme": "one-dark.css",
   "markdown-preview-enhanced.enableHTML5Embed": true,
   "markdown-preview-enhanced.enableExtendedTableSyntax": true,
+  "markdown.extension.toc.updateOnSave": true,
+  "markdown-preview-enhanced.automaticallyShowPreviewOfMarkdownBeingEdited": false,
+  "markdown.extension.print.absoluteImgPath": false,
+  "pasteImage.path": "${projectRoot}/img",
+  "pasteImage.basePath": "${currentFileDir}",
+  "pasteImage.forceUnixStyleSeparator": true,
+  // "pasteImage.prefix": "/",
   /*--━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━--
     --━━━━━━━━━━━━━━━━━━━❰ end markdown ❱━━━━━━━━━━━━━━━━━━━--
   --━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━--*/
@@ -810,11 +934,17 @@
           "type": "command",
           "command": "gitlens.openFileInRemote"
         },
+        // {
+        //   "key": "c",
+        //   "name": "Commit",
+        //   "type": "command",
+        //   "command": "git.commit"
+        // },
         {
           "key": "c",
           "name": "Commit",
           "type": "command",
-          "command": "git.commit"
+          "command": "extension.showGitCommit"
         },
         {
           "key": "C",
@@ -958,6 +1088,13 @@
           "name": "Insert snippet",
           "type": "command",
           "command": "editor.action.insertSnippet"
+        },
+        {
+          "key": "m",
+          "name": "Insert img (Markdown)",
+          "type": "command",
+          "command": "extension.pasteImage",
+          "when": "editorLangId == 'markdown'"
         }
       ]
     },
@@ -1198,6 +1335,24 @@
           "name": "Markdown Preview",
           "type": "command",
           "command": "markdown-preview-enhanced.openPreviewToTheSide",
+          "when": "editorLangId == 'markdown'"
+        },
+        {
+          "key": "a",
+          "name": "Add/Update section numbers",
+          "command": "markdown.extension.toc.addSecNumbers",
+          "when": "editorLangId == 'markdown'"
+        },
+        {
+          "key": "d",
+          "name": "Delete section numbers",
+          "command": "markdown.extension.toc.removeSecNumbers",
+          "when": "editorLangId == 'markdown'"
+        },
+        {
+          "key": "b",
+          "name": "Create toc",
+          "command": "markdown.extension.toc.create",
           "when": "editorLangId == 'markdown'"
         }
       ]
@@ -1571,7 +1726,7 @@
     // whichkey-y
     {
       "key": "y",
-      "name": "Copy...",
+      "name": "Copy",
       "type": "command",
       "command": "vim.remap",
       "args": {
@@ -1581,7 +1736,7 @@
     //whichkey-p
     {
       "key": "p",
-      "name": "Paste...",
+      "name": "Paste",
       "type": "command",
       "command": "vim.remap",
       "args": {
@@ -1621,9 +1776,8 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "editor.minimap.enabled": false,
-  "workbench.colorTheme": "monokai-charcoal",
-  "workbench.statusBar.visible": false,
-  "workbench.activityBar.visible": false
+  "workbench.colorTheme": "One Dark Pro",
+  "cSpell.userWords": ["dotfile", "gitmoji", "unstage", "Unstaged"]
   /*--━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━--
     --━━━━━━━━━━━━━━━━━━━❰ end language ❱━━━━━━━━━━━━━━━━━━━--
   --━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━--*/
