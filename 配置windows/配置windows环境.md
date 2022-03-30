@@ -32,25 +32,25 @@ Install-Module -Name Terminal-Icons -Repository PSGallery
 
 用 notepad 快速打开 PowerShell 配置文件
 
-```sh
+```powershell
 notepad.exe $PROFILE
 ```
 
 用 neovim 快速打开 Powershell 配置文件
 
-```sh
+```powershell
 nvim $PROFILE
 ```
 
 用 vscode 快速打开 Powershell 配置文件
 
-```sh
+```powershell
 code $PROFILE
 ```
 
 在配置文件内导入模块
 
-```sh
+```powershell
 # 导入模块
 Import-Module posh-git
 Import-Module oh-my-posh
@@ -60,7 +60,7 @@ Import-Module PSReadLine
 
 在配置文件设置主题和 tab 补全
 
-```sh
+```powershell
 # 设置powershell主题
 Set-PoshPrompt -Theme powerlevel10k_rainbow
 # 设置能够记录历史命令进行补全
@@ -106,12 +106,6 @@ function gz {git cz $args}
 # Install mingw
 scoop install mingw
 
-# Install komorebi (windows 下的平铺桌面)
-scoop bucket add komorebi https://github.com/LGUG2Z/komorebi-bucket
-scoop install komorebi
-
-# 安装windows的改建软件(autohotkey)
-scoop install extras/autohotkey
 
 # Install im-select
 scoop bucket add im-select https://github.com/daipeihust/im-select
@@ -122,17 +116,6 @@ scoop install im-select
 scoop install python
 ```
 
-### windows 下的窗口管理器(平铺窗口)
-
-#### 启动
-
-在 terminal 输入这个命令 `komorebic start`就可以启动这个软件
-
-#### 停止
-
-在 terminal 输入这个命令 `komorebic stop`就可以启动这个软件
-
 #### 参考资料
 
-- [komorebi 中文文档](https://github.com/LGUG2Z/komorebi/wiki/README-zh)
 - [PowerShell 在线中文教程](https://www.pstips.net/powershell-online-tutorials)
