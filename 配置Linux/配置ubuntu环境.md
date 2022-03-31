@@ -27,17 +27,23 @@ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:
 # 如果下载不了,可以使用github镜像下载
 git clone https://hub.fastgit.xyz/zsh-users/zsh-autosuggestions.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 
+git clone https://api.mtr.pub/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 # install zsh-autosuggestions
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 
 # 如果下载不了,可以使用github镜像下载
 git clone https://hub.fastgit.xyz/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 
+git clone https://api.mtr.pub/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+
 # install zsh-completions
 git clone https://github.com/zsh-users/zsh-completions ${ZSH_CUSTOM:-${ZSH:-~/.oh-my-zsh}/custom}/plugins/zsh-completions
 
 # 如果下载不了,可以使用github镜像下载
 git clone https://hub.fastgit.xyz/zsh-users/zsh-completions ${ZSH_CUSTOM:-${ZSH:-~/.oh-my-zsh}/custom}/plugins/zsh-completions
+
+git clone https://api.mtr.pub/zsh-users/zsh-completions ${ZSH_CUSTOM:-${ZSH:-~/.oh-my-zsh}/custom}/plugins/zsh-completions
+
 
 # install autojump
 # macos
@@ -56,11 +62,11 @@ git clone --depth=1 https://gitee.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$H
 ZSH_THEME="powerlevel10k/powerlevel10k"
 plugins=(
   git
-	zsh-syntax-highlighting
-	zsh-autosuggestions
-	autojump
+  zsh-syntax-highlighting
+  zsh-autosuggestions
+  autojump
   zsh-completions
-	)
+ )
 ```
 
 ### 配置 powerlevel10k
@@ -86,4 +92,16 @@ sudo apt install gcc
 
 ```sh
 sudo apt-get install fzf
+```
+
+## Install neofetch
+
+```sh
+sudo apt install neofetch
+```
+
+## Install ranger
+
+```sh
+sudo apt install ranger
 ```
