@@ -415,7 +415,7 @@ Return
 CapsLock & 8::
     IfWinNotExist ahk_exe Code.exe
     { 
-        Send #1 
+        run D:\vscode\Microsoft VS Code\Code.exe
     } 
     Else IfWinNotActive ahk_exe Code.exe
     {
@@ -453,8 +453,12 @@ CapsLock & 9::
     } 
     Else IfWinNotActive ahk_exe chrome.exe 
     { 
-        #WinActivateForce 
-        WinActivate 
+        SetTitleMatchMode RegEx
+        ; 哔哩哔哩 (゜-゜)つロ 干杯~-bilibili - Google Chrome
+        ; CapSlock.ahk - dotfile - Visual Studio Code
+        Chrome_ID := WinExist(".- Google Chrome")
+        #WinActivateForce
+        WinActivate ahk_id %Chrome_ID%
     } 
     Else 
     {
