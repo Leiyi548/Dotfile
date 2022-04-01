@@ -32,6 +32,8 @@
 ;                       CapsLock Initializer                         ;|
 ;---------------------------------------------------------------------o
 SetCapsLockState, AlwaysOff                                          ;|
+; 开启可以跨窗口搜索
+DetectHiddenWindows, on
 ;---------------------------------------------------------------------o
 
 ;=====================================================================o
@@ -277,8 +279,8 @@ CapsLock & BackSpace:: Send {Home}{ShiftDown}{End}{Right}{ShiftUp}{Del}
 ;-----------------------------------o---------------------------------o
 CapsLock & z:: Send, ^z                                              ;|
 CapsLock & x:: Send, ^x                                              ;|
-CapsLock & c:: Send, ^c                                              ;|
-CapsLock & v:: Send, ^v                                              ;|
+CapsLock & c:: Send  {CtrlDown}{Insert}{CtrlUp}                      ;|
+CapsLock & v:: Send  {ShiftDown}{Insert}{ShiftUp}                    ;|
 CapsLock & a:: Send, ^a                                              ;|
 CapsLock & y:: Send, ^y                                              ;|
 CapsLock & w:: Send, ^{Right}                                        ;|
@@ -350,10 +352,15 @@ CapsLock & F6:: Send, {Media_Stop}                                   ;|
 ;-----------------------------------o---------------------------------o
 ;                     CapsLock + 1  |  Open Wechat                    ;|
 ;                     CapsLock + 3  |  Open Obsidian                  ;|
+;                     CapsLock + 4  |  Open youdao                    ;|
 ;                     CapsLock + 8  |  Open VsCode                    ;|
 ;                     CapsLock + 6  |  Open jetbarin idea             ;|
 ;                     CapsLock + 9  |  Open Chrome                    ;|
 ;-----------------------------------o---------------------------------o
+; 1 - 窗口标题必须以指定的 winTitle开头才能匹配
+; 2 - 窗口标题任意位置包含 winTitle才能匹配
+; 3 - 窗口标题必须和winTitle完全一致才能匹配
+SetTitleMatchMode, 2
 CapsLock & 1::
     IfWinNotExist ahk_class WeChatMainWndForPC
     {
@@ -388,18 +395,34 @@ CapsLock & 3::
     }
 Return
 ;----------------------------------------------------------------------o
+CapsLock & 4::
+    IfWinNotExist ahk_class YodaoMainWndClass
+    {
+        run D:\有道词典\Dict\YoudaoDict.exe
+    }
+    Else IfWinNotActive ahk_class YodaoMainWndClass
+    { 
+        #WinActivateForce
+        WinActivate
+    } 
+    Else 
+    {
+        WinMinimize
+    }
+Return
 ;----------------------------------------------------------------------o
-CapsLock & 8:: ;|
-    IfWinNotExist ahk_exe Code.exe ;|
+;----------------------------------------------------------------------o
+CapsLock & 8::
+    IfWinNotExist ahk_exe Code.exe
     { 
         Send #1 
     } 
-    Else IfWinNotActive ahk_exe Code.exe ;|
+    Else IfWinNotActive ahk_exe Code.exe
     {
         SetTitleMatchMode RegEx
         VS_CODE_ID := WinExist(".- Visual Studio Code")
         #WinActivateForce
-        WinActivate ahk_id %VS_CODE_ID% ;|
+        WinActivate ahk_id %VS_CODE_ID%
     }
     Else
     {
