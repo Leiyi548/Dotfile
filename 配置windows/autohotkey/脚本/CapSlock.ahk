@@ -351,6 +351,7 @@ CapsLock & F6:: Send, {Media_Stop}                                   ;|
 ;                        CapsLock lanuch application                  ;|
 ;-----------------------------------o---------------------------------o
 ;                     CapsLock + 1  |  Open Wechat                    ;|
+;                     CapsLock + 2  |  Open DocBox                    ;|
 ;                     CapsLock + 3  |  Open Obsidian                  ;|
 ;                     CapsLock + 4  |  Open youdao                    ;|
 ;                     CapsLock + 8  |  Open VsCode                    ;|
@@ -377,10 +378,27 @@ CapsLock & 1::
     }
 return
 ;----------------------------------------------------------------------o
+CapsLock & 2::
+    IfWinNotExist ahk_class DOCBOX_PDF_FRAME
+    {
+        run D:\稻壳阅读器\DocBox\DocBox.exe
+    }
+    Else IfWinNotActive ahk_class DOCBOX_PDF_FRAME
+    { 
+        #WinActivateForce
+        WinActivate
+    } 
+    Else
+    {
+        WinMinimize
+    }
+Return
+;----------------------------------------------------------------------o
+;----------------------------------------------------------------------o
 CapsLock & 3::
     IfWinNotExist ahk_exe Obsidian.exe
     {
-        Send #4
+        run C:\Users\9\AppData\Local\Obsidian\Obsidian.exe
     }
     Else IfWinNotActive ahk_exe Obsidian.exe
     { 

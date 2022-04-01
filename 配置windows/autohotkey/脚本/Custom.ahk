@@ -6,7 +6,9 @@ SetWorkingDir, %A_ScriptDir%
 ;                    I dont need it any more
 ;---------------------------------------------------------------------o
 ; Windows 11
+#l:: ; 锁定windows窗口,我基本不用容易误触,取消掉比较好
 #h:: ; 听写，几乎没有麦克风
+  ; #c:: ; Cortana，人工智障
 #p:: ; 投影屏幕，没有别的屏幕，单机版
 #s:: ; 搜索，# 本身已经自带了
 #f:: ; 反馈中心，几十年没反馈过问题
@@ -74,11 +76,11 @@ CenterActiveWindow()
   WinMove, A,, winX, winY
 }
 ;-----------------------------------------------------------------------o
-; 在windows 资源管理器用 ctrl alt c 复制文件路径到剪贴板
+; 在windows 资源管理器用 ctrl alt c 复制文件路径到剪贴板 
 ^!c::
   send ^c
   sleep,200
-  clipboard=%clipboard% ; 把格式文本转换为纯文本
+  clipboard=%clipboard% 
   tooltip,%clipboard%
   sleep,500
   tooltip,
@@ -89,31 +91,41 @@ return
 ;-----------------------------------------------------------------------o
 
 ;=====================================================================o
-;  鼠标右键切换桌面                
-;---------------------------------------------------------------------o
-RButton::
-  MIN_DIS := 60
-  MouseGetPos, x_s,y_s
-  KeyWait,RButton,U
-  MouseGetPos,x_e
-  if(x_s - x_e>MIN_DIS){
-    Send ^#{Right}
-  }else if(x_e - x_s > MIN_DIS){
-    Send ^#{Left}
-  }else{
-    SendInput,{RButton}
+;alt + 数字  -->  切换桌面
+; alt + Shift + 数字  -->  把当前窗口带到某桌面
+; [Switch to desktop] OR [Move the current window to the X-th desktop]
+;=====================================================================o
+!1::
+  SwitchToDesktop(1)
+return
+!2::
+  SwitchToDesktop(2)
+return
+!3::
+  SwitchToDesktop(3)
+return
+!4::
+  SwitchToDesktop(4)
+return
+
+SwitchToDesktop(idx){
+  SwitchToDesktopByHotkey(idx)
+}
+SwitchToDesktopByHotkey(idx){
+  SendInput ^#{Left 10}
+  idx -= 1
+  loop %idx% {
+    SendInput ^#{Right}
   }
-
-  ;---------------------------------------------------------------------o
-
-  ;=====================================================================o
-  ;                    Recycle
-  ;---------------------------------------------------------------------o
-  ; #IfWinActive, ahk_exe idea64.exe
-  ; ; Leetcode in diea
-  ; #s:: send, ^#!s{Enter} ; submit
-  ; #t:: send, ^#!t{Enter} ; test
-  ; #p:: send, ^#!p        ; position
-  ; #0:: send, ^#!0        ; colapse
-  ; #b:: send, ^!b         ; jump to implement
-  ;---------------------------------------------------------------------o
+}
+;=====================================================================o
+;                    Recycle
+;---------------------------------------------------------------------o
+; #IfWinActive, ahk_exe idea64.exe
+; ; Leetcode in diea
+; #s:: send, ^#!s{Enter} ; submit
+; #t:: send, ^#!t{Enter} ; test
+; #p:: send, ^#!p        ; position
+; #0:: send, ^#!0        ; colapse
+; #b:: send, ^!b         ; jump to implement
+;---------------------------------------------------------------------o
