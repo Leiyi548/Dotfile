@@ -251,17 +251,16 @@ return                                                               ;|
 ;=====================================================================o
 ;                           CapsLock Deletor                         ;|
 ;-----------------------------------o---------------------------------o
-;                     CapsLock + n  |  Ctrl + Delete (Delete a Word) ;|
-;                     CapsLock + m  |  Delete                        ;|
-;                     CapsLock + ,  |  BackSpace                     ;|
-;                     CapsLock + .  |  Ctrl + BackSpace              ;|
+;                     CapsLock + ,  |  delete word ahead             ;|
+;                     CapsLock + .  |  delete word after             ;|
 ;                     CapsLock + BackSpace  | Delete a line          ;|
 ;-----------------------------------o---------------------------------o
-CapsLock & ,:: Send, {Del}                                           ;|
+CapsLock & ,:: Send, ^{BS}                                           ;|
 CapsLock & .:: Send, ^{Del}                                          ;|
-CapsLock & m:: Send, {BS}                                            ;|
-CapsLock & n:: Send, ^{BS}                                           ;|
 CapsLock & BackSpace:: Send {Home}{ShiftDown}{End}{Right}{ShiftUp}{Del}
+;CapsLock & ,:: Send, {Del}                                          ;|
+; CapsLock & m:: Send, {BS}                                          ;|
+; CapsLock & n:: Send, ^{BS}                                         ;|
 ;---------------------------------------------------------------------o
 
 ;=====================================================================o
@@ -313,14 +312,19 @@ CapsLock & g:: Send, {AppsKey}                                       ;|
 
 ;=====================================================================o
 ;                        CapsLock Self Defined Area                  ;|
+;                        Custom area                                 ;|
 ;-----------------------------------o---------------------------------o
 ;                     CapsLock + u  |  ctrl + u                      ;|
 ;                     CapsLock + e  |  ctrl + e                      ;|
 ;                     CapsLock + t  |   ctrl + t                     ;|
+;                     CapsLock + p  |   previous window              ;|
+;                     CapsLock + n  |   next window                  ;|
 ;-----------------------------------o---------------------------------o
 CapsLock & t::Send, ^t                                               ;|
 CapsLock & f::Send, ^f                                               ;|
 CapsLock & e::Send, ^e                                               ;|
+CapsLock & p::^#Left                                           ;|
+CapsLock & n::^#Right                                          ;|
 ;---------------------------------------------------------------------o
 
 ;=====================================================================o
