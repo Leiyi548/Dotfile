@@ -7,6 +7,8 @@
 | `win`+`m`            | 最小化所有窗口            |
 | `win`+`e`            | 打开资源管理器            |
 | `win`+`i`            | 打开 windows 设置         |
+| `win`+`ctrl`+`left`  | 向左切换桌面              |
+| `win`+`ctrl`+`right` | 向右切换桌面              |
 | `ctrl`+`shift`+`esc` | 开启任务管理器            |
 | `ctrl`+`alt`+`w`     | 打开微信                  |
 | `alt`+`F4`           | 快速关闭当前窗口          |
