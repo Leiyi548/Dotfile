@@ -1,12 +1,12 @@
 "--━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━--
-"                                  __                 "
-"     ___     ___    ___   __  __ /\_\    ___ ___     "
-"    / _ `\  / __`\ / __`\/\ \/\ \\/\ \  / __` __`\   "
-"   /\ \/\ \/\  __//\ \_\ \ \ \_/ |\ \ \/\ \/\ \/\ \  "
-"   \ \_\ \_\ \____\ \____/\ \___/  \ \_\ \_\ \_\ \_\ "
-"    \/_/\/_/\/____/\/___/  \/__/    \/_/\/_/\/_/\/_/ "
+"                                  __                                                         "
+"     ___     ___    ___   __  __ /\_\    ___ ___                                             "
+"    / _ `\  / __`\ / __`\/\ \/\ \\/\ \  / __` __`\                                           "
+"   /\ \/\ \/\  __//\ \_\ \ \ \_/ |\ \ \/\ \/\ \/\ \                                          "
+"   \ \_\ \_\ \____\ \____/\ \___/  \ \_\ \_\ \_\ \_\                                         "
+"    \/_/\/_/\/____/\/___/  \/__/    \/_/\/_/\/_/\/_/                                         "
 "--━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━--
-"--━━━━━━━━━━━━━━━━━━━❰ 替换小技巧 ❱━━━━━━━━━━━━━━━━━━━--
+"--━━━━━━━━━━━━━━━━━━━❰ 替换小技巧 ❱━━━━━━━━━━━━━━━━━━━━━━━━--
 "--━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━--
 "  :s/old/new - 用new替换当前行第一个old。
 "  :s/old/new/g - 用new替换当前行所有的old。
@@ -55,14 +55,16 @@ nnoremap <leader>sc :nohlsearch<cr>
 "--━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━--
 
 "--━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━--
-"--━━━━━━━━━━━━━━━━━━━❰ UI ❱━━━━━━━━━━━━━━━━━━━━━━━━--
+"--━━━━━━━━━━━━━━━━━━━❰ UI and Terminal ❱━━━━━━━━━━━━━━━━━━━━━━━━--
 "--━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━--
 " change colorscheme
 nnoremap <leader>fc :action ChangeColorScheme<cr>
 " 改变视图
 nnoremap <leader>z :action ChangeView<cr>
+" focus terminal
+nnoremap <c-t> :action ActivateTerminalToolWindow<cr>
 "--━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━--
-"--━━━━━━━━━━━━━━━━━❰ end UI ❱━━━━━━━━━━━━━━━━━━━━━━--
+"--━━━━━━━━━━━━━━━━━❰ end UI and Terminal ❱━━━━━━━━━━━━━━━━━━━━━━--
 "--━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━--
 
 "--━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━--
@@ -71,6 +73,8 @@ nnoremap <leader>z :action ChangeView<cr>
 " ===
 " === Open Plugins
 " ===
+" reference: https://github.com/JetBrains/ideavim/wiki/Emulated-plugins
+set ideajoin
 set NERDTree
 set surround
 set multiple-cursors
@@ -78,8 +82,10 @@ set commentary "能用gcc gc+motion来注释代码
 set keep-english-in-normal-and-restore-in-insert  "普通模式强制以英文模式
 set easymotion
 set argtextobj
-set highlightyank
+set highlightedyank
 set textobj-entire
+set textobj-indent
+set matchit
 " ===
 " === multiple-cursors
 " ===
@@ -131,6 +137,7 @@ nmap sw <Plug>(easymotion-bd-w)
 nnoremap <leader>e :NERDTreeToggle<cr>
 " 弹出文件结构信息(相当于显示大纲)
 nnoremap <leader>o mm`m:action FileStructurePopup<cr>
+nnoremap <C-e> :NERDTree<cr>
 " ===
 " === custom comment
 " ===
@@ -150,16 +157,18 @@ vnoremap s <Nop>
 " 快速关闭buffers
 nnoremap X :q<cr>
 " 使用tab键快速切换buffers
-nnoremap <TAB> gt
-nnoremap <S-TAB> gT
-vnoremap <TAB> gt
-vnoremap <S-TAB> gT
+nnoremap <TAB> :action NextTab<cr>
+nnoremap <S-TAB> :action PreviousTab<cr>
+vnoremap <TAB> :action NextTab<cr>
+vnoremap <S-TAB> :action PreviousTab<cr>
 " 上下方法的移动
 nnoremap [m :action MethodUp<cr>
 nnoremap ]m :action MethodDown<cr>
 " 多个项目窗口之间的移动
 nnoremap <leader>wp :action PreviousProjectWindow<cr>
 nnoremap <leader>wn :action NextProjectWindow<cr>
+nnoremap [e :action PreviousProjectWindow<cr>
+nnoremap ]e :action PreviousProjectWindow<cr>
 " 左右移动视野
 nnoremap zh :action EditorScrollLeft<cr>
 nnoremap zl :action EditorScrollRight<cr>
@@ -167,11 +176,13 @@ nnoremap zl :action EditorScrollRight<cr>
 vnoremap J :action MoveLineDown<cr>
 vnoremap K :action MoveLineUp<cr>
 " 多行缩进在visual mode
-vnoremap > >gv
+nnoremap > >gv
 vnoremap < <gv
 " 复制粘贴剪贴板
 nnoremap <leader>y "+y
 nnoremap <leader>yy "+yy
+" copy reference
+nnoremap <leader>yr :action CopyReference<cr>
 nnoremap <leader>p "+p
 nnoremap <leader>P "+P
 vnoremap <leader>y "+y
@@ -180,12 +191,6 @@ vnoremap <leader>P "+p
 " 快速复制到行尾
 vnoremap Y y$
 nnoremap Y y$
-" 插入模式快速移动
-inoremap <C-b> <Left>
-inoremap <C-f> <Right>
-" inoremap <C-a> <Home>
-inoremap <C-a> <esc>I
-inoremap <C-e> <End>
 " 插入模式粘贴
 inoremap <C-v> <esc>"+pa
 " 其他模式快速移动
@@ -278,7 +283,7 @@ nnoremap <leader>wr  :action ActivateRunToolWindow<cr>
 nnoremap <leader>wh :action HideActiveWindow<cr>
 " 激活debug的运行窗口
 nnoremap <leader>wd :action ActivateDebugToolWindow<cr>
-" 窗口最大化windows max(就是保留代码编辑区[文件树什么都关掉,但是下面窗口还在])
+" 口最大化windows max(就是保留代码编辑区[文件树什么都关掉,但是下面窗口还在])
 " nnoremap <leader>z :action MaximizeToolWindow<cr>
 "激活todo的窗口
 nnoremap <leader>wt :action ActivateTODOToolWindow<cr>
@@ -327,15 +332,17 @@ nnoremap <leader>rn :action RenameFile<cr>
 nnoremap <leader>ff mm`m:action GotoFile<cr>
 " 最近查看文件间相互跳转
 nnoremap <leader>fr mm`m:action RecentFiles<cr>
-nnoremap <leader><SPACE> mm`m:action RecentFiles<cr>
 " 查找用法
 nnoremap <leader>fu :action FindUsages<cr>
 "跳转到声明
 nnoremap gd mm`m:action GotoDeclaration<cr>
 " 打开General菜单
 nnoremap go :action Generate<cr>
+" go to reference
+nnoremap gr :action FindUsages<cr>
+" nnoremap gr mm`m:action CallHierarchy<cr>
 " 跳转到实现类
-nnoremap gr mm`m:action GotoImplementation<cr>
+nnoremap gI mm`m:action GotoImplementation<cr>
 " 查找类
 nnoremap <leader>Fc mm`m:action GotoClass<cr>
 " 跳转SuperMethod
@@ -373,6 +380,8 @@ nnoremap ga :action ShowIntentionActions<cr>
 nnoremap gl :action ShowErrorDescription<cr>
 " 弹出参数信息(打类的时候有奇效)
 nnoremap gp :action ParameterInfo<cr>
+" 弹出类型定义
+nnoremap gt mm`m:action GotoTypeDeclaration<cr>
 " 弹出类型信息 (显示这个是什么类型)
 nnoremap <leader>st :action ExpressionTypeInfo<cr>
 "--━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━--
@@ -410,7 +419,8 @@ nnoremap zd :action CollapseDocComments<cr>
 "--━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━--
 "--━━━━━━━━━━━━━━━━━━━❰ windows ❱━━━━━━━━━━━━━━━━━━━━━━━--
 "--━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━--
-
+" select all text
+nnoremap <C-a> ggVG
 "--━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━--
 "--━━━━━━━━━━━━━━━━━━━❰ end windows❱━━━━━━━━━━━━━━━━━━━--
 "--━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━--
