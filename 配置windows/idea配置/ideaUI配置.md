@@ -33,7 +33,14 @@
 
 - comment italic
 - keyword italic
-- Function declaration italic
+
+#### Github theme
+
+- comment italic
+- keyword italic
+- 光标红色
+- 当前所在行颜色为#ffffe4
+- 当前所在行数字为黑色
 
 ## 字体
 
