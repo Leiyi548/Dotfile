@@ -354,8 +354,8 @@ CapsLock & F6:: Send, {Media_Stop}                                   ;|
 ;                     CapsLock + 2  |  Open DocBox                    ;|
 ;                     CapsLock + 3  |  Open Obsidian                  ;|
 ;                     CapsLock + 4  |  Open youdao                    ;|
-;                     CapsLock + 8  |  Open VsCode                    ;|
-;                     CapsLock + 6  |  Open jetbarin idea             ;|
+;                     CapsLock + 6  |  Open VsCode                    ;|
+;                     CapsLock + 8  |  Open jetbarin idea             ;|
 ;                     CapsLock + 9  |  Open Chrome                    ;|
 ;-----------------------------------o---------------------------------o
 ; 1 - 窗口标题必须以指定的 winTitle开头才能匹配
@@ -430,7 +430,7 @@ CapsLock & 4::
 Return
 ;----------------------------------------------------------------------o
 ;----------------------------------------------------------------------o
-CapsLock & 8::
+CapsLock & 6::
     IfWinNotExist ahk_exe Code.exe
     { 
         run D:\vscode\Microsoft VS Code\Code.exe
@@ -448,7 +448,7 @@ CapsLock & 8::
     }
 Return
 ;----------------------------------------------------------------------o
-CapsLock & 6:: 
+CapsLock & 8:: 
     IfWinNotExist ahk_exe idea64.exe 
     { 
         Send #2 
