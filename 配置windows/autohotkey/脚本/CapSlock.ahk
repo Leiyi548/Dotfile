@@ -189,7 +189,7 @@ return                                                               ;|
 ;                      CapsLock Page Navigator                       ;|
 ;-----------------------------------o---------------------------------o
 ;                      CapsLock + u |  PageUp                        ;|
-;                      CapsLock + p |  PageDown                      ;|
+;                      CapsLock + d |  PageDown                      ;|
 ;                      Ctrl, Alt Compatible                          ;|
 ;-----------------------------------o---------------------------------o
 CapsLock & u::                                                       ;|
