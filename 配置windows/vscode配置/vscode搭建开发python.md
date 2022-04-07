@@ -35,6 +35,18 @@ pip config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple
 
 ![img](../../img/2022-04-07-15-16-36.png)
 
+**注意:**
+
+- 安装更新插件时候,请关闭 clashx
+
+### vscode 配置 python.exe 路径
+
+加入 setting.json
+
+```json
+  "python.defaultInterpreterPath": "C:\\Users\\9\\scoop\\shims\\python3.exe"
+```
+
 ## 下载插件
 
 - python
