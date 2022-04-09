@@ -23,9 +23,10 @@
   "editor.fontSize": 16,
   "debug.console.fontSize": 18,
   "editor.cursorSurroundingLines": 8,
+  "editor.bracketPairColorization.independentColorPoolPerBracketType": true,
   "editor.linkedEditing": true,
-  "editor.fontFamily": "Cascadia Code,FiraCode Nerd Font,Menlo, Monaco, 'Courier New', monospace,'Hack Nerd Font'",
-  // "editor.fontFamily": "Operator Mono Lig",
+  "editor.fontFamily": "JetBrains Mono,Cascadia Code,FiraCode Nerd Font,Menlo, Monaco, 'Courier New', monospace,'Hack Nerd Font'",
+  // "editor.fontFamily": "Operator Mono",
   "terminal.integrated.fontFamily": "FiraCode Nerd Font",
   "editor.tabSize": 2, // minimap
   "editor.cursorSmoothCaretAnimation": true,
@@ -157,7 +158,7 @@
   "vim.timeout": 500,
   "vim.showmodename": true,
   "vim.leader": "\\",
-  // "editor.lineNumbers": "relative",
+  "editor.lineNumbers": "relative",
   "vim.smartRelativeLine": false,
   "vim.autoSwitchInputMethod.defaultIM": "1033",
   "vim.autoSwitchInputMethod.obtainIMCmd": "D:\\im\\im-select.exe",
@@ -430,7 +431,7 @@
     "javascript": "node",
     "java": "cd $dir && javac $fileName && java $fileNameWithoutExt",
     "objective-c": "cd $dir && gcc -framework Cocoa $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
-    "python": "python3 -u",
+    "python": "python3",
     "php": "php",
     "bat": "cmd /c",
     "shellscript": "bash",
@@ -542,7 +543,7 @@
   --━━━━━━━━━━━━━━━━━━━❰ markdown config ❱━━━━━━━━━━━━━━━━━━━--
   --━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━--*/
   "markdown.preview.fontSize": 16,
-  "markdown-preview-enhanced.previewTheme": "one-dark.css",
+  "markdown-preview-enhanced.previewTheme": "github-dark.css",
   "markdown-preview-enhanced.enableHTML5Embed": true,
   "markdown-preview-enhanced.enableExtendedTableSyntax": true,
   "markdown.extension.toc.updateOnSave": true,
@@ -550,7 +551,6 @@
   "markdown.extension.print.absoluteImgPath": false,
   "pasteImage.path": "${projectRoot}/img",
   "pasteImage.basePath": "${currentFileDir}",
-  "pasteImage.forceUnixStyleSeparator": true,
   // "pasteImage.prefix": "/",
   /*--━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━--
     --━━━━━━━━━━━━━━━━━━━❰ end markdown ❱━━━━━━━━━━━━━━━━━━━--
@@ -559,14 +559,9 @@
   /*--━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━--
   --━━━━━━━━━━━━━━━━━━━❰ terminal config ❱━━━━━━━━━━━━━━━━━━━--
   --━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━--*/
-  // macos
-  "terminal.external.osxExec": "iTerm.app",
   // windows
-  "terminal.external.windowsExec": "C:\\ProgramData\\Microsoft\\Windows\\Start Menu\\Programs\\PowerShell\\PowerShell 7 (x64)",
-  // autoupdate [Oh My Zsh]
-  "terminal.integrated.autoReplies": {
-    "[Oh My Zsh] Would you like to check for updates? [Y/n]": "Y\r"
-  },
+  // "terminal.external.windowsExec": "C:\\ProgramData\\Microsoft\\Windows\\Start Menu\\Programs\\PowerShell\\PowerShell 7 (x64)",
+  "terminal.external.windowsExec": "C:\\Program Files\\PowerShell\\7\\pwsh.exe",
   // gpu acceleration
   "terminal.integrated.gpuAcceleration": "on",
   /*--━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━--
@@ -1091,7 +1086,7 @@
         },
         {
           "key": "m",
-          "name": "Insert img (Markdown)",
+          "name": "Insert image (Markdown)",
           "type": "command",
           "command": "extension.pasteImage",
           "when": "editorLangId == 'markdown'"
@@ -1776,8 +1771,14 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "editor.minimap.enabled": false,
-  "workbench.colorTheme": "One Dark Pro",
-  "cSpell.userWords": ["dotfile", "gitmoji", "unstage", "Unstaged"]
+  "workbench.experimental.editor.dragAndDropIntoEditor.enabled": true,
+  "cSpell.userWords": ["dotfile", "gitmoji", "unstage", "Unstaged"],
+  "pasteImage.forceUnixStyleSeparator": false,
+  "python.defaultInterpreterPath": "C:\\Users\\9\\scoop\\shims\\python3.exe",
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "workbench.activityBar.visible": false
   /*--━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━--
     --━━━━━━━━━━━━━━━━━━━❰ end language ❱━━━━━━━━━━━━━━━━━━━--
   --━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━--*/

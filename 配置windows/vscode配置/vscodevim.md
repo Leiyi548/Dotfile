@@ -24,11 +24,11 @@ cursor in here
 hello
 ```
 
-1、如果你输入 `/hello` 你就可以从当前光标往后进行搜索包括hello的句子和单词
+1、如果你输入 `/hello` 你就可以从当前光标往后进行搜索包括 hello 的句子和单词
 
-2、如果你输入 `?hello` 你就可以从当前光标往前进行搜索包括hello的句子和单词
+2、如果你输入 `?hello` 你就可以从当前光标往前进行搜索包括 hello 的句子和单词
 
-3、如果你要精确匹配 hello 而不包括helloworld
-`/\<hello`代表搜索以hello开头的句子和单词
-`/hello\>`代表搜索以hello结尾句子和单词
-那么就需要输入 `/\<hello\>` 就精确匹配hello这个单词
+3、如果你要精确匹配 hello 而不包括 helloworld
+`/\<hello`代表搜索以 hello 开头的句子和单词
+`/hello\>`代表搜索以 hello 结尾句子和单词
+那么就需要输入 `/\<hello\>` 就精确匹配 hello 这个单词

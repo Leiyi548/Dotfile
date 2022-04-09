@@ -190,6 +190,36 @@
     "command": "-markdown-preview-enhanced.runCodeChunk",
     "when": "editorLangId == 'markdown'"
   },
+  {
+    "key": "ctrl+1",
+    "command": "md-shortcut.toggleTitleH1",
+    "when": "editorLangId == 'markdown'"
+  },
+  {
+    "key": "ctrl+2",
+    "command": "md-shortcut.toggleTitleH2",
+    "when": "editorLangId == 'markdown'"
+  },
+  {
+    "key": "ctrl+3",
+    "command": "md-shortcut.toggleTitleH3",
+    "when": "editorLangId == 'markdown'"
+  },
+  {
+    "key": "ctrl+4",
+    "command": "md-shortcut.toggleTitleH4",
+    "when": "editorLangId == 'markdown'"
+  },
+  {
+    "key": "ctrl+5",
+    "command": "md-shortcut.toggleTitleH5",
+    "when": "editorLangId == 'markdown'"
+  },
+  {
+    "key": "ctrl+6",
+    "command": "md-shortcut.toggleTitleH6",
+    "when": "editorLangId == 'markdown'"
+  },
   /*
   ===
   === window 
@@ -236,16 +266,16 @@
     "when": "terminalFocus && terminalHasBeenCreated || terminalFocus && terminalProcessSupported"
   },
   // 使用 pageup / pagedwon 上下移动终端页面
-  {
-    "key": "pagedown",
-    "command": "workbench.action.terminal.scrollToNextCommand",
-    "when": "terminalFocus"
-  },
-  {
-    "key": "pageup",
-    "command": "workbench.action.terminal.scrollToPreviousCommand",
-    "when": "terminalFocus"
-  },
+  // {
+  //   "key": "pagedown",
+  //   "command": "workbench.action.terminal.scrollToNextCommand",
+  //   "when": "terminalFocus"
+  // },
+  // {
+  //   "key": "pageup",
+  //   "command": "workbench.action.terminal.scrollToPreviousCommand",
+  //   "when": "terminalFocus"
+  // },
   {
     "key": "ctrl+p",
     "command": "workbench.action.terminal.scrollToPreviousCommand",
@@ -280,9 +310,9 @@
     "command": "workbench.action.toggleMaximizedPanel",
     "when": "terminalFocus"
   },
-  // 使用ctrl + d 关闭终端
+  // 使用ctrl + w 关闭终端
   {
-    "key": "ctrl+d",
+    "key": "ctrl+w",
     "command": "workbench.action.terminal.kill",
     "when": "terminalFocus"
   },
@@ -292,6 +322,11 @@
     "key": "alt+shift+=",
     "command": "workbench.action.terminal.split",
     "when": "terminalFocus && terminalProcessSupported || terminalFocus && terminalWebExtensionContributedProfile"
+  },
+  {
+    "key": "ctrl+f",
+    "command": "-workbench.action.terminal.focusFind",
+    "when": "terminalFindFocused && terminalHasBeenCreated || terminalFindFocused && terminalProcessSupported || terminalFocus && terminalHasBeenCreated || terminalFocus && terminalProcessSupported"
   },
   /*
   ===
@@ -389,11 +424,6 @@
     "key": "alt+s",
     "command": "editor.action.insertSnippet",
     "when": "editorTextFocus"
-  },
-  {
-    "key": "ctrl+f",
-    "command": "-workbench.action.terminal.focusFind",
-    "when": "terminalFindFocused && terminalHasBeenCreated || terminalFindFocused && terminalProcessSupported || terminalFocus && terminalHasBeenCreated || terminalFocus && terminalProcessSupported"
   },
   // remove ctrl + . to codeaction
   {
