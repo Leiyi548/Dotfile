@@ -81,7 +81,8 @@
 
 ### 设置
 
-如果想要在不同的项目达到不同的效果，就在.vscode/setting.json里面配置不同的路径
+如果想要在不同的项目达到不同的效果，就在.vscode/setting.json 里面配置不同的路径
+
 ```json
   "pasteImage.path": "${projectRoot}/img",
   "pasteImage.basePath": "${currentFileDir}",
