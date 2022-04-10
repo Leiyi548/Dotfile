@@ -27,8 +27,8 @@ return
 ; 类似于 yabairc 使用 alt f 最大化窗口
 !f:: WinMaximize,A
 ; pagup 变成 home  pagdown 变成 end
-PgUp:: send {Home}
-PgDn:: send {End}
+;PgUp:: send {Home}
+;PgDn:: send {End}
 ;---------------------------------------------------------------------o
 
 ;=====================================================================o
