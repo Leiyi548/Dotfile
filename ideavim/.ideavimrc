@@ -25,7 +25,7 @@ set timeoutlen=500
 nnoremap <SPACE> <nop>
 " 相对数字
 set number
-" set relativenumber
+set relativenumber
 " 屏幕滚动时在光标上下方保留5行预览代码
 set so=5
 " 取消高亮
@@ -50,6 +50,10 @@ set splitbelow
 set ignorecase
 " 取消高亮
 nnoremap <leader>sc :nohlsearch<cr>
+" 显示jumpList
+nnoremap <leader>sj :jumps<cr>
+" 显示histroy
+nnoremap <leader>sh :action LocalHistory<cr>
 "--━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━--
 "--━━━━━━━━━━━━━━━━━❰ end Setting ❱━━━━━━━━━━━━━━━━━--
 "--━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━--
@@ -188,7 +192,6 @@ nnoremap <leader>P "+P
 vnoremap <leader>y "+y
 vnoremap <leader>p "+p
 vnoremap <leader>P "+p
-" 快速复制到行尾
 vnoremap Y y$
 nnoremap Y y$
 " 插入模式粘贴
@@ -333,7 +336,7 @@ nnoremap <leader>ff mm`m:action GotoFile<cr>
 " 最近查看文件间相互跳转
 nnoremap <leader>fr mm`m:action RecentFiles<cr>
 " 查找用法
-nnoremap <leader>fu :action FindUsages<cr>
+" nnoremap <leader>fu :action FindUsages<cr>
 "跳转到声明
 nnoremap gd mm`m:action GotoDeclaration<cr>
 " 打开General菜单
@@ -346,7 +349,7 @@ nnoremap gI mm`m:action GotoImplementation<cr>
 " 查找类
 nnoremap <leader>Fc mm`m:action GotoClass<cr>
 " 跳转SuperMethod
-nnoremap gs mm`m:action GotoSuperMethod<cr>
+nnoremap gS mm`m:action GotoSuperMethod<cr>
 " 搜索 action
 nnoremap <leader>Fa :action GotoAction<cr>
 " 相当于鼠标右键
@@ -362,8 +365,12 @@ nnoremap <leader>sp :action ShowPopupMenu<cr>
 "--━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━--
 "--━━━━━━━━━━━━━━━━━━━❰ LSP ❱━━━━━━━━━━━━━━━━━━━━━━━--
 "--━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━--
+" 显示action
+nnoremap <leader>; :action GotoAction<cr>
 " 格式化代码
 nnoremap <leader>lf :action ReformatCode<cr>
+" find symbol
+nnoremap gs :action GotoSymbol<cr>
 " 跳转下一个错误
 nnoremap <leader>lj :action GotoNextError<cr>
 nnoremap ]d :action GotoNextError<cr>

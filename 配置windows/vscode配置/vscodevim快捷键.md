@@ -35,6 +35,7 @@
 | `ctrl`+`M`         | Toggle math environment      |
 | `ctrl`+`enter`     | Check/Uncheck task list item |
 | `ctrl`+`shift`+`v` | Toggle preview in new tab    |
+| `ctrl`+`shift`+`k` | Toggle codeblock             |
 | `ctrl`+`alt`+`v`   | Paste img (paste img plugin) |
 
 ## 文件树捷键键
