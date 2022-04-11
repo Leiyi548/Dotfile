@@ -2,6 +2,12 @@
 
 ideavim 和 vscodevim 十分相像所以 vscodevim 可以用,ideavim 基本也能使用
 
+## 目前用的 vscode vim 版本
+
+这个版本没有输入法 bug C 光标向前
+**vscodevim v1.21.4**
+但是可惜的没有精确搜索
+
 ## vscodevim 快捷键
 
 vscodevim 这个插件能够让你在 vscode 中实现 vim，这是我最喜欢的插件。
@@ -47,10 +53,65 @@ hello
 - `g#` : 和 g\*作用相同不过是相反方向 (向前)
 - `gf` : 跳转到光标下的文件
 - `g]` : 跳转到标记定义(标记可以是函数或变量或更多)。
+- `g;` : 上一个修改过的地方
+- `g,` : 下一个修改过的地方
 
 #### 命令行使用
 
 vscodevim 还没有实现
+
+## vscodevim ctrl-a ctrl-x 的使用
+
+首先要确保打开 vscodevim 中 `ctrl-a` 键
+
+```json
+  "vim.handleKeys": {
+    // "<C-a>": false,
+    "<C-f>": false
+  },
+```
+
+### 操作一:简单加一
+
+- 操作
+
+  ```text
+  # 标准模式
+  # 光标移动到要加的数前
+  CTRL - A
+  数被加了 1
+  CTRL - X
+  数被减少了 1
+  ```
+
+- 拓展
+
+  可以通过提前输入数字, 实现多次操作
+
+  ```text
+  # 这个一次能让这个数字加10
+  10CTRL - A
+  ```
+
+### 操作二:递增相加
+
+```text
+1                 1
+1                 2
+1  g + ctrl a ==> 3
+1                 4
+1                 5
+```
+
+```text
+1               2
+1               2
+1  ctrl a ==>   2
+1               2
+1               2
+```
+
+`ctrl` + `x` 相反
 
 ## vscodevim 标记(mark)
 
@@ -118,7 +179,7 @@ Vim 可以记录我们最近访问的位置（location）。
 显示跳列表
 `:jumps`
 
-#### 什么样的操作会被记录进 jumplist 呢?
+### 什么样的操作会被记录进 jumplist 呢?
 
 - marks 跳转
 - G 和 (count)G 跳转
@@ -129,6 +190,16 @@ Vim 可以记录我们最近访问的位置（location）。
   - M 窗口中间
   - L 窗口底部
 
-### 参考资料
+### 一些跳转快捷键
+
+- `[[` 跳转到上一个函数块开始，需要有单独一行的{
+- `]]` 跳转到下一个函数块开始，需要有单独一行的{
+- `[]` 跳转到上一个函数块结束，需要有单独一行的}
+- `][` 跳转到下一个函数块结束，需要有单独一行的}
+- `[{` 跳转到当前块开始处
+- `]}` 跳转到当前块结束处
+
+## 参考资料
 
 - [:h jump-motions](http://vimdoc.sourceforge.net/htmldoc/motion.html#jump-motions)
+- [vim 快捷键大全](https://www.cnblogs.com/codehome/p/10214801.html)
