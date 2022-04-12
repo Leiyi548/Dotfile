@@ -10,7 +10,7 @@
 "--━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━--
 "  :s/old/new - 用new替换当前行第一个old。
 "  :s/old/new/g - 用new替换当前行所有的old。
-"  :n1,n2s/old/new/g - 用new替换文件n1行到n2行所有的old。
+"  :n3,n2s/old/new/g - 用new替换文件n1行到n2行所有的old。
 "  :%s/old/new/g - 用new替换文件中所有的old。
 "  :%s/^/xxx/g - 在每一行的行首插入xxx，^表示行首。
 "  :%s/$/xxx/g - 在每一行的行尾插入xxx，$表示行尾。
@@ -26,8 +26,8 @@ nnoremap <SPACE> <nop>
 " 相对数字
 set number
 set relativenumber
-" 屏幕滚动时在光标上下方保留5行预览代码
-set so=5
+" 屏幕滚动时在光标上下方保留7行预览代码
+set so=7
 " 取消高亮
 " 设置寻找高亮
 set hlsearch
@@ -37,9 +37,9 @@ set wrap
 " 突出水平显示
 set cursorline
 " 设置tab键和自动缩进
-set tabstop=4
-set shiftwidth=4
-set softtabstop=4
+set tabstop=6
+set shiftwidth=6
+set softtabstop=6
 " 下一行和上一行的格式相同
 set autoindent
 set cindent
@@ -48,12 +48,6 @@ set splitright
 set splitbelow
 " 不区分大小写
 set ignorecase
-" 取消高亮
-nnoremap <leader>sc :nohlsearch<cr>
-" 显示jumpList
-nnoremap <leader>sj :jumps<cr>
-" 显示histroy
-nnoremap <leader>sh :action LocalHistory<cr>
 "--━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━--
 "--━━━━━━━━━━━━━━━━━❰ end Setting ❱━━━━━━━━━━━━━━━━━--
 "--━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━--
@@ -104,7 +98,7 @@ xmap <S-C-n> <Plug>AllWholeOccurrences
 " ===
 " === easymotion
 " ===
-nmap ss <Plug>(easymotion-s2)
+nmap ss <Plug>(easymotion-s4)
 nmap E <Plug>(easymotion-s)
 nmap sl <Plug>(easymotion-bd-jk)
 nmap sw <Plug>(easymotion-bd-w)
@@ -231,15 +225,15 @@ nnoremap <leader>dd :action Debug<cr>
 " debug当前(now)类
 nnoremap <leader>ds :action DebugClass<cr>
 " debug神器
-" StepInto (F7)
+" StepInto (F9)
 nnoremap <leader>di :action ForceStepInto<cr>
-" ForceStepInto(CMD + SHIFT + F7)
+" ForceStepInto(CMD + SHIFT + F9)
 nnoremap <leader>df :action ForceStepInto<cr>
-" StepOver (F8) 光标向下
+" StepOver (F10) 光标向下
 nnoremap <leader>do :action StepOver<cr>
 " Resume (跳到下个断点运行)
 nnoremap <leader>dr :action Resume<cr>
-" StepOut (SHIFT+F8)
+" StepOut (SHIFT+F10)
 nnoremap <leader>du :action StepOut<cr>
 " debug强制运行到光标处
 nnoremap <leader>dc :action ForceRunToCursor<cr>
@@ -352,8 +346,6 @@ nnoremap <leader>Fc mm`m:action GotoClass<cr>
 nnoremap gS mm`m:action GotoSuperMethod<cr>
 " 搜索 action
 nnoremap <leader>Fa :action GotoAction<cr>
-" 相当于鼠标右键
-nnoremap <leader>sp :action ShowPopupMenu<cr>
 " 跳转上一个位置
 " cmd + [ (mac) ctrl + [ (windows)
 " 跳转下一个位置
@@ -389,8 +381,6 @@ nnoremap gl :action ShowErrorDescription<cr>
 nnoremap gp :action ParameterInfo<cr>
 " 弹出类型定义
 nnoremap gt mm`m:action GotoTypeDeclaration<cr>
-" 弹出类型信息 (显示这个是什么类型)
-nnoremap <leader>st :action ExpressionTypeInfo<cr>
 "--━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━--
 "--━━━━━━━━━━━━━━━━━━━❰ end LSP ❱━━━━━━━━━━━━━━━━━━━--
 "--━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━--
@@ -424,10 +414,20 @@ nnoremap zd :action CollapseDocComments<cr>
 "--━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━--
 
 "--━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━--
-"--━━━━━━━━━━━━━━━━━━━❰ windows ❱━━━━━━━━━━━━━━━━━━━━━━━--
+"--━━━━━━━━━━━━━━━━━━━❰ Show or Select ❱━━━━━━━━━━━━━━━━━━━━━━━--
 "--━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━--
-" select all text
-nnoremap <C-a> ggVG
-"--━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━--
-"--━━━━━━━━━━━━━━━━━━━❰ end windows❱━━━━━━━━━━━━━━━━━━━--
+" 取消高亮
+nnoremap <leader>sc :nohlsearch<cr>
+" 显示jumpList
+nnoremap <leader>sj :jumps<cr>
+" 显示 history
+nnoremap <leader>sh :action LocalHistory<cr>
+" 相当于鼠标右键
+nnoremap <leader>sp :action ShowPopupMenu<cr>
+" 弹出类型信息 (显示这个是什么类型)
+nnoremap <leader>st :action ExpressionTypeInfo<cr>
+" Select in
+nnoremap <leader>si :action SelectIn<cr>
+"--━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━--
+"--━━━━━━━━━━━━━━━━━━━❰ end  ❱━━━━━━━━━━━━━━━━━━━━━━━━━━━--
 "--━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━--
