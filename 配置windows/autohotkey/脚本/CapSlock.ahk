@@ -325,8 +325,8 @@ CapsLock & g:: Send, {AppsKey}                                       ;|
 CapsLock & t::Send, ^t                                               ;|
 CapsLock & f::Send, ^f                                               ;|
 CapsLock & e::Send, ^e                                               ;|
-CapsLock & p::^#Left                                           ;|
-CapsLock & n::^#Right                                          ;|
+;CapsLock & p::^#Left                                                 ;|
+;CapsLock & n::^#Right                                                ;|
 ;---------------------------------------------------------------------o
 
 ;=====================================================================o
@@ -393,7 +393,6 @@ CapsLock & 2::
         WinMinimize
     }
 Return
-;----------------------------------------------------------------------o
 ;----------------------------------------------------------------------o
 CapsLock & 3::
     IfWinNotExist ahk_exe Obsidian.exe
@@ -483,4 +482,22 @@ CapsLock & 9::
         WinMinimize
     } 
 return 
+;----------------------------------------------------------------------o
+CapsLock & m::
+    IfWinNotExist ahk_exe Obsidian.exe
+    {
+        run C:\Users\9\AppData\Local\Obsidian\Obsidian.exe
+    }
+    Else IfWinNotActive ahk_exe Obsidian.exe
+    { 
+        SetTitleMatchMode RegEx
+        Obsidian_ID := WinExist(".- Obsidian")
+        #WinActivateForce
+        WinActivate ahk_id %Obsidian_ID%
+    } ;|
+    Else ;|
+    {
+        WinMinimize
+    }
+Return
 ;----------------------------------------------------------------------o
