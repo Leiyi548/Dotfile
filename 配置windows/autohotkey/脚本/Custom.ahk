@@ -97,18 +97,18 @@ return
 ; alt + Shift + 数字  -->  把当前窗口带到某桌面
 ; [Switch to desktop] OR [Move the current window to the X-th desktop]
 ;=====================================================================o
-!1::
-  SwitchToDesktop(1)
-return
-!2::
-  SwitchToDesktop(2)
-return
-!3::
-  SwitchToDesktop(3)
-return
-!4::
-  SwitchToDesktop(4)
-return
+; !1::
+;   SwitchToDesktop(1)
+; return
+; !2::
+;   SwitchToDesktop(2)
+; return
+; !3::
+;   SwitchToDesktop(3)
+; return
+; !4::
+;   SwitchToDesktop(4)
+; return
 
 SwitchToDesktop(idx){
   SwitchToDesktopByHotkey(idx)
