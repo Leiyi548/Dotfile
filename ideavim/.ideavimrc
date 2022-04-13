@@ -18,7 +18,7 @@
 "--━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━--
 "--━━━━━━━━━━━━━━━━━━━❰ Setting ❱━━━━━━━━━━━━━━━━━━━--
 "--━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━--
-" 设置leader键"
+" 设置leader键为空格
 let mapleader=" "
 set timeoutlen=500
 " 防止按leader键乱移动
@@ -26,26 +26,12 @@ nnoremap <SPACE> <nop>
 " 相对数字
 set number
 set relativenumber
-" 屏幕滚动时在光标上下方保留7行预览代码
-set so=7
+" 屏幕滚动时在光标上下方保留8行预览代码
+set so=8
 " 取消高亮
 " 设置寻找高亮
 set hlsearch
 set incsearch
-" 设置字不超过窗口
-set wrap
-" 突出水平显示
-set cursorline
-" 设置tab键和自动缩进
-set tabstop=6
-set shiftwidth=6
-set softtabstop=6
-" 下一行和上一行的格式相同
-set autoindent
-set cindent
-" 设置窗口分屏方向
-set splitright
-set splitbelow
 " 不区分大小写
 set ignorecase
 "--━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━--
@@ -153,7 +139,12 @@ nnoremap gcO O//<space>
 nnoremap s <Nop>
 vnoremap s <Nop>
 " 快速关闭buffers
-nnoremap X :q<cr>
+" nnoremap X :q<cr>
+"关闭到只剩当前tab栏 close other buffer
+nnoremap <leader>bo :action CloseAllEditorsButActive<cr>
+nnoremap x :action CloseEditor<cr>
+nnoremap X :action ReopenClosedTab<cr>
+"nnoremap <leader>bl :action
 " 使用tab键快速切换buffers
 nnoremap <TAB> :action NextTab<cr>
 nnoremap <S-TAB> :action PreviousTab<cr>
@@ -292,8 +283,6 @@ nnoremap <C-l> <C-W>l
 nnoremap sc <C-W>c
 nnoremap sv :vsplit<cr>
 nnoremap sg :split<cr>
-"关闭到只剩当前tab栏 close other buffer
-nnoremap <leader>bo :action CloseAllEditorsButActive<cr>
 "--━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━--
 "--━━━━━━━━━━━━━━━━━━━❰ end 窗口篇 ❱━━━━━━━━━━━━━━━━--
 "--━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━--
