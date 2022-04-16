@@ -1,5 +1,10 @@
 # wsl&&vim
 
+## wsl 安装
+
+具体看这篇博客
+[ubuntu20.4 wsl 安装](https://www.cnblogs.com/guojikun/p/15092696.html)
+
 ## wsl 支持 vim 剪贴板
 
 ```text

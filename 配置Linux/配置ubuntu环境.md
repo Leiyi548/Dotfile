@@ -114,3 +114,23 @@ git clone https://github.com/gpakosz/.tmux.git
 ln -s -f .tmux/.tmux.conf
 cp .tmux/.tmux.conf.local .
 ```
+
+## Install lazygit
+
+```sh
+sudo add-apt-repository ppa:lazygit-team/release
+sudo apt-get update
+sudo apt-get install lazygit
+```
+
+## Install brew
+
+[ubuntu 安装 brew](https://blog.csdn.net/jinking01/article/details/108678196)
+
+切记以上搞完之后我们还需要加 brew 加入自己的环境变量里面
+
+chris 是我 ubuntu 的用户名
+
+```sh
+ export PATH="/home/chris/.linuxbrew/bin:$PATH"
+```
