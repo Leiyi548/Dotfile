@@ -131,3 +131,22 @@ SwitchToDesktopByHotkey(idx){
 ; #0:: send, ^#!0        ; colapse
 ; #b:: send, ^!b         ; jump to implement
 ;---------------------------------------------------------------------o
+;----------------------------------------------------------------------o
+#Enter::
+  IfWinNotExist ahk_exe WindowsTerminal.exe
+  {
+    run C:\Program Files\WindowsApps\Microsoft.WindowsTerminal_1.12.10733.0_x64__8wekyb3d8bbwe\WindowsTerminal.exe
+  }
+  Else IfWinNotActive ahk_class CASCADIA_HOSTING_WINDOW_CLASS
+  { 
+    #WinActivateForce 
+    WinActivate 
+  } 
+  Else
+  {
+    WinMinimize
+  }
+Return
+;----------------------------------------------------------------------o
+^PgUp:: send,^{Home}
+^PgDn:: send,^{End}
