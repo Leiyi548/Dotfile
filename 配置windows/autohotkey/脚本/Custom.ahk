@@ -25,7 +25,7 @@ return
 ; 实现类似于 macos cmd+m(win+m) 隐藏当前窗口
 ;#m:: WinMinimize,
 ; 类似于 yabairc 使用 alt f 最大化窗口
-!f:: WinMaximize,A
+; !f:: WinMaximize,A
 ; pagup 变成 home  pagdown 变成 end
 ;PgUp:: send {Home}
 ;PgDn:: send {End}
@@ -150,3 +150,11 @@ Return
 ;----------------------------------------------------------------------o
 ^PgUp:: send,^{Home}
 ^PgDn:: send,^{End}
+
+!f::
+  WinGet, OutputVar, MinMax, A
+  If (OutputVar)
+    WinRestore, A
+  Else
+    WinMaximize, A
+Return
