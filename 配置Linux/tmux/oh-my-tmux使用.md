@@ -66,3 +66,60 @@ Bindings for `copy-mode-vi`:
 - `L` jumps to the end of line
 - `y` copies the selection to the top paste-buffer
 - `Escape` cancels the current operation
+
+## 我修改的 tmux 配置
+
+第一个是在.tmux.conf.local 这个文件里面
+
+```ssh
+# 修改tmux右边状态栏样式
+#tmux_conf_theme_status_right=" #{prefix}#{mouse}#{pairing}#{synchronized}#{?battery_status,#{battery_status},}#{?battery_bar, #{battery_bar},}#{?battery_percentage, #{battery_percentage},} , %R , %d %b | #{username}#{root} | #{hostname} "
+tmux_conf_theme_status_right=" #{prefix}#{mouse}#{pairing}#{synchronized}#{?battery_status,#{battery_status},} , %R , %d %b | #{username}#{root} | #{hostname} "
+```
+
+开启鼠标模式
+
+```sh
+# 鼠标模式开启
+# start with mouse mode enabled
+set -g mouse on
+```
+
+第二个是在.tmux.conf 这个文件中修改
+使用 ctrl a 加上左右键切换窗口
+
+```sh
+bind -r left previous-window # select previous window
+bind -r right next-window # select previous window
+```
+
+把这个加入 .tmux.conf 支持 ctrl h j k l 切换窗口
+
+```sh
+# Smart pane switching with awareness of Vim splits.
+# See: https://github.com/christoomey/vim-tmux-navigator
+is_vim="ps -o state= -o comm= -t '#{pane_tty}' \
+    | grep -iqE '^[^TXZ ]+ +(\\S+\\/)?g?(view|n?vim?x?)(diff)?$'"
+bind-key -n 'C-h' if-shell "$is_vim" 'send-keys C-h'  'select-pane -L'
+bind-key -n 'C-j' if-shell "$is_vim" 'send-keys C-j'  'select-pane -D'
+bind-key -n 'C-k' if-shell "$is_vim" 'send-keys C-k'  'select-pane -U'
+bind-key -n 'C-l' if-shell "$is_vim" 'send-keys C-l'  'select-pane -R'
+tmux_version='$(tmux -V | sed -En "s/^tmux ([0-9]+(.[0-9]+)?).*/\1/p")'
+if-shell -b '[ "$(echo "$tmux_version < 3.0" | bc)" = 1 ]' \
+    "bind-key -n 'C-\\' if-shell \"$is_vim\" 'send-keys C-\\'  'select-pane -l'"
+if-shell -b '[ "$(echo "$tmux_version >= 3.0" | bc)" = 1 ]' \
+    "bind-key -n 'C-\\' if-shell \"$is_vim\" 'send-keys C-\\\\'  'select-pane -l'"
+
+bind-key -T copy-mode-vi 'C-h' select-pane -L
+bind-key -T copy-mode-vi 'C-j' select-pane -D
+bind-key -T copy-mode-vi 'C-k' select-pane -U
+bind-key -T copy-mode-vi 'C-l' select-pane -R
+bind-key -T copy-mode-vi 'C-\' select-pane -l
+```
+
+注释掉 ctrl l 清空 tmux 历史命令
+
+```sh
+# clear both screen and history
+# bind -n C-l send-keys C-l \; run 'sleep 0.2' \; clear-history
+```
