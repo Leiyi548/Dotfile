@@ -71,13 +71,14 @@ Bindings for `copy-mode-vi`:
 
 第一个是在.tmux.conf.local 这个文件里面
 
+### 修改 tmux 右边状态栏样式
+
 ```ssh
-# 修改tmux右边状态栏样式
 #tmux_conf_theme_status_right=" #{prefix}#{mouse}#{pairing}#{synchronized}#{?battery_status,#{battery_status},}#{?battery_bar, #{battery_bar},}#{?battery_percentage, #{battery_percentage},} , %R , %d %b | #{username}#{root} | #{hostname} "
 tmux_conf_theme_status_right=" #{prefix}#{mouse}#{pairing}#{synchronized}#{?battery_status,#{battery_status},} , %R , %d %b | #{username}#{root} | #{hostname} "
 ```
 
-开启鼠标模式
+### 开启鼠标模式
 
 ```sh
 # 鼠标模式开启
@@ -86,7 +87,8 @@ set -g mouse on
 ```
 
 第二个是在.tmux.conf 这个文件中修改
-使用 ctrl a 加上左右键切换窗口
+
+### 使用 ctrl a 加上左右键切换窗口
 
 ```sh
 bind -r left previous-window # select previous window
@@ -117,9 +119,11 @@ bind-key -T copy-mode-vi 'C-l' select-pane -R
 bind-key -T copy-mode-vi 'C-\' select-pane -l
 ```
 
-注释掉 ctrl l 清空 tmux 历史命令
+### 解决在 tmux 中颜色不对问题
+
+tmux > 2.2 后开始支持真彩色，注意检查你的版本！在`.tmux.conf` 中添加如下内容：
 
 ```sh
-# clear both screen and history
-# bind -n C-l send-keys C-l \; run 'sleep 0.2' \; clear-history
+set -g default-terminal "screen-256color"
+set-option -ga terminal-overrides ",*256col*:Tc"
 ```
