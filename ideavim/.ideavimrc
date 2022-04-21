@@ -44,7 +44,8 @@ set ignorecase
 " change colorscheme
 nnoremap <leader>fc :action ChangeColorScheme<cr>
 " 改变视图
-nnoremap <leader>z :action ChangeView<cr>
+nnoremap <leader>Z :action ChangeView<cr>
+nnoremap <leader>z :action ToggleDistractionFreeMode<cr>
 " focus terminal
 nnoremap <c-t> :action ActivateTerminalToolWindow<cr>
 "--━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━--
@@ -268,7 +269,8 @@ nnoremap <leader>rp :action Stop<cr>
 " 激活run的运行窗口
 nnoremap <leader>wr  :action ActivateRunToolWindow<cr>
 " 隐藏窗口(windows hide)
-nnoremap <leader>wh :action HideActiveWindow<cr>
+"nnoremap <leader>wh :action HideActiveWindow<cr>
+nnoremap <leader>wh :action HideAllWindows<cr>
 " 激活debug的运行窗口
 nnoremap <leader>wd :action ActivateDebugToolWindow<cr>
 " 口最大化windows max(就是保留代码编辑区[文件树什么都关掉,但是下面窗口还在])
