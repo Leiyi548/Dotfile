@@ -34,6 +34,9 @@ set hlsearch
 set incsearch
 " 不区分大小写
 set ignorecase
+" 显示模式
+set showmode
+set idearefactormode=keep
 "--━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━--
 "--━━━━━━━━━━━━━━━━━❰ end Setting ❱━━━━━━━━━━━━━━━━━--
 "--━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━--
@@ -318,10 +321,12 @@ nnoremap <leader>rn :action RenameFile<cr>
 " nnoremap <leader>rf mm`m:action RecentChangedFiles<cr>
 " 查找文件
 nnoremap <leader>ff mm`m:action GotoFile<cr>
+" live grep
+nnoremap <leader>fg mm`m:action FindInPath<cr>
 " 最近查看文件间相互跳转
 nnoremap <leader>fr mm`m:action RecentFiles<cr>
 " 查找用法
-" nnoremap <leader>fu :action FindUsages<cr>
+<leader>fu :action FindUsages<cr>
 "跳转到声明
 nnoremap gd mm`m:action GotoDeclaration<cr>
 " 打开General菜单
@@ -422,3 +427,40 @@ nnoremap <leader>si :action SelectIn<cr>
 "--━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━--
 "--━━━━━━━━━━━━━━━━━━━❰ end  ❱━━━━━━━━━━━━━━━━━━━━━━━━━━━--
 "--━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━--
+""" option config ----------------------------
+" Don't use Ex mode, use Q for formatting.
+map Q gq
+sethandler <S- > a:ide
+sethandler <C-2> a:ide
+sethandler <C-S-2> a:ide
+sethandler <C-S-6> a:ide
+sethandler <C-;> a:ide
+sethandler <C-S-;> a:ide
+sethandler <C-A> n:vim i:ide
+sethandler <C-B> a:ide
+sethandler <C-C> a:ide
+sethandler <C-D> a:vim
+sethandler <C-E> a:vim
+sethandler <C-F> a:ide
+sethandler <C-G> a:ide
+sethandler <C-H> a:ide
+sethandler <C-I> a:vim
+sethandler <C-J> a:vim
+sethandler <C-K> a:vim
+sethandler <C-L> a:vim
+sethandler <C-M> a:ide
+sethandler <C-N> n:ide i-x:vim
+sethandler <C-O> a:vim
+sethandler <C-P> a:ide
+sethandler <C-Q> a:vim
+sethandler <C-R> a:vim
+sethandler <C-S> a:ide
+sethandler <C-T> a:vim
+sethandler <C-U> a:vim
+sethandler <C-V> n:vim i-x:ide
+sethandler <C-W> a:ide
+sethandler <C-X> a:vim
+sethandler <C-Y> a:vim
+sethandler <C-[> a:ide
+sethandler <C-]> a:ide
+sethandler <C-\> a:ide
