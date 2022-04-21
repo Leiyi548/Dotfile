@@ -71,6 +71,7 @@ CenterActiveWindow()
   A_Right := NumGet(monitorInfo, 28, "Int")
   A_Bottom := NumGet(monitorInfo, 32, "Int")
 
+  WinRestore, A
   WinGetPos,,, Width, Height, ahk_id %winHandle%
   winX := A_Left + (A_Right - A_Left - Width) / 2
   winY := A_Top + (A_Bottom - A_Top - Height) / 2
