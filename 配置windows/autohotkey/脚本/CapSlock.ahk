@@ -450,7 +450,7 @@ Return
 CapsLock & 8:: 
     IfWinNotExist ahk_exe idea64.exe 
     { 
-        Send #2 
+        run D:\idea2021\IntelliJ IDEA 2021.3.1\bin\idea64.exe
     }
     Else IfWinNotActive ahk_class SunAwtFrame
     { 
