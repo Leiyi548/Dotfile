@@ -6,7 +6,7 @@ SetWorkingDir, %A_ScriptDir%
 ;                    I dont need it any more
 ;---------------------------------------------------------------------o
 ; Windows 11
-#l:: ; 锁定windows窗口,我基本不用容易误触,取消掉比较好
+; #l:: ; 锁定windows窗口,我基本不用容易误触,取消掉比较好
 #h:: ; 听写，几乎没有麦克风
   ; #c:: ; Cortana，人工智障
 #p:: ; 投影屏幕，没有别的屏幕，单机版
@@ -22,13 +22,8 @@ return
 ;----------------------------------o----------------------------------o
 ; 实现类似于 macos cmd+q(win+q) 退出当前应用
 #q:: send !{f4}
-; 实现类似于 macos cmd+m(win+m) 隐藏当前窗口
-;#m:: WinMinimize,
-; 类似于 yabairc 使用 alt f 最大化窗口
-; !f:: WinMaximize,A
-; pagup 变成 home  pagdown 变成 end
-;PgUp:: send {Home}
-;PgDn:: send {End}
+; 实现类似于 macos alt+m(win+m) 隐藏当前窗口
+!m:: WinMinimize,A
 ;---------------------------------------------------------------------o
 
 ;=====================================================================o
