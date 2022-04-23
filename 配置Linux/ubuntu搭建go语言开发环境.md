@@ -30,20 +30,39 @@ sudo tar -zxvf go1.18.1.linux-amd64.tar.gz -C /usr/local/
 
 ### 配置环境变量
 
-打开这个文件 `sudo vim /etc/profile`
+打开这个文件 `nvim ~/.zshrc`
 
 ```sh
-export GOROOT=/usr/local/go
-export GOPATH=$HOME/goproject    #这是你的工程目录，需要手动创建
+export GOROOT=/usr/local/go # go安装目录
 export PATH=$PATH:$GOROOT/bin
 
-source /etc/profile   #执行该文件
+source ~/.zshrc
 ```
 
 验证
 
 ```sh
 go version
+```
+
+```sh
+go env -w GO111MODULE=on
+# 开启 七牛云代理
+go env -w GOPROXY=https://goproxy.cn,direct
+
+# 安装gopls
+go install -v golang.org/x/tools/gopls@latest
+# 安装go-outline
+go install -v github.com/ramya-rao-a/go-outline@latest
+# 安装gocode
+go install -v github.com/mdempsky/gocode@latest
+# 安装goimports
+go install -v golang.org/x/tools/cmd/goimports@latest
+
+# 安装go 文档
+go install golang.org/x/tools/cmd/godoc@latest
+# 查看文档
+godoc -http=:6060
 ```
 
 ## 参考文章
