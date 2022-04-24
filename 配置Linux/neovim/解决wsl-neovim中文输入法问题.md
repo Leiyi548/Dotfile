@@ -25,11 +25,11 @@ sudo cp im-select.exe /usr/bin/
 
 ### 了解 im-select 基本用法
 
-`im-select`
+`im-select.exe`
 输出当前输入法所代表的码
 默认 windows 英文输入法的码是 1033
 
-`im-select 1033`
+`im-select.exe 1033`
 直接切换到英文输入法
 如果修改码,就能实现不同输入法的切换
 
