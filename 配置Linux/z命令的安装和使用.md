@@ -15,6 +15,7 @@ plugins=(
 
 ## Usage
 
+[github 项目地址](https://github.com/rupa/z)
 **技巧**：`z` 命令可以使用 `tab` 来进行补齐，以提高切换效率。
 
 ```sh
