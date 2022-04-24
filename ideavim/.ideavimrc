@@ -288,6 +288,7 @@ nnoremap <C-l> <C-W>l
 nnoremap sc <C-W>c
 nnoremap sv :vsplit<cr>
 nnoremap sg :split<cr>
+nnoremap su :action UnsplitAll<cr>
 "--━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━--
 "--━━━━━━━━━━━━━━━━━━━❰ end 窗口篇 ❱━━━━━━━━━━━━━━━━--
 "--━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━--
@@ -323,6 +324,7 @@ nnoremap <leader>rn :action RenameFile<cr>
 nnoremap <leader>ff mm`m:action GotoFile<cr>
 " live grep
 nnoremap <leader>fg mm`m:action FindInPath<cr>
+nnoremap <leader>/ mm`m:action FindInPath<cr>
 " 最近查看文件间相互跳转
 nnoremap <leader>fr mm`m:action RecentFiles<cr>
 " 查找用法
@@ -342,6 +344,8 @@ nnoremap <leader>Fc mm`m:action GotoClass<cr>
 nnoremap gS mm`m:action GotoSuperMethod<cr>
 " 搜索 action
 nnoremap <leader>Fa :action GotoAction<cr>
+" 显示书签
+nnoremap <leader>fm :action ShowBookmarks<cr>
 " 跳转上一个位置
 " cmd + [ (mac) ctrl + [ (windows)
 " 跳转下一个位置
@@ -443,7 +447,7 @@ sethandler <C-D> a:vim
 sethandler <C-E> a:vim
 sethandler <C-F> a:ide
 sethandler <C-G> a:ide
-sethandler <C-H> a:ide
+sethandler <C-H> a:vim
 sethandler <C-I> a:vim
 sethandler <C-J> a:vim
 sethandler <C-K> a:vim
