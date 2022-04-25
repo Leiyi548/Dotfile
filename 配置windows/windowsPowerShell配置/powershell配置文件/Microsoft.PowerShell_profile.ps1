@@ -35,6 +35,9 @@ function touch {New-Item $args}
 
 # git alias
 function gs {git status -s}
+function gS {git status}
+function gb {git branch $args}
+function gco {git checkout $args}
 function ga {git add $args}
 function gz {git cz $args}
 function gmc {gitmoji -c}
