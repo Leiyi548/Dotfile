@@ -256,10 +256,18 @@ return                                                               ;|
 ;                     CapsLock + ,  |  delete word ahead             ;|
 ;                     CapsLock + .  |  delete word after             ;|
 ;                     CapsLock + BackSpace  | Delete a line          ;|
+;                     CapsLock + [  | Delete line begin              ;|
+;                     CapsLock + ]  | Delete line end                ;|
+;                     CapsLock + PageUp  | Delete page to begin      ;|
+;                     CapsLock + PageDown  | Delete page to end      ;|
 ;-----------------------------------o---------------------------------o
 CapsLock & ,:: Send, ^{BS}                                           ;|
 CapsLock & .:: Send, ^{Del}                                          ;|
 CapsLock & BackSpace:: Send {Home}{ShiftDown}{End}{Right}{ShiftUp}{Del}
+CapsLock & [:: Send +{Home}{Del}
+CapsLock & ]:: Send +{End}{Del}
+CapsLock & PgUp:: Send +^{Home}{bs}
+CapsLock & PgDn:: Send +^{End}{bs}
 ;CapsLock & ,:: Send, {Del}                                          ;|
 ; CapsLock & m:: Send, {BS}                                          ;|
 ; CapsLock & n:: Send, ^{BS}                                         ;|
@@ -501,3 +509,4 @@ CapsLock & m::
     }
 Return
 ;----------------------------------------------------------------------o
+
