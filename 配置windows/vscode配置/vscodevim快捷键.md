@@ -6,8 +6,6 @@
 | ------------------------ | ---------------- |
 | `ctrl`+`home`            | 移动到顶部       |
 | `ctrl`+`end`             | 移动到底部       |
-| `ctrl`+`pageup`          | 上一个终端       |
-| `ctrl`+`pagedown`        | 上一个终端       |
 | `ctrl`+`up`              | 向上变大         |
 | `ctrl`+`down`            | 向下缩小         |
 | `shift`+`alt` + `=`      | 垂直分屏         |
@@ -18,6 +16,8 @@
 | `ctrl`+`k`               | 移动到编辑区     |
 | `ctrl`+`t`               | toggle terminal  |
 | `ctrl`+`` ` ``           | toggle terminal  |
+| `alt`+`j`                | 下一个终端       |
+| `alt`+`k`                | 上一个终端       |
 | `alt`+`up`               | 终端组中向上移动 |
 | `alt`+`down`             | 终端组中向下移动 |
 | `alt`+`left`             | 终端组中向左移动 |
