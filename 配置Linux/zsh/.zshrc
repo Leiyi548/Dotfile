@@ -117,14 +117,22 @@ alias s="neofetch"
 alias ra="ranger"
 alias lg="lazygit"
 alias open="explorer.exe"
+alias ls='lsd'
+alias ll='lsd -l'
+alias lla='lsd -la'
+alias lld='lsd -l --date +%Y年%m月%d"日"%H:%M:%S'
 # git alias
+alias ga="git add"
 alias gc="git commit"
 alias gcm="git commit -m"
 alias gs="git status -s"
 alias gS="git status"
 alias gco="git checkout"
 alias gb="git branch"
+alias gcz="git cz"
+alias gmc="gitmoji -c"
 alias weather='curl -H "Accept-Language: zh" wttr.in/nanchang'
+
 
 
 # set default editor is neovim 
@@ -145,3 +153,4 @@ autoload -U compinit && compinit -u
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
