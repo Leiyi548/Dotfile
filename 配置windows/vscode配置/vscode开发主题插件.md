@@ -8,6 +8,8 @@
 | macOs    | ~/.vscode/extensions             |
 | Linux    | ~/.vscode/extensions             |
 
+> %USERPROFILE% =C:\Users\用户名
+
 ## 下载 vscode 插件开发工具
 
 ```sh
@@ -27,7 +29,7 @@ yo code
 
 最后生成一个以主题命名的目录,再命令行中会提醒你用 vscode 打开。
 文件目录格式:
-![](../../img/2022-03-26-19-49-48.png)
+![img](../../img/2022-03-26-19-49-48.png)
 
 ## 配置主题
 
@@ -42,15 +44,16 @@ yo code
 
 ## 将做好的主题发布到 vscode 插件市场
 
-1. 先下载 vsce.
+ 先下载 vsce.
 
 ```sh
 npm install -g vsce
 ```
 
-2. 获得 token
+获得 token
    [bilibili 获得 token](https://www.bilibili.com/video/BV1jJ411h7go?p=1&share_medium=android&share_plat=android&share_source=COPY&share_tag=s_i&timestamp=1594029913&unique_k=4dAzWE)
-3. 命令行交互
+
+命令行交互
 
 创造插件开发者
 进入这个[链接](https://aka.ms/vscode-create-publisher)然后填写 name 和 id
@@ -68,16 +71,16 @@ vsce package
 vsce publish
 ```
 
-#### 问题解决
+### 问题解决
 
 **Error: Make sure to edit the README.md file before you publish your extension.**
 需要你将 README.md 重新删除掉,然后写入自己这个主题的特性。
 
-#### 参考链接
+### 参考链接
 
 - [Publishing Extensions](https://code.visualstudio.com/api/working-with-extensions/publishing-extension)
 
-## 参考资料
+## 参考
 
 - [How to make your own VS Code theme!](https://www.youtube.com/watch?v=pGzssFNtWXw)
 - [creating-a-vs-code-theme](https://css-tricks.com/creating-a-vs-code-theme/)
