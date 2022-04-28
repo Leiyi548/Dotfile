@@ -35,7 +35,7 @@ set incsearch
 " 不区分大小写
 set ignorecase
 " 显示模式
-set showmode
+"set showmode
 set idearefactormode=keep
 "--━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━--
 "--━━━━━━━━━━━━━━━━━❰ end Setting ❱━━━━━━━━━━━━━━━━━--
@@ -154,6 +154,15 @@ nnoremap <TAB> :action NextTab<cr>
 nnoremap <S-TAB> :action PreviousTab<cr>
 vnoremap <TAB> :action NextTab<cr>
 vnoremap <S-TAB> :action PreviousTab<cr>
+nnoremap <leader>1 1gt
+nnoremap <leader>2 2gt
+nnoremap <leader>3 3gt
+nnoremap <leader>4 4gt
+nnoremap <leader>5 5gt
+nnoremap <leader>6 6gt
+nnoremap <leader>7 7gt
+nnoremap <leader>8 8gt
+nnoremap <leader>9 9gt
 " 上下方法的移动
 nnoremap [m :action MethodUp<cr>
 nnoremap ]m :action MethodDown<cr>
