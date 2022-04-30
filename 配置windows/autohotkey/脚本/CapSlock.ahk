@@ -277,6 +277,7 @@ CapsLock & PgDn:: Send +^{End}{bs}
 ;                            CapsLock Editor                         ;|
 ;-----------------------------------o---------------------------------o
 ;                     CapsLock + z  |  Ctrl + z (Cancel)             ;|
+;                     CapsLock + r  |  Ctrl + r ( null )             ;|
 ;                     CapsLock + x  |  Ctrl + x (Cut)                ;|
 ;                     CapsLock + c  |  Ctrl + c (Copy)               ;|
 ;                     CapsLock + v  |  Ctrl + z (Paste)              ;|
@@ -286,6 +287,7 @@ CapsLock & PgDn:: Send +^{End}{bs}
 ;                     CapsLock + b  |  Ctrl + Left (Move as [vim: b]);|
 ;-----------------------------------o---------------------------------o
 CapsLock & z:: Send, ^z                                              ;|
+CapsLock & r:: Send, ^r                                              ;|
 CapsLock & x:: Send, ^x                                              ;|
 CapsLock & c:: Send  {CtrlDown}{Insert}{CtrlUp}                      ;|
 CapsLock & v:: Send  {ShiftDown}{Insert}{ShiftUp}                    ;|
