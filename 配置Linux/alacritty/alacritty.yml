@@ -1,0 +1,107 @@
+# 自动刷新
+live_config_reload: true
+# Tab 缩进
+tabspaces: 4
+# 背景透明度
+window.opacity: 0
+
+shell:
+  program: /Windows/System32/wsl.exe
+
+window:
+  # 启动窗口大小
+  dimensions:
+    # columns: 140
+    # lines: 60
+    columns: 0
+    lines: 0
+
+  # 边缘空白
+  padding:
+    x: 3
+    y: 0
+  dynamic_padding: false
+  # 窗口修饰
+  # - full: 有边界+标题栏
+  # - none: 无边界+标题栏
+  decorations: full
+  # Background opacity
+  #
+  # Window opacity as a floating point number from `0.0` to `1.0`.
+  # The value `0.0` is completely transparent and `1.0` is opaque.
+  opacity: 1.0
+  # Startup Mode (changes require restart)
+  #
+  # Values for `startup_mode`:
+  #   - Windowed
+  #   - Maximized
+  #   - Fullscreen
+  #
+  startup_mode: Windowed
+  # Window title
+  #title: Alacritty
+
+scrolling:
+  # 历史保留行数
+  history: 2000
+
+  # 每次滚动行数
+  multiplier: 20
+
+  # 每次滚动行数（分屏时）
+  faux_multiplier: 100
+
+  # 自动滚动至最新行
+  auto_scroll: true
+
+font:
+  size: 12
+  # 字体
+  normal:
+    family: "JetBrainsMono Nerd Font Mono"
+    style: Regular
+  bold:
+    family: "JetBrainsMono Nerd Font Mono"
+    style: Bold
+  italic:
+    family: "JetBrainsMono Nerd Font Mono"
+    style: Italic
+  bold_italic:
+    family: "JetBrainsMono Nerd Font Mono"
+    style: Bold Italic
+
+  # 细描边
+  use_thin_strokes: true
+
+# Colors (Dracula)
+colors:
+  # Default colors
+  primary:
+    background: "#282a36"
+    foreground: "#f8f8f2"
+
+  # Normal colors
+  normal:
+    black: "#000000"
+    red: "#ff5555"
+    green: "#50fa7b"
+    yellow: "#f1fa8c"
+    blue: "#caa9fa"
+    magenta: "#ff79c6"
+    cyan: "#8be9fd"
+    white: "#bfbfbf"
+
+  # Bright colors
+  bright:
+    black: "#575b70"
+    red: "#ff6e67"
+    green: "#5af78e"
+    yellow: "#f4f99d"
+    blue: "#caa9fa"
+    magenta: "#ff92d0"
+    cyan: "#9aedfe"
+    white: "#e6e6e6"
+
+  cursor:
+    text: CellBackground
+    cursor: "#fc011a"
