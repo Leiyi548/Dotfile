@@ -131,14 +131,16 @@ SwitchToDesktopByHotkey(idx){
 ;---------------------------------------------------------------------o
 ;----------------------------------------------------------------------o
 #Enter::
-  IfWinNotExist ahk_exe WindowsTerminal.exe
+  IfWinNotExist ahk_exe alacritty.exe
   {
-    run C:\Program Files\WindowsApps\Microsoft.WindowsTerminal_1.12.10733.0_x64__8wekyb3d8bbwe\WindowsTerminal.exe
+    run C:\Users\9\scoop\apps\alacritty\0.10.1\alacritty.exe
   }
-  Else IfWinNotActive ahk_class CASCADIA_HOSTING_WINDOW_CLASS
+  Else IfWinNotActive ahk_exe alacritty.exe
   { 
-    #WinActivateForce 
-    WinActivate 
+    SetTitleMatchMode RegEx
+    ALACRITTY_ID := WinExist("Alacritty-neovim")
+    #WinActivateForce
+    WinActivate ahk_id %ALACRITTY_ID%
   } 
   Else
   {
