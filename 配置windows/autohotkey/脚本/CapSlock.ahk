@@ -493,22 +493,3 @@ CapsLock & 9::
     } 
 return 
 ;----------------------------------------------------------------------o
-CapsLock & m::
-    IfWinNotExist ahk_exe Obsidian.exe
-    {
-        run C:\Users\9\AppData\Local\Obsidian\Obsidian.exe
-    }
-    Else IfWinNotActive ahk_exe Obsidian.exe
-    { 
-        SetTitleMatchMode RegEx
-        Obsidian_ID := WinExist(".- Obsidian")
-        #WinActivateForce
-        WinActivate ahk_id %Obsidian_ID%
-    } ;|
-    Else ;|
-    {
-        WinMinimize
-    }
-Return
-;----------------------------------------------------------------------o
-
