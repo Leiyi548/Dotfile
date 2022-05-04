@@ -269,7 +269,6 @@ CapsLock & ]:: Send +{End}{Del}
 CapsLock & PgUp:: Send +^{Home}{bs}
 CapsLock & PgDn:: Send +^{End}{bs}
 ;CapsLock & ,:: Send, {Del}                                          ;|
-; CapsLock & m:: Send, {BS}                                          ;|
 ; CapsLock & n:: Send, ^{BS}                                         ;|
 ;---------------------------------------------------------------------o
 
@@ -287,6 +286,7 @@ CapsLock & PgDn:: Send +^{End}{bs}
 ;                     CapsLock + b  |  Ctrl + Left (Move as [vim: b]);|
 ;-----------------------------------o---------------------------------o
 CapsLock & z:: Send, ^z                                              ;|
+CapsLock & g:: Send, ^g                                              ;|
 CapsLock & r:: Send, ^r                                              ;|
 CapsLock & x:: Send, ^x                                              ;|
 CapsLock & c:: Send  {CtrlDown}{Insert}{CtrlUp}                      ;|
@@ -319,7 +319,7 @@ CapsLock & q::                                                       ;|
     }                                                                ;|
 return                                                               ;|
 ;-----------------------------------o--------------------------------;|
-CapsLock & g:: Send, {AppsKey}                                       ;|
+CapsLock & m:: Send, {AppsKey}                                       ;|
 ;---------------------------------------------------------------------o
 
 ;=====================================================================o
@@ -493,3 +493,4 @@ CapsLock & 9::
     } 
 return 
 ;----------------------------------------------------------------------o
+
