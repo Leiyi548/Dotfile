@@ -221,3 +221,7 @@ git 回退到某个提交
 `git push <remote_name> -d <remote-branch-name>`
 删除远程分支
 remote_name 默认为 origin
+
+## 参考
+
+[易白教程 git](https://www.yiibai.com/git/git_submodule.html)

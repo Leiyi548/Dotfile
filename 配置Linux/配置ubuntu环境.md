@@ -88,6 +88,19 @@ sudo apt install clang
 sudo apt install gcc
 ```
 
+## Install stable neovim
+
+```sh
+sudo add-apt-repository ppa:neovim-ppa/stable
+sudo apt-get update
+sudo apt-get install neovim
+
+# install clang dependence
+sudo apt install clang
+# install gcc dependence
+sudo apt install gcc
+```
+
 ## Install fzf
 
 ```sh
@@ -123,6 +136,12 @@ sudo apt-get update
 sudo apt-get install lazygit
 ```
 
+## Install prettier
+
+```sh
+npm -g install prettier
+```
+
 ## Install brew
 
 [ubuntu 安装 brew](https://blog.csdn.net/jinking01/article/details/108678196)
@@ -133,4 +152,71 @@ chris 是我 ubuntu 的用户名
 
 ```sh
  export PATH="/home/chris/.linuxbrew/bin:$PATH"
+```
+
+## npm does not support Node.js v10.19.0
+
+```sh
+# Using Ubuntu
+curl -fsSL https://deb.nodesource.com/setup_current.x | sudo -E bash -
+sudo apt-get install -y nodejs
+```
+
+## install live-server
+
+```sh
+sudo npm install -g live-server
+```
+
+[tapio/live-server](https://github.com/tapio/live-server)
+
+## install nvm
+
+介绍
+
+> Node Version Manager（Node 版本管理器），用它可以方便的在机器上安装并维护多个 Node 的版本
+
+```sh
+git clone https://gitee.com/mirrors/nvm
+bash install.sh
+```
+
+### nvm 镜像配置
+
+打开 NVM 安装根目录，修改 settings.txt 文本末行添加如下两行代码
+
+```text
+node_mirror https://npmmirror.com/mirrors/node/
+npm_mirror https://npmmirror.com/mirrors/npm/
+```
+
+#### 阿里云
+
+```sh
+# 设置npm_mirror:
+nvm npm_mirror https://npmmirror.com/mirrors/npm/
+
+# 设置node_mirror:
+nvm node_mirror https://npmmirror.com/mirrors/node/
+```
+
+#### 腾讯云
+
+```sh
+# 设置npm_mirror:
+nvm npm_mirror http://mirrors.cloud.tencent.com/npm/
+
+# 设置node_mirror:
+nvm node_mirror http://mirrors.cloud.tencent.com/nodejs-release/
+```
+
+### 使用 npm
+
+```text
+npm -V # 查看npm版本
+npm install -g npm # 更新最新版本
+npm install -h npm@5.6.0 # 更到指定版本
+npm config ls # 查npm配置
+npm config ls -l #查看npm全部配置
+npm config set registry "http://registry.npm.taobao.org/" # 修改npm为国内镜像
 ```
