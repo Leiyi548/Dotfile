@@ -150,6 +150,8 @@ Return
 ;----------------------------------------------------------------------o
 ^PgUp:: send,^{Home}
 ^PgDn:: send,^{End}
++PgUp:: send,+{Home}
++PgDn:: send,+{End}
 
 !f::
   WinGet, OutputVar, MinMax, A
