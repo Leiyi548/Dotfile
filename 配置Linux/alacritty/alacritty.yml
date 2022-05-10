@@ -61,53 +61,55 @@ font:
   draw_bold_text_with_bright_colors: true
   # 字体
   normal:
-    family: "JetBrainsMono Nerd Font Mono"
+    family: 'JetBrainsMono Nerd Font Mono'
     style: Medium
     # style: Regular
   bold:
-    family: "JetBrainsMono Nerd Font Mono"
+    family: 'JetBrainsMono Nerd Font Mono'
     style: Bold
   italic:
-    family: "JetBrainsMono Nerd Font Mono"
+    family: 'JetBrainsMono Nerd Font Mono'
+    # family: 'Operator Mono'
     style: Italic
   bold_italic:
-    family: "JetBrainsMono Nerd Font Mono"
+    # family: 'JetBrainsMono Nerd Font Mono'
+    family: 'Operator Mono'
     style: Bold Italic
   # 细描边
-  # use_thin_strokes: true
+  use_thin_strokes: true
 
 # Colors (Dracula)
 colors:
   # Default colors
   primary:
-    background: "#282a36"
-    foreground: "#f8f8f2"
+    background: '#282a36'
+    foreground: '#f8f8f2'
 
   # Normal colors
   normal:
-    black: "#000000"
-    red: "#ff5555"
-    green: "#50fa7b"
-    yellow: "#f1fa8c"
-    blue: "#caa9fa"
-    magenta: "#ff79c6"
-    cyan: "#8be9fd"
-    white: "#bfbfbf"
+    black: '#000000'
+    red: '#ff5555'
+    green: '#50fa7b'
+    yellow: '#f1fa8c'
+    blue: '#caa9fa'
+    magenta: '#ff79c6'
+    cyan: '#8be9fd'
+    white: '#bfbfbf'
 
   # Bright colors
   bright:
-    black: "#575b70"
-    red: "#ff6e67"
-    green: "#5af78e"
-    yellow: "#f4f99d"
-    blue: "#caa9fa"
-    magenta: "#ff92d0"
-    cyan: "#9aedfe"
-    white: "#e6e6e6"
+    black: '#575b70'
+    red: '#ff6e67'
+    green: '#5af78e'
+    yellow: '#f4f99d'
+    blue: '#caa9fa'
+    magenta: '#ff92d0'
+    cyan: '#9aedfe'
+    white: '#e6e6e6'
 
   cursor:
     text: CellBackground
-    cursor: "#fc011a"
+    cursor: '#fc011a'
 
   key_bindings:
     - { key: Paste, action: Paste }
@@ -207,3 +209,4 @@ colors:
 
     # (Windows only)
     - { key: Return, mods: Alt, action: ToggleFullscreen }
+
