@@ -23,6 +23,7 @@ go env -w GOPATH=我们自己的工作区路径
 什么都别管,先打开 GoMOD,再配置代理
 
 ```sh
+# 开启go111module
 go env -w GO111MODULE=on
 # 开启 七牛云代理
 go env -w GOPROXY=https://goproxy.cn,direct
