@@ -8,6 +8,11 @@ ideavim 和 vscodevim 十分相像所以 vscodevim 可以用,ideavim 基本也�
 **vscodevim v1.21.4**
 但是可惜的没有精确搜索
 
+## vim基于单词移动及Vim单词、字串概念
+
+Vim单词(word)以**非字母**分隔,Vim字符(WORD)以**空白字符**分隔,Vim中的**字符**比**单词**更长。
+Vim支持按单词或字串正向或反向移动光标到开头或结尾。
+
 ## vscodevim 快捷键
 
 vscodevim 这个插件能够让你在 vscode 中实现 vim，这是我最喜欢的插件。
