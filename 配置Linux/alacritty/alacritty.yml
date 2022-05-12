@@ -71,7 +71,7 @@ font:
     style: Bold
   italic:
     family: 'JetBrainsMono Nerd Font Mono'
-    # family: 'FiraCode Nerd Font'
+    # family: 'Cascadia Mono'
     style: Italic
   bold_italic:
     # family: 'JetBrainsMono Nerd Font Mono'
