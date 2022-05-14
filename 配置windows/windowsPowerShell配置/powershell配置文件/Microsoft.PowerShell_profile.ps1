@@ -11,7 +11,8 @@ Import-Module ZLocation; Add-Content -Value "`r`n`r`nImport-Module ZLocation`r`n
 # 设置powershell主题
 # Set-PoshPrompt -Theme powerlevel10k_rainbow
 # Set-PoshPrompt -Theme clean-detailed
-Set-PoshPrompt -Theme powerlevel10k_modern
+# Set-PoshPrompt -Theme powerlevel10k_modern
+Set-PoshPrompt -Theme star
 
 # 设置能够记录历史命令进行补全
 Set-PSReadLineOption -PredictionSource History
