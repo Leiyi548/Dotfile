@@ -62,20 +62,20 @@ font:
   # 字体
   normal:
     # family: 'JetBrainsMono Nerd Font Mono'
-    family: 'FiraCode Nerd Font'
+    family: "FiraCode Nerd Font"
     # style: Medium
     style: Regular
   bold:
     # family: 'JetBrainsMono Nerd Font Mono'
-    family: 'FiraCode Nerd Font'
+    family: "FiraCode Nerd Font"
     style: Bold
   italic:
-    family: 'JetBrainsMono Nerd Font Mono'
+    family: "JetBrainsMono Nerd Font Mono"
     # family: 'Cascadia Mono'
     style: Italic
   bold_italic:
     # family: 'JetBrainsMono Nerd Font Mono'
-    family: 'Operator Mono'
+    family: "Operator Mono"
     style: Bold Italic
   # 细描边
   use_thin_strokes: true
@@ -115,54 +115,54 @@ font:
 
 colors:
   primary:
-    background: '0x191724'
-    foreground: '0xe0def4'
+    background: "0x191724"
+    foreground: "0xe0def4"
   cursor:
-    text: '0xe0def4'
-    cursor: '0x524f67'
+    text: "0xe0def4"
+    cursor: "0x524f67"
   vi_mode_cursor:
-    text: '0xe0def4'
-    cursor: '0x524f67'
+    text: "0xe0def4"
+    cursor: "0x524f67"
   line_indicator:
     foreground: None
     background: None
   selection:
-    text: '0xe0def4'
-    background: '0x403d52'
+    text: "0xe0def4"
+    background: "0x403d52"
   normal:
-    black: '0x26233a'
-    red: '0xeb6f92'
-    green: '0x31748f'
+    black: "0x26233a"
+    red: "0xeb6f92"
+    green: "0x31748f"
 
-    yellow: '0xf6c177'
-    blue: '0x9ccfd8'
-    magenta: '0xc4a7e7'
-    cyan: '0xebbcba'
-    white: '0xe0def4'
+    yellow: "0xf6c177"
+    blue: "0x9ccfd8"
+    magenta: "0xc4a7e7"
+    cyan: "0xebbcba"
+    white: "0xe0def4"
 
   bright:
-    black: '0x6e6a86'
+    black: "0x6e6a86"
 
-    red: '0xeb6f92'
-    green: '0x31748f'
-    yellow: '0xf6c177'
+    red: "0xeb6f92"
+    green: "0x31748f"
+    yellow: "0xf6c177"
 
-    blue: '0x9ccfd8'
-    magenta: '0xc4a7e7'
-    cyan: '0xebbcba'
-    white: '0xe0def4'
+    blue: "0x9ccfd8"
+    magenta: "0xc4a7e7"
+    cyan: "0xebbcba"
+    white: "0xe0def4"
   hints:
     start:
-      foreground: '#908caa'
+      foreground: "#908caa"
 
-      background: '#1f1d2e'
+      background: "#1f1d2e"
     end:
-      foreground: '#6e6a86'
+      foreground: "#6e6a86"
 
-      background: '#1f1d2e'
-  cursor:
-    text: CellBackground
-    cursor: '#fc011a'
+      background: "#1f1d2e"
+  # cursor:
+  #   text: CellBackground
+  #   cursor: '#fc011a'
 
 key_bindings:
   - { key: Paste, action: Paste }
@@ -257,4 +257,3 @@ key_bindings:
 
   # (Windows only)
   - { key: Return, mods: Alt, action: ToggleFullscreen }
-
