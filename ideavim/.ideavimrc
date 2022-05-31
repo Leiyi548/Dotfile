@@ -45,7 +45,7 @@ set idearefactormode=keep
 "--━━━━━━━━━━━━━━━━━━━❰ UI and Terminal ❱━━━━━━━━━━━━━━━━━━━━━━━━--
 "--━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━--
 " change colorscheme
-nnoremap <leader>fc :action ChangeColorScheme<cr>
+nnoremap <leader>sc :action ChangeColorScheme<cr>
 " 改变视图
 nnoremap <leader>Z :action ChangeView<cr>
 nnoremap <leader>z :action ToggleDistractionFreeMode<cr>
@@ -88,7 +88,7 @@ xmap <S-C-n> <Plug>AllWholeOccurrences
 " ===
 " === easymotion
 " ===
-nmap ss <Plug>(easymotion-s4)
+nmap ss <Plug>(easymotion-s2)
 nmap E <Plug>(easymotion-s)
 nmap sl <Plug>(easymotion-bd-jk)
 nmap sw <Plug>(easymotion-bd-w)
@@ -330,6 +330,7 @@ nnoremap <leader>rn :action RenameFile<cr>
 " 最近改动文件间相互跳转
 " nnoremap <leader>rf mm`m:action RecentChangedFiles<cr>
 " 查找文件
+nnoremap <C-f> mm`m:action GotoFile<cr>
 nnoremap <leader>ff mm`m:action GotoFile<cr>
 " live grep
 nnoremap <leader>fg mm`m:action FindInPath<cr>
@@ -426,7 +427,7 @@ nnoremap zd :action CollapseDocComments<cr>
 "--━━━━━━━━━━━━━━━━━━━❰ Show or Select ❱━━━━━━━━━━━━━━━━━━━━━━━--
 "--━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━--
 " 取消高亮
-nnoremap <leader>sc :nohlsearch<cr>
+nnoremap <leader>h :nohlsearch<cr>
 " 显示jumpList
 nnoremap <leader>sj :jumps<cr>
 " 显示 history
@@ -454,7 +455,7 @@ sethandler <C-B> a:ide
 sethandler <C-C> a:ide
 sethandler <C-D> a:vim
 sethandler <C-E> a:vim
-sethandler <C-F> a:ide
+sethandler <C-F> n:vim i:ide
 sethandler <C-G> a:ide
 sethandler <C-H> a:vim
 sethandler <C-I> a:vim
@@ -472,7 +473,7 @@ sethandler <C-T> a:vim
 sethandler <C-U> a:vim
 sethandler <C-V> n:vim i-x:ide
 sethandler <C-W> a:ide
-sethandler <C-X> a:vim
+sethandler <C-X> n:vim i-x:ide
 sethandler <C-Y> a:vim
 sethandler <C-[> a:ide
 sethandler <C-]> a:ide
