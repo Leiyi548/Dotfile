@@ -153,6 +153,9 @@ Return
 +PgUp:: send,+{Home}
 +PgDn:: send,+{End}
 
+; 解决ctrl+space不切换中英文输入法，在ide中进行补全
+^Space::ControlSend, , ^{Space},A
+
 !f::
   WinGet, OutputVar, MinMax, A
   If (OutputVar)
