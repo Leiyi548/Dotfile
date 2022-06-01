@@ -40,5 +40,5 @@ cls
 我们首先使用 `win+r` 输入 register 打开 windows 注册表
 然后我们在路径 `计算机\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Command Processor`
 
-![cmd-alias](....\img\2022-06-01-21-10-12.png)
+![cmd-alias](..%5C..%5Cimg%5C2022-06-01-21-10-12.png)
 新建一个 字符串值，名字叫 AutoRun，值是上面文件的绝对路径，就此完成，开始在 windows 的 cmd 里体验 linux 命令敲打的快感吧
