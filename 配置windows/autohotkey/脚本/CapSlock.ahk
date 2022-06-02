@@ -358,69 +358,43 @@ CapsLock & F6:: Send, {Media_Stop}                                   ;|
 ;---------------------------------------------------------------------o
 
 ;=====================================================================o
+;                       CapsLock Media Controller                    ;|
+;-----------------------------------o---------------------------------o
+;                    CapsLock + 1  |              F1                 ;|
+;                    CapsLock + 2  |              F2                 ;|
+;                    CapsLock + 3  |              F3                 ;|
+;                    CapsLock + -  |             F11                 ;|
+;                    CapsLock + =  |             F12                 ;|
+;-----------------------------------o---------------------------------o
+CapsLock & 1:: Send, {F1}                                            ;|
+CapsLock & 2:: Send, {F2}                                            ;|
+CapsLock & 3:: Send, {F3}                                            ;|
+;CapsLock & 4:: Send, {F4}                                            ;|
+;CapsLock & 5:: Send, {F5}                                            ;|
+;CapsLock & 6:: Send, {F6}                                            ;|
+;CapsLock & 7:: Send, {F7}                                            ;|
+;CapsLock & 8:: Send, {F8}                                            ;|
+;CapsLock & 9:: Send, {F9}                                            ;|
+;CapsLock & 0:: Send, {F10}                                           ;|
+CapsLock & -:: Send, {F11}                                           ;|
+CapsLock & =:: Send, {F12}                                           ;|
+;---------------------------------------------------------------------o
+
+;=====================================================================o
 ;                        CapsLock lanuch application                  ;|
 ;-----------------------------------o---------------------------------o
-;                     CapsLock + 1  |  Open Wechat                    ;|
-;                     CapsLock + 2  |  Open DocBox                    ;|
-;                     CapsLock + 3  |  Open Obsidian                  ;|
 ;                     CapsLock + 4  |  Open youdao                    ;|
+;                     CapsLock + 5  |  Open Wechat                    ;|
 ;                     CapsLock + 6  |  Open VsCode                    ;|
+;                     CapsLock + 7  |  Open Obsidian                  ;|
 ;                     CapsLock + 8  |  Open jetbarin idea             ;|
 ;                     CapsLock + 9  |  Open Chrome                    ;|
+;                     CapsLock + 0  |  Open DocBox                    ;|
 ;-----------------------------------o---------------------------------o
 ; 1 - 窗口标题必须以指定的 winTitle开头才能匹配
 ; 2 - 窗口标题任意位置包含 winTitle才能匹配
 ; 3 - 窗口标题必须和winTitle完全一致才能匹配
 SetTitleMatchMode, 2
-CapsLock & 1::
-    IfWinNotExist ahk_class WeChatMainWndForPC
-    {
-        Run E:\WeChat\WeChat.exe
-    }
-    Else IfWinNotActive ahk_class WeChatMainWndForPC
-    {
-        #WinActivateForce
-        WinActivate
-    }
-    Else
-    {
-        WinMinimize
-    }
-return
-;----------------------------------------------------------------------o
-CapsLock & 2::
-    IfWinNotExist ahk_class DOCBOX_PDF_FRAME
-    {
-        run D:\稻壳阅读器\DocBox\DocBox.exe
-    }
-    Else IfWinNotActive ahk_class DOCBOX_PDF_FRAME
-    { 
-        #WinActivateForce
-        WinActivate
-    } 
-    Else
-    {
-        WinMinimize
-    }
-Return
-;----------------------------------------------------------------------o
-CapsLock & 3::
-    IfWinNotExist ahk_exe Obsidian.exe
-    {
-        run C:\Users\9\AppData\Local\Obsidian\Obsidian.exe
-    }
-    Else IfWinNotActive ahk_exe Obsidian.exe
-    { 
-        SetTitleMatchMode RegEx
-        Obsidian_ID := WinExist(".- Obsidian")
-        #WinActivateForce
-        WinActivate ahk_id %Obsidian_ID%
-    } ;|
-    Else ;|
-    {
-        WinMinimize
-    }
-Return
 ;----------------------------------------------------------------------o
 CapsLock & 4::
     IfWinNotExist ahk_class YodaoMainWndClass
@@ -438,6 +412,21 @@ CapsLock & 4::
     }
 Return
 ;----------------------------------------------------------------------o
+CapsLock & 5::
+    IfWinNotExist ahk_class WeChatMainWndForPC
+    {
+        Run E:\WeChat\WeChat.exe
+    }
+    Else IfWinNotActive ahk_class WeChatMainWndForPC
+    {
+        #WinActivateForce
+        WinActivate
+    }
+    Else
+    {
+        WinMinimize
+    }
+return
 ;----------------------------------------------------------------------o
 CapsLock & 6::
     IfWinNotExist ahk_exe Code.exe
@@ -452,6 +441,24 @@ CapsLock & 6::
         WinActivate ahk_id %VS_CODE_ID%
     }
     Else
+    {
+        WinMinimize
+    }
+Return
+;----------------------------------------------------------------------o
+CapsLock & 7::
+    IfWinNotExist ahk_exe Obsidian.exe
+    {
+        run C:\Users\9\AppData\Local\Obsidian\Obsidian.exe
+    }
+    Else IfWinNotActive ahk_exe Obsidian.exe
+    { 
+        SetTitleMatchMode RegEx
+        Obsidian_ID := WinExist(".- Obsidian")
+        #WinActivateForce
+        WinActivate ahk_id %Obsidian_ID%
+    } ;|
+    Else ;|
     {
         WinMinimize
     }
@@ -493,4 +500,18 @@ CapsLock & 9::
     } 
 return 
 ;----------------------------------------------------------------------o
-
+CapsLock & 0::
+    IfWinNotExist ahk_class DOCBOX_PDF_FRAME
+    {
+        run D:\稻壳阅读器\DocBox\DocBox.exe
+    }
+    Else IfWinNotActive ahk_class DOCBOX_PDF_FRAME
+    { 
+        #WinActivateForce
+        WinActivate
+    } 
+    Else
+    {
+        WinMinimize
+    }
+Return
