@@ -50,7 +50,7 @@ nnoremap <leader>sc :action ChangeColorScheme<cr>
 nnoremap <leader>Z :action ChangeView<cr>
 nnoremap <leader>z :action ToggleDistractionFreeMode<cr>
 " focus terminal
-nnoremap <c-t> :action ActivateTerminalToolWindow<cr>
+" nnoremap <c-t> :action ActivateTerminalToolWindow<cr>
 "--━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━--
 "--━━━━━━━━━━━━━━━━━❰ end UI and Terminal ❱━━━━━━━━━━━━━━━━━━━━━━--
 "--━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━--
@@ -67,7 +67,7 @@ set NERDTree
 set surround
 set multiple-cursors
 set commentary "能用gcc gc+motion来注释代码
-set keep-english-in-normal-and-restore-in-insert  "普通模式强制以英文模式
+set keep-english-in-normal-and-restore-in-insert
 set easymotion
 set argtextobj
 set highlightedyank
@@ -469,7 +469,7 @@ sethandler <C-P> a:ide
 sethandler <C-Q> a:vim
 sethandler <C-R> a:vim
 sethandler <C-S> a:ide
-sethandler <C-T> a:vim
+sethandler <C-T> a:ide
 sethandler <C-U> a:vim
 sethandler <C-V> n:vim i-x:ide
 sethandler <C-W> a:ide
