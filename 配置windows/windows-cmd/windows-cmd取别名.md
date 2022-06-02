@@ -15,6 +15,7 @@
 doskey ls=dir /b $*
 doskey ll=dir /od/p/q/tw
 doskey cl=cls
+doskey clear=cls
 doskey mv=rename $*
 doskey cp=copy $*
 doskey rm=del $*
