@@ -67,10 +67,10 @@ CapsLock::Send, {ESC}                                                ;|
 ;                      CapsLock + l |  Right                         ;|
 ;                      Ctrl, Alt Compatible                          ;|
 ;-----------------------------------o---------------------------------o
-; 如果我按ctrl+alt+capslock+hjkl就等于ctrl+shift+方向键（按住不收手）   ;|
-; 如果我按alt+capslock+hjkl就等于shift+方向键（按住不收手）             ;|
-; 如果我按ctrl+capslock+hjkl就等于ctrl+方向键 （按住不收手）            ;|
-; 这里GetKeyState("control") = 0 ctrl松手（或者没按）                  ;|
+; 如果我按ctrl+alt+capslock+hjkl就等于ctrl+shift+方向键（按住不收手）      ;|
+; 如果我按alt+capslock+hjkl就等于shift+方向键（按住不收手）                ;|
+; 如果我按ctrl+capslock+hjkl就等于ctrl+方向键 （按住不收手）               ;|
+; 这里GetKeyState("control") = 0 ctrl松手（或者没按）                   ;|
 ; 这里GetKeyState("control") = 1 按住ctrl                             ;|
 CapsLock & h::                                                       ;|
     if GetKeyState("control") = 0                                    ;|
@@ -395,7 +395,7 @@ return                                                               ;|
 CapsLock & 3::                                                       ;|
     if GetKeyState("control") = 0                                    ;|
     {                                                                ;|
-        if GetKeyState("aFlt") = 0                                    ;|
+        if GetKeyState("alt") = 0                                    ;|
             Send, {F3}                                               ;|
         else                                                         ;|
             Send, +{F3}                                              ;|
