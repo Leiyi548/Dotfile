@@ -369,13 +369,13 @@ CapsLock & F6:: Send, {Media_Stop}                                   ;|
 CapsLock & 1:: Send, {F1}                                            ;|
 CapsLock & 2:: Send, {F2}                                            ;|
 CapsLock & 3:: Send, {F3}                                            ;|
-;CapsLock & 4:: Send, {F4}                                            ;|
-;CapsLock & 5:: Send, {F5}                                            ;|
-;CapsLock & 6:: Send, {F6}                                            ;|
-;CapsLock & 7:: Send, {F7}                                            ;|
-;CapsLock & 8:: Send, {F8}                                            ;|
-;CapsLock & 9:: Send, {F9}                                            ;|
-;CapsLock & 0:: Send, {F10}                                           ;|
+CapsLock & 5:: Send, {F5}                                            ;|
+;CapsLock & 4:: Send, {F4}                                           ;|
+;CapsLock & 6:: Send, {F6}                                           ;|
+;CapsLock & 7:: Send, {F7}                                           ;|
+;CapsLock & 8:: Send, {F8}                                           ;|
+;CapsLock & 9:: Send, {F9}                                           ;|
+;CapsLock & 0:: Send, {F10}                                          ;|
 CapsLock & -:: Send, {F11}                                           ;|
 CapsLock & =:: Send, {F12}                                           ;|
 ;---------------------------------------------------------------------o
@@ -411,22 +411,6 @@ CapsLock & 4::
         WinMinimize
     }
 Return
-;----------------------------------------------------------------------o
-CapsLock & 5::
-    IfWinNotExist ahk_class WeChatMainWndForPC
-    {
-        Run E:\WeChat\WeChat.exe
-    }
-    Else IfWinNotActive ahk_class WeChatMainWndForPC
-    {
-        #WinActivateForce
-        WinActivate
-    }
-    Else
-    {
-        WinMinimize
-    }
-return
 ;----------------------------------------------------------------------o
 CapsLock & 6::
     IfWinNotExist ahk_exe Code.exe
@@ -501,17 +485,33 @@ CapsLock & 9::
 return 
 ;----------------------------------------------------------------------o
 CapsLock & 0::
-    IfWinNotExist ahk_class DOCBOX_PDF_FRAME
+    IfWinNotExist ahk_class WeChatMainWndForPC
     {
-        run D:\稻壳阅读器\DocBox\DocBox.exe
+        Run E:\WeChat\WeChat.exe
     }
-    Else IfWinNotActive ahk_class DOCBOX_PDF_FRAME
-    { 
+    Else IfWinNotActive ahk_class WeChatMainWndForPC
+    {
         #WinActivateForce
         WinActivate
-    } 
+    }
     Else
     {
         WinMinimize
     }
-Return
+return
+;----------------------------------------------------------------------o
+;CapsLock & 0::
+    ;IfWinNotExist ahk_class DOCBOX_PDF_FRAME
+    ;{
+        ;run D:\稻壳阅读器\DocBox\DocBox.exe
+    ;}
+    ;Else IfWinNotActive ahk_class DOCBOX_PDF_FRAME
+    ;{ 
+        ;#WinActivateForce
+        ;WinActivate
+    ;} 
+    ;Else
+    ;{
+        ;WinMinimize
+    ;}
+;Return
