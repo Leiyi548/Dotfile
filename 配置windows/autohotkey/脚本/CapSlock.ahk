@@ -344,7 +344,7 @@ CapsLock & p::                                                       ;|
     else                                                             ;|
         Send, +^{p}                                                  ;|
     return                                                           ;|
-CapsLock & `;:: Send {Home}{ShiftDown}{End}{ShiftUp}                 ;|
+CapsLock & `;:: Send {Home}{ShiftDown}{End}{Right}{ShiftUp}          ;|
 ;---------------------------------------------------------------------o
 
 ;=====================================================================o
@@ -374,9 +374,43 @@ CapsLock & F6:: Send, {Media_Stop}                                   ;|
 ;                    CapsLock + -  |             F11                 ;|
 ;                    CapsLock + =  |             F12                 ;|
 ;-----------------------------------o---------------------------------o
-CapsLock & 1:: Send, {F1}                                            ;|
+CapsLock & 1::                                                       ;|
+    if GetKeyState("control") = 0                                    ;|
+    {                                                                ;|
+        if GetKeyState("alt") = 0                                    ;|
+            Send, {F1}                                               ;|
+        else                                                         ;|
+            Send, +{F1}                                              ;|
+        return                                                       ;|
+    }                                                                ;|
+    else {                                                           ;|
+        if GetKeyState("alt") = 0                                    ;|
+            Send, ^{F1}                                              ;|
+        else                                                         ;|
+            Send, +^{F1}                                             ;|
+        return                                                       ;|
+    }                                                                ;|
+return                                                               ;|
+;-----------------------------------o---------------------------------o
+CapsLock & 3::                                                       ;|
+    if GetKeyState("control") = 0                                    ;|
+    {                                                                ;|
+        if GetKeyState("aFlt") = 0                                    ;|
+            Send, {F3}                                               ;|
+        else                                                         ;|
+            Send, +{F3}                                              ;|
+        return                                                       ;|
+    }                                                                ;|
+    else {                                                           ;|
+        if GetKeyState("alt") = 0                                    ;|
+            Send, ^{F3}                                              ;|
+        else                                                         ;|
+            Send, +^{F3}                                             ;|
+        return                                                       ;|
+    }                                                                ;|
+return                                                               ;|
+;-----------------------------------o---------------------------------o
 CapsLock & 2:: Send, {F2}                                            ;|
-CapsLock & 3:: Send, {F3}                                            ;|
 CapsLock & 5:: Send, {F5}                                            ;|
 ;CapsLock & 4:: Send, {F4}                                           ;|
 ;CapsLock & 6:: Send, {F6}                                           ;|
