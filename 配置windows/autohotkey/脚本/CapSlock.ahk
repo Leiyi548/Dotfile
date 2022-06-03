@@ -13,15 +13,14 @@
 ;|CapsLock;             | {ESC}  Especially Convient for vim user     |
 ;|CaspLock + `          | {CapsLock}CapsLock Switcher as a Substituent|
 ;|CapsLock + hjklwb     | Vim-Style Cursor Mover                      |
-;|CaspLock + uiod       | Convient Home/End PageUp/PageDn             |
-;|CaspLock + nm,.       | Convient Delete Controller                  |
+;|CaspLock + ioud       | Convient Home/End PageUp/PageDn             |
+;|CaspLock + ,.[]       | Convient Delete Controller                  |
 ;|CapsLock + zxcvay     | Windows-Style Editor                        |
 ;|CapsLock + Direction  | Mouse Move                                  |
 ;|CapsLock + Enter      | Mouse Click                                 |
 ;|CaspLock + {F1}~{F6}  | Media Volume Controller                     |
 ;|CapsLock + qs         | Windows & Tags Control                      |
 ;|CapsLock + ;'[]       | Convient Key Mapping                        |
-;|CaspLock + dfert      | Frequently Used Programs (Self Defined)     |
 ;|CaspLock + 123456     | Dev-Hotkey for Visual Studio (Self Defined) |
 ;|CapsLock + 67890-=    | Shifter as Shift                            |
 ;-----------------------o---------------------------------------------o
@@ -68,6 +67,11 @@ CapsLock::Send, {ESC}                                                ;|
 ;                      CapsLock + l |  Right                         ;|
 ;                      Ctrl, Alt Compatible                          ;|
 ;-----------------------------------o---------------------------------o
+; 如果我按ctrl+alt+capslock+hjkl就等于ctrl+shift+方向键（按住不收手）   ;|
+; 如果我按alt+capslock+hjkl就等于shift+方向键（按住不收手）             ;|
+; 如果我按ctrl+capslock+hjkl就等于ctrl+方向键 （按住不收手）            ;|
+; 这里GetKeyState("control") = 0 ctrl松手（或者没按）                  ;|
+; 这里GetKeyState("control") = 1 按住ctrl                             ;|
 CapsLock & h::                                                       ;|
     if GetKeyState("control") = 0                                    ;|
     {                                                                ;|
@@ -253,8 +257,8 @@ return                                                               ;|
 ;=====================================================================o
 ;                           CapsLock Deletor                         ;|
 ;-----------------------------------o---------------------------------o
-;                     CapsLock + ,  |  delete word ahead             ;|
-;                     CapsLock + .  |  delete word after             ;|
+;                     CapsLock + ,  |  Delete word ahead             ;|
+;                     CapsLock + .  |  Delete word after             ;|
 ;                     CapsLock + BackSpace  | Delete a line          ;|
 ;                     CapsLock + [  | Delete line begin              ;|
 ;                     CapsLock + ]  | Delete line end                ;|
@@ -264,10 +268,10 @@ return                                                               ;|
 CapsLock & ,:: Send, ^{BS}                                           ;|
 CapsLock & .:: Send, ^{Del}                                          ;|
 CapsLock & BackSpace:: Send {Home}{ShiftDown}{End}{Right}{ShiftUp}{Del}
-CapsLock & [:: Send +{Home}{Del}
-CapsLock & ]:: Send +{End}{Del}
-CapsLock & PgUp:: Send +^{Home}{bs}
-CapsLock & PgDn:: Send +^{End}{bs}
+CapsLock & [:: Send +{Home}{Del}                                     ;|
+CapsLock & ]:: Send +{End}{Del}                                      ;|
+CapsLock & PgUp:: Send +^{Home}{bs}                                  ;|
+CapsLock & PgDn:: Send +^{End}{bs}                                   ;|
 ;CapsLock & ,:: Send, {Del}                                          ;|
 ; CapsLock & n:: Send, ^{BS}                                         ;|
 ;---------------------------------------------------------------------o
@@ -300,11 +304,10 @@ CapsLock & b:: Send, ^{Left}                                         ;|
 ;=====================================================================o
 ;                      CapsLock Window Controller                    ;|
 ;-----------------------------------o---------------------------------o
-;                     CapsLock + s  |  Ctrl + Tab (Swith previous Tag);|
+;                     CapsLock + s  |  Ctrl + Tab (Swith previousTag);|
 ;                     CapsLock + q  |  Ctrl + W   (Close Tag)        ;|
 ;   (Disabled)  Alt + CapsLock + s  |  AltTab     (Switch Windows)   ;|
 ;               Alt + CapsLock + q  |  Ctrl + Tab (Close Windows)    ;|
-;                     CapsLock + g  |  AppsKey    (Menu Key)         ;|
 ;-----------------------------------o---------------------------------o
 CapsLock & s::Send, ^{Tab}                                           ;|
 ;-----------------------------------o--------------------------------;|
@@ -326,17 +329,22 @@ CapsLock & m:: Send, {AppsKey}                                       ;|
 ;                        CapsLock Self Defined Area                  ;|
 ;                        Custom area                                 ;|
 ;-----------------------------------o---------------------------------o
-;                     CapsLock + u  |  ctrl + u                      ;|
 ;                     CapsLock + e  |  ctrl + e                      ;|
 ;                     CapsLock + t  |   ctrl + t                     ;|
-;                     CapsLock + p  |   previous window              ;|
-;                     CapsLock + n  |   next window                  ;|
+;                     CapsLock + p  |  Ctrl + p                      ;|
+;               alt + CapsLock + p  |  Ctrl + shift + p              ;|
+;                     CapsLock + ;  |  select a Line                 ;|
 ;-----------------------------------o---------------------------------o
 CapsLock & t::Send, ^t                                               ;|
 CapsLock & f::Send, ^f                                               ;|
 CapsLock & e::Send, ^e                                               ;|
-;CapsLock & p::^#Left                                                 ;|
-;CapsLock & n::^#Right                                                ;|
+CapsLock & p::                                                       ;|        
+    if GetKeyState("alt") = 0                                        ;|
+        Send, ^{p}                                                   ;|
+    else                                                             ;|
+        Send, +^{p}                                                  ;|
+    return                                                           ;|
+CapsLock & `;:: Send {Home}{ShiftDown}{End}{ShiftUp}                 ;|
 ;---------------------------------------------------------------------o
 
 ;=====================================================================o
@@ -381,15 +389,15 @@ CapsLock & =:: Send, {F12}                                           ;|
 ;---------------------------------------------------------------------o
 
 ;=====================================================================o
-;                        CapsLock lanuch application                  ;|
+;                        CapsLock lanuch application                 ;|
 ;-----------------------------------o---------------------------------o
-;                     CapsLock + 4  |  Open youdao                    ;|
-;                     CapsLock + 5  |  Open Wechat                    ;|
-;                     CapsLock + 6  |  Open VsCode                    ;|
-;                     CapsLock + 7  |  Open Obsidian                  ;|
-;                     CapsLock + 8  |  Open jetbarin idea             ;|
-;                     CapsLock + 9  |  Open Chrome                    ;|
-;                     CapsLock + 0  |  Open DocBox                    ;|
+;                     CapsLock + 4  |  Open youdao                   ;|
+;                     CapsLock + 5  |  Open Wechat                   ;|
+;                     CapsLock + 6  |  Open VsCode                   ;|
+;                     CapsLock + 7  |  Open Obsidian                 ;|
+;                     CapsLock + 8  |  Open jetbarin idea            ;|
+;                     CapsLock + 9  |  Open Chrome                   ;|
+;                     CapsLock + 0  |  Open Wechat                   ;|
 ;-----------------------------------o---------------------------------o
 ; 1 - 窗口标题必须以指定的 winTitle开头才能匹配
 ; 2 - 窗口标题任意位置包含 winTitle才能匹配
