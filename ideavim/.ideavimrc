@@ -65,8 +65,10 @@ nnoremap <leader>z :action ToggleDistractionFreeMode<cr>
 set ideajoin
 set NERDTree
 set surround
+" 移除多光标插件，目前没有发现有好的键位设置
 set multiple-cursors
 set commentary "能用gcc gc+motion来注释代码
+" bug: 这个是有 bug 有时候回不去输入法，不知道为什么
 set keep-english-in-normal-and-restore-in-insert
 set easymotion
 set argtextobj
@@ -77,14 +79,14 @@ set matchit
 " ===
 " === multiple-cursors
 " ===
-nmap <C-n> <Plug>NextWholeOccurrence
-xmap <C-n> <Plug>NextWholeOccurrence
-nmap <C-x> <Plug>SkipOccurrence
-xmap <C-x> <Plug>SkipOccurrence
-nmap <C-q> <Plug>RemoveOccurrence
-xmap <C-q> <Plug>RemoveOccurrence
-nmap <S-C-n> <Plug>AllWholeOccurrences
-xmap <S-C-n> <Plug>AllWholeOccurrences
+" 目前使用默认键位
+" <A-n> start multiple-cursor | next match
+" <A-x> skip this match
+" <A-p> remove current match and go back to previous one
+" 修改键位设置（Example）
+" map mc <A-n>
+" map mc <A-x>
+" map mc <A-p>
 " ===
 " === easymotion
 " ===
@@ -125,13 +127,8 @@ nmap sw <Plug>(easymotion-bd-w)
 nnoremap <leader>e :NERDTreeToggle<cr>
 " 弹出文件结构信息(相当于显示大纲)
 nnoremap <leader>o mm`m:action FileStructurePopup<cr>
+nnoremap <leader>O :action ActivateStructureToolWindow<cr>
 nnoremap <C-e> :NERDTree<cr>
-" ===
-" === custom comment
-" ===
-nnoremap gcA A //<space>
-nnoremap gco o//<space>
-nnoremap gcO O//<space>
 "--━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━--
 "--━━━━━━━━━━━━━━━━━❰ end Plugins ❱━━━━━━━━━━━━━━━━━--
 "--━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━--
@@ -142,6 +139,7 @@ nnoremap gcO O//<space>
 " 取消vim s键原生映射
 nnoremap s <Nop>
 vnoremap s <Nop>
+xnoremap s <Nop>
 " 快速关闭buffers
 " nnoremap X :q<cr>
 "关闭到只剩当前tab栏 close other buffer
@@ -327,10 +325,7 @@ vnoremap <leader>ns :action SurroundWith<cr>
 "--━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━--
 " 重命名文件
 nnoremap <leader>rn :action RenameFile<cr>
-" 最近改动文件间相互跳转
-" nnoremap <leader>rf mm`m:action RecentChangedFiles<cr>
 " 查找文件
-nnoremap <C-f> mm`m:action GotoFile<cr>
 nnoremap <leader>ff mm`m:action GotoFile<cr>
 " live grep
 nnoremap <leader>fg mm`m:action FindInPath<cr>
@@ -408,8 +403,8 @@ nnoremap <leader>gB :action Github.Open.In.Browser<cr>
 " git-gutter emulation
 nnoremap ]c :action VcsShowNextChangeMarker<cr>
 nnoremap [c :action VcsShowPrevChangeMarker<cr>
-nnoremap <leader>hu :action Vcs.RollbackChangedLines<cr>
-nnoremap <leader>hp :action Vcs.ShowHistoryForBlock<cr>
+" nnoremap <leader>hu :action Vcs.RollbackChangedLines<cr>
+" nnoremap <leader>hp :action Vcs.ShowHistoryForBlock<cr>
 "--━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━--
 "--━━━━━━━━━━━━━━━━━━━❰ end Git ❱━━━━━━━━━━━━━━━━━━━--
 "--━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━--
@@ -427,7 +422,7 @@ nnoremap zd :action CollapseDocComments<cr>
 "--━━━━━━━━━━━━━━━━━━━❰ Show or Select ❱━━━━━━━━━━━━━━━━━━━━━━━--
 "--━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━--
 " 取消高亮
-nnoremap <leader>h :nohlsearch<cr>
+nnoremap <leader>h :nohl<cr>
 " 显示jumpList
 nnoremap <leader>sj :jumps<cr>
 " 显示 history
@@ -455,7 +450,7 @@ sethandler <C-B> a:ide
 sethandler <C-C> a:ide
 sethandler <C-D> a:vim
 sethandler <C-E> a:vim
-sethandler <C-F> n:vim i:ide
+sethandler <C-F> a:ide
 sethandler <C-G> a:ide
 sethandler <C-H> a:vim
 sethandler <C-I> a:vim
