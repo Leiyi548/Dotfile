@@ -19,6 +19,8 @@ doskey clear=cls
 doskey mv=rename $*
 doskey cp=copy $*
 doskey rm=del $*
+doskey his=doskey/history
+doskey history=doskey/history
 
 doskey vim=nvim $*
 doskey lg=lazygit
