@@ -327,6 +327,8 @@ vnoremap <leader>ns :action SurroundWith<cr>
 nnoremap <leader>rn :action RenameFile<cr>
 " 查找文件
 nnoremap <leader>ff mm`m:action GotoFile<cr>
+" buffer之间跳转
+nnoremap <leader>bf mm`m:action Switcher<cr>
 " live grep
 nnoremap <leader>fg mm`m:action FindInPath<cr>
 nnoremap <leader>/ mm`m:action FindInPath<cr>
