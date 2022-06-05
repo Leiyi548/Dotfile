@@ -329,21 +329,30 @@ CapsLock & m:: Send, {AppsKey}                                       ;|
 ;                        CapsLock Self Defined Area                  ;|
 ;                        Custom area                                 ;|
 ;-----------------------------------o---------------------------------o
-;                     CapsLock + e  |  ctrl + e                      ;|
-;                     CapsLock + t  |   ctrl + t                     ;|
 ;                     CapsLock + p  |  Ctrl + p                      ;|
 ;               alt + CapsLock + p  |  Ctrl + shift + p              ;|
+;                     CapsLock + f  |  Ctrl + f                      ;|
+;               alt + CapsLock + f  |  Ctrl + shift + f              ;|
+;                     CapsLock + t  |   ctrl + t                     ;|
+;                     CapsLock + e  |  ctrl + e                      ;|
 ;                     CapsLock + ;  |  select a Line                 ;|
 ;-----------------------------------o---------------------------------o
-CapsLock & t::Send, ^t                                               ;|
-CapsLock & f::Send, ^f                                               ;|
-CapsLock & e::Send, ^e                                               ;|
-CapsLock & p::                                                       ;|        
+CapsLock & f::                                                       ;|
+    if GetKeyState("alt") = 0                                        ;|
+        Send, ^{f}                                                   ;|
+    else                                                             ;|
+        Send, +^{f}                                                  ;|
+    return                                                           ;|
+;-----------------------------------o---------------------------------o
+CapsLock & p::                                                       ;|
     if GetKeyState("alt") = 0                                        ;|
         Send, ^{p}                                                   ;|
     else                                                             ;|
         Send, +^{p}                                                  ;|
     return                                                           ;|
+;-----------------------------------o---------------------------------o
+CapsLock & t::Send, ^t                                               ;|
+CapsLock & e::Send, ^e                                               ;|
 CapsLock & `;:: Send {Home}{ShiftDown}{End}{Right}{ShiftUp}          ;|
 ;---------------------------------------------------------------------o
 
@@ -557,3 +566,4 @@ return
         ;WinMinimize
     ;}
 ;Return
+;----------------------------------------------------------------------o
