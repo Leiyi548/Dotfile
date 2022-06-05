@@ -10,17 +10,15 @@
   === 文件树操作
   ===
   */
-  // 打开左侧文件树
+  // 打开左侧文件树光标并聚焦到文件树
   {
     "key": "ctrl+e",
-    "command": "workbench.view.explorer",
-    "when": "vim.mode != 'Insert'&&!inputFocus"
+    "command": "workbench.view.explorer"
   },
-  // 光标到 outline
+  // 光标定位到 outline (类似于 Intellij IDEA 使用 alt + 7 光标定位到大纲窗口)
   {
-    "key": "ctrl+;",
-    "command": "outline.focus",
-    "when": "vim.mode != 'Insert'&&!inputFocus"
+    "key": "alt+7",
+    "command": "outline.focus"
   },
   // 重命名文件
   {
@@ -37,6 +35,16 @@
   {
     "key": "shift+r",
     "command": "workbench.files.action.refreshFilesExplorer",
+    "when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus"
+  },
+  {
+    "key": "shift+w",
+    "command": "workbench.files.action.collapseExplorerFolders",
+    "when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus"
+  },
+  {
+    "key": "shift+x",
+    "command": "workbench.files.action.collapseExplorerFolders",
     "when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus"
   },
   // jk 在文件树中进行上下移动
@@ -63,6 +71,11 @@
   {
     "key": "o",
     "command": "list.toggleExpand",
+    "when": "explorerViewletVisible && filesExplorerFocus && !inputFocus"
+  },
+  {
+    "key": "p",
+    "command": "list.collapse",
     "when": "explorerViewletVisible && filesExplorerFocus && !inputFocus"
   },
   {
@@ -106,45 +119,6 @@
   === 补全 (cmp)
   ===
   */
-  // remove tab to accept copilot suggestions
-  // use ctrl + ] to accept copilot suggestions
-  {
-    "key": "tab",
-    "command": "-editor.action.inlineSuggest.commit",
-    "when": "inlineSuggestionHasIndentationLessThanTabSize && inlineSuggestionVisible && !editorTabMovesFocus"
-  },
-  {
-    "key": "ctrl+]",
-    "command": "editor.action.inlineSuggest.commit",
-    "when": "inlineSuggestionHasIndentationLessThanTabSize && inlineSuggestionVisible && !editorTabMovesFocus"
-  },
-  // remove ctrl + y open completition window
-  // {
-  //   "key": "ctrl+y",
-  //   "command": "editor.action.triggerSuggest",
-  //   "when": "editorHasCompletionItemProvider && textInputFocus && !editorReadonly && vim.mode=='Insert'"
-  // },
-  // {
-  //   "key": "ctrl+space",
-  //   "command": "-editor.action.triggerSuggest",
-  //   "when": "editorHasCompletionItemProvider && textInputFocus && !editorReadonly"
-  // },
-  // 用Ctrl+n tab 进行向下选择  用Ctrl+p shift+tab 进行向上选择
-  {
-    "key": "ctrl+[",
-    "command": "workbench.action.quickOpenNavigateNext",
-    "when": "inQuickOpen"
-  },
-  {
-    "key": "ctrl+p",
-    "command": "workbench.action.quickOpenNavigatePrevious",
-    "when": "inQuickOpen"
-  },
-  {
-    "key": "ctrl+n",
-    "command": "workbench.action.quickOpenNavigateNext",
-    "when": "inQuickOpen"
-  },
   {
     "key": "tab",
     "command": "workbench.action.quickOpenNavigateNext",
@@ -161,17 +135,7 @@
     "when": "editorTextFocus && suggestWidgetMultipleSuggestions && suggestWidgetVisible"
   },
   {
-    "key": "ctrl+n",
-    "command": "selectNextSuggestion",
-    "when": "editorTextFocus && suggestWidgetMultipleSuggestions && suggestWidgetVisible"
-  },
-  {
     "key": "shift+tab",
-    "command": "selectPrevSuggestion",
-    "when": "editorTextFocus && suggestWidgetMultipleSuggestions && suggestWidgetVisible"
-  },
-  {
-    "key": "ctrl+p",
     "command": "selectPrevSuggestion",
     "when": "editorTextFocus && suggestWidgetMultipleSuggestions && suggestWidgetVisible"
   },
@@ -186,8 +150,18 @@
     "when": "editorLangId == 'markdown'"
   },
   {
+    "key": "ctrl+i",
+    "command": "-md-shortcut.toggleItalic",
+    "when": "editorTextFocus && markdownShortcuts:enabled"
+  },
+  {
     "key": "shift+enter",
     "command": "-markdown-preview-enhanced.runCodeChunk",
+    "when": "editorLangId == 'markdown'"
+  },
+  {
+    "key": "ctrl+shift+k",
+    "command": "markdown.extension.editing.toggleCodeBlock",
     "when": "editorLangId == 'markdown'"
   },
   {
@@ -222,17 +196,21 @@
   },
   /*
   ===
-  === window 
-  ===
-  */
-  /*
-  ===
   === 终端 
   ===
-  使用细节(windows)
-  1. ctrl+l 清屏
   */
-  // remove default ctrl+up/down keybindings
+  // use pageup pagedown to scroll terminal
+  {
+    "key": "pageup",
+    "command": "workbench.action.terminal.scrollUp",
+    "when": "terminalFocus && terminalHasBeenCreated && !terminalAltBufferActive || terminalFocus && terminalProcessSupported && !terminalAltBufferActive"
+  },
+  {
+    "key": "pagedown",
+    "command": "workbench.action.terminal.scrollDown",
+    "when": "terminalFocus && terminalHasBeenCreated && !terminalAltBufferActive || terminalFocus && terminalProcessSupported && !terminalAltBufferActive"
+  },
+  // remove defalut keybinding ctrl+up/down
   {
     "key": "ctrl+up",
     "command": "-workbench.action.terminal.navigationModeFocusPrevious",
@@ -243,7 +221,7 @@
     "command": "-workbench.action.terminal.navigationModeFocusNext",
     "when": "accessibilityModeEnabled && terminalA11yTreeFocus && terminalProcessSupported || accessibilityModeEnabled && terminalFocus && terminalProcessSupported"
   },
-  // use ctrl+up/down to control winodow size
+  // use ctrl+up/down/left/right to control terminal winodow size
   {
     "key": "ctrl+up",
     "command": "workbench.action.terminal.resizePaneUp",
@@ -252,6 +230,16 @@
   {
     "key": "ctrl+down",
     "command": "workbench.action.terminal.resizePaneDown",
+    "when": "terminalFocus && terminalHasBeenCreated || terminalFocus && terminalProcessSupported"
+  },
+  {
+    "key": "ctrl+right",
+    "command": "workbench.action.terminal.resizePaneRight",
+    "when": "terminalFocus && terminalHasBeenCreated || terminalFocus && terminalProcessSupported"
+  },
+  {
+    "key": "ctrl+left",
+    "command": "workbench.action.terminal.resizePaneLeft",
     "when": "terminalFocus && terminalHasBeenCreated || terminalFocus && terminalProcessSupported"
   },
   // windows 快捷键冲突 移除 ctrl+left/right
@@ -265,37 +253,9 @@
     "command": "-workbench.action.terminal.resizePaneRight",
     "when": "terminalFocus && terminalHasBeenCreated || terminalFocus && terminalProcessSupported"
   },
-  // 使用 pageup / pagedwon 上下移动终端页面
-  // {
-  //   "key": "pagedown",
-  //   "command": "workbench.action.terminal.scrollToNextCommand",
-  //   "when": "terminalFocus"
-  // },
-  // {
-  //   "key": "pageup",
-  //   "command": "workbench.action.terminal.scrollToPreviousCommand",
-  //   "when": "terminalFocus"
-  // },
-  {
-    "key": "ctrl+p",
-    "command": "workbench.action.terminal.scrollToPreviousCommand",
-    "when": "terminalFocus"
-  },
-  {
-    "key": "ctrl+n",
-    "command": "workbench.action.terminal.scrollToNextCommand",
-    "when": "terminalFocus"
-  },
-  // 使用 ctrl + t 去 toggle 终端
   {
     "key": "ctrl+t",
     "command": "workbench.action.terminal.toggleTerminal",
-    "when": "terminal.active"
-  },
-  // 移除原来的键位绑定
-  {
-    "key": "ctrl+`",
-    "command": "-workbench.action.terminal.toggleTerminal",
     "when": "terminal.active"
   },
   // 在终端内使用 ctrl + k 回到代码区
@@ -304,7 +264,7 @@
     "command": "workbench.action.focusActiveEditorGroup",
     "when": "terminalFocus"
   },
-  // 使用ctrl + enter 让terminal 变成最大
+  // 使用ctrl + enter 让terminal 变成最大(toggle)
   {
     "key": "ctrl+enter",
     "command": "workbench.action.toggleMaximizedPanel",
@@ -316,6 +276,23 @@
     "command": "workbench.action.terminal.kill",
     "when": "terminalFocus"
   },
+  // 使用alt+h/l进行左右移动在终端组
+  {
+    "key": "alt+h",
+    "command": "workbench.action.terminal.focusPreviousPane",
+    "when": "terminalFocus && terminalHasBeenCreated || terminalFocus && terminalProcessSupported"
+  },
+  {
+    "key": "alt+l",
+    "command": "workbench.action.terminal.focusNextPane",
+    "when": "terminalFocus && terminalHasBeenCreated || terminalFocus && terminalProcessSupported"
+  },
+  // 使用ctrl + l 进行清屏
+  {
+    "key": "ctrl+l",
+    "command": "workbench.action.terminal.clear",
+    "when": "terminalFocus"
+  },
   // Use the same shortcut keys as PowerShell to split the screen
   // Vertical split screen (vscode terminal 只有垂直分屏)
   {
@@ -323,10 +300,22 @@
     "command": "workbench.action.terminal.split",
     "when": "terminalFocus && terminalProcessSupported || terminalFocus && terminalWebExtensionContributedProfile"
   },
+  // 移除ctrl+f 和我搜索文件有冲突
   {
-    "key": "ctrl+f",
-    "command": "-workbench.action.terminal.focusFind",
+    "key": "-ctrl+f",
+    "command": "workbench.action.terminal.focusFind",
     "when": "terminalFindFocused && terminalHasBeenCreated || terminalFindFocused && terminalProcessSupported || terminalFocus && terminalHasBeenCreated || terminalFocus && terminalProcessSupported"
+  },
+  // 使用 alt + j/k 上下切换终端窗口(终端之间的移动)
+  {
+    "key": "alt+k",
+    "command": "workbench.action.terminal.focusPrevious",
+    "when": "terminalFocus && terminalHasBeenCreated && !terminalEditorFocus || terminalFocus && terminalProcessSupported && !terminalEditorFocus"
+  },
+  {
+    "key": "alt+j",
+    "command": "workbench.action.terminal.focusNext",
+    "when": "terminalFocus && terminalHasBeenCreated && !terminalEditorFocus || terminalFocus && terminalProcessSupported && !terminalEditorFocus"
   },
   /*
   ===
@@ -359,12 +348,6 @@
     "command": "workbench.view.scm",
     "when": "workbench.scm.active"
   },
-  // 运行 lazygit
-  // {
-  //   "key": "alt+g",
-  //   "command": "workbench.action.tasks.runTask",
-  //   "args": "lazygit"
-  // },
   /*
   ===
   === 侧面板 
@@ -387,14 +370,14 @@
   ===
   */
   {
-    "key": "shift+tab",
-    "command": "-markdown.extension.onShiftTabKey",
-    "when": "editorTextFocus && !editorReadonly && !editorTabMovesFocus && !hasOtherSuggestions && !hasSnippetCompletions && !inSnippetMode && !suggestWidgetVisible && editorLangId == 'markdown'"
-  },
-  {
     "key": "tab",
     "command": "-markdown.extension.onTabKey",
-    "when": "editorTextFocus && !editorReadonly && !editorTabMovesFocus && !hasOtherSuggestions && !hasSnippetCompletions && !inSnippetMode && !suggestWidgetVisible && editorLangId == 'markdown'"
+    "when": "editorTextFocus && !editorHasMultipleSelections && !editorReadonly && !editorTabMovesFocus && !hasOtherSuggestions && !hasSnippetCompletions && !inSnippetMode && !inlineSuggestionVisible && !suggestWidgetVisible && editorLangId == 'markdown'"
+  },
+  {
+    "key": "shift+tab",
+    "command": "-markdown.extension.onShiftTabKey",
+    "when": "editorTextFocus && !editorHasMultipleSelections && !editorReadonly && !editorTabMovesFocus && !hasOtherSuggestions && !hasSnippetCompletions && !inSnippetMode && !suggestWidgetVisible && editorLangId == 'markdown'"
   },
   {
     "key": "ctrl+enter",
@@ -404,16 +387,12 @@
   {
     "key": "ctrl+b",
     "command": "markdown.extension.editing.toggleBold",
-    "when": "editorTextFocus && !editorReadonly && editorLangId == 'markdown' || vim.mode =='Visual'"
+    "when": "editorTextFocus && !editorReadonly && editorLangId == 'markdown' && vim.mode =='Visual'"
   },
   {
     "key": "ctrl+i",
     "command": "markdown.extension.editing.toggleItalic",
-    "when": "editorTextFocus && !editorReadonly && editorLangId == 'markdown' || vim.mode =='Visual'"
-  },
-  {
-    "key": "ctrl+c",
-    "command": "markdown.extension.toc.create"
+    "when": "editorTextFocus && !editorReadonly && editorLangId == 'markdown' && vim.mode =='Visual'"
   },
   {
     "key": "ctrl+alt+v",
@@ -425,10 +404,23 @@
     "command": "editor.action.insertSnippet",
     "when": "editorTextFocus"
   },
-  // remove ctrl + . to codeaction
+  /*
+  ===
+  === 编辑区(Editor)
+  ===
+  */
+  // 使用 ctrl + alt + i 会显示这个节点的信息 类似neovim （tressiter highlight under cursor）
   {
-    "key": "ctrl+oem_period",
-    "command": "-editor.action.quickFix",
-    "when": "editorHasCodeActionsProvider && editorTextFocus && !editorReadonly"
+    "key": "ctrl+alt+i",
+    "command": "editor.action.inspectTMScopes"
+  },
+  // 移除ctrl + e 搜索文件用ctrl + f 来进行文件之间跳转
+  {
+    "key": "ctrl+e",
+    "command": "-workbench.action.quickOpen"
+  },
+  {
+    "key": "ctrl+f",
+    "command": "workbench.action.quickOpen"
   }
 ]

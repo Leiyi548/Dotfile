@@ -1,4 +1,4 @@
-{
+ {
   "workbench.iconTheme": "material-icon-theme",
   "vsicons.dontShowNewVersionMessage": true,
   /*--━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━--
@@ -12,22 +12,33 @@
   "search.searchOnType": true,
   "search.showLineNumbers": true,
   "search.smartCase": true,
+  // 显示空格标记（..)
+  "editor.renderWhitespace": "all",
+  "editor.wordWrap": "on",
   // like cmp ghost text(My favorite feature)
   "editor.suggest.preview": true,
   "workbench.editor.limit.enabled": false,
   "workbench.editor.limit.value": 5,
+  "editor.smoothScrolling": true,
+  "workbench.list.smoothScrolling": true,
   "explorer.confirmDragAndDrop": false,
+  // vscode补全设置，开启vscode字符补全，像cmp的buffer补全
+  "editor.quickSuggestions": {
+    "other": "on",
+    "comments": "off",
+    "strings": "on"
+  },
   "editor.showFoldingControls": "always",
   "editor.bracketPairColorization.enabled": true,
   "editor.suggestSelection": "first",
-  "editor.fontSize": 16,
+  "editor.fontSize": 15,
   "debug.console.fontSize": 18,
   "editor.cursorSurroundingLines": 8,
   "editor.bracketPairColorization.independentColorPoolPerBracketType": true,
   "editor.linkedEditing": true,
-  "editor.fontFamily": "JetBrains Mono,Cascadia Code,FiraCode Nerd Font,Menlo, Monaco, 'Courier New', monospace,'Hack Nerd Font'",
-  // "editor.fontFamily": "Operator Mono",
-  "terminal.integrated.fontFamily": "FiraCode Nerd Font",
+  // "editor.fontFamily": "JetBrains Mono,Cascadia Code,FiraCode Nerd Font,Menlo, Monaco, 'Courier New', monospace,'Hack Nerd Font'",
+  // "editor.fontFamily": "JetBrains Mono,微软雅黑",
+  "editor.fontFamily": "FiraCode Nerd Font,微软雅黑",
   "editor.tabSize": 2, // minimap
   "editor.cursorSmoothCaretAnimation": true,
   "editor.formatOnSave": true,
@@ -46,36 +57,45 @@
         "name": "italic font",
         "scope": [
           "comment",
-          "keyword",
-          "storage",
-          "keyword.control.import",
-          "keyword.control.default",
-          "keyword.control.from",
+          // "keyword.control.import",
+          // "keyword",
+          // "keyword.control.default",
+          // "keyword.control.export",
+          // "keyword.control.flow"
+          // "keyword.control.from",
           "keyword.operator.new",
-          "keyword.control.export",
-          "keyword.control.flow",
-          "storage.type.class",
-          "storage.type.function",
-          "storage.type",
-          "storage.type.class",
-          "variable.language",
-          "variable.language.super",
-          "variable.language.this",
-          "meta.class",
-          "meta.var.expr",
-          "constant.language.null",
-          "support.type.primitive",
-          "entity.name.method.js",
-          "entity.other.attribute-name",
-          "punctuation.definition.comment",
-          "text.html.basic entity.other.attribute-name.html",
-          "text.html.basic entity.other.attribute-name",
-          "tag.decorator.js entity.name.tag.js",
-          "tag.decorator.js punctuation.definition.tag.js",
-          "source.js constant.other.object.key.js string.unquoted.label.js"
+          "entity.name.tag.css"
+          // "entity.other.attribute-name",
+          // "storage",
+          // "storage.type.class",
+          // "storage.type.function",
+          // "storage.type",
+          // "storage.type.class",
+          // "variable.language",
+          // "variable.language.super",
+          // "variable.language.this",
+          // "meta.class",
+          // "meta.var.expr",
+          // "constant.language.null",
+          // "support.type.primitive",
+          // "entity.name.method.js",
+          // "entity.other.attribute-name",
+          // "punctuation.definition.comment",
+          // "text.html.basic entity.other.attribute-name.html",
+          // "text.html.basic entity.other.attribute-name",
+          // "tag.decorator.js entity.name.tag.js",
+          // "tag.decorator.js punctuation.definition.tag.js",
+          // "source.js constant.other.object.key.js string.unquoted.label.js"
         ],
         "settings": {
           "fontStyle": "italic"
+        }
+      },
+      {
+        "name": "bold font",
+        "scope": [],
+        "settings": {
+          "fontStyle": "bold"
         }
       }
     ]
@@ -84,33 +104,31 @@
   "workbench.colorCustomizations": {
     // "tab.hoverBackground": "#027bcc",
     "[Monokai Pro]": {
-      "editor.background": "#1e2122",
-      "sideBar.background": "#252526",
-      "editorGutter.background": "#1e2122",
       "panel.background": "#1e1e1e",
-      "terminal.background": "#1e1e1e", // #221f22
-      "editorLineNumber.foreground": "#5b595c",
-      "editorLineNumber.activeForeground": "#ffff50",
-      // default status
-      // "statusBar.background": "#007acc",
-      // "statusBar.foreground": "#efffff",
-      // monokai charcoral orange
-      "statusBar.background": "#000000",
-      "statusBar.foreground": "#FD971F",
-      "statusBar.border": "#FD971F75",
-      "statusBar.noFolderBackground": "#000000",
-      "statusBar.noFolderForeground": "#FD971F",
-      "statusBar.debuggingBackground": "#43B9D815",
-      "statusBar.debuggingForeground": "#FD971F",
-      "statusBarItem.hoverBackground": "#101010",
-      "editor.selectionBackground": "#2e8a87",
-      "editor.findMatchHighlightBackground": "#5b595c"
+      "terminal.background": "#1e1e1e" // #221f22
+    },
+    "[GitHub Dark Default]": {
+      "tab.activeBorder": "#43B9D8"
     },
     "[monokai-charcoal]": {
-      "editorLineNumber.foreground": "#2d2a2e",
-      "editorLineNumber.activeForeground": "#ffff50",
-      "tab.activeBorder": "#ffd866",
-      "tab.activeBackground": "#363337",
+      "tab.activeBackground": "#0000",
+      "tab.activeForeground": "#43B9D8",
+      "tab.border": "#181a1f",
+      "tab.activeBorder": "#43B9D8",
+      "tab.unfocusedActiveBorder": "#919288",
+      "tab.inactiveBackground": "#0000",
+      "tab.inactiveForeground": "#ffffff",
+      "tab.unfocusedActiveForeground": "#c0c1b5",
+      "tab.unfocusedInactiveForeground": "#919288",
+      "tab.hoverBackground": "#323842",
+      "tab.unfocusedHoverBackground": "#323842",
+      "tab.hoverBorder": "#57584f",
+      "tab.unfocusedHoverBorder": "#272822",
+      "tab.activeModifiedBorder": "#57584f",
+      "tab.inactiveModifiedBorder": "#57584f",
+      "tab.unfocusedActiveModifiedBorder": "#3b3c35",
+      "tab.unfocusedInactiveModifiedBorder": "#3b3c35",
+      "tab.lastPinnedBorder": "#57584f",
       // vim搜索文本高亮
       "editor.findMatchHighlightBackground": "#3069db" // #442726 #7306f0 #6688cc
       // "editor.background": "#2d2a2e"
@@ -134,6 +152,10 @@
       "tab.unfocusedActiveModifiedBorder": "#3b3c35",
       "tab.unfocusedInactiveModifiedBorder": "#3b3c35",
       "tab.lastPinnedBorder": "#57584f"
+    },
+    "[Default Dark+]": {
+      "tab.border": "#181a1f",
+      "tab.activeBorder": "#1d7bed"
     }
   },
   /*--━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━--
@@ -143,12 +165,13 @@
   /*--━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━--
   --━━━━━━━━━━━━━━━━━━━❰ vim config ❱━━━━━━━━━━━━━━━━━━━--
   --━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━--*/
+  "vim.showmodename": true,
   "vim.incsearch": true,
-  "vim.autoSwitchInputMethod.enable": true,
   "vim.useCtrlKeys": true,
   "vim.handleKeys": {
-    "<C-a>": false,
-    "<C-f>": false
+    // "<C-a>": false,
+    "<C-f>": false,
+    "<C-b>": false
   },
   "vim.hlsearch": true,
   "vim.easymotion": true,
@@ -156,11 +179,11 @@
   "vim.showcmd": true,
   // "vim.shell": "C:\\Program Files\\PowerShell\\7\\pwsh.exe",
   "vim.timeout": 500,
-  "vim.showmodename": true,
   "vim.leader": "\\",
   "editor.lineNumbers": "relative",
   "vim.smartRelativeLine": false,
-  "vim.autoSwitchInputMethod.defaultIM": "1033",
+  "vim.autoSwitchInputMethod.enable": true,
+  "vim.autoSwitchInputMethod.defaultIM": "1033", // 1033
   "vim.autoSwitchInputMethod.obtainIMCmd": "D:\\im\\im-select.exe",
   "vim.autoSwitchInputMethod.switchIMCmd": "D:\\im\\im-select.exe {im}",
   "vim.history": 1000,
@@ -170,9 +193,13 @@
   "vim.useSystemClipboard": false,
   "vim.wrapscan": true,
   "vim.insertModeKeyBindingsNonRecursive": [
+    // {
+    //   "before": ["ctrl+e"],
+    //   "commands": ["cursorEnd"]
+    // }
     {
       "before": ["ctrl+e"],
-      "commands": ["cursorEnd"]
+      "commands": ["workbench.view.explorer"]
     }
   ],
   "vim.visualModeKeyBindingsNonRecursive": [
@@ -215,11 +242,13 @@
     },
     {
       "before": ["j"],
-      "after": ["g", "j"]
+      "after": ["g", "j"],
+      "when": " editorLangId == 'markdown'"
     },
     {
       "before": ["k"],
-      "after": ["g", "k"]
+      "after": ["g", "k"],
+      "when": " editorLangId == 'markdown'"
     },
     {
       "before": ["Y"],
@@ -232,6 +261,10 @@
     {
       "before": ["K"],
       "commands": ["editor.action.moveLinesUpAction"]
+    },
+    {
+      "before": ["ctrl+n"],
+      "after": ["g", "b"]
     }
   ],
   // vim normalKeybinding
@@ -241,12 +274,27 @@
       "commands": ["whichkey.show"]
     },
     {
+      "before": ["m", "a"],
+      "commands": ["bookmarks.listFromAllFiles"],
+      "when": "editorTextFocus"
+    },
+    {
+      "before": ["m", "m"],
+      "commands": ["bookmarks.toggle"],
+      "when": "editorTextFocus"
+    },
+    {
+      "before": ["m", "c"],
+      "commands": ["bookmarks.clear"],
+      "when": "editorTextFocus"
+    },
+    {
       "before": ["g", "a"],
       "commands": ["editor.action.quickFix"],
       "when": "editorHasCodeActionsProvider && editorTextFocus && !editorReadonly"
     },
     {
-      "before": ["g", "r"],
+      "before": ["g", "I"],
       "commands": ["editor.action.goToImplementation"],
       "when": "editorHasImplementationProvider && editorTextFocus && !isInEmbeddedEditor"
     },
@@ -258,6 +306,20 @@
     {
       "before": ["g", "p"],
       "commands": ["editor.action.peekDefinition"],
+      "when": [
+        "editorHasDefinitionProvider && editorTextFocus && !inReferenceSearchEditor && !isInEmbeddedEditor"
+      ]
+    },
+    {
+      "before": ["g", "r"],
+      "commands": ["editor.action.referenceSearch.trigger"],
+      "when": [
+        "editorHasDefinitionProvider && editorTextFocus && !inReferenceSearchEditor && !isInEmbeddedEditor"
+      ]
+    },
+    {
+      "before": ["g", "s"],
+      "commands": ["workbench.action.gotoSymbol"],
       "when": [
         "editorHasDefinitionProvider && editorTextFocus && !inReferenceSearchEditor && !isInEmbeddedEditor"
       ]
@@ -286,11 +348,13 @@
     },
     {
       "before": ["j"],
-      "after": ["g", "j"]
+      "after": ["g", "j"],
+      "when": " editorLangId == 'markdown'"
     },
     {
       "before": ["k"],
-      "after": ["g", "k"]
+      "after": ["g", "k"],
+      "when": " editorLangId == 'markdown'"
     },
     {
       "before": ["u"],
@@ -313,8 +377,12 @@
       "after": ["^", "D"]
     },
     {
+      "before": ["x"],
+      "commands": ["workbench.action.closeActiveEditor"]
+    },
+    {
       "before": ["X"],
-      "commands": [":q!"]
+      "commands": ["workbench.action.reopenClosedEditor"]
     },
     {
       "before": ["<TAB>"],
@@ -543,7 +611,7 @@
   --━━━━━━━━━━━━━━━━━━━❰ markdown config ❱━━━━━━━━━━━━━━━━━━━--
   --━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━--*/
   "markdown.preview.fontSize": 16,
-  "markdown-preview-enhanced.previewTheme": "github-dark.css",
+  "markdown-preview-enhanced.previewTheme": "one-dark.css",
   "markdown-preview-enhanced.enableHTML5Embed": true,
   "markdown-preview-enhanced.enableExtendedTableSyntax": true,
   "markdown.extension.toc.updateOnSave": true,
@@ -560,17 +628,35 @@
   --━━━━━━━━━━━━━━━━━━━❰ terminal config ❱━━━━━━━━━━━━━━━━━━━--
   --━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━--*/
   // windows
-  // "terminal.external.windowsExec": "C:\\ProgramData\\Microsoft\\Windows\\Start Menu\\Programs\\PowerShell\\PowerShell 7 (x64)",
   "terminal.external.windowsExec": "C:\\Program Files\\PowerShell\\7\\pwsh.exe",
-  // gpu acceleration
   "terminal.integrated.gpuAcceleration": "on",
+  "terminal.integrated.fontFamily": "FiraCode Nerd Font",
+  "terminal.integrated.cursorBlinking": true,
+  "terminal.integrated.defaultProfile.windows": "Command Prompt",
+  "terminal.integrated.profiles.windows": {
+    "PowerShell": {
+      "source": "PowerShell",
+      "overrideName": true,
+      "icon": "terminal-powershell",
+      "args": ["-NoLogo"]
+    },
+    "Command Prompt": {
+      "path": [
+        "${env:windir}\\Sysnative\\cmd.exe",
+        "${env:windir}\\System32\\cmd.exe"
+      ],
+      "args": [],
+      "icon": "terminal-cmd"
+    },
+    "Git Bash": {
+      "source": "Git Bash"
+    }
+  },
   /*--━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━--
     --━━━━━━━━━━━━━━━━━━━❰ end terminal ❱━━━━━━━━━━━━━━━━━━━--
   --━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━--*/
   "liveServer.settings.donotShowInfoMsg": true,
-  // explorer
   "explorer.confirmDelete": false,
-  // 控制如何处理在受信任的工作区中打开不受信任的文件
   "security.workspace.trust.untrustedFiles": "open",
   "whichkey.bindings": [
     /*--━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━--
@@ -581,6 +667,48 @@
       "name": "commands",
       "type": "command",
       "command": "workbench.action.showCommands"
+    },
+    {
+      "key": "1",
+      "name": "Focus 1st buffer",
+      "type": "command",
+      "command": "workbench.action.firstEditorInGroup"
+    },
+    {
+      "key": "2",
+      "name": "Focus 2st buffer",
+      "type": "command",
+      "command": "vim.remap",
+      "args": {
+        "after": ["2", "g", "t"]
+      }
+    },
+    {
+      "key": "3",
+      "name": "Focus 3st buffer",
+      "type": "command",
+      "command": "vim.remap",
+      "args": {
+        "after": ["3", "g", "t"]
+      }
+    },
+    {
+      "key": "4",
+      "name": "Focus 4st buffer",
+      "type": "command",
+      "command": "vim.remap",
+      "args": {
+        "after": ["4", "g", "t"]
+      }
+    },
+    {
+      "key": "5",
+      "name": "Focus 5st buffer",
+      "type": "command",
+      "command": "vim.remap",
+      "args": {
+        "after": ["5", "g", "t"]
+      }
     },
     // {
     //   "key": "?",
@@ -597,16 +725,16 @@
     },
     {
       "key": "/",
-      "name": "Search in project",
+      "name": "Search text in project",
       "type": "command",
-      "command": "workbench.action.findInFiles"
+      "command": "search.action.openEditor"
     },
-    {
-      "key": "*",
-      "name": "Search in project with selection",
-      "type": "command",
-      "command": "workbench.action.findInFiles search.action.focusSearchList"
-    },
+    // {
+    //   "key": "*",
+    //   "name": "Search in project with selection",
+    //   "type": "command",
+    //   "command": "workbench.action.findInFiles search.action.focusSearchList"
+    // },
     //whichkey-b
     {
       "key": "b",
@@ -618,6 +746,18 @@
           "name": "Show all buffers/editors",
           "type": "command",
           "command": "workbench.action.showAllEditors"
+        },
+        {
+          "key": "t",
+          "name": "Pin buffer",
+          "type": "command",
+          "command": "workbench.action.pinEditor"
+        },
+        {
+          "key": "T",
+          "name": "UnPin buffer",
+          "type": "command",
+          "command": "workbench.action.unpinEditor"
         },
         {
           "key": "d",
@@ -697,7 +837,7 @@
         }
       ]
     },
-    //whichkey-d
+    // whichkey-d
     {
       "key": "d",
       "name": "Debug...",
@@ -758,7 +898,7 @@
           "command": "workbench.action.debug.stepOut"
         },
         {
-          "key": "b",
+          "key": "t",
           "name": "Toggle breakpoint",
           "type": "command",
           "command": "editor.debug.action.toggleBreakpoint"
@@ -795,12 +935,26 @@
         }
       ]
     },
-    //whichkey-e
+    // whichkey-e
     {
       "key": "e",
       "name": "Toggle Explorer",
       "type": "command",
       "command": "workbench.action.toggleSidebarVisibility"
+    },
+    // whichkey-h
+    {
+      "key": "h",
+      "name": "No Highlight",
+      "type": "command",
+      "command": "vim.remap",
+      "args": {
+        "commands": [
+          {
+            "command": ":noh"
+          }
+        ]
+      }
     },
     //whichkey-r
     {
@@ -810,9 +964,15 @@
       "bindings": [
         {
           "key": "r",
-          "name": "Run code",
+          "name": "Run code(code-runner)",
           "type": "command",
           "command": "code-runner.run"
+        },
+        {
+          "key": "p",
+          "name": "Run previous command",
+          "type": "command",
+          "command": "workbench.action.terminal.runRecentCommand"
         },
         {
           "key": "n",
@@ -833,14 +993,21 @@
           "name": "New file",
           "type": "command",
           "command": "fileutils.newFile"
+        },
+        {
+          "key": "d",
+          "name": "Directory",
+          "type": "command",
+          "command": "fileutils.newFolder"
         }
-        // {
-        //   "key": "d",
-        //   "name": "Delete file",
-        //   "type": "command",
-        //   "command": "fileutils.removeFile"
-        // },
       ]
+    },
+    //whichkey-F
+    {
+      "key": "F",
+      "command": "search.action.openEditor",
+      "name": "New Search Editor",
+      "type": "command"
     },
     //whichkey-f
     {
@@ -850,33 +1017,45 @@
       "bindings": [
         {
           "key": "f",
-          "name": "Files",
+          "name": "Find File",
           "type": "command",
           "command": "workbench.action.quickOpen"
         },
         {
-          "key": "c",
-          "name": "Colorscheme",
-          "type": "command",
-          "command": "workbench.action.selectTheme"
-        },
-        {
           "key": "r",
-          "name": "Recent",
+          "name": "Recent File",
           "type": "command",
           "command": "workbench.action.openRecent"
         },
         {
-          "key": "t",
-          "name": "Text",
+          "key": "s",
+          "name": "Setting(json)",
           "type": "command",
-          "command": "workbench.action.findInFiles"
+          "command": "workbench.action.openSettingsJson"
         },
         {
-          "key": "d",
-          "name": "Directory",
+          "key": "g",
+          "name": "Search Text in sadebar",
           "type": "command",
-          "command": "fileutils.newFolder"
+          "command": "search.action.clearSearchResults"
+        },
+        {
+          "key": "K",
+          "name": "Open global key bindings",
+          "type": "command",
+          "command": "workbench.action.openGlobalKeybindings"
+        },
+        {
+          "key": "k",
+          "name": "Open global key bindings JSON",
+          "type": "command",
+          "command": "workbench.action.openGlobalKeybindingsFile"
+        },
+        {
+          "key": "S",
+          "name": "Save all files",
+          "type": "command",
+          "command": "workbench.action.files.saveAll"
         }
       ]
     },
@@ -892,12 +1071,6 @@
           "command": "gitlens.showCommitSearch",
           "type": "command",
           "when": "gitlens:enabled && config.gitlens.keymap == 'alternate'"
-        },
-        {
-          "key": "y",
-          "name": "Upload Settings",
-          "type": "command",
-          "command": "extension.updateSettings"
         },
         {
           "key": "a",
@@ -1436,20 +1609,20 @@
           }
         },
         {
-          "key": "b",
-          "name": "Fuzzy search in current buffer",
+          "key": "c",
+          "name": "Select Colorscheme",
           "type": "command",
-          "command": "fuzzySearch.activeTextEditorWithCurrentSelection"
+          "command": "workbench.action.selectTheme"
         },
         {
-          "key": "c",
-          "name": "Clear Highlight",
+          "key": "j",
+          "name": "show jumplist",
           "type": "command",
           "command": "vim.remap",
           "args": {
             "commands": [
               {
-                "command": ":noh"
+                "command": ":jumps"
               }
             ]
           }
@@ -1608,30 +1781,6 @@
           "command": "workbench.action.focusNextGroup"
         },
         {
-          "key": "h",
-          "name": "Move editor group left",
-          "type": "command",
-          "command": "workbench.action.navigateLeft"
-        },
-        {
-          "key": "j",
-          "name": "Move editor group down",
-          "type": "command",
-          "command": "workbench.action.navigateDown"
-        },
-        {
-          "key": "k",
-          "name": "Move editor group up",
-          "type": "command",
-          "command": "workbench.action.navigateUp"
-        },
-        {
-          "key": "l",
-          "name": "Move editor group right",
-          "type": "command",
-          "command": "workbench.action.navigateRight"
-        },
-        {
           "key": "H",
           "name": "Move editor group left",
           "type": "command",
@@ -1721,7 +1870,7 @@
     // whichkey-y
     {
       "key": "y",
-      "name": "Copy",
+      "name": "Copy(clipboard)",
       "type": "command",
       "command": "vim.remap",
       "args": {
@@ -1731,7 +1880,7 @@
     //whichkey-p
     {
       "key": "p",
-      "name": "Paste",
+      "name": "Paste(clipboard)",
       "type": "command",
       "command": "vim.remap",
       "args": {
@@ -1770,16 +1919,41 @@
   "[jsonc]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "editor.minimap.enabled": false,
-  "workbench.experimental.editor.dragAndDropIntoEditor.enabled": true,
-  "cSpell.userWords": ["dotfile", "gitmoji", "unstage", "Unstaged"],
-  "pasteImage.forceUnixStyleSeparator": false,
-  "python.defaultInterpreterPath": "C:\\Users\\9\\scoop\\shims\\python3.exe",
+  "[vue]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    // "editor.defaultFormatter": "octref.vetur"
+  },
   "[javascript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "html.autoClosingTags": false,
+  // "cSpell.userWords": ["dotfile", "gitmoji", "unstage", "Unstaged"],
+  "pasteImage.forceUnixStyleSeparator": false,
+  "python.defaultInterpreterPath": "C:\\Users\\9\\scoop\\shims\\python3.exe",
+  "errorLens.fontStyleItalic": true,
+  "files.eol": "\n",
+  "errorLens.statusBarIconsEnabled": false,
+  "errorLens.gutterIconsEnabled": true,
+  "errorLens.gutterIconSet": "defaultOutline",
+  "problems.showCurrentInStatus": false,
+  "editor.unicodeHighlight.allowedLocales": {
+    "zh-hant": true
+  },
+  "editor.minimap.enabled": false,
+  "javascript.inlayHints.functionLikeReturnTypes.enabled": true,
+  "typescript.inlayHints.functionLikeReturnTypes.enabled": true,
+  "workbench.startupEditor": "none",
+  "prettier.jsxSingleQuote": true,
+  "prettier.singleQuote": true,
+  "material-icon-theme.folders.theme": "specific",
+  "workbench.colorTheme": "monokai-charcoal",
   "workbench.activityBar.visible": false
+  // "prettier.configPath": "C:\\Users\\9\\.prettierrc"
+  // "rainbowTags.hightlightType": "background-color"
   /*--━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━--
     --━━━━━━━━━━━━━━━━━━━❰ end language ❱━━━━━━━━━━━━━━━━━━━--
   --━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━--*/
-}
+} 
