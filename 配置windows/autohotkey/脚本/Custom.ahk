@@ -3,31 +3,49 @@ SendMode Input
 SetWorkingDir, %A_ScriptDir%
 
 ;=====================================================================o
-;                    I dont need it any more
+;                   禁用windows 自带快捷键
 ;---------------------------------------------------------------------o
 ; Windows 11
-; #l:: ; 锁定windows窗口,我基本不用容易误触,取消掉比较好
-#h:: ; 听写，几乎没有麦克风
-  ; #c:: ; Cortana，人工智障
-#p:: ; 投影屏幕，没有别的屏幕，单机版
-#s:: ; 搜索，# 本身已经自带了
-#f:: ; 反馈中心，几十年没反馈过问题
-#u:: ; 轻松设置中心，一年不用一次
-#Pause:: ; 关于本机，一年不用一次
-#b:: ; 显示隐藏托盘，用手点击或者win召唤即可，为idea让步
-^#f:: ; 搜索本地电脑，没有局域网
+;#l:: ; （锁定windows窗口,我基本不用容易误触,直接禁用）无法实现禁用 win + l
+#h:: ; （听写，语音输入，准确率不高，没这需求，直接禁用）
+;#c:: ; Cortana，人工智障 （现在已经被文森特脚本代替）
+#s:: ; (卡的要死，搜索，# 本身已经自带了，直接禁用 )
+#f:: ; (反馈中心，几十年没反馈过问题,直接禁用)
+#p:: ; （投影屏幕，没有别的屏幕，单机版，直接禁用）
+#u:: ; (轻松设置中心，一年不用一次 ，win + i也能打开，直接禁用)
+#k:: ; 打开投放功能，我根本没有显示器不需要这个功能 （直接禁用）
+#b:: ; 聚焦通知局域，（根本没啥用，直接禁用）
+^#f:: ; (搜索本地电脑，没有局域网，直接禁用）
+#`;:: ;（移除windows表情有时候很烦弹出来容易出错）
+#Pause:: ; 关于本机，一年不用一次我电脑就没有这个键，先放着吧
 return
 ;=====================================================================o
 ;                         修改windows原生按键                         ;|
 ;----------------------------------o----------------------------------o
-; 实现类似于 macos cmd+q(win+q) 退出当前应用
+; win + q ： 退出当前窗口
 #q:: send !{f4}
-; 实现类似于 macos alt+m(win+m) 隐藏当前窗口
-!m:: WinMinimize,A
-; 选中当前单词
-!w:: send ^{Left}+^{Right}
-; 使用 win t 窗口置顶                                                    
+; win + alt + m ： 隐藏当前窗口
+!#m:: WinMinimize,A
+; win + t ：窗口置顶                                                    
 #t:: Winset, AlwaysOnTop, , A 
+; alt + w ：选中当前单词
+!w:: send ^{Left}+^{Right}
+;---------------------------------------------------------------------o
+^PgUp:: send,^{Home}
+^PgDn:: send,^{End}
++PgUp:: send,+{Home}
++PgDn:: send,+{End}
+;---------------------------------------------------------------------o
+; 解决ctrl+space不切换中英文输入法，在ide中进行补全
+^Space::ControlSend, , ^{Space},A
+
+!f::
+  WinGet, OutputVar, MinMax, A
+  If (OutputVar)
+    WinRestore, A
+  Else
+    WinMaximize, A
+Return
 ;---------------------------------------------------------------------o
 
 ;=====================================================================o
@@ -117,18 +135,7 @@ SwitchToDesktopByHotkey(idx){
     SendInput ^#{Right}
   }
 }
-;=====================================================================o
-;                    Recycle
 ;---------------------------------------------------------------------o
-; #IfWinActive, ahk_exe idea64.exe
-; ; Leetcode in diea
-; #s:: send, ^#!s{Enter} ; submit
-; #t:: send, ^#!t{Enter} ; test
-; #p:: send, ^#!p        ; position
-; #0:: send, ^#!0        ; colapse
-; #b:: send, ^!b         ; jump to implement
-;---------------------------------------------------------------------o
-;----------------------------------------------------------------------o
 #Enter::
   IfWinNotExist ahk_exe alacritty.exe
   {
@@ -147,18 +154,3 @@ SwitchToDesktopByHotkey(idx){
   }
 Return
 ;----------------------------------------------------------------------o
-^PgUp:: send,^{Home}
-^PgDn:: send,^{End}
-+PgUp:: send,+{Home}
-+PgDn:: send,+{End}
-
-; 解决ctrl+space不切换中英文输入法，在ide中进行补全
-^Space::ControlSend, , ^{Space},A
-
-!f::
-  WinGet, OutputVar, MinMax, A
-  If (OutputVar)
-    WinRestore, A
-  Else
-    WinMaximize, A
-Return
