@@ -290,7 +290,6 @@ CapsLock & PgDn:: Send +^{End}{bs}                                   ;|
 ;                     CapsLock + b  |  Ctrl + Left (Move as [vim: b]);|
 ;-----------------------------------o---------------------------------o
 CapsLock & z:: Send, ^z                                              ;|
-CapsLock & g:: Send, ^g                                              ;|
 CapsLock & r:: Send, ^r                                              ;|
 CapsLock & x:: Send, ^x                                              ;|
 CapsLock & c:: Send  {CtrlDown}{Insert}{CtrlUp}                      ;|
@@ -333,7 +332,9 @@ CapsLock & m:: Send, {AppsKey}                                       ;|
 ;               alt + CapsLock + p  |  Ctrl + shift + p              ;|
 ;                     CapsLock + f  |  Ctrl + f                      ;|
 ;               alt + CapsLock + f  |  Ctrl + shift + f              ;|
-;                     CapsLock + t  |   ctrl + t                     ;|
+;                     CapsLock + g  |  Ctrl + g                      ;|
+;               alt + CapsLock + g  |  Ctrl + shift + g              ;|
+;                     CapsLock + t  |  ctrl + t                      ;|
 ;                     CapsLock + e  |  ctrl + e                      ;|
 ;                     CapsLock + ;  |  select a Line                 ;|
 ;-----------------------------------o---------------------------------o
@@ -351,8 +352,21 @@ CapsLock & p::                                                       ;|
         Send, +^{p}                                                  ;|
     return                                                           ;|
 ;-----------------------------------o---------------------------------o
+CapsLock & e::                                                       ;|
+    if GetKeyState("alt") = 0                                        ;|
+        Send, ^{e}                                                   ;|
+    else                                                             ;|
+        Send, +^{e}                                                  ;|
+    return                                                           ;|
+;-----------------------------------o---------------------------------o
+CapsLock & g::                                                       ;|
+    if GetKeyState("alt") = 0                                        ;|
+        Send, ^{g}                                                   ;|
+    else                                                             ;|
+        Send, +^{g}                                                  ;|
+    return                                                           ;|
+;-----------------------------------o---------------------------------o
 CapsLock & t::Send, ^t                                               ;|
-CapsLock & e::Send, ^e                                               ;|
 CapsLock & `;:: Send {Home}{ShiftDown}{End}{Right}{ShiftUp}          ;|
 ;---------------------------------------------------------------------o
 
@@ -380,53 +394,54 @@ CapsLock & F6:: Send, {Media_Stop}                                   ;|
 ;                    CapsLock + 1  |              F1                 ;|
 ;                    CapsLock + 2  |              F2                 ;|
 ;                    CapsLock + 3  |              F3                 ;|
+;                    CapsLock + 4  |              F4                 ;|
+;                    CapsLock + 5  |              F5                 ;|
+;                    CapsLock + 6  |              F6                 ;|
 ;                    CapsLock + -  |             F11                 ;|
 ;                    CapsLock + =  |             F12                 ;|
 ;-----------------------------------o---------------------------------o
 CapsLock & 1::                                                       ;|
-    if GetKeyState("control") = 0                                    ;|
-    {                                                                ;|
-        if GetKeyState("alt") = 0                                    ;|
-            Send, {F1}                                               ;|
-        else                                                         ;|
-            Send, +{F1}                                              ;|
-        return                                                       ;|
-    }                                                                ;|
-    else {                                                           ;|
-        if GetKeyState("alt") = 0                                    ;|
-            Send, ^{F1}                                              ;|
-        else                                                         ;|
-            Send, +^{F1}                                             ;|
-        return                                                       ;|
-    }                                                                ;|
-return                                                               ;|
+    if GetKeyState("alt") = 0                                        ;|
+        Send, {F1}                                                   ;|
+    else                                                             ;|
+        Send, +{F1}                                                  ;|
+    return                                                           ;|
+;-----------------------------------o---------------------------------o
+CapsLock & 2::                                                       ;|
+    if GetKeyState("alt") = 0                                        ;|
+        Send, {F2}                                                   ;|
+    else                                                             ;|
+        Send, +{F2}                                                  ;|
+    return                                                           ;|
 ;-----------------------------------o---------------------------------o
 CapsLock & 3::                                                       ;|
-    if GetKeyState("control") = 0                                    ;|
-    {                                                                ;|
-        if GetKeyState("alt") = 0                                    ;|
-            Send, {F3}                                               ;|
-        else                                                         ;|
-            Send, +{F3}                                              ;|
-        return                                                       ;|
-    }                                                                ;|
-    else {                                                           ;|
-        if GetKeyState("alt") = 0                                    ;|
-            Send, ^{F3}                                              ;|
-        else                                                         ;|
-            Send, +^{F3}                                             ;|
-        return                                                       ;|
-    }                                                                ;|
-return                                                               ;|
+    if GetKeyState("alt") = 0                                        ;|
+        Send, {F3}                                                   ;|
+    else                                                             ;|
+        Send, +{F3}                                                  ;|
+    return                                                           ;|
 ;-----------------------------------o---------------------------------o
-CapsLock & 2:: Send, {F2}                                            ;|
-CapsLock & 5:: Send, {F5}                                            ;|
-;CapsLock & 4:: Send, {F4}                                           ;|
-;CapsLock & 6:: Send, {F6}                                           ;|
-;CapsLock & 7:: Send, {F7}                                           ;|
-;CapsLock & 8:: Send, {F8}                                           ;|
-;CapsLock & 9:: Send, {F9}                                           ;|
-;CapsLock & 0:: Send, {F10}                                          ;|
+CapsLock & 4::                                                       ;|
+    if GetKeyState("alt") = 0                                        ;|
+        Send, {F4}                                                   ;|
+    else                                                             ;|
+        Send, +{F4}                                                  ;|
+    return                                                           ;|
+;-----------------------------------o---------------------------------o
+CapsLock & 5::                                                       ;|
+    if GetKeyState("alt") = 0                                        ;|
+        Send, {F5}                                                  ;|
+    else                                                             ;|
+        Send, +{F5}                                                  ;|
+    return                                                           ;|
+;-----------------------------------o---------------------------------o
+CapsLock & 6::                                                       ;|
+    if GetKeyState("alt") = 0                                        ;|
+        Send, {F6}                                                  ;|
+    else                                                             ;|
+        Send, +{F6}                                                  ;|
+    return                                                           ;|
+;---------------------------------------------------------------------o
 CapsLock & -:: Send, {F11}                                           ;|
 CapsLock & =:: Send, {F12}                                           ;|
 ;---------------------------------------------------------------------o
@@ -434,20 +449,20 @@ CapsLock & =:: Send, {F12}                                           ;|
 ;=====================================================================o
 ;                        CapsLock lanuch application                 ;|
 ;-----------------------------------o---------------------------------o
-;                     CapsLock + 4  |  Open youdao                   ;|
 ;                     CapsLock + 5  |  Open Wechat                   ;|
-;                     CapsLock + 6  |  Open VsCode                   ;|
 ;                     CapsLock + 7  |  Open Obsidian                 ;|
-;                     CapsLock + 8  |  Open jetbarin idea            ;|
+;                     CapsLock + 8  |  Open VsCode                   ;|
+;                     CapsLock + 8  |  Open jetbarin idea(remove)    ;|
 ;                     CapsLock + 9  |  Open Chrome                   ;|
-;                     CapsLock + 0  |  Open Wechat                   ;|
+;                     CapsLock + 0  |  Open youdao                   ;|
+;                     CapsLock + 0  |Open Wechat(remove年轻人少看微信);|
 ;-----------------------------------o---------------------------------o
 ; 1 - 窗口标题必须以指定的 winTitle开头才能匹配
 ; 2 - 窗口标题任意位置包含 winTitle才能匹配
 ; 3 - 窗口标题必须和winTitle完全一致才能匹配
 SetTitleMatchMode, 2
 ;----------------------------------------------------------------------o
-CapsLock & 4::
+CapsLock & 0::
     IfWinNotExist ahk_class YodaoMainWndClass
     {
         run D:\有道词典\Dict\YoudaoDict.exe
@@ -462,8 +477,8 @@ CapsLock & 4::
         WinMinimize
     }
 Return
-;----------------------------------------------------------------------o
-CapsLock & 6::
+
+CapsLock & 8::
     IfWinNotExist ahk_exe Code.exe
     { 
         run D:\vscode\Microsoft VS Code\Code.exe
@@ -499,21 +514,21 @@ CapsLock & 7::
     }
 Return
 ;----------------------------------------------------------------------o
-CapsLock & 8:: 
-    IfWinNotExist ahk_exe idea64.exe 
-    { 
-        run D:\idea2021\IntelliJ IDEA 2021.3.1\bin\idea64.exe
-    }
-    Else IfWinNotActive ahk_class SunAwtFrame
-    { 
-        #WinActivateForce 
-        WinActivate 
-    } 
-    Else 
-    { 
-        WinMinimize 
-    } 
-Return 
+;CapsLock & 8:: 
+    ;IfWinNotExist ahk_exe idea64.exe 
+    ;{ 
+        ;run D:\idea2021\IntelliJ IDEA 2021.3.1\bin\idea64.exe
+    ;}
+    ;Else IfWinNotActive ahk_class SunAwtFrame
+    ;{ 
+        ;#WinActivateForce 
+        ;WinActivate 
+    ;} 
+    ;Else 
+    ;{ 
+        ;WinMinimize 
+    ;} 
+;Return 
 ;----------------------------------------------------------------------o
 CapsLock & 9:: 
     IfWinNotExist ahk_exe chrome.exe 
@@ -535,21 +550,21 @@ CapsLock & 9::
     } 
 return 
 ;----------------------------------------------------------------------o
-CapsLock & 0::
-    IfWinNotExist ahk_class WeChatMainWndForPC
-    {
-        Run E:\WeChat\WeChat.exe
-    }
-    Else IfWinNotActive ahk_class WeChatMainWndForPC
-    {
-        #WinActivateForce
-        WinActivate
-    }
-    Else
-    {
-        WinMinimize
-    }
-return
+;CapsLock & 0::
+    ;IfWinNotExist ahk_class WeChatMainWndForPC
+    ;{
+        ;Run E:\WeChat\WeChat.exe
+    ;}
+    ;Else IfWinNotActive ahk_class WeChatMainWndForPC
+    ;{
+        ;#WinActivateForce
+        ;WinActivate
+    ;}
+    ;Else
+    ;{
+        ;WinMinimize
+    ;}
+;return
 ;----------------------------------------------------------------------o
 ;CapsLock & 0::
     ;IfWinNotExist ahk_class DOCBOX_PDF_FRAME
