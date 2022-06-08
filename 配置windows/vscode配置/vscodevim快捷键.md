@@ -1,5 +1,14 @@
 # vscodevim 快捷键
 
+## 文件跳转
+
+| key              | command                  |
+| ---------------- | ------------------------ |
+| `ctrl`+`tab`     | 切换到刚刚的使用的编辑器 |
+| `ctrl`+`p`       | 搜索文件                 |
+| `ctrl`+`r`       | 搜索最近文件(包括文件夹) |
+| `leader`+`b`+`f` | 搜索打开编辑器文件       |
+
 ## 终端快捷键
 
 | key                      | command          |
@@ -29,8 +38,8 @@
 | ------------------ | ---------------------------- |
 | `ctrl`+`B`         | Toggle bold                  |
 | `ctrl`+`I`         | Toggle italic                |
-| `alt`+`S`          | Toggle strikethrough         |
-| `ctrl`+`shift`+`]` | Toggle heading (uplevel)     |
+| `alt`+`S`          | Toggle strikeThrough         |
+| `ctrl`+`shift`+`]` | Toggle heading (upLevel)     |
 | `ctrl`+`shift`+`[` | Toggle heading (downlevel)   |
 | `ctrl`+`M`         | Toggle math environment      |
 | `ctrl`+`enter`     | Check/Uncheck task list item |
