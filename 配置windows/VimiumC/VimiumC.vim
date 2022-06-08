@@ -1,6 +1,10 @@
 map <c-p> Vomnibar.activateTabs
+
 map w nextTab
 map s previousTab
+map <tab> nextTab
+map <s-tab> previousTab
+
 map < moveTabLeft
 map > moveTabRight
-map <c-r> visitPreviousTab?
+map <c-r> visitPreviousTab
