@@ -67,10 +67,10 @@ CapsLock::Send, {ESC}                                                ;|
 ;                      CapsLock + l |  Right                         ;|
 ;                      Ctrl, Alt Compatible                          ;|
 ;-----------------------------------o---------------------------------o
-; 如果我按ctrl+alt+capslock+hjkl就等于ctrl+shift+方向键（按住不收手）      ;|
-; 如果我按alt+capslock+hjkl就等于shift+方向键（按住不收手）                ;|
-; 如果我按ctrl+capslock+hjkl就等于ctrl+方向键 （按住不收手）               ;|
-; 这里GetKeyState("control") = 0 ctrl松手（或者没按）                   ;|
+; 如果我按ctrl+alt+capslock+hjkl就等于ctrl+shift+方向键（按住不收手）   ;|
+; 如果我按alt+capslock+hjkl就等于shift+方向键（按住不收手）             ;|
+; 如果我按ctrl+capslock+hjkl就等于ctrl+方向键 （按住不收手）            ;|
+; 这里GetKeyState("control") = 0 ctrl松手（或者没按）                  ;|
 ; 这里GetKeyState("control") = 1 按住ctrl                             ;|
 CapsLock & h::                                                       ;|
     if GetKeyState("control") = 0                                    ;|
@@ -259,15 +259,22 @@ return                                                               ;|
 ;-----------------------------------o---------------------------------o
 ;                     CapsLock + ,  |  Delete word ahead             ;|
 ;                     CapsLock + .  |  Delete word after             ;|
-;                     CapsLock + BackSpace  | Delete a line          ;|
+;                     CapsLock + alt+ BackSpace  | Delete a line     ;|
 ;                     CapsLock + [  | Delete line begin              ;|
 ;                     CapsLock + ]  | Delete line end                ;|
 ;                     CapsLock + PageUp  | Delete page to begin      ;|
 ;                     CapsLock + PageDown  | Delete page to end      ;|
 ;-----------------------------------o---------------------------------o
+;CapsLock & BackSpace:: Send {Home}{ShiftDown}{End}{Right}{ShiftUp}{Del}
+; 防止有时候误删，使用alt+capslock+backspace删除一行
+CapsLock & BackSpace::                                               ;|
+    if GetKeyState("alt") = 0                                        ;|
+        Send, {BackSpace}                                            ;|
+    else                                                             ;|
+        Send, Send {Home}{ShiftDown}{End}{Right}{ShiftUp}{Del}       ;|                                   
+    return                                                           ;|
 CapsLock & ,:: Send, ^{BS}                                           ;|
 CapsLock & .:: Send, ^{Del}                                          ;|
-CapsLock & BackSpace:: Send {Home}{ShiftDown}{End}{Right}{ShiftUp}{Del}
 CapsLock & [:: Send +{Home}{Del}                                     ;|
 CapsLock & ]:: Send +{End}{Del}                                      ;|
 CapsLock & PgUp:: Send +^{Home}{bs}                                  ;|
