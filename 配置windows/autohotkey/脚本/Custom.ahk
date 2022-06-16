@@ -71,7 +71,7 @@ Existclass(class)
 }
 ;-----------------------------------------------------------------------
 ; 窗口居中 (文森特脚本)
-#c::CenterActiveWindow() ; Win+C
+#c::CenterActiveWindow()
 CenterActiveWindow()
 {
   winHandle := WinExist("A")
@@ -105,6 +105,80 @@ CenterActiveWindow()
   tooltip,
 return
 ;-----------------------------------------------------------------------o
+;                           快速启动应用                                 ;
+;-----------------------------------------------------------------------o
+#y::
+    IfWinNotExist ahk_class YodaoMainWndClass
+    {                                                                   
+        run D:\有道词典\Dict\YoudaoDict.ahk_exe
+    }                                                                   
+    Else IfWinNotActive ahk_class YodaoMainWndClass                     
+    {
+        #WinActivateForce
+        WinActivate
+    }
+    Else
+    {
+        WinMinimize
+    }
+Return
+;-----------------------------------------------------------------------o
+#w:: 
+    IfWinNotExist ahk_exe chrome.exe 
+    { 
+        Run C:\Program Files\Google\Chrome\Application\chrome.exe 
+    } 
+    Else IfWinNotActive ahk_exe chrome.exe 
+    { 
+        SetTitleMatchMode RegEx
+        ; 哔哩哔哩 (゜-゜)つロ 干杯~-bilibili - Google Chrome
+        ; CapSlock.ahk - dotfile - Visual Studio Code
+        Chrome_ID := WinExist(".- Google Chrome")
+        #WinActivateForce
+        WinActivate ahk_id %Chrome_ID%
+    } 
+    Else 
+    {
+        WinMinimize
+    } 
+return 
+;-----------------------------------------------------------------------o
+#n::
+    IfWinNotExist ahk_exe Obsidian.exe
+    {
+        run C:\Users\9\AppData\Local\Obsidian\Obsidian.exe
+    }
+    Else IfWinNotActive ahk_exe Obsidian.exe
+    { 
+        SetTitleMatchMode RegEx
+        Obsidian_ID := WinExist(".- Obsidian")
+        #WinActivateForce
+        WinActivate ahk_id %Obsidian_ID%
+    } ;|
+    Else ;|
+    {
+        WinMinimize
+    }
+Return
+;----------------------------------------------------------------------o
+#o::
+    IfWinNotExist ahk_exe Code.exe
+    { 
+        run D:\vscode\Microsoft VS Code\Code.exe
+    } 
+    Else IfWinNotActive ahk_exe Code.exe
+    {
+        SetTitleMatchMode RegEx
+        VS_CODE_ID := WinExist(".- Visual Studio Code")
+        #WinActivateForce
+        WinActivate ahk_id %VS_CODE_ID%
+    }
+    Else
+    {
+        WinMinimize
+    }
+Return
+;----------------------------------------------------------------------o
 
 ;=====================================================================o
 ;alt + 数字  -->  切换桌面
@@ -135,15 +209,33 @@ SwitchToDesktopByHotkey(idx){
   }
 }
 ;---------------------------------------------------------------------o
+;#Enter::
+  ;IfWinNotExist ahk_exe alacritty.exe
+  ;{
+    ;run C:\Users\9\scoop\apps\alacritty\0.10.1\alacritty.exe
+  ;}
+  ;Else IfWinNotActive ahk_exe alacritty.exe
+  ;{ 
+    ;SetTitleMatchMode RegEx
+    ;ALACRITTY_ID := WinExist("Alacritty-neovim")
+    ;#WinActivateForce
+    ;WinActivate ahk_id %ALACRITTY_ID%
+  ;} 
+  ;Else
+  ;{
+    ;WinMinimize
+  ;}
+;Return
+;----------------------------------------------------------------------o
 #Enter::
-  IfWinNotExist ahk_exe alacritty.exe
+  IfWinNotExist ahk_exe WindowsTerminal.exe
   {
-    run C:\Users\9\scoop\apps\alacritty\0.10.1\alacritty.exe
+    run C:\Program Files\WindowsApps\Microsoft.WindowsTerminal_1.13.11432.0_x64__8wekyb3d8bbwe\WindowsTerminal.exe
   }
-  Else IfWinNotActive ahk_exe alacritty.exe
+  Else IfWinNotActive ahk_exe WindowsTerminal.exe
   { 
     SetTitleMatchMode RegEx
-    ALACRITTY_ID := WinExist("Alacritty-neovim")
+    ALACRITTY_ID := WinExist("PowerShell")
     #WinActivateForce
     WinActivate ahk_id %ALACRITTY_ID%
   } 
@@ -152,5 +244,3 @@ SwitchToDesktopByHotkey(idx){
     WinMinimize
   }
 Return
-;----------------------------------------------------------------------o
-
