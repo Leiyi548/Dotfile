@@ -1,4 +1,5 @@
 #SingleInstance, Force
+#MaxHotkeysPerInterval,50000
 SendMode Input
 SetWorkingDir, %A_ScriptDir%
 
@@ -96,14 +97,14 @@ CenterActiveWindow()
 }
 ;-----------------------------------------------------------------------o
 ; 在windows 资源管理器用 ctrl alt c 复制文件路径到剪贴板 
-^!c::
-  send ^c
-  sleep,200
-  clipboard=%clipboard% 
-  tooltip,%clipboard%
-  sleep,500
-  tooltip,
-return
+;^!c::
+  ;send ^c
+  ;sleep,200
+  ;clipboard=%clipboard% 
+  ;tooltip,%clipboard%
+  ;sleep,500
+  ;tooltip,
+;return
 ;-----------------------------------------------------------------------o
 ;                           快速启动应用                                 ;
 ;-----------------------------------------------------------------------o
@@ -123,7 +124,8 @@ return
     }
 Return
 ;-----------------------------------------------------------------------o
-#w:: 
+; use ctrl + alt + g to toggle chrome(google) windows
+^!g:: 
     IfWinNotExist ahk_exe chrome.exe 
     { 
         Run C:\Program Files\Google\Chrome\Application\chrome.exe 
@@ -160,8 +162,29 @@ return
         WinMinimize
     }
 Return
+
+; use ctrl + alt + o to toggle obsidian windows
+^!o::
+    IfWinNotExist ahk_exe Obsidian.exe
+    {
+        run C:\Users\9\AppData\Local\Obsidian\Obsidian.exe
+    }
+    Else IfWinNotActive ahk_exe Obsidian.exe
+    { 
+        SetTitleMatchMode RegEx
+        Obsidian_ID := WinExist(".- Obsidian")
+        #WinActivateForce
+        WinActivate ahk_id %Obsidian_ID%
+    } ;|
+    Else ;|
+    {
+        WinMinimize
+    }
+Return
+
 ;----------------------------------------------------------------------o
-#o::
+; use ctrl + alt + c to toggle code window
+^!c::
     IfWinNotExist ahk_exe Code.exe
     { 
         run D:\vscode\Microsoft VS Code\Code.exe
@@ -178,6 +201,22 @@ Return
         WinMinimize
     }
 Return
+;----------------------------------------------------------------------o
+^!i:: 
+    IfWinNotExist ahk_exe idea64.exe 
+    { 
+        run D:\idea2021\IntelliJ IDEA 2021.3.1\bin\idea64.exe
+    }
+    Else IfWinNotActive ahk_class SunAwtFrame
+    { 
+        #WinActivateForce 
+        WinActivate 
+    } 
+    Else 
+    { 
+        WinMinimize 
+    } 
+Return 
 ;----------------------------------------------------------------------o
 
 ;=====================================================================o
