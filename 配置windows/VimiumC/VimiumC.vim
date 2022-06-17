@@ -7,10 +7,9 @@ map <c-r> visitPreviousTab
 " move tab and scroll page
 map <s-tab> previousTab
 map <tab> nextTab
-map a previousTab
-map d nextTab
-map w scrollPageUp
-map s scrollPageDown
+map w nextTab
+map s previousTab
+map e scrollPageUp
 
 map gv LinkHints.activateSelect
 
