@@ -271,7 +271,7 @@ CapsLock & BackSpace::                                               ;|
     if GetKeyState("alt") = 0                                        ;|
         Send, {BackSpace}                                            ;|
     else                                                             ;|
-        Send, Send {Home}{ShiftDown}{End}{Right}{ShiftUp}{Del}       ;|                                   
+        Send, {Home}{ShiftDown}{End}{Right}{ShiftUp}{Del}       ;|                                   
     return                                                           ;|
 CapsLock & ,:: Send, ^{BS}                                           ;|
 CapsLock & .:: Send, ^{Del}                                          ;|
