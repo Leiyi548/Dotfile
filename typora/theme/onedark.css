@@ -64,10 +64,10 @@
   --code-green-color: hsl(95, 38%, 62%);
   --code-grey-color: hsl(220, 9%, 55%);
 
-  --code-select-bg-color: rgb(59,68,84);
+  --code-select-bg-color: rgb(59, 68, 84);
   --code-cursor-color: hsl(220, 100%, 66%);
   /* implicit selecttion text bg color */
-  --select-text-bg-color: rgb(64,72,89);
+  --select-text-bg-color: rgb(64, 72, 89);
   /* implicit button color */
   --primary-color: var(--button-color);
   --primary-btn-border-color: transparent;
@@ -102,43 +102,14 @@
   --border-color: var(--menu-divider-color);
 }
 
-/* font */
-@font-face {
-  font-family: "Open Sans";
-  font-style: normal;
-  font-weight: normal;
-  src: local("Open Sans Regular"), url("./onedark/400.woff") format("woff");
-}
-
-@font-face {
-  font-family: "Open Sans";
-  font-style: italic;
-  font-weight: normal;
-  src: local("Open Sans Italic"), url("./onedark/400i.woff") format("woff");
-}
-
-@font-face {
-  font-family: "Open Sans";
-  font-style: normal;
-  font-weight: bold;
-  src: local("Open Sans Bold"), url("./onedark/700.woff") format("woff");
-}
-
-@font-face {
-  font-family: "Open Sans";
-  font-style: italic;
-  font-weight: bold;
-  src: local("Open Sans Bold Italic"), url("./onedark/700i.woff") format("woff");
-}
-
 /* basic style */
 html {
   font-size: 16px;
 }
 
 body {
-  font-family: "Open Sans", "Clear Sans", "Helvetica Neue", Helvetica, Arial,
-    sans-serif;
+  font-family: 'JetBrains Mono', 'Fira Code', 'Cascadia Code', Menlo,
+    'Ubuntu Mono', Consolas, HYZhengYuan; /*代码字体*/
   color: var(--text-color1);
   background: var(--bg-color1);
   line-height: 1.6;
@@ -150,11 +121,11 @@ body {
 }
 
 /* link */
-#write a:not([role="menuitem"]) {
+#write a:not([role='menuitem']) {
   color: var(--link-color) !important;
 }
 
-#write a:not([role="menuitem"]):hover {
+#write a:not([role='menuitem']):hover {
   color: var(--hover-text-color) !important;
 }
 
@@ -165,12 +136,12 @@ h3,
 h4,
 h5,
 h6 {
-    cursor: text;
-    font-weight: bold;
-    line-height: 1.4;
-    margin-bottom: 1rem;
-    margin-top: 1rem;
-    position: relative;
+  cursor: text;
+  font-weight: bold;
+  line-height: 1.4;
+  margin-bottom: 1rem;
+  margin-top: 1rem;
+  position: relative;
 }
 
 #write h1,
@@ -180,8 +151,8 @@ h6 {
 #write h5,
 #write h6,
 #write pre {
-    color: #efb752;
-    width: auto;
+  color: #efb752;
+  width: auto;
 }
 
 #write h1::before,
@@ -190,78 +161,78 @@ h6 {
 #write h4::before,
 #write h5::before,
 #write h6::before {
-    border-radius: 0;
-    bottom: 0;
-    color: #517090;
-    float: none;
-    font-size: 1rem;
-    font-variant: 'small-caps';
-    font-weight: bold;
-    left: auto;
-    line-height: 20px;
-    padding: 0;
-    position: absolute;
-    right: calc(100% + 10px);
-    vertical-align: baseline;
+  border-radius: 0;
+  bottom: 0;
+  color: #517090;
+  float: none;
+  font-size: 1rem;
+  font-variant: 'small-caps';
+  font-weight: bold;
+  left: auto;
+  line-height: 20px;
+  padding: 0;
+  position: absolute;
+  right: calc(100% + 10px);
+  vertical-align: baseline;
 }
 
 #write h1 {
-    font-size: 3.2rem;
-    margin: 0.6rem 0;
+  font-size: 3.2rem;
+  margin: 0.6rem 0;
 }
 
 #write h1::before {
-    bottom: 1.45rem;
-    content: 'H1';
+  bottom: 1.45rem;
+  content: 'H1';
 }
 
 #write h2 {
-    font-size: 1.8rem;
-    margin: 0.7rem 0;
+  font-size: 1.8rem;
+  margin: 0.7rem 0;
 }
 
 #write h2::before {
-    bottom: 0.2rem;
-    content: 'H2';
+  bottom: 0.2rem;
+  content: 'H2';
 }
 
 #write h3 {
-    font-size: 1.2rem;
-    margin: 0.5rem 0;
+  font-size: 1.2rem;
+  margin: 0.5rem 0;
 }
 
 #write h3::before {
-    bottom: 0.18rem;
-    content: 'H3';
+  bottom: 0.18rem;
+  content: 'H3';
 }
 
 #write h4 {
-    font-size: 1rem;
-    margin: 0.2rem 0;
+  font-size: 1rem;
+  margin: 0.2rem 0;
 }
 
 #write h4::before {
-    content: 'H4';
-    bottom: 0.15rem;
+  content: 'H4';
+  bottom: 0.15rem;
 }
 
 #write h5,
 #write h6 {
-    font-size: 1rem;
-    margin: 0;
+  font-size: 1rem;
+  margin: 0;
 }
 
 #write h5::before,
 #write h6::before {
-    bottom: 0.1rem;
+  bottom: 0.1rem;
 }
 
 #write h5::before {
-    content: 'H5';
+  content: 'H5';
 }
 
 #write h6::before {
-    content: 'H6';
+  content: 'H6';
 }
 
 h1:hover a.anchor,
@@ -270,69 +241,68 @@ h3:hover a.anchor,
 h4:hover a.anchor,
 h5:hover a.anchor,
 h6:hover a.anchor {
-    text-decoration: none;
+  text-decoration: none;
 }
-
 
 h1 tt,
 h1 code {
-    font-size: inherit;
+  font-size: inherit;
 }
 
 h2 tt,
 h2 code {
-    font-size: inherit;
+  font-size: inherit;
 }
 
 h3 tt,
 h3 code {
-    font-size: inherit;
+  font-size: inherit;
 }
 
 h4 tt,
 h4 code {
-    font-size: inherit;
+  font-size: inherit;
 }
 
 h5 tt,
 h5 code {
-    font-size: inherit;
+  font-size: inherit;
 }
 
 h6 tt,
 h6 code {
-    font-size: inherit;
+  font-size: inherit;
 }
 
 h1 {
-    border-bottom: 1px solid #f79f2a;
-    font-size: 3.25em;
-    line-height: 1.2;
-    padding-bottom: 0.3em;
+  border-bottom: 1px solid #f79f2a;
+  font-size: 3.25em;
+  line-height: 1.2;
+  padding-bottom: 0.3em;
 }
 
 h2 {
-    border-bottom: 1px solid #f79f2a;
-    font-size: 2.75em;
-    line-height: 1.225;
-    padding-bottom: 0.3em;
+  border-bottom: 1px solid #f79f2a;
+  font-size: 2.75em;
+  line-height: 1.225;
+  padding-bottom: 0.3em;
 }
 
 h3 {
-    font-size: 1.8em;
-    line-height: 1.43;
+  font-size: 1.8em;
+  line-height: 1.43;
 }
 
 h4 {
-    font-size: 1.45em;
+  font-size: 1.45em;
 }
 
 h5 {
-    font-size: 1.2em;
+  font-size: 1.2em;
 }
 
 h6 {
-    font-size: 1em;
+  font-size: 1em;
 }
 /* horizontal divider */
 hr {
@@ -461,12 +431,12 @@ table tr td:last-child {
 }
 
 /* existing thread grid */
-.md-grid-board tr[row="1"] .md-grid-ext {
+.md-grid-board tr[row='1'] .md-grid-ext {
   background-color: rgb(60, 60, 60);
 }
 
 /* not existing thread grid */
-.md-grid-board tr[row="1"] {
+.md-grid-board tr[row='1'] {
   background-color: rgb(220, 220, 220);
 }
 
@@ -476,8 +446,8 @@ table tr td:last-child {
 }
 
 /* selected thread grid */
-.md-grid-board tr[row="1"] a.md-active,
-.md-grid-board tr[row="1"] a:hover {
+.md-grid-board tr[row='1'] a.md-active,
+.md-grid-board tr[row='1'] a:hover {
   background-color: rgb(60, 60, 60);
 }
 
@@ -554,8 +524,8 @@ input {
     background-color: var(--hover-bg-color2) !important;
 } */
 /* checkbox */
-input[type="checkbox"]:before {
-  content: "";
+input[type='checkbox']:before {
+  content: '';
   display: inline-block;
   width: 1.2rem;
   height: 1.2rem;
@@ -570,32 +540,32 @@ input[type="checkbox"]:before {
 }
 
 /* checkbox hover */
-input[type="checkbox"]:not([disabled]):not(:checked):hover:before {
-  content: "\2713";
+input[type='checkbox']:not([disabled]):not(:checked):hover:before {
+  content: '\2713';
   font-size: 0.9rem;
   line-height: 1.2rem;
   color: var(--text-color3);
 }
 
 /* checkbox checked*/
-input[type="checkbox"]:checked:before {
-  content: "\2713";
+input[type='checkbox']:checked:before {
+  content: '\2713';
   font-size: 0.9rem;
   line-height: 1.2rem;
   color: var(--text-color2);
 }
 
 /* checkbox checked hover*/
-input[type="checkbox"]:checked:hover:before {
-  content: "\2713";
+input[type='checkbox']:checked:hover:before {
+  content: '\2713';
   font-size: 0.9rem;
   line-height: 1.2rem;
   color: var(--hover-text-color);
 }
 
 /* radio */
-input[type="radio"]:before {
-  content: "";
+input[type='radio']:before {
+  content: '';
   display: inline-block;
   width: 1.2rem;
   height: 1.2rem;
@@ -610,24 +580,24 @@ input[type="radio"]:before {
 }
 
 /* radio hover */
-input[type="radio"]:not([disabled]):not(:checked):hover:before {
-  content: "\25CF";
+input[type='radio']:not([disabled]):not(:checked):hover:before {
+  content: '\25CF';
   font-size: 1rem;
   line-height: 1rem;
   color: var(--text-color3);
 }
 
 /* radio checked */
-input[type="radio"]:checked:before {
-  content: "\25CF";
+input[type='radio']:checked:before {
+  content: '\25CF';
   font-size: 1rem;
   line-height: 1rem;
   color: var(--text-color2);
 }
 
 /* radio checked hover*/
-input[type="radio"]:checked:before {
-  content: "\25CF";
+input[type='radio']:checked:before {
+  content: '\25CF';
   font-size: 1rem;
   line-height: 1rem;
   color: var(--hover-text-color);
@@ -894,13 +864,13 @@ input[type="radio"]:checked:before {
 }
 
 /* remove up and down button from number type input*/
-input[type="number"]::-webkit-outer-spin-button,
-input[type="number"]::-webkit-inner-spin-button {
+input[type='number']::-webkit-outer-spin-button,
+input[type='number']::-webkit-inner-spin-button {
   -webkit-appearance: none !important;
 }
 
 /* the indent example in setting.editor */
-div[data-index="2"] .label-input-group td:last-child div {
+div[data-index='2'] .label-input-group td:last-child div {
   border: 0px !important;
   border-radius: 6px;
   background-color: var(--bg-color5);
@@ -1218,6 +1188,7 @@ code {
 /* codeblock */
 .md-fences,
 .md-fences:active {
+  font-family: 'JetBrains Mono';
   background-color: var(--bg-color5);
   border-radius: 6px;
   padding: 8px 4px 8px 4px !important;
@@ -1696,12 +1667,12 @@ text.actor tspan {
   fill: var(--text-color1) !important;
 }
 
-#crosshead path{
+#crosshead path {
   fill: var(--menu-divider-color) !important;
   stroke: var(--menu-divider-color) !important;
 }
 
-#arrowhead path{
+#arrowhead path {
   fill: var(--menu-divider-color) !important;
   stroke: var(--menu-divider-color) !important;
 }
@@ -1715,7 +1686,7 @@ text.actor tspan {
   fill: var(--text-color1) !important;
 }
 
-rect[class*="activation"] {
+rect[class*='activation'] {
   fill: var(--bg-color2) !important;
 }
 
@@ -1733,8 +1704,7 @@ rect[class*="activation"] {
 }
 
 .loopText,
-.loopText tspan
-{
+.loopText tspan {
   fill: var(--text-color1) !important;
 }
 
@@ -1784,7 +1754,7 @@ g.classGroup line {
 #dependencyStart path,
 #dependencyStart path,
 #extensionStart path,
-#extensionEnd path{
+#extensionEnd path {
   fill: var(--menu-divider-color) !important;
   stroke: var(--menu-divider-color) !important;
 }
@@ -1962,12 +1932,12 @@ text.legend {
   fill: var(--text-color1) !important;
 }
 
-pre[mermaid-type="journey"] svg > line {
+pre[mermaid-type='journey'] svg > line {
   stroke: var(--menu-divider-color) !important;
   stroke-width: 2px !important;
 }
 
-pre[mermaid-type="journey"] svg > text {
+pre[mermaid-type='journey'] svg > text {
   fill: var(--text-color1) !important;
 }
 
@@ -1991,7 +1961,7 @@ line.mouth {
 }
 
 /* mermaid gantt */
-text.sectionTitle tspan{
+text.sectionTitle tspan {
   fill: var(--text-color1) !important;
 }
 
@@ -2087,7 +2057,6 @@ taskText0,
   fill: var(--text-color1) !important;
 }
 
-
 g.legend > text {
   fill: var(--text-color1) !important;
 }
@@ -2105,43 +2074,43 @@ g > text.slice {
 }
 
 /* flow diagram */
-.md-fences[lang="flow"] .md-diagram-panel-preview rect {
+.md-fences[lang='flow'] .md-diagram-panel-preview rect {
   fill: var(--bg-color2) !important;
   stroke: var(--menu-divider-color) !important;
   stroke-width: 1.2 !important;
 }
 
-.md-fences[lang="flow"] .md-diagram-panel-preview path {
+.md-fences[lang='flow'] .md-diagram-panel-preview path {
   stroke: var(--menu-divider-color) !important;
   stroke-width: 1.2 !important;
 }
 
-.md-fences[lang="flow"] #cond {
+.md-fences[lang='flow'] #cond {
   fill: var(--bg-color2) !important;
 }
 
 /* sequence diagram */
-.md-fences[lang="sequence"] .md-diagram-panel-preview rect:not([fill="none"]) {
+.md-fences[lang='sequence'] .md-diagram-panel-preview rect:not([fill='none']) {
   fill: var(--bg-color2) !important;
   stroke: var(--menu-divider-color) !important;
   stroke-width: 1.2 !important;
 }
 
-.md-fences[lang="sequence"] .md-diagram-panel-preview path {
+.md-fences[lang='sequence'] .md-diagram-panel-preview path {
   fill: var(--menu-divider-color) !important;
   stroke: var(--menu-divider-color) !important;
   stroke-width: 1.2 !important;
 }
 
-.md-fences[lang="sequence"] text,
-.md-fences[lang="flow"] text {
-  font-family: "Consolas" !important;
+.md-fences[lang='sequence'] text,
+.md-fences[lang='flow'] text {
+  font-family: 'Consolas' !important;
 }
 
 /* remove box shadow when not edit graph */
-.md-fences[lang="sequence"]:not(.md-focus),
-.md-fences[lang="mermaid"]:not(.md-focus),
-.md-fences[lang="flow"]:not(.md-focus) {
+.md-fences[lang='sequence']:not(.md-focus),
+.md-fences[lang='mermaid']:not(.md-focus),
+.md-fences[lang='flow']:not(.md-focus) {
   box-shadow: none;
 }
 
@@ -2153,7 +2122,7 @@ g > text.slice {
 kbd {
   background: var(--bg-color5);
   color: var(--text-color1);
-  font-family: "Lucida Console";
+  font-family: 'Lucida Console';
   border-color: var(--menu-divider-color);
   box-shadow: 0 2px 0 var(--menu-divider-color);
 }
@@ -2169,7 +2138,7 @@ kbd {
   border-radius: 6px !important;
 }
 
-.export-detail textarea{
+.export-detail textarea {
   background: var(--bg-color5);
   border: none;
   border-radius: 6px;
