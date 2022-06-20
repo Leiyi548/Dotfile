@@ -213,7 +213,7 @@ h6 {
 
 #write h4::before {
   content: 'H4';
-  bottom: 0.15rem;
+  bottom: -0.15rem;
 }
 
 #write h5,
