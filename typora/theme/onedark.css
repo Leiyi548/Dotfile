@@ -12,7 +12,8 @@
   --bg-color5: rgb(29, 31, 35);
   /* light color for text and icon*/
   /* default color */
-  --text-color1: hsl(220, 6%, 71%);
+  /*--text-color1: hsl(220, 6%, 71%);*/
+  --text-color1: #b0b1ac;
   /* for text on panel */
   --text-color2: rgb(220, 220, 220);
   /* for checkbox and radio */
@@ -110,9 +111,17 @@ html {
 body {
   font-family: 'JetBrains Mono', 'Fira Code', 'Cascadia Code', Menlo,
     'Ubuntu Mono', Consolas, HYZhengYuan; /*代码字体*/
-  color: var(--text-color1);
+  /*color: var(--text-color1);*/
+  color: #b0b1ac;
   background: var(--bg-color1);
   line-height: 1.6;
+}
+
+/* bold font */
+#write strong {
+  /*color: #cbcdbf;*/
+  color: #efb752;
+  font-weight: bold;
 }
 
 /* text selection background color */
