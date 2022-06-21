@@ -2,6 +2,8 @@
 #MaxHotkeysPerInterval,50000
 SendMode Input
 SetWorkingDir, %A_ScriptDir%
+; 开启可以跨窗口搜索
+DetectHiddenWindows, on
 
 ;=====================================================================o
 ;                   禁用windows 自带快捷键
@@ -22,7 +24,7 @@ return
 ;=====================================================================o
 ;                         修改windows原生按键                         ;|
 ;----------------------------------o----------------------------------o
-; win + q ： 退出当前窗口
+; win + q ： 强制退出当前窗口
 #q:: send !{f4}
 ; alt + m ： 隐藏当前窗口 (win+alt+m实在是太难按了，要人命)
 !m:: WinMinimize,A
@@ -35,6 +37,7 @@ return
 ^PgDn:: send,^{End}
 +PgUp:: send,+{Home}
 +PgDn:: send,+{End}
+!`:: send,!{insert}
 ;---------------------------------------------------------------------o
 ; 解决ctrl+space不切换中英文输入法，在ide中进行补全
 ^Space::ControlSend, , ^{Space},A
