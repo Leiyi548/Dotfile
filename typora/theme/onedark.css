@@ -120,8 +120,8 @@ body {
 /* bold font */
 #write strong {
   /*color: #cbcdbf;*/
-  color: #efb752;
-  font-weight: bold;
+  color: white;
+  font-weight: 700;
 }
 
 /* text selection background color */
