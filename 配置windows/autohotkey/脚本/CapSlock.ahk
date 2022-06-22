@@ -303,8 +303,29 @@ CapsLock & c:: Send  {CtrlDown}{Insert}{CtrlUp}                      ;|
 CapsLock & v:: Send  {ShiftDown}{Insert}{ShiftUp}                    ;|
 CapsLock & a:: Send, ^a                                              ;|
 CapsLock & y:: Send, ^y                                              ;|
-CapsLock & w:: Send, ^{Right}                                        ;|
-CapsLock & b:: Send, ^{Left}                                         ;|
+CapsLock & w::                                                       ;|
+    if GetKeyState("alt") = 0                                        ;|
+    {                                                                ;|
+        Send, ^{Right}                                               ;|
+        return                                                       ;|
+    }                                                                ;|
+    else {                                                           ;|
+            Send, +^{Right}                                          ;|
+        return                                                       ;|
+    }                                                                ;|
+return                                                               ;|
+;-----------------------------------o---------------------------------o
+CapsLock & b::                                                       ;|
+    if GetKeyState("alt") = 0                                        ;|
+    {                                                                ;|
+        Send, ^{Left}                                                ;|
+        return                                                       ;|
+    }                                                                ;|
+    else {                                                           ;|
+            Send, +^{Left}                                           ;|
+        return                                                       ;|
+    }                                                                ;|
+return                                                               ;|
 ;---------------------------------------------------------------------o
 
 ;=====================================================================o
