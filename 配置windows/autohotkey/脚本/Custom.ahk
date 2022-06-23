@@ -30,14 +30,21 @@ return
 !m:: WinMinimize,A
 ; win + t ：窗口置顶                                                    
 #t:: Winset, AlwaysOnTop, , A 
-; alt + w ：选中当前单词
-!w:: send ^{Left}+^{Right}
+; alt + d ：选中当前单词
+!d:: send ^{Left}+^{Right}
 ;---------------------------------------------------------------------o
-^PgUp:: send,^{Home}
-^PgDn:: send,^{End}
-+PgUp:: send,+{Home}
-+PgDn:: send,+{End}
-!`:: send,!{insert}
+; 被其他热键取代让它回到原本位置
+;^PgUp:: send,^{Home}
+;^PgDn:: send,^{End}
+;+PgUp:: send,+{Home}
+;+PgDn:: send,+{End}
+; 在idea中alt+enter=alt+insert
+#IfWinActive ahk_class SunAwtFrame
+    !Enter:: send,!{insert}
+Return
+; 切换窗口
+RAlt & w::AltTab
+RAlt & s::ShiftAltTab
 ;---------------------------------------------------------------------o
 ; 解决ctrl+space不切换中英文输入法，在ide中进行补全
 ^Space::ControlSend, , ^{Space},A
