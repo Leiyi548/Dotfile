@@ -21,7 +21,7 @@
 2. 解压这个 zip 文件获得里面的 win32.yank.exe 文件,然后我们就把它放入/usr/bin/文件夹下面
 3. 给这个文件提供权限 `sudo chmod 777 win32.yank.exe`
 
-4. 在 neovim 添加如下代码
+4. 在 neovim\_ 添加如下代码
 
 ```lua
 -- wsl yanking to windows clipboard from nvim
