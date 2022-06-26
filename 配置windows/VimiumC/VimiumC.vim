@@ -3,6 +3,7 @@ map <c-p> Vomnibar.activateTabs
 
 " toggle recent tab
 map <c-r> visitPreviousTab
+map r visitPreviousTab
 
 map w nextTab
 map s previousTab
