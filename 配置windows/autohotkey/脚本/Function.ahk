@@ -1,5 +1,9 @@
 #SingleInstance, Force
-
+#MaxHotkeysPerInterval,50000
+SendMode Input
+SetWorkingDir, %A_ScriptDir%
+; 开启可以跨窗口搜索
+DetectHiddenWindows, on
 
 !f::
   WinGet, OutputVar, MinMax, A

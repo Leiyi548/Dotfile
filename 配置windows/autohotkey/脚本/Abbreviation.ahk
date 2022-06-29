@@ -19,7 +19,7 @@
 :*:qqhaoma::1424630446
 :*:dizhi::江西省上饶市广丰区下溪街道蓝泊湾3202
 :*:youxiang::1424630446@qq.com
-:*:dianhua::19179326967
+:*:shoujihaoma::19179326967
 ; 快速输入当前时间
 :*:shijian::
 sendinput %A_YYYY%年%A_MM%月%A_DD%日 %A_Hour%时%A_Min%分%A_Sec%秒	

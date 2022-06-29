@@ -33,14 +33,14 @@ return
 
 ; win + t 置顶当前窗口
 #t:: Winset, AlwaysOnTop, , A 
-; alt + d ：选中当前单词
-!d:: send ^{Left}+^{Right}
+; alt + w ：选中当前单词
+!w:: send ^{Left}+^{Right}
 ;---------------------------------------------------------------------o
 ; 被其他热键取代让它回到原本位置
-;^PgUp:: send,^{Home}
-;^PgDn:: send,^{End}
-;+PgUp:: send,+{Home}
-;+PgDn:: send,+{End}
+^PgUp:: send,^{Home}
+^PgDn:: send,^{End}
++PgUp:: send,^{Home}
++PgDn:: send,^{End}
 ; 切换窗口 ;RAlt & w::AltTab
 ;RAlt & s::ShiftAltTab
 ;---------------------------------------------------------------------o
