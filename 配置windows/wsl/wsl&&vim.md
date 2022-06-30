@@ -15,10 +15,10 @@
 
 ## wsl 支持 neovim 剪贴板
 
-1. 我们需要安装 [win32.yank.exe](https://github.com/equalsraf/win32yank) 这个文件
-   下载 win32yank-x64.zip
+1. 我们需要安装 [win32.yank.exe](https://github.com/equalsraf/win32yank) 这个文件 下载 win32yank-x64.zip
 
 2. 解压这个 zip 文件获得里面的 win32.yank.exe 文件,然后我们就把它放入/usr/bin/文件夹下面
+
 3. 给这个文件提供权限 `sudo chmod 777 win32.yank.exe`
 
 4. 在 neovim\_ 添加如下代码
