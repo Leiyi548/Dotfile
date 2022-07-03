@@ -245,10 +245,10 @@ return                                                               ;|
 ;                  CapsLock + Right |  Mouse Right                   ;|
 ;    CapsLock + Enter(Push Release) |  Mouse Left Push(Release)      ;|
 ;-----------------------------------o---------------------------------o
-CapsLock & Up:: MouseMove, 0, -10, 0, R                              ;|
-CapsLock & Down:: MouseMove, 0, 10, 0, R                             ;|
-CapsLock & Left:: MouseMove, -10, 0, 0, R                            ;|
-CapsLock & Right:: MouseMove, 10, 0, 0, R                            ;|
+CapsLock & Up:: MouseMove, 0, -40, 0, R                              ;|
+CapsLock & Down:: MouseMove, 0, 40, 0, R                             ;|
+CapsLock & Left:: MouseMove, -40, 0, 0, R                            ;|
+CapsLock & Right:: MouseMove, 40, 0, 0, R                            ;|
 ;-----------------------------------o---------------------------------o
 ; 后退（相当于鼠标侧键）                                               ;|   
 CapsLock & ,::                                                       ;|
@@ -271,6 +271,7 @@ CapsLock & Enter::                                                   ;|
     KeyWait Enter                                                    ;|
     SendEvent {Blind}{LButton up}                                    ;|
 return                                                               ;|
+CapsLock & m:: Send, {AppsKey}                                       ;|
 ;---------------------------------------------------------------------o
 
 ;=====================================================================o
@@ -366,7 +367,6 @@ CapsLock & q::                                                       ;|
     }                                                                ;|
 return                                                               ;|
 ;-----------------------------------o--------------------------------;|
-CapsLock & m:: Send, {AppsKey}                                       ;|
 ;---------------------------------------------------------------------o
 
 ;=====================================================================o
