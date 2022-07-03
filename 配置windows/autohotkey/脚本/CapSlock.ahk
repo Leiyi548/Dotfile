@@ -250,6 +250,22 @@ CapsLock & Down:: MouseMove, 0, 10, 0, R                             ;|
 CapsLock & Left:: MouseMove, -10, 0, 0, R                            ;|
 CapsLock & Right:: MouseMove, 10, 0, 0, R                            ;|
 ;-----------------------------------o---------------------------------o
+; 后退（相当于鼠标侧键）                                               ;|   
+CapsLock & ,::                                                       ;|
+    if GetKeyState("alt") = 0                                        ;|
+        Send, ^{BS}                                                  ;|
+    else                                                             ;|
+        Send, {XButton1}                                             ;|
+    return                                                           ;|
+;-----------------------------------o---------------------------------o
+; 前进（相当于鼠标侧键）                                               ;|
+CapsLock & .::                                                       ;|
+    if GetKeyState("alt") = 0                                        ;|
+        Send, ^{Del}                                                 ;|
+    else                                                             ;|
+        Send, {XButton2}                                             ;|
+    return                                                           ;|
+;-----------------------------------o---------------------------------o
 CapsLock & Enter::                                                   ;|
     SendEvent {Blind}{LButton down}                                  ;|
     KeyWait Enter                                                    ;|
@@ -276,14 +292,12 @@ CapsLock & BackSpace::                                               ;|
     else                                                             ;|
         Send, {Home}{ShiftDown}{End}{Right}{ShiftUp}{Del}       ;|                                   
     return                                                           ;|
-CapsLock & ,:: Send, ^{BS}                                           ;|
-CapsLock & .:: Send, ^{Del}                                          ;|
+;CapsLock & ,:: Send, ^{BS}                                          ;|
+;CapsLock & .:: Send, ^{Del}                                         ;|
 CapsLock & [:: Send +{Home}{Del}                                     ;|
 CapsLock & ]:: Send +{End}{Del}                                      ;|
 CapsLock & PgUp:: Send +^{Home}{bs}                                  ;|
 CapsLock & PgDn:: Send +^{End}{bs}                                   ;|
-;CapsLock & ,:: Send, {Del}                                          ;|
-; CapsLock & n:: Send, ^{BS}                                         ;|
 ;---------------------------------------------------------------------o
 
 ;=====================================================================o
