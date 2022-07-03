@@ -341,7 +341,7 @@ snippet ... "cdots" iAm
 \cdots 
 endsnippet
 
-snippet <> "hokje" iA
+snippet <> "hokje" iAm
 \diamond 
 endsnippet
 
@@ -910,16 +910,20 @@ endsnippet
 
 priority 300
 snippet `vec([1-9])` "col vector" iiAm
-\\begin{pmatrix}``
+\\begin{pmatrix}
+``
     rv = gen_matrix(m[1], 1);
-``\\end{pmatrix}$0
+``
+\\end{pmatrix}$0
 endsnippet
 
 priority 300
 snippet `vecr([1-9])` "row vector" iiAm
-\\begin{pmatrix}``
+\\begin{pmatrix}
+``
     rv = gen_matrix(1, m[1]);
-``\\end{pmatrix}$0
+``
+\\end{pmatrix}$0
 endsnippet
 
 
@@ -942,3 +946,4 @@ endsnippet
 # 上面的snippet片段来自 https://github.com/OrangeX4/OrangeX4-HyperSnips/blob/main/markdown.hsnips
 
 # 我的自定义
+

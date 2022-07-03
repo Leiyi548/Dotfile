@@ -1,9 +1,12 @@
- {
+{
   "workbench.iconTheme": "material-icon-theme",
+  "material-icon-theme.folders.theme": "specific",
   "vsicons.dontShowNewVersionMessage": true,
   /*--━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━--
   --━━━━━━━━━━━━━━━━━━━❰ editor setting ❱━━━━━━━━━━━━━━━━━━━--
   --━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━--*/
+  // show tab
+  "workbench.editor.showTabs": true,
   "bookmarks.navigateThroughAllFiles": true,
   "bookmarks.saveBookmarksInProject": true,
   "bookmarks.sideBar.expanded": true,
@@ -13,8 +16,8 @@
   "search.showLineNumbers": true,
   "search.smartCase": true,
   // 显示空格标记（..)
-  "editor.renderWhitespace": "all",
-  "editor.wordWrap": "on",
+  "editor.renderWhitespace": "selection",
+  "editor.wordWrap": "off",
   // like cmp ghost text(My favorite feature)
   "editor.suggest.preview": true,
   "workbench.editor.limit.enabled": false,
@@ -56,15 +59,14 @@
       {
         "name": "italic font",
         "scope": [
-          "comment",
+          "comment"
           // "keyword.control.import",
-          // "keyword",
           // "keyword.control.default",
           // "keyword.control.export",
           // "keyword.control.flow"
           // "keyword.control.from",
-          "keyword.operator.new",
-          "entity.name.tag.css"
+          // "keywor.operator.new"
+          // "entity.name.tag.css"
           // "entity.other.attribute-name",
           // "storage",
           // "storage.type.class",
@@ -93,9 +95,24 @@
       },
       {
         "name": "bold font",
-        "scope": [],
+        "scope": [
+          // "keyword",
+          "markup.heading.markdown",
+          "markup.bold.markdown"
+        ],
         "settings": {
           "fontStyle": "bold"
+        }
+      },
+      {
+        "name": "normal font",
+        "scope": [
+          "support.type.property-name.json.comments",
+          "entity.name.tag.html",
+          "variable.parameter"
+        ],
+        "settings": {
+          "fontStyle": ""
         }
       }
     ]
@@ -128,30 +145,12 @@
       "tab.inactiveModifiedBorder": "#57584f",
       "tab.unfocusedActiveModifiedBorder": "#3b3c35",
       "tab.unfocusedInactiveModifiedBorder": "#3b3c35",
-      "tab.lastPinnedBorder": "#57584f",
-      // vim搜索文本高亮
-      "editor.findMatchHighlightBackground": "#3069db" // #442726 #7306f0 #6688cc
-      // "editor.background": "#2d2a2e"
-    },
-    "[One Dark Pro]": {
-      "tab.activeBackground": "#1e2122",
-      "tab.activeForeground": "#43B9D8",
-      "tab.border": "#181a1f",
-      "tab.activeBorder": "#43B9D8",
-      "tab.unfocusedActiveBorder": "#919288",
-      "tab.inactiveBackground": "#1e2227",
-      "tab.inactiveForeground": "#ffffff",
-      "tab.unfocusedActiveForeground": "#c0c1b5",
-      "tab.unfocusedInactiveForeground": "#919288",
-      "tab.hoverBackground": "#323842",
-      "tab.unfocusedHoverBackground": "#323842",
-      "tab.hoverBorder": "#57584f",
-      "tab.unfocusedHoverBorder": "#272822",
-      "tab.activeModifiedBorder": "#57584f",
-      "tab.inactiveModifiedBorder": "#57584f",
-      "tab.unfocusedActiveModifiedBorder": "#3b3c35",
-      "tab.unfocusedInactiveModifiedBorder": "#3b3c35",
       "tab.lastPinnedBorder": "#57584f"
+      // "editorCursor.foreground": "#ffcc00"
+      // vim搜索文本高亮
+      // "editor.findMatchHighlightBackground": "#3069db",
+      // "editor.findMatchBackground": "#4d656b",
+      // "editor.findMatchBorder": "#000000"
     },
     "[Default Dark+]": {
       "tab.border": "#181a1f",
@@ -169,15 +168,31 @@
   "vim.incsearch": true,
   "vim.useCtrlKeys": true,
   "vim.handleKeys": {
-    // "<C-a>": false,
+    // vim use ctrl+a increase number
+    "<C-a>": true,
+    // vim use ctrl+x decrease number
+    "<C-x>": true,
+    // use ctrl+p(vscode) to find file
+    "<C-p>": false,
+    // use ctrl+f(vscode) to find character or string
     "<C-f>": false,
-    "<C-b>": false
+    // use ctrl+r(vscode) to find recent file
+    "<C-r>": true,
+    // use ctrl+b(vscode) toggle sidebar
+    "<C-b>": false,
+    // use ctrl+e(vscode) toggle filetree
+    "<C-e>": false,
+    // use ctrl+g(vscode) line to jump
+    "<C-g>": false,
+    // null
+    "<C-m>": false,
+    // windows (ctrl+z)
+    "<C-z>": false
   },
   "vim.hlsearch": true,
-  "vim.easymotion": true,
   "vim.camelCaseMotion.enable": true,
   "vim.showcmd": true,
-  // "vim.shell": "C:\\Program Files\\PowerShell\\7\\pwsh.exe",
+  // "vim.shell": "C:\\Windows\\system32cmd.exe",
   "vim.timeout": 500,
   "vim.leader": "\\",
   "editor.lineNumbers": "relative",
@@ -190,18 +205,12 @@
   "vim.showMarksInGutter": true,
   "vim.highlightedyank.enable": true,
   "vim.highlightedyank.color": "rgba(250, 240, 170, 0.5)",
+  "vim.highlightedyank.duration": 300,
   "vim.useSystemClipboard": false,
   "vim.wrapscan": true,
-  "vim.insertModeKeyBindingsNonRecursive": [
-    // {
-    //   "before": ["ctrl+e"],
-    //   "commands": ["cursorEnd"]
-    // }
-    {
-      "before": ["ctrl+e"],
-      "commands": ["workbench.view.explorer"]
-    }
-  ],
+  "vim.easymotion": true,
+  "vim.visualstar": true,
+  "vim.changeWordIncludesWhitespace": false,
   "vim.visualModeKeyBindingsNonRecursive": [
     {
       "before": ["<Space>"],
@@ -211,10 +220,10 @@
       "before": ["u"],
       "commands": ["undo"]
     },
-    {
-      "before": ["ctrl+r"],
-      "commands": ["redo"]
-    },
+    // {
+    //   "before": ["ctrl+r"],
+    //   "commands": ["redo"]
+    // },
     {
       "before": ["ctrl+n"],
       "after": ["g", "b"]
@@ -263,6 +272,10 @@
       "commands": ["editor.action.moveLinesUpAction"]
     },
     {
+      "before": ["alt+n"],
+      "after": ["g", "b"]
+    },
+    {
       "before": ["ctrl+n"],
       "after": ["g", "b"]
     }
@@ -276,6 +289,11 @@
     {
       "before": ["m", "a"],
       "commands": ["bookmarks.listFromAllFiles"],
+      "when": "editorTextFocus"
+    },
+    {
+      "before": ["m", "t"],
+      "commands": ["bookmarks.toggle"],
       "when": "editorTextFocus"
     },
     {
@@ -325,10 +343,6 @@
       ]
     },
     {
-      "before": ["ctrl+e"],
-      "commands": ["workbench.view.explorer"]
-    },
-    {
       "before": ["[", "d"],
       "commands": ["editor.action.marker.prevInFiles"],
       "when": "editorFocus"
@@ -355,14 +369,6 @@
       "before": ["k"],
       "after": ["g", "k"],
       "when": " editorLangId == 'markdown'"
-    },
-    {
-      "before": ["u"],
-      "commands": ["undo"]
-    },
-    {
-      "before": ["ctrl+r"],
-      "commands": ["redo"]
     },
     {
       "before": ["K"],
@@ -403,6 +409,15 @@
     {
       "before": ["ctrl+n"],
       "after": ["g", "b"]
+    },
+    // remove vim default s/S keybinding
+    {
+      "before": ["s"],
+      "after": [""]
+    },
+    {
+      "before": ["S"],
+      "after": [""]
     },
     // easymotion setting
     {
@@ -460,6 +475,10 @@
       "before": ["s", "c"],
       "commands": ["workbench.action.closeEditorsInGroup"]
     },
+    // {
+    //   "before": ["ctrl+r"],
+    //   "commands": ["redo"]
+    // },
     {
       "before": ["ctrl+k"],
       "commands": ["workbench.action.navigateUp"]
@@ -512,15 +531,15 @@
     "c": "gcc $fullFileName -o $dir\"$fileNameWithoutExt\"\".out\" -W -Wall -O2 -std=c17 && $dir\"$fileNameWithoutExt\"\".out\""
   },
   // custom run command to use lazygit
-  "code-runner.customCommand": "lazygit",
+  // "code-runner.customCommand": "lazygit",
   "code-runner.fileDirectoryAsCwd": false, //true设置为 true后，终端默认目录为运行文件的目录。
   "code-runner.saveFileBeforeRun": true, // run code前保存
-  "code-runner.runInTerminal": true, // 设置成false会在"OUTPUT"中只读输出，无法输入数据
-  "code-runner.preserveFocus": false, // 若为false，run code后光标会聚焦到终端上。如果需要频繁输入数据可设为false
-  "code-runner.clearPreviousOutput": false, // 每次run code前清空属于code runner的终端消息，默认false
+  "code-runner.runInTerminal": false, // 设置成false会在"OUTPUT"中只读输出，无法输入数据
+  "code-runner.preserveFocus": true, // 若为false，run code后光标会聚焦到终端上。如果需要频繁输入数据可设为false
+  "code-runner.clearPreviousOutput": true, // 每次run code前清空属于code runner的终端消息，默认false
   "code-runner.ignoreSelection": false,
   "code-runner.showExecutionMessage": true,
-  "code-runner.showRunIconInEditorTitleMenu": false,
+  "code-runner.showRunIconInEditorTitleMenu": true,
   "code-runner.showRunCommandInEditorContextMenu": false,
   "code-runner.showRunCommandInExplorerContextMenu": false,
   /*--━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━--
@@ -536,73 +555,6 @@
   "gitlens.advanced.messages": {
     "suppressGitMissingWarning": true
   },
-  "GitCommitPlugin.ShowEmoji": true,
-  "GitCommitPlugin.MaxSubjectWords": 20,
-  "GitCommitPlugin.CustomCommitType": [
-    // If there are duplicate keys, rewrite the config，otherwise add As a new configuration addition
-    {
-      "key": "fix",
-      "label": "fix",
-      "detail": "修复bug",
-      "icon": "🐛"
-    },
-    {
-      "key": "style",
-      "label": "style",
-      "detail": "仅仅修改了空格、格式缩进、逗号等等、不改变代码逻辑",
-      "icon": "🎨"
-    },
-    {
-      "key": "perf",
-      "label": "perf",
-      "detail": "优化相关，比如提升性能、体验",
-      "icon": "⚡️"
-    },
-    {
-      "key": "docs",
-      "label": "docs",
-      "detail": "添加或更新文档",
-      "icon": "📝"
-    },
-    {
-      "key": "ci",
-      "label": "ci",
-      "detail": "更改我们的CI配置文件和脚本(示例范围:Travis, Circle, BrowserStack, SauceLabs)",
-      "icon": "👷"
-    },
-    {
-      "key": "refactor",
-      "label": "refactor",
-      "detail": "",
-      "icon": "♻️"
-    },
-    {
-      "key": "git ",
-      "label": "git",
-      "detail": "添加或更新 .gitignore file.",
-      "icon": "🙈"
-    },
-    {
-      "key": "patch",
-      "label": "patch",
-      "detail": "关键的热修复补丁",
-      "icon": "🚑️"
-    },
-    {
-      "key": "test",
-      "label": "test",
-      "detail": "添加、更新或通过测试",
-      "icon": "✅"
-    }
-  ],
-  "GitCommitPlugin.Templates": [
-    {
-      "templateName": "git-cz",
-      "templateContent": "<type>(<scope>):<space><icon><space><subject><enter><body><enter><footer>",
-      // Set as default commit template
-      "default": true
-    }
-  ],
   /*--━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━--
     --━━━━━━━━━━━━━━━━━━━❰ end git ❱━━━━━━━━━━━━━━━━━━━--
   --━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━--*/
@@ -610,16 +562,17 @@
   /*--━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━--
   --━━━━━━━━━━━━━━━━━━━❰ markdown config ❱━━━━━━━━━━━━━━━━━━━--
   --━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━--*/
+  "markdownlint.focusMode": false,
   "markdown.preview.fontSize": 16,
   "markdown-preview-enhanced.previewTheme": "one-dark.css",
   "markdown-preview-enhanced.enableHTML5Embed": true,
   "markdown-preview-enhanced.enableExtendedTableSyntax": true,
-  "markdown.extension.toc.updateOnSave": true,
   "markdown-preview-enhanced.automaticallyShowPreviewOfMarkdownBeingEdited": false,
   "markdown.extension.print.absoluteImgPath": false,
   "pasteImage.path": "${projectRoot}/img",
   "pasteImage.basePath": "${currentFileDir}",
-  // "pasteImage.prefix": "/",
+  "pasteImage.forceUnixStyleSeparator": false,
+  "pasteImage.prefix": "",
   /*--━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━--
     --━━━━━━━━━━━━━━━━━━━❰ end markdown ❱━━━━━━━━━━━━━━━━━━━--
   --━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━--*/
@@ -628,14 +581,20 @@
   --━━━━━━━━━━━━━━━━━━━❰ terminal config ❱━━━━━━━━━━━━━━━━━━━--
   --━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━--*/
   // windows
-  "terminal.external.windowsExec": "C:\\Program Files\\PowerShell\\7\\pwsh.exe",
+  // "terminal.external.windowsExec": "C:\\Program Files\\PowerShell\\7\\pwsh.exe",
+  // use default poweshell
+  "terminal.external.windowsExec": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
   "terminal.integrated.gpuAcceleration": "on",
   "terminal.integrated.fontFamily": "FiraCode Nerd Font",
   "terminal.integrated.cursorBlinking": true,
   "terminal.integrated.defaultProfile.windows": "Command Prompt",
+  // "terminal.integrated.defaultProfile.windows": "PowerShell",
   "terminal.integrated.profiles.windows": {
     "PowerShell": {
-      "source": "PowerShell",
+      "path": [
+        "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe"
+      ],
+      // "source": "PowerShell",
       "overrideName": true,
       "icon": "terminal-powershell",
       "args": ["-NoLogo"]
@@ -658,6 +617,7 @@
   "liveServer.settings.donotShowInfoMsg": true,
   "explorer.confirmDelete": false,
   "security.workspace.trust.untrustedFiles": "open",
+  "whichkey.sortOrder": "alphabetically",
   "whichkey.bindings": [
     /*--━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━--
     --━━━━━━━━━━━━━━━━━━━❰ whichkeyconfig ❱━━━━━━━━━━━━━━━━━━━--
@@ -735,6 +695,26 @@
     //   "type": "command",
     //   "command": "workbench.action.findInFiles search.action.focusSearchList"
     // },
+    // whichkey-p
+    {
+      "key": "P",
+      "name": "Project",
+      "type": "command",
+      "bindings": [
+        {
+          "key": "l",
+          "name": "List all project",
+          "type": "command",
+          "command": "projectManager.listProjects"
+        },
+        {
+          "key": "s",
+          "name": "Save project",
+          "type": "command",
+          "command": "projectManager.saveProject"
+        }
+      ]
+    },
     //whichkey-b
     {
       "key": "b",
@@ -956,6 +936,20 @@
         ]
       }
     },
+    // whichkey-H
+    {
+      "key": "H",
+      "name": "Hightlight Info",
+      "type": "command",
+      "command": "editor.action.inspectTMScopes"
+    },
+    // whichkey-R
+    {
+      "key": "R",
+      "name": "Rust run",
+      "type": "command",
+      "command": "rust-analyzer.run"
+    },
     //whichkey-r
     {
       "key": "r",
@@ -982,7 +976,27 @@
         }
       ]
     },
-    //whichkey-n
+    // whichkey-c(comment)
+    {
+      "key": "c",
+      "name": "Comment",
+      "type": "bindings",
+      "bindings": [
+        {
+          "key": "f",
+          "name": "Function Comment ",
+          "type": "command",
+          "command": "extension.cursorTip"
+        },
+        {
+          "key": "i",
+          "name": "Icon Comment ",
+          "type": "command",
+          "command": "extension.codeDesign"
+        }
+      ]
+    },
+    // whichkey-n(new)
     {
       "key": "n",
       "name": "New",
@@ -1086,33 +1100,33 @@
         },
         {
           "key": "b",
-          "name": "Checkout",
+          "name": "Checkout branch",
           "type": "command",
           "command": "git.checkout"
         },
         {
-          "key": "g",
-          "name": "Lazygit",
+          "key": "d",
+          "name": "git diff previous version(gitlens)",
           "type": "command",
-          "command": "code-runner.runCustomCommand"
+          "command": "gitlens.diffWithPreviousInDiffLeft"
         },
         {
-          "key": "B",
-          "name": "Browse",
+          "key": "g",
+          "name": "git lens command palette",
           "type": "command",
-          "command": "gitlens.openFileInRemote"
+          "command": "gitlens.gitCommands"
         },
-        // {
-        //   "key": "c",
-        //   "name": "Commit",
-        //   "type": "command",
-        //   "command": "git.commit"
-        // },
+        {
+          "key": "h",
+          "name": "Show history",
+          "type": "command",
+          "command": "gitlens.showQuickFileHistory"
+        },
         {
           "key": "c",
           "name": "Commit",
           "type": "command",
-          "command": "extension.showGitCommit"
+          "command": "git.commit"
         },
         {
           "key": "C",
@@ -1122,7 +1136,7 @@
         },
         {
           "key": "d",
-          "name": "Delete Branch",
+          "name": "Diff",
           "type": "command",
           "command": "git.deleteBranch"
         },
@@ -1138,12 +1152,6 @@
           "type": "command",
           "command": "git.pullFrom"
         },
-        // {
-        //   "key": "g",
-        //   "name": "Graph",
-        //   "type": "command",
-        //   "command": "git-graph.view"
-        // },
         {
           "key": "h",
           "name": "Heatmap",
@@ -1201,29 +1209,29 @@
           "command": "git.merge"
         },
         {
-          "key": "p",
+          "key": "P",
           "name": "Push",
           "type": "command",
           "command": "git.push"
         },
         {
-          "key": "P",
+          "key": "p",
           "name": "Pull",
           "type": "command",
           "command": "git.pull"
         },
         {
           "key": "s",
-          "name": "Stash",
-          "type": "command",
-          "command": "workbench.view.scm"
-        },
-        {
-          "key": "S",
           "name": "Status",
           "type": "command",
           "command": "gitlens.showQuickRepoStatus",
           "when": "gitlens:enabled && config.gitlens.keymap == 'alternate'"
+        },
+        {
+          "key": "S",
+          "name": "Stash",
+          "type": "command",
+          "command": "workbench.view.scm"
         },
         {
           "key": "t",
@@ -1238,7 +1246,7 @@
           "command": "git.deleteTag"
         },
         {
-          "key": "U",
+          "key": "u",
           "name": "Unstage",
           "type": "command",
           "command": "git.unstage"
@@ -1601,7 +1609,7 @@
       "bindings": [
         {
           "key": "/",
-          "name": "Jump to line",
+          "name": "Search Text(/)",
           "type": "command",
           "command": "vim.remap",
           "args": {
@@ -1729,6 +1737,18 @@
           "name": "Toggle side bar visibility",
           "type": "command",
           "command": "workbench.action.toggleSidebarVisibility"
+        },
+        {
+          "key": "p",
+          "name": "Toggle side bar visibility",
+          "type": "command",
+          "command": "workbench.view.extension.project-manager"
+        },
+        {
+          "key": "g",
+          "name": "Toggle side bar with git",
+          "type": "command",
+          "command": "workbench.view.scm"
         },
         {
           "key": "j",
@@ -1877,6 +1897,16 @@
         "after": ["\"", "+", "y"]
       }
     },
+    // whichkey-Y
+    {
+      "key": "Y",
+      "name": "Copy(clipboard)",
+      "type": "command",
+      "command": "vim.remap",
+      "args": {
+        "after": ["\"", "+", "Y"]
+      }
+    },
     //whichkey-p
     {
       "key": "p",
@@ -1903,11 +1933,20 @@
   --━━━━━━━━━━━━━━━━━━━❰ language config ❱━━━━━━━━━━━━━━━━━━━--
   --━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━--*/
   "[json]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.quickSuggestions": {
+      "comments": "on",
+      "strings": "on",
+      "other": "on"
+    }
   },
   "[markdown]": {
     "editor.wordWrap": "on",
-    "editor.quickSuggestions": true,
+    "editor.quickSuggestions": {
+      "comments": "on",
+      "strings": "on",
+      "other": "on"
+    },
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "[html]": {
@@ -1929,31 +1968,256 @@
   "[typescript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "html.autoClosingTags": false,
-  // "cSpell.userWords": ["dotfile", "gitmoji", "unstage", "Unstaged"],
-  "pasteImage.forceUnixStyleSeparator": false,
-  "python.defaultInterpreterPath": "C:\\Users\\9\\scoop\\shims\\python3.exe",
-  "errorLens.fontStyleItalic": true,
-  "files.eol": "\n",
-  "errorLens.statusBarIconsEnabled": false,
-  "errorLens.gutterIconsEnabled": true,
-  "errorLens.gutterIconSet": "defaultOutline",
-  "problems.showCurrentInStatus": false,
-  "editor.unicodeHighlight.allowedLocales": {
-    "zh-hant": true
+  "[ahk]": {
+    "editor.formatOnSave": false
   },
-  "editor.minimap.enabled": false,
-  "javascript.inlayHints.functionLikeReturnTypes.enabled": true,
-  "typescript.inlayHints.functionLikeReturnTypes.enabled": true,
-  "workbench.startupEditor": "none",
-  "prettier.jsxSingleQuote": true,
-  "prettier.singleQuote": true,
-  "material-icon-theme.folders.theme": "specific",
-  "workbench.colorTheme": "monokai-charcoal",
-  "workbench.activityBar.visible": false
+  "html.autoClosingTags": false,
+  "javascript.inlayHints.functionLikeReturnTypes.enabled": false,
+  "typescript.inlayHints.functionLikeReturnTypes.enabled": false,
   // "prettier.configPath": "C:\\Users\\9\\.prettierrc"
   // "rainbowTags.hightlightType": "background-color"
   /*--━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━--
     --━━━━━━━━━━━━━━━━━━━❰ end language ❱━━━━━━━━━━━━━━━━━━━--
   --━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━--*/
-} 
+
+  //━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━,
+  //━━━━━━━━━━━━━━━━━━━❰ unkown configs ❱━━━━━━━━━━━━━━━━━━━,
+  //━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━,
+  "python.defaultInterpreterPath": "C:\\Users\\9\\scoop\\shims\\python3.exe",
+  //━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━,
+  //━━━━━━━━━━━━━━━━━❰ end configs ❱━━━━━━━━━━━━━━━━━,
+  //━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━,
+  //━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━,
+
+  //━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━,
+  //─────────────────────────────────────────────────
+  //   Plugin:    vscode-spell-checker",
+  //   Github:    https://github.com/streetsidesoftware/vscode-spell-checker",
+  //─────────────────────────────────────────────────,
+  //━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━,
+  //
+  //━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━,
+  //━━━━━━━━━━━━━━━━━━━❰ configs ❱━━━━━━━━━━━━━━━━━━━,
+  //━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━,
+  //-------- Code Spell Checker Configuration --------
+  // The Language local to use when spell checking. "en", "en-US" and "en-GB" are currently supported by default.
+  "cSpell.language": "en",
+  // Controls the maximum number of spelling errors per document.
+  "cSpell.maxNumberOfProblems": 100,
+  // Controls the number of suggestions shown.
+  "cSpell.numSuggestions": 8,
+  // The minimum length of a word before checking it against a dictionary.
+  "cSpell.minWordLength": 4,
+  // Specify file types to spell check.
+  "cSpell.enabledLanguageIds": [
+    "csharp",
+    "go",
+    "javascript",
+    "javascriptreact",
+    "markdown",
+    "php",
+    "plaintext",
+    "typescript",
+    "typescriptreact",
+    "yml"
+  ],
+  // Enable / Disable the spell checker.
+  "cSpell.enabled": true,
+  // Display the spell checker status on the status bar.
+  "cSpell.showStatus": true,
+  // Enable / Disable compound words like 'errormessage'
+  "cSpell.allowCompoundWords": false,
+  // Words to be ignored and not suggested.
+  "cSpell.ignoreWords": ["behaviour"],
+  // User words to add to dictionary.  Should only be in the user settings.
+  "cSpell.userWords": [
+    "ampm",
+    "autohotkey",
+    "bmat",
+    "bmatrix",
+    "dataview",
+    "dotfile",
+    "gitmoji",
+    "hsnips",
+    "impliedby",
+    "infty",
+    "leetcode",
+    "Leiyi",
+    "mathbb",
+    "nvim",
+    "pmat",
+    "pmatrix",
+    "tada",
+    "unstage",
+    "Unstaged",
+    "vimrc",
+    "vmat",
+    "vmatrix",
+    "vscodevim"
+  ],
+  // Specify paths/files to ignore.
+  "cSpell.ignorePaths": [
+    "node_modules", // this will ignore anything the node_modules directory
+    "**/node_modules", // the same for this one
+    "**/node_modules/**", // the same for this one
+    "node_modules/**", // Doesn't currently work due to how the current working directory is determined.
+    "vscode-extension", //
+    ".git", // Ignore the .git directory
+    "*.dll", // Ignore all .dll files.
+    "**/*.dll" // Ignore all .dll files
+  ],
+  // flagWords - list of words to be always considered incorrect
+  // This is useful for offensive words and common spelling errors.
+  // For example "hte" should be "the"`
+  "cSpell.flagWords": ["hte"],
+  // Set the delay before spell checking the document. Default is 50.
+  "cSpell.spellCheckDelayMs": 50,
+  //━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━,
+  //━━━━━━━━━━━━━━━━━❰ end configs ❱━━━━━━━━━━━━━━━━━,
+  //━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━,
+  "files.eol": "\n",
+  "problems.showCurrentInStatus": false,
+  "editor.unicodeHighlight.allowedLocales": {
+    "zh-hant": true
+  },
+  "workbench.startupEditor": "none",
+  "prettier.jsxSingleQuote": true,
+  "prettier.singleQuote": true,
+  //━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━,
+  //─────────────────────────────────────────────────
+  //   Plugin:    vscode-error-lens",
+  //   Github:    https://github.com/usernamehw/vscode-error-lens",
+  //─────────────────────────────────────────────────,
+  //━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━,
+  //
+  //━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━,
+  //━━━━━━━━━━━━━━━━━━━❰ configs ❱━━━━━━━━━━━━━━━━━━━,
+  //━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━,
+  "errorLens.statusBarIconsEnabled": false,
+  "errorLens.gutterIconsEnabled": true,
+  "errorLens.gutterIconSet": "defaultOutline",
+  "errorLens.fontStyleItalic": true,
+  //━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━,
+  //━━━━━━━━━━━━━━━━━❰ end configs ❱━━━━━━━━━━━━━━━━━,
+  //━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━,
+  //━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━,
+
+  //━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━,
+  //─────────────────────────────────────────────────
+  //   Plugin:    koro1FileHeader",
+  //   Github:    https://github.com/OBkoro1/koro1FileHeader",
+  //─────────────────────────────────────────────────,
+  //━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━,
+
+  //━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━,
+  //━━━━━━━━━━━━━━━━━━━❰ configs ❱━━━━━━━━━━━━━━━━━━━,
+  //━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━,
+  "fileheader.customMade": {
+    // 头部注释默认字段
+    "Author": "Leiyi548",
+    "Date": "Do not edit", // 设置后默认设置文件生成时间
+    "LastEditTime": "Leiyi548", // 设置后，保存文件更改默认更新最后编辑时间
+    "LastEditors": "Leiyi548", // 设置后，保存文件更改默认更新最后编辑人
+    "Description": "",
+    "FilePath": "Do not edit", // 设置后，默认生成文件相对于项目的路径
+    "custom_string_obkoro1": "任何一个傻瓜都会写能够让机器理解的代码，只有好的程序员才能写出人类可以理解的代码。——Martin Fowler",
+    "custom_string_obkoro2": "如在使用中遇到问题,可以联系我,QQ: 1424630446交流"
+  },
+  // 函数注释
+  "fileheader.cursorMode": {
+    // 默认字段
+    "description": "",
+    "param": "",
+    "return": ""
+  },
+  // 插件配置项
+  "fileheader.configObj": {
+    "autoAdd": true, // 检测文件没有头部注释，自动添加文件头部注释
+    "autoAddLine": 100, // 文件超过多少行数 不再自动添加头部注释
+    "autoAlready": true, // 只添加插件支持的语言以及用户通过`language`选项自定义的注释
+    "supportAutoLanguage": ["ts", "py", "css"], // 设置之后，在数组内的文件才支持自动添加
+    // 自动添加头部注释黑名单
+    "prohibitAutoAdd": ["json"],
+    "prohibitItemAutoAdd": [
+      "项目的全称禁止项目自动添加头部注释, 使用快捷键自行添加"
+    ],
+    "folderBlacklist": ["node_modules"], // 文件夹或文件名禁止自动添加头部注释
+    "wideSame": false, // 头部注释等宽设置
+    "wideNum": 13, // 头部注释字段长度 默认为13
+    "functionWideNum": 0, // 函数注释等宽设置 设为0 即为关闭
+    // 头部注释第几行插入
+    "headInsertLine": {
+      "php": 2, // php文件 插入到第二行
+      "css": 2
+    },
+    "beforeAnnotation": {}, // 头部注释之前插入内容
+    "afterAnnotation": {}, // 头部注释之后插入内容
+    "specialOptions": {}, // 特殊字段自定义
+    "switch": {
+      "newlineAddAnnotation": true // 默认遇到换行符(\r\n \n \r)添加注释符号
+    },
+    "moveCursor": true, // 自动移动光标到Description所在行
+    "dateFormat": "YYYY-MM-DD HH:mm:ss",
+    "atSymbol": ["@", "@"], // 更改所有文件的自定义注释中的@符号
+    "atSymbolObj": {}, //  更改单独语言/文件的@
+    "colon": [": ", ": "], // 更改所有文件的注释冒号
+    "colonObj": {}, //  更改单独语言/文件的冒号
+    "filePathColon": "路径分隔符替换", // 默认值： mac: / window是: \
+    "showErrorMessage": false, // 是否显示插件错误通知 用于debugger
+    "writeLog": false, // 错误日志生成
+    "CheckFileChange": false, // 单个文件保存时进行diff检查
+    "createHeader": true, // 新建文件自动添加头部注释
+    "useWorker": false, // 是否使用工作区设置
+    "designAddHead": false, // 添加注释图案时添加头部注释
+    "headDesignName": "random", // 图案注释使用哪个图案
+    "headDesign": false, // 是否使用图案注释替换头部注释
+    "cursorModeInternal": false, // 是否在函数内生成函数注释
+    "openFunctionParamsCheck": true, // 开启关闭自动提取添加函数参数
+    "functionParamsShape": "normal", // 函数参数外形自定义 "normal" | "no bracket" | "no type"
+    // 自定义语言注释符号，覆盖插件的注释格式
+    "language": {
+      // js后缀文件
+      "js": {
+        "head": "/$$",
+        "middle": " $ @",
+        "end": " $/",
+        // 函数自定义注释符号：如果有此配置 会默认使用
+        "functionSymbol": {
+          "head": "/******* ", // 统一增加几个*号
+          "middle": " * @",
+          "end": " */"
+        }
+      },
+      // 一次匹配多种文件后缀文件 不用重复设置
+      "h/hpp/cpp": {
+        "head": "/*** ", // 统一增加几个*号
+        "middle": " * @",
+        "end": " */"
+      },
+      // 针对有特殊要求的文件如：test.blade.php
+      "blade.php": {
+        "head": "<!--",
+        "middle": " * @",
+        "end": "-->"
+      }
+    },
+    // 默认注释  没有匹配到注释符号的时候使用。
+    "annotationStr": {
+      "head": "/*",
+      "middle": " * @",
+      "end": " */",
+      "use": false
+    }
+  },
+  "editor.minimap.enabled": false,
+  "explorer.compactFolders": false,
+  "window.experimental.commandCenter": true,
+  "window.experimental.windowControlsOverlay.enabled": true,
+  "workbench.activityBar.visible": false,
+  "markdown.extension.toc.levels": "2..6",
+  "markdown.extension.toc.orderedList": true,
+  "workbench.colorTheme": "One Dark Pro"
+  //━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━,
+  //━━━━━━━━━━━━━━━━━❰ end configs ❱━━━━━━━━━━━━━━━━━,
+  //━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━,
+}

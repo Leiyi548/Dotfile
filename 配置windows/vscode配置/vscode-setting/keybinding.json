@@ -7,7 +7,7 @@
   },
   /*
   ===
-  === 文件树操作
+  === 文件树操作(explorer)
   ===
   */
   // 打开左侧文件树光标并聚焦到文件树
@@ -26,6 +26,18 @@
     "command": "renameFile",
     "when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus"
   },
+  // 删除文件
+  {
+    "key": "d",
+    "command": "deleteFile",
+    "when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus"
+  },
+  // 侧边打开编辑器（类似于vim垂直分屏打开文件）
+  {
+    "key": "s",
+    "command": "explorer.openToSide",
+    "when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus"
+  },
   {
     "key": "enter",
     "command": "-renameFile",
@@ -37,6 +49,19 @@
     "command": "workbench.files.action.refreshFilesExplorer",
     "when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus"
   },
+  // 复制相对文件路径 (copy file relative path)
+  {
+    "key": "g y",
+    "command": "copyFilePath",
+    "when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus"
+  },
+  // 复制文件路径（copy file absolute path）
+  {
+    "key": "shift+y",
+    "command": "copyRelativeFilePath",
+    "when": "!editorFocus"
+  },
+  // 展开文件折叠
   {
     "key": "shift+w",
     "command": "workbench.files.action.collapseExplorerFolders",
@@ -93,22 +118,14 @@
     "command": "explorer.newFolder",
     "when": "filesExplorerFocus && !inputFocus"
   },
-  {
-    "key": "d",
-    "command": "deleteFile",
-    "when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceReadonly && !inputFocus"
-  },
+  // close explorer
   {
     "key": "q",
     "command": "workbench.action.toggleSidebarVisibility",
-    "when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus"
+    "when": "filesExplorerFocus && !inputFocus"
+    // "when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus"
   },
-  {
-    "key": "backspace",
-    "command": "deleteFile",
-    "when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceReadonly && !inputFocus"
-  },
-  // 用ctrl + l 在文件树和代码移动
+  // 回到编辑区
   {
     "key": "ctrl+l",
     "when": "sideBarFocus",
@@ -116,29 +133,29 @@
   },
   /*
   ===
-  === 补全 (cmp)
+  === 补全 (cmp remove) ( use tab to completion)
   ===
   */
-  {
-    "key": "tab",
-    "command": "workbench.action.quickOpenNavigateNext",
-    "when": "inQuickOpen"
-  },
-  {
-    "key": "shift+tab",
-    "command": "workbench.action.quickOpenNavigatePrevious",
-    "when": "inQuickOpen"
-  },
-  {
-    "key": "tab",
-    "command": "selectNextSuggestion",
-    "when": "editorTextFocus && suggestWidgetMultipleSuggestions && suggestWidgetVisible"
-  },
-  {
-    "key": "shift+tab",
-    "command": "selectPrevSuggestion",
-    "when": "editorTextFocus && suggestWidgetMultipleSuggestions && suggestWidgetVisible"
-  },
+  // {
+  //   "key": "tab",
+  //   "command": "workbench.action.quickOpenNavigateNext",
+  //   "when": "inQuickOpen"
+  // },
+  // {
+  //   "key": "shift+tab",
+  //   "command": "workbench.action.quickOpenNavigatePrevious",
+  //   "when": "inQuickOpen"
+  // },
+  // {
+  //   "key": "tab",
+  //   "command": "selectNextSuggestion",
+  //   "when": "editorTextFocus && suggestWidgetMultipleSuggestions && suggestWidgetVisible"
+  // },
+  // {
+  //   "key": "shift+tab",
+  //   "command": "selectPrevSuggestion",
+  //   "when": "editorTextFocus && suggestWidgetMultipleSuggestions && suggestWidgetVisible"
+  // },
   /*
   ===
   === markdown
@@ -160,7 +177,7 @@
     "when": "editorLangId == 'markdown'"
   },
   {
-    "key": "ctrl+shift+k",
+    "key": "alt+c",
     "command": "markdown.extension.editing.toggleCodeBlock",
     "when": "editorLangId == 'markdown'"
   },
@@ -258,6 +275,17 @@
     "command": "workbench.action.terminal.toggleTerminal",
     "when": "terminal.active"
   },
+  // {
+  //   "key": "ctrl+oem_3",
+  //   "command": "-workbench.action.terminal.toggleTerminal",
+  //   "when": "terminal.active"
+  // },
+  // 在终端内使用 ctrl + h 到文件树操作
+  {
+    "key": "ctrl+h",
+    "command": "workbench.action.navigateLeft",
+    "when": "terminalFocus"
+  },
   // 在终端内使用 ctrl + k 回到代码区
   {
     "key": "ctrl+k",
@@ -300,12 +328,6 @@
     "command": "workbench.action.terminal.split",
     "when": "terminalFocus && terminalProcessSupported || terminalFocus && terminalWebExtensionContributedProfile"
   },
-  // 移除ctrl+f 和我搜索文件有冲突
-  {
-    "key": "-ctrl+f",
-    "command": "workbench.action.terminal.focusFind",
-    "when": "terminalFindFocused && terminalHasBeenCreated || terminalFindFocused && terminalProcessSupported || terminalFocus && terminalHasBeenCreated || terminalFocus && terminalProcessSupported"
-  },
   // 使用 alt + j/k 上下切换终端窗口(终端之间的移动)
   {
     "key": "alt+k",
@@ -324,7 +346,7 @@
   */
   // 立马回到代码区
   {
-    "key": "ctrl+\\",
+    "key": "ctrl+;",
     "command": "workbench.action.focusFirstEditorGroup"
   },
   /*
@@ -342,12 +364,7 @@
   === git
   ===
   */
-  // 使用 ctrl + g 立马跳转到 vscode git视图
-  {
-    "key": "ctrl+g",
-    "command": "workbench.view.scm",
-    "when": "workbench.scm.active"
-  },
+  // 期待~按键
   /*
   ===
   === 侧面板 
@@ -380,7 +397,7 @@
     "when": "editorTextFocus && !editorHasMultipleSelections && !editorReadonly && !editorTabMovesFocus && !hasOtherSuggestions && !hasSnippetCompletions && !inSnippetMode && !suggestWidgetVisible && editorLangId == 'markdown'"
   },
   {
-    "key": "ctrl+enter",
+    "key": "alt+enter",
     "command": "markdown.extension.checkTaskList",
     "when": "editorTextFocus && editorLangId == 'markdown'"
   },
@@ -392,6 +409,11 @@
   {
     "key": "ctrl+i",
     "command": "markdown.extension.editing.toggleItalic",
+    "when": "editorTextFocus && !editorReadonly && editorLangId == 'markdown' && vim.mode =='Visual'"
+  },
+  {
+    "key": "ctrl+oem_3",
+    "command": "md-shortcut.toggleInlineCode",
     "when": "editorTextFocus && !editorReadonly && editorLangId == 'markdown' && vim.mode =='Visual'"
   },
   {
@@ -409,18 +431,52 @@
   === 编辑区(Editor)
   ===
   */
-  // 使用 ctrl + alt + i 会显示这个节点的信息 类似neovim （tressiter highlight under cursor）
-  {
-    "key": "ctrl+alt+i",
-    "command": "editor.action.inspectTMScopes"
-  },
   // 移除ctrl + e 搜索文件用ctrl + f 来进行文件之间跳转
   {
     "key": "ctrl+e",
     "command": "-workbench.action.quickOpen"
   },
+  // 和vscode自带的shift+alt+up/down有冲突，删除这个快捷键
   {
-    "key": "ctrl+f",
-    "command": "workbench.action.quickOpen"
+    "key": "shift+alt+up",
+    "command": "-extension.vim_cmd+alt+up",
+    "when": "editorTextFocus && vim.active && !inDebugRepl"
+  },
+  {
+    "key": "shift+alt+down",
+    "command": "-extension.vim_cmd+alt+down",
+    "when": "editorTextFocus && vim.active && !inDebugRepl"
+  },
+  // use alt n use multiply cursor like ide
+  {
+    "key": "alt+n",
+    "command": "editor.action.addSelectionToNextFindMatch",
+    "when": "editorFocus"
+  },
+  {
+    "key": "ctrl+d",
+    "command": "-editor.action.addSelectionToNextFindMatch",
+    "when": "editorFocus"
+  },
+  // ctrl + p | ctrl + shift + p not move (quick open)
+  {
+    "key": "ctrl+p",
+    "command": "-workbench.action.quickOpenNavigateNextInFilePicker",
+    "when": "inFilesPicker && inQuickOpen"
+  },
+  {
+    "key": "ctrl+shift+p",
+    "command": "-workbench.action.quickOpenNavigatePreviousInFilePicker",
+    "when": "inFilesPicker && inQuickOpen"
+  },
+  {
+    "key": "ctrl+shift+o",
+    "command": "breadcrumbs.focusAndSelect",
+    "when": "breadcrumbsPossible && breadcrumbsVisible"
+  },
+  {
+    "key": "ctrl+shift+oem_period",
+    "command": "-breadcrumbs.focusAndSelect",
+    "when": "breadcrumbsPossible && breadcrumbsVisible"
   }
 ]
