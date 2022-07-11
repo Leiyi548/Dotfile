@@ -27,7 +27,6 @@ sendinput %A_YYYY%年%A_MM%月%A_DD%日 %A_Hour%时%A_Min%分%A_Sec%秒
 return
 
 ; emoji (用来平时聊天（微信，QQ）的时候用的)
-:*:xiaoku::😂
 :*:yanjing::👀
 :*:pijiu::🍺
 :*:shuijiao::😪
@@ -36,12 +35,13 @@ return
 :*:kouzhao::😷
 :*:aixinlian::😍
 :*:mojing::😎
-:*:houzilian::🙈
+:*:weixiao::😄
+:*:xiaoku::😂
+:*:exin::🤮
+:*:kanbujian::🙈
 ; 上下左右箭头
 :*:uparrow::⬆️
 :*:downarrow::⬇️
 :*:leftarrow::⬅️
 :*:rightarrow::➡️
 :*:windows11::🪟
-
-

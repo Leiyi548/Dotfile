@@ -285,14 +285,7 @@ CapsLock & m:: Send, {AppsKey}                                       ;|
 ;                     CapsLock + PageUp  | Delete page to begin      ;|
 ;                     CapsLock + PageDown  | Delete page to end      ;|
 ;-----------------------------------o---------------------------------o
-;CapsLock & BackSpace:: Send {Home}{ShiftDown}{End}{Right}{ShiftUp}{Del}
-; 防止有时候误删，使用alt+capslock+backspace删除一行
-CapsLock & BackSpace::                                               ;|
-    if GetKeyState("alt") = 0                                        ;|
-        Send, {BackSpace}                                            ;|
-    else                                                             ;|
-        Send, {Home}{ShiftDown}{End}{Right}{ShiftUp}{Del}       ;|                                   
-    return                                                           ;|
+CapsLock & BackSpace:: Send {Home}{ShiftDown}{End}{Right}{ShiftUp}{Del}
 ;CapsLock & ,:: Send, ^{BS}                                          ;|
 ;CapsLock & .:: Send, ^{Del}                                         ;|
 CapsLock & [:: Send +{Home}{Del}                                     ;|
