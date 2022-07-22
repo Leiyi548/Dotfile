@@ -1,5 +1,6 @@
 " select tab
-map <c-p> Vomnibar.activateTabs
+" map <c-p> Vomnibar.activateTabs
+
 
 " toggle recent tab
 map <c-r> visitPreviousTab
