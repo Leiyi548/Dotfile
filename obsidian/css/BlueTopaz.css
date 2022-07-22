@@ -1,0 +1,15 @@
+/* 隐藏query搜索标题*/
+.internal-query .internal-query-header {
+    text-align: center;
+    padding: 4px 0 12px 0;
+    color: var(--text-muted);
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.nav-file-title.is-active .nav-file-title-content:first-child::before {
+  content: "✏️ ";
+  /* content: "️✍️ "; */
+}

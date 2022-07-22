@@ -1,0 +1,82 @@
+/* 给左侧边栏文件夹前添加图标，""内图标和文件夹名称请自行修改 */
+.nav-folder-title[data-path^="000-Inbox"] .nav-folder-title-content::before {
+    content: "📌" !important;
+    position: relative !important;
+    right: 5px;
+}
+
+.nav-folder-title[data-path^="000-项目"] .nav-folder-title-content::before {
+    content: "📜" !important;
+    position: relative !important;
+    right: 5px;
+}
+.nav-folder-title[data-path^="100-错题本"] .nav-folder-title-content::before {
+    content: "📝" !important;
+    position: relative !important;
+    right: 5px;
+}
+.nav-folder-title[data-path^="200-成语"] .nav-folder-title-content::before {
+    content: "💡" !important;
+    position: relative !important;
+    right: 5px;
+}
+.nav-folder-title[data-path^="300-数学公式"] .nav-folder-title-content::before {
+    content: "🧑‍💻" !important;
+    position: relative !important;
+    right: 5px;
+}
+.nav-folder-title[data-path^="200-语言学"] .nav-folder-title-content::before {
+    content: "🎧" !important;
+    position: relative !important;
+    right: 5px;
+}
+.nav-folder-title[data-path^="300-学习&提升"] .nav-folder-title-content::before {
+    content: "📚" !important;
+    position: relative !important;
+    right: 5px;
+}
+.nav-folder-title[data-path^="400-基本"] .nav-folder-title-content::before {
+    content: "🔧" !important;
+    position: relative !important;
+    right: 5px;
+}
+.nav-folder-title[data-path^="400-工作&效率"] .nav-folder-title-content::before {
+    content: "📊" !important;
+    position: relative !important;
+    right: 5px;
+}
+.nav-folder-title[data-path^="500-生活&兴趣"] .nav-folder-title-content::before {
+    content: "🎨" !important;
+    position: relative !important;
+    right: 5px;
+}
+.nav-folder-title[data-path^="附件"] .nav-folder-title-content::before {
+    content: "💾";
+    position: relative !important;
+    right: 5px;
+}
+.nav-folder-title[data-path^="Archive"] .nav-folder-title-content::before {
+    content: "📦" !important;
+    position: relative !important;
+    right: 5px;
+}
+.nav-folder-title[data-path^="Attachment"] .nav-folder-title-content::before {
+    content: "🗂️" !important;
+    position: relative !important;
+    right: 5px;
+}
+.nav-folder-title[data-path^="Collections"] .nav-folder-title-content::before {
+    content: "🔖";
+    position: relative !important;
+    right: 5px;
+}
+.nav-folder-title[data-path^="Others"] .nav-folder-title-content::before {
+    content: "💾";
+    position: relative !important;
+    right: 5px;
+}
+.nav-folder-title[data-path^="Template"] .nav-folder-title-content::before {
+    content: "📑";
+    position: relative !important;
+    right: 5px;
+}
